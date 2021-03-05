@@ -1,0 +1,1233 @@
+[INFO ]  2021-03-04 02:03:151.39 com.example.demo.user_bot.botapi.RentalTelegramBot - ContactTelegramBot is creating...
+[INFO ]  2021-03-04 02:03:181.39 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 02:03:181.39 com.example.demo.config.AsyncConfig - [Ljava.lang.String;@203765b2
+[INFO ]  2021-03-04 02:03:219.39 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-04 02:03:531.01 com.example.demo.user_bot.botapi.RentalTelegramBot - ContactTelegramBot is creating...
+[INFO ]  2021-03-04 02:03:557.01 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 02:03:558.01 com.example.demo.config.AsyncConfig - [ÐÐ»ÐµÐºÑÐµÐµÐ²ÐºÐ°, Ð¡Ð°Ð»ÑÐ¾Ð²ÐºÐ°, ÐÐ°Ñ. Ð£ÐºÑÐ°Ð¸Ð½Ñ, Ð¦. Ð ÑÐ½Ð¾Ðº / Ð®ÐÐ]
+[INFO ]  2021-03-04 02:03:592.01 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-04 02:03:199.01 com.example.demo.user_bot.botapi.RentalTelegramBot - ContactTelegramBot is creating...
+[INFO ]  2021-03-04 02:03:224.01 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 02:03:224.01 com.example.demo.config.AsyncConfig - [ÐÐ»ÐµÐºÑÐµÐµÐ²ÐºÐ°, Ð¡Ð°Ð»ÑÐ¾Ð²ÐºÐ°, ÐÐ°Ñ. Ð£ÐºÑÐ°Ð¸Ð½Ñ, Ð¦. Ð ÑÐ½Ð¾Ðº / Ð®ÐÐ]
+[INFO ]  2021-03-04 02:03:256.01 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-04 11:03:517.58 com.example.demo.user_bot.botapi.RentalTelegramBot - ContactTelegramBot is creating...
+[INFO ]  2021-03-04 11:03:543.58 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 11:03:570.58 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-04 13:03:939.37 com.example.demo.user_bot.botapi.RentalTelegramBot - ContactTelegramBot is creating...
+[INFO ]  2021-03-04 13:03:961.37 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 13:03:995.37 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-04 13:03:633.25 com.example.demo.user_bot.botapi.RentalTelegramBot - ContactTelegramBot is creating...
+[INFO ]  2021-03-04 13:03:654.25 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 13:03:687.25 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-04 13:03:147.49 com.example.demo.user_bot.botapi.RentalTelegramBot - ContactTelegramBot is creating...
+[INFO ]  2021-03-04 13:03:169.49 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 13:03:205.49 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-04 13:03:833.34 com.example.demo.user_bot.botapi.RentalTelegramBot - ContactTelegramBot is creating...
+[INFO ]  2021-03-04 13:03:872.34 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 13:03:951.34 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-04 13:03:595.48 com.example.demo.user_bot.botapi.RentalTelegramBot - ContactTelegramBot is creating...
+[INFO ]  2021-03-04 13:03:616.48 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 13:03:649.48 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-04 13:03:971.52 com.example.demo.user_bot.botapi.RentalTelegramBot - ContactTelegramBot is creating...
+[INFO ]  2021-03-04 13:03:991.52 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 13:03:20.53 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-04 13:03:989.47 com.example.demo.user_bot.botapi.RentalTelegramBot - ContactTelegramBot is creating...
+[INFO ]  2021-03-04 13:03:09.48 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 13:03:74.48 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-04 13:03:176.56 com.example.demo.user_bot.botapi.RentalTelegramBot - ContactTelegramBot is creating...
+[INFO ]  2021-03-04 13:03:197.56 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 13:03:232.56 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-04 13:03:813.30 com.example.demo.user_bot.botapi.RentalTelegramBot - ContactTelegramBot is creating...
+[INFO ]  2021-03-04 13:03:833.30 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 13:03:867.30 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-04 13:03:533.52 com.example.demo.user_bot.botapi.RentalTelegramBot - ContactTelegramBot is creating...
+[INFO ]  2021-03-04 13:03:556.52 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 13:03:591.52 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-04 13:03:467.20 com.example.demo.user_bot.botapi.RentalTelegramBot - ContactTelegramBot is creating...
+[INFO ]  2021-03-04 13:03:486.20 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 13:03:515.20 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-04 13:03:664.44 com.example.demo.user_bot.botapi.RentalTelegramBot - ContactTelegramBot is creating...
+[INFO ]  2021-03-04 13:03:686.44 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 13:03:723.44 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-04 13:03:627.41 com.example.demo.user_bot.botapi.RentalTelegramBot - ContactTelegramBot is creating...
+[INFO ]  2021-03-04 13:03:647.41 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 13:03:680.41 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-04 13:03:41.44 com.example.demo.user_bot.botapi.RentalTelegramBot - ContactTelegramBot is creating...
+[INFO ]  2021-03-04 13:03:59.44 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 13:03:86.44 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-04 13:03:107.41 com.example.demo.user_bot.botapi.RentalTelegramBot - ContactTelegramBot is creating...
+[INFO ]  2021-03-04 13:03:126.41 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 13:03:154.41 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-04 14:03:919.11 com.example.demo.user_bot.botapi.RentalTelegramBot - ContactTelegramBot is creating...
+[INFO ]  2021-03-04 14:03:939.11 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 14:03:970.11 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-04 14:03:384.30 com.example.demo.user_bot.botapi.RentalTelegramBot - ContactTelegramBot is creating...
+[INFO ]  2021-03-04 14:03:419.30 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 14:03:457.30 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-04 14:03:725.59 com.example.demo.user_bot.botapi.RentalTelegramBot - ContactTelegramBot is creating...
+[INFO ]  2021-03-04 14:03:761.59 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 14:03:817.59 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-04 14:03:773.26 com.example.demo.user_bot.botapi.RentalTelegramBot - ContactTelegramBot is creating...
+[INFO ]  2021-03-04 14:03:806.26 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 14:03:847.26 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-04 14:03:804.56 com.example.demo.user_bot.botapi.RentalTelegramBot - ContactTelegramBot is creating...
+[INFO ]  2021-03-04 14:03:840.56 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 14:03:894.56 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-04 19:03:653.33 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-04 19:03:676.33 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 19:03:735.33 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-04 19:03:778.33 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-04 19:03:533.35 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-04 19:03:127.56 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-04 19:03:153.56 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 19:03:218.56 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-04 19:03:266.56 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[ERROR]  2021-03-04 19:03:199.34 com.example.demo.admin_bot.service.MainService - org.telegram.telegrambots.meta.exceptions.TelegramApiValidationException: Text parameter can't be empty in method: SendMessage(chatId=442618563, text=null, parseMode=null, disableWebPagePreview=null, disableNotification=null, replyToMessageId=null, replyMarkup=ReplyKeyboardMarkup(keyboard=[[KeyboardButton(text={0} ÐÐ¾Ð±Ð°Ð²Ð¸ÑÑ ÐºÐ²Ð°ÑÑÐ¸ÑÑ, requestContact=null, requestLocation=null, requestPoll=null)]], resizeKeyboard=true, oneTimeKeyboard=true, selective=null), entities=null, allowSendingWithoutReply=null)
+[ERROR]  2021-03-04 19:03:564.36 com.example.demo.admin_bot.service.MainService - org.telegram.telegrambots.meta.exceptions.TelegramApiValidationException: Text parameter can't be empty in method: SendMessage(chatId=442618563, text=null, parseMode=null, disableWebPagePreview=null, disableNotification=null, replyToMessageId=null, replyMarkup=ReplyKeyboardMarkup(keyboard=[[KeyboardButton(text={0} ÐÐ¾Ð±Ð°Ð²Ð¸ÑÑ ÐºÐ²Ð°ÑÑÐ¸ÑÑ, requestContact=null, requestLocation=null, requestPoll=null)]], resizeKeyboard=true, oneTimeKeyboard=true, selective=null), entities=null, allowSendingWithoutReply=null)
+[ERROR]  2021-03-04 19:03:68.38 com.example.demo.admin_bot.service.MainService - org.telegram.telegrambots.meta.exceptions.TelegramApiValidationException: Text parameter can't be empty in method: SendMessage(chatId=442618563, text=null, parseMode=null, disableWebPagePreview=null, disableNotification=null, replyToMessageId=null, replyMarkup=ReplyKeyboardMarkup(keyboard=[[KeyboardButton(text={0} ÐÐ¾Ð±Ð°Ð²Ð¸ÑÑ ÐºÐ²Ð°ÑÑÐ¸ÑÑ, requestContact=null, requestLocation=null, requestPoll=null)]], resizeKeyboard=true, oneTimeKeyboard=true, selective=null), entities=null, allowSendingWithoutReply=null)
+[ERROR]  2021-03-04 19:03:654.39 com.example.demo.admin_bot.service.MainService - org.telegram.telegrambots.meta.exceptions.TelegramApiValidationException: Text parameter can't be empty in method: SendMessage(chatId=442618563, text=null, parseMode=null, disableWebPagePreview=null, disableNotification=null, replyToMessageId=null, replyMarkup=ReplyKeyboardMarkup(keyboard=[[KeyboardButton(text={0} ÐÐ¾Ð±Ð°Ð²Ð¸ÑÑ ÐºÐ²Ð°ÑÑÐ¸ÑÑ, requestContact=null, requestLocation=null, requestPoll=null)]], resizeKeyboard=true, oneTimeKeyboard=true, selective=null), entities=null, allowSendingWithoutReply=null)
+[INFO ]  2021-03-04 19:03:830.54 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-04 19:03:855.54 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 19:03:919.54 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-04 19:03:964.54 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-04 19:03:526.42 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-04 19:03:552.42 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 19:03:620.42 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-04 19:03:667.42 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-04 19:03:912.04 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-04 19:03:934.04 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 19:03:992.04 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-04 19:03:60.05 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-04 20:03:164.22 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-04 20:03:188.22 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 20:03:254.22 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-04 20:03:291.22 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-04 20:03:316.28 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-04 20:03:339.28 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 20:03:398.28 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-04 20:03:439.28 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-04 20:03:407.32 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-04 20:03:431.32 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 20:03:488.32 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-04 20:03:529.32 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-04 20:03:915.14 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-04 20:03:956.14 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 20:03:15.15 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-04 20:03:55.15 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-04 23:03:27.22 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-04 23:03:50.22 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 23:03:108.22 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-04 23:03:149.22 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[ERROR]  2021-03-04 23:03:341.40 com.example.demo.admin_bot.service.MainService - org.telegram.telegrambots.meta.exceptions.TelegramApiValidationException: Text parameter can't be empty in method: SendMessage(chatId=442618563, text=null, parseMode=null, disableWebPagePreview=null, disableNotification=null, replyToMessageId=null, replyMarkup=null, entities=null, allowSendingWithoutReply=null)
+[ERROR]  2021-03-04 23:03:669.31 com.example.demo.admin_bot.service.MainService - org.telegram.telegrambots.meta.exceptions.TelegramApiValidationException: Text parameter can't be empty in method: SendMessage(chatId=442618563, text=null, parseMode=null, disableWebPagePreview=null, disableNotification=null, replyToMessageId=null, replyMarkup=null, entities=null, allowSendingWithoutReply=null)
+[INFO ]  2021-03-04 23:03:141.26 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-04 23:03:164.26 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 23:03:249.26 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-04 23:03:308.26 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[ERROR]  2021-03-04 23:03:412.35 com.example.demo.admin_bot.service.MainService - org.telegram.telegrambots.meta.exceptions.TelegramApiValidationException: Text parameter can't be empty in method: SendMessage(chatId=442618563, text=null, parseMode=null, disableWebPagePreview=null, disableNotification=null, replyToMessageId=null, replyMarkup=null, entities=null, allowSendingWithoutReply=null)
+[INFO ]  2021-03-04 23:03:668.53 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-04 23:03:690.53 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 23:03:747.53 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-04 23:03:787.53 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[ERROR]  2021-03-04 23:03:295.58 com.example.demo.admin_bot.service.MainService - java.lang.NullPointerException
+[INFO ]  2021-03-04 23:03:542.39 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-04 23:03:567.39 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 23:03:633.39 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-04 23:03:679.39 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-04 23:03:514.21 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-04 23:03:540.21 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 23:03:602.21 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-04 23:03:647.21 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-04 23:03:228.59 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-04 23:03:253.59 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 23:03:318.59 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-04 23:03:362.59 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-04 23:03:537.34 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-04 23:03:798.14 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-04 23:03:819.14 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 23:03:869.14 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-04 23:03:905.14 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-04 23:03:131.08 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-04 23:03:156.08 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 23:03:221.08 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-04 23:03:267.08 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-04 23:03:711.26 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-04 23:03:140.30 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. Any text message
+[INFO ]  2021-03-04 23:03:426.34 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. Any text message
+[INFO ]  2021-03-04 23:03:745.36 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. Any text message
+[INFO ]  2021-03-04 23:03:56.06 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-04 23:03:82.06 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 23:03:149.06 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-04 23:03:197.06 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-04 23:03:39.12 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. Any text message
+[INFO ]  2021-03-04 23:03:649.21 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. Any text message
+[INFO ]  2021-03-04 23:03:698.06 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-04 23:03:723.06 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 23:03:787.06 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-04 23:03:833.06 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-04 23:03:412.24 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-04 23:03:720.10 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-04 23:03:745.10 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 23:03:810.10 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-04 23:03:856.10 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-04 23:03:429.38 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-04 23:03:900.17 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-04 23:03:951.17 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 23:03:16.18 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-04 23:03:53.18 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-04 23:03:889.13 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. Any text message
+[INFO ]  2021-03-04 23:03:970.18 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. Any text message
+[INFO ]  2021-03-04 23:03:168.42 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-04 23:03:629.06 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-04 23:03:655.06 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-04 23:03:714.06 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-04 23:03:757.06 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-04 23:03:864.05 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 00:03:892.30 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:921.30 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 00:03:986.30 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:32.31 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 00:03:525.39 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 00:03:167.12 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:194.12 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 00:03:257.12 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:302.12 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 00:03:654.15 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 00:03:06.51 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:33.51 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 00:03:185.51 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:246.51 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 00:03:627.55 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. Any text message
+[INFO ]  2021-03-05 00:03:451.14 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 00:03:337.43 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:362.43 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 00:03:418.43 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:458.43 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 00:03:261.13 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 00:03:579.07 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 00:03:170.50 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:196.50 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 00:03:253.50 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:294.50 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 00:03:267.28 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:290.28 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 00:03:346.28 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:415.28 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 00:03:934.30 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:965.30 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 00:03:26.31 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:68.31 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 00:03:688.35 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:717.35 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 00:03:783.35 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:819.35 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 00:03:879.41 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:906.41 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 00:03:964.41 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:996.41 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 00:03:831.54 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 00:03:425.02 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:450.02 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 00:03:507.02 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:546.02 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 00:03:725.46 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 00:03:499.30 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:525.30 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 00:03:583.30 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:616.30 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 00:03:37.38 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:64.38 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 00:03:121.38 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:155.38 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 00:03:925.53 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 00:03:556.26 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:585.26 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 00:03:649.26 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:685.26 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 00:03:720.28 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:747.28 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 00:03:805.28 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:840.28 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 00:03:977.45 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 00:03:283.44 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:309.44 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 00:03:367.44 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:398.44 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 00:03:914.02 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:940.02 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 00:03:998.02 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:30.03 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 00:03:626.43 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:650.43 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 00:03:700.43 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:728.43 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 00:03:164.14 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:193.14 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 00:03:256.14 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:305.14 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 00:03:114.26 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 00:03:821.10 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:847.10 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 00:03:904.10 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:946.10 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 00:03:920.32 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 00:03:334.06 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:363.06 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 00:03:426.06 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:473.06 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 00:03:395.19 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 00:03:879.04 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:907.04 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 00:03:972.04 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:17.05 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 00:03:70.19 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. Any text message
+[INFO ]  2021-03-05 00:03:660.39 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 00:03:706.12 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:735.12 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 00:03:801.12 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:848.12 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 00:03:964.16 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. Any text message
+[INFO ]  2021-03-05 00:03:944.42 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 00:03:176.58 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:203.58 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 00:03:345.58 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:429.58 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 00:03:68.04 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. Any text message
+[INFO ]  2021-03-05 00:03:594.19 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 00:03:959.33 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:01.34 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 00:03:57.34 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 00:03:101.34 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 00:03:526.53 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 01:03:290.27 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 01:03:320.27 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 01:03:385.27 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 01:03:431.27 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 01:03:980.47 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 01:03:437.59 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 01:03:514.59 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 01:03:625.59 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 01:03:727.59 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 01:03:234.13 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 01:03:916.25 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddFlatButton
+[INFO ]  2021-03-05 13:03:39.42 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 13:03:72.42 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 13:03:138.42 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 13:03:185.42 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 13:03:777.48 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 13:03:917.57 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-05 13:03:573.07 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddBuyFlatButton
+[INFO ]  2021-03-05 13:03:378.52 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 13:03:406.52 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 13:03:506.52 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 13:03:631.52 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 13:03:50.24 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 13:03:79.24 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 13:03:134.24 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 13:03:170.24 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 13:03:623.40 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 13:03:17.47 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-05 13:03:816.49 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddBuyFlatButton
+[INFO ]  2021-03-05 14:03:761.51 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 14:03:794.51 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 14:03:856.51 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 14:03:906.51 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 14:03:412.59 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 14:03:444.59 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 14:03:504.59 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 14:03:549.59 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 14:03:211.38 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 14:03:244.38 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 14:03:305.38 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 14:03:352.38 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 14:03:610.04 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 14:03:171.07 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-05 14:03:220.07 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@7d522663
+[INFO ]  2021-03-05 14:03:227.07 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@2e486078
+[INFO ]  2021-03-05 14:03:19.15 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddBuyFlatButton
+[INFO ]  2021-03-05 14:03:37.15 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@592c2848
+[INFO ]  2021-03-05 15:03:531.07 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 15:03:563.07 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 15:03:623.07 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 15:03:668.07 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 15:03:571.22 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. state != State.INIT
+[ERROR]  2021-03-05 15:03:654.22 com.example.demo.admin_bot.service.MainService - org.telegram.telegrambots.meta.exceptions.TelegramApiValidationException: Text parameter can't be empty in method: SendMessage(chatId=442618563, text=null, parseMode=null, disableWebPagePreview=null, disableNotification=null, replyToMessageId=null, replyMarkup=null, entities=null, allowSendingWithoutReply=null)
+[INFO ]  2021-03-05 15:03:718.00 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 15:03:643.05 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-05 15:03:690.05 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@41b94c5
+[INFO ]  2021-03-05 15:03:796.50 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 15:03:825.50 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 15:03:922.50 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 15:03:984.50 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 15:03:109.54 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddBuyFlatButton
+[INFO ]  2021-03-05 15:03:221.54 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@5c29fdea
+[INFO ]  2021-03-05 15:03:371.57 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-05 15:03:388.57 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@5660984b
+[INFO ]  2021-03-05 15:03:444.58 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddBuyFlatButton
+[INFO ]  2021-03-05 15:03:458.58 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@c2ba8ad
+[INFO ]  2021-03-05 15:03:602.43 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 15:03:636.43 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 15:03:698.43 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 15:03:745.43 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 15:03:125.14 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 15:03:154.14 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 15:03:212.14 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 15:03:259.14 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 15:03:519.26 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 15:03:865.28 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-05 15:03:912.28 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@6a9b4ea3
+[ERROR]  2021-03-05 15:03:287.29 com.example.demo.admin_bot.service.MainService - org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error editing message text: [400] Bad Request: message to edit not found
+[INFO ]  2021-03-05 15:03:466.39 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 15:03:495.39 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 15:03:549.39 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 15:03:593.39 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 15:03:79.52 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 15:03:355.54 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[ERROR]  2021-03-05 15:03:389.54 com.example.demo.admin_bot.service.MainService - java.lang.NullPointerException
+[INFO ]  2021-03-05 15:03:740.54 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 15:03:770.54 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 15:03:825.54 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 15:03:870.54 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 15:03:38.45 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 15:03:191.51 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-05 15:03:234.51 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@45f5f50e
+[ERROR]  2021-03-05 15:03:459.51 com.example.demo.admin_bot.service.MainService - org.telegram.telegrambots.meta.exceptions.TelegramApiValidationException: MessageId parameter can't be empty if inlineMessageId is not present in method: EditMessageText(chatId=442618563, messageId=null, inlineMessageId=null, text=✏ Укажите параметры квартиры для аренды, parseMode=null, disableWebPagePreview=null, replyMarkup=InlineKeyboardMarkup(keyboard=[[InlineKeyboardButton(text=Кол-во комнат: нет, url=null, callbackData=ROOMS, callbackGame=null, switchInlineQuery=null, switchInlineQueryCurrentChat=null, pay=null, loginUrl=null), InlineKeyboardButton(text=Площадь(м²): нет, url=null, callbackData=SQUARE, callbackGame=null, switchInlineQuery=null, switchInlineQueryCurrentChat=null, pay=null, loginUrl=null)], [InlineKeyboardButton(text=Этаж: нет, url=null, callbackData=FLOOR, callbackGame=null, switchInlineQuery=null, switchInlineQueryCurrentChat=null, pay=null, loginUrl=null), InlineKeyboardButton(text=Этажей в доме: нет, url=null, callbackData=ALL_SQUARE, callbackGame=null, switchInlineQuery=null, switchInlineQueryCurrentChat=null, pay=null, loginUrl=null)], [InlineKeyboardButton(text=Метро: нет, url=null, callbackData=METRO, callbackGame=null, switchInlineQuery=null, switchInlineQueryCurrentChat=null, pay=null, loginUrl=null), InlineKeyboardButton(text=Адрес: нет, url=null, callbackData=ADDRESS, callbackGame=null, switchInlineQuery=null, switchInlineQueryCurrentChat=null, pay=null, loginUrl=null)], [InlineKeyboardButton(text=Район: нет, url=null, callbackData=DISTRICT, callbackGame=null, switchInlineQuery=null, switchInlineQueryCurrentChat=null, pay=null, loginUrl=null), InlineKeyboardButton(text=Цена: нет, url=null, callbackData=PRICE, callbackGame=null, switchInlineQuery=null, switchInlineQueryCurrentChat=null, pay=null, loginUrl=null)], [InlineKeyboardButton(text=Бюджет: нет, url=null, callbackData=MONEY_RANGE, callbackGame=null, switchInlineQuery=null, switchInlineQueryCurrentChat=null, pay=null, loginUrl=null), InlineKeyboardButton(text=Фото: нет, url=null, callbackData=TELEGRAPH, callbackGame=null, switchInlineQuery=null, switchInlineQueryCurrentChat=null, pay=null, loginUrl=null)], [InlineKeyboardButton(text=Доп. информация: нет, url=null, callbackData=ADDITIONAL_INFO, callbackGame=null, switchInlineQuery=null, switchInlineQueryCurrentChat=null, pay=null, loginUrl=null)]]), entities=null)
+[INFO ]  2021-03-05 16:03:298.19 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 16:03:326.19 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 16:03:379.19 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 16:03:419.19 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 16:03:579.58 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 16:03:987.00 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-05 16:03:49.01 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@100fe530.
+For admin: 6
+[INFO ]  2021-03-05 16:03:359.03 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddBuyFlatButton
+[INFO ]  2021-03-05 16:03:386.03 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@2eba1d15.
+For admin: 6
+[INFO ]  2021-03-05 16:03:335.05 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-05 16:03:362.05 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@5d742624.
+For admin: 6
+[INFO ]  2021-03-05 16:03:329.10 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddBuyFlatButton
+[INFO ]  2021-03-05 16:03:352.10 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@45bfc0da.
+For admin: 6
+[INFO ]  2021-03-05 16:03:45.30 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-05 16:03:73.30 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@5a503615.
+For admin: 6
+[INFO ]  2021-03-05 16:03:137.31 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddBuyFlatButton
+[INFO ]  2021-03-05 16:03:157.31 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@45d50c4c.
+For admin: 6
+[INFO ]  2021-03-05 16:03:268.46 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. Any text message
+[INFO ]  2021-03-05 16:03:163.48 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-05 16:03:186.48 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@5da396bd.
+For admin: 6
+[INFO ]  2021-03-05 16:03:739.49 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddBuyFlatButton
+[INFO ]  2021-03-05 16:03:761.49 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@2706c8ad.
+For admin: 6
+[INFO ]  2021-03-05 16:03:447.50 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 16:03:482.50 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 16:03:545.50 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 16:03:609.50 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 16:03:369.54 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. Any text message
+[INFO ]  2021-03-05 16:03:498.11 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 16:03:10.14 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-05 16:03:66.14 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@103b688b.
+For admin: 7
+[INFO ]  2021-03-05 16:03:689.17 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddBuyFlatButton
+[INFO ]  2021-03-05 16:03:718.17 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@6bc4c2a6.
+For admin: 7
+[INFO ]  2021-03-05 16:03:159.32 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 16:03:188.32 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 16:03:241.32 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 16:03:281.32 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 16:03:594.05 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[ERROR]  2021-03-05 16:03:995.05 com.example.demo.admin_bot.service.MainService - java.lang.ClassCastException: class java.lang.Boolean cannot be cast to class org.telegram.telegrambots.meta.api.objects.Message (java.lang.Boolean is in module java.base of loader 'bootstrap'; org.telegram.telegrambots.meta.api.objects.Message is in unnamed module of loader 'app')
+[INFO ]  2021-03-05 16:03:951.39 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 16:03:985.39 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 16:03:49.40 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 16:03:97.40 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 16:03:736.20 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 16:03:767.20 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 16:03:822.20 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 16:03:866.20 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 16:03:927.23 com.example.demo.admin_bot.service.MainService - TIME: 258.0
+[INFO ]  2021-03-05 16:03:912.45 com.example.demo.admin_bot.service.MainService - TIME: 9.0
+[INFO ]  2021-03-05 16:03:754.47 com.example.demo.admin_bot.service.MainService - TIME: 7.0
+[INFO ]  2021-03-05 16:03:475.48 com.example.demo.admin_bot.service.MainService - TIME: 9.0
+[INFO ]  2021-03-05 16:03:698.48 com.example.demo.admin_bot.service.MainService - TIME: 9.0
+[INFO ]  2021-03-05 16:03:586.49 com.example.demo.admin_bot.service.MainService - TIME: 17.0
+[INFO ]  2021-03-05 16:03:595.49 com.example.demo.admin_bot.service.MainService - TIME: 25.0
+[INFO ]  2021-03-05 16:03:596.49 com.example.demo.admin_bot.service.MainService - TIME: 26.0
+[INFO ]  2021-03-05 16:03:596.49 com.example.demo.admin_bot.service.MainService - TIME: 26.0
+[INFO ]  2021-03-05 16:03:66.52 com.example.demo.admin_bot.service.MainService - TIME: 6.0
+[INFO ]  2021-03-05 16:03:852.52 com.example.demo.admin_bot.service.MainService - TIME: 9.0
+[INFO ]  2021-03-05 16:03:859.52 com.example.demo.admin_bot.service.MainService - TIME: 16.0
+[INFO ]  2021-03-05 16:03:860.52 com.example.demo.admin_bot.service.MainService - TIME: 16.0
+[INFO ]  2021-03-05 16:03:978.52 com.example.demo.admin_bot.service.MainService - TIME: 5.0
+[INFO ]  2021-03-05 16:03:102.53 com.example.demo.admin_bot.service.MainService - TIME: 7.0
+[INFO ]  2021-03-05 16:03:225.53 com.example.demo.admin_bot.service.MainService - TIME: 11.0
+[INFO ]  2021-03-05 16:03:341.53 com.example.demo.admin_bot.service.MainService - TIME: 5.0
+[INFO ]  2021-03-05 16:03:487.53 com.example.demo.admin_bot.service.MainService - TIME: 5.0
+[INFO ]  2021-03-05 16:03:252.54 com.example.demo.admin_bot.service.MainService - TIME: 8.0
+[INFO ]  2021-03-05 16:03:252.54 com.example.demo.admin_bot.service.MainService - TIME: 8.0
+[INFO ]  2021-03-05 16:03:256.54 com.example.demo.admin_bot.service.MainService - TIME: 12.0
+[INFO ]  2021-03-05 16:03:914.54 com.example.demo.admin_bot.service.MainService - TIME: 14.0
+[INFO ]  2021-03-05 16:03:918.54 com.example.demo.admin_bot.service.MainService - TIME: 14.0
+[INFO ]  2021-03-05 16:03:923.54 com.example.demo.admin_bot.service.MainService - TIME: 19.0
+[INFO ]  2021-03-05 16:03:993.54 com.example.demo.admin_bot.service.MainService - TIME: 5.0
+[INFO ]  2021-03-05 16:03:706.55 com.example.demo.admin_bot.service.MainService - TIME: 10.0
+[INFO ]  2021-03-05 16:03:706.55 com.example.demo.admin_bot.service.MainService - TIME: 10.0
+[INFO ]  2021-03-05 16:03:716.55 com.example.demo.admin_bot.service.MainService - TIME: 20.0
+[INFO ]  2021-03-05 16:03:780.55 com.example.demo.admin_bot.service.MainService - TIME: 5.0
+[INFO ]  2021-03-05 16:03:424.56 com.example.demo.admin_bot.service.MainService - TIME: 6.0
+[INFO ]  2021-03-05 16:03:425.56 com.example.demo.admin_bot.service.MainService - TIME: 6.0
+[INFO ]  2021-03-05 16:03:427.56 com.example.demo.admin_bot.service.MainService - TIME: 9.0
+[INFO ]  2021-03-05 16:03:575.56 com.example.demo.admin_bot.service.MainService - TIME: 5.0
+[INFO ]  2021-03-05 16:03:362.57 com.example.demo.admin_bot.service.MainService - TIME: 6.0
+[INFO ]  2021-03-05 16:03:363.57 com.example.demo.admin_bot.service.MainService - TIME: 6.0
+[INFO ]  2021-03-05 16:03:133.58 com.example.demo.admin_bot.service.MainService - TIME: 6.0
+[INFO ]  2021-03-05 16:03:135.58 com.example.demo.admin_bot.service.MainService - TIME: 7.0
+[INFO ]  2021-03-05 16:03:136.58 com.example.demo.admin_bot.service.MainService - TIME: 8.0
+[INFO ]  2021-03-05 16:03:834.58 com.example.demo.admin_bot.service.MainService - TIME: 5.0
+[INFO ]  2021-03-05 16:03:838.58 com.example.demo.admin_bot.service.MainService - TIME: 9.0
+[INFO ]  2021-03-05 16:03:472.59 com.example.demo.admin_bot.service.MainService - TIME: 6.0
+[INFO ]  2021-03-05 16:03:473.59 com.example.demo.admin_bot.service.MainService - TIME: 7.0
+[INFO ]  2021-03-05 16:03:179.00 com.example.demo.admin_bot.service.MainService - TIME: 5.0
+[INFO ]  2021-03-05 16:03:180.00 com.example.demo.admin_bot.service.MainService - TIME: 6.0
+[INFO ]  2021-03-05 16:03:309.21 com.example.demo.admin_bot.service.MainService - TIME: 5.0
+[INFO ]  2021-03-05 16:03:358.35 com.example.demo.admin_bot.service.MainService - TIME: 5.0
+[INFO ]  2021-03-05 16:03:633.07 com.example.demo.admin_bot.service.MainService - TIME: 4.0
+[INFO ]  2021-03-05 16:03:575.55 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 16:03:607.55 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 16:03:669.55 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 16:03:716.55 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 16:03:123.09 com.example.demo.admin_bot.service.MainService - MESSAGE: dsafd
+[INFO ]  2021-03-05 16:03:221.09 com.example.demo.admin_bot.service.MainService - TIME: 98.0
+[INFO ]  2021-03-05 16:03:00.14 com.example.demo.admin_bot.service.MainService - MESSAGE: /admin 1234
+[INFO ]  2021-03-05 16:03:93.14 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 16:03:599.14 com.example.demo.admin_bot.service.MainService - TIME: 598.0
+[INFO ]  2021-03-05 16:03:799.16 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-05 16:03:833.16 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-05 16:03:894.16 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@37c4bc7e.
+For admin: 9
+[INFO ]  2021-03-05 16:03:191.17 com.example.demo.admin_bot.service.MainService - TIME: 392.0
+[INFO ]  2021-03-05 16:03:174.24 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (продажа)
+[INFO ]  2021-03-05 16:03:181.24 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddBuyFlatButton
+[INFO ]  2021-03-05 16:03:207.24 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@2c83c727.
+For admin: 9
+[INFO ]  2021-03-05 16:03:542.24 com.example.demo.admin_bot.service.MainService - TIME: 368.0
+[INFO ]  2021-03-05 16:03:147.26 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-05 16:03:156.26 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-05 16:03:187.26 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@51ebe6ea.
+For admin: 9
+[INFO ]  2021-03-05 16:03:648.26 com.example.demo.admin_bot.service.MainService - TIME: 501.0
+[INFO ]  2021-03-05 16:03:155.36 com.example.demo.admin_bot.service.MainService - TIME: 319.0
+[INFO ]  2021-03-05 16:03:129.45 com.example.demo.admin_bot.service.MainService - TIME: 179.0
+[ERROR]  2021-03-05 16:03:102.36 com.example.demo.admin_bot.service.MainService - org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error answering callback query: [400] Bad Request: query is too old and response timeout expired or query ID is invalid
+[ERROR]  2021-03-05 16:03:84.53 com.example.demo.admin_bot.service.MainService - org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error answering callback query: [400] Bad Request: query is too old and response timeout expired or query ID is invalid
+[INFO ]  2021-03-05 16:03:846.14 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 16:03:876.14 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 16:03:929.14 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 16:03:969.14 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 16:03:119.47 com.example.demo.admin_bot.service.MainService - MESSAGE: 465
+[INFO ]  2021-03-05 16:03:227.47 com.example.demo.admin_bot.service.MainService - TIME: 107.0
+[INFO ]  2021-03-05 16:03:360.50 com.example.demo.admin_bot.service.MainService - MESSAGE: /admin 1234
+[INFO ]  2021-03-05 16:03:463.50 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 16:03:414.51 com.example.demo.admin_bot.service.MainService - TIME: 1055.0
+[INFO ]  2021-03-05 16:03:880.52 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-05 16:03:910.52 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-05 16:03:967.52 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@68467614.
+For admin: 10
+[INFO ]  2021-03-05 16:03:421.53 com.example.demo.admin_bot.service.MainService - TIME: 542.0
+[INFO ]  2021-03-05 16:03:60.56 com.example.demo.admin_bot.service.MainService - TIME: 345.0
+[INFO ]  2021-03-05 16:03:85.58 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (продажа)
+[INFO ]  2021-03-05 16:03:93.58 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddBuyFlatButton
+[INFO ]  2021-03-05 16:03:121.58 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@612742dd.
+For admin: 10
+[INFO ]  2021-03-05 16:03:335.58 com.example.demo.admin_bot.service.MainService - TIME: 250.0
+[INFO ]  2021-03-05 16:03:984.59 com.example.demo.admin_bot.service.MainService - TIME: 522.0
+[INFO ]  2021-03-05 16:03:98.02 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-05 16:03:104.02 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-05 16:03:132.02 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@942bbdd.
+For admin: 10
+[INFO ]  2021-03-05 16:03:513.02 com.example.demo.admin_bot.service.MainService - TIME: 415.0
+[INFO ]  2021-03-05 16:03:282.03 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (продажа)
+[INFO ]  2021-03-05 16:03:291.03 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddBuyFlatButton
+[INFO ]  2021-03-05 16:03:314.03 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@4ed229f4.
+For admin: 10
+[INFO ]  2021-03-05 16:03:627.03 com.example.demo.admin_bot.service.MainService - TIME: 345.0
+[INFO ]  2021-03-05 16:03:701.05 com.example.demo.admin_bot.service.MainService - TIME: 336.0
+[INFO ]  2021-03-05 16:03:425.07 com.example.demo.admin_bot.service.MainService - TIME: 292.0
+[INFO ]  2021-03-05 17:03:990.44 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 17:03:23.45 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 17:03:84.45 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 17:03:131.45 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 17:03:734.11 com.example.demo.admin_bot.service.MainService - MESSAGE: sdfg
+[INFO ]  2021-03-05 17:03:841.11 com.example.demo.admin_bot.service.MainService - TIME: 106.0
+[INFO ]  2021-03-05 17:03:648.16 com.example.demo.admin_bot.service.MainService - MESSAGE: /admin 1234
+[INFO ]  2021-03-05 17:03:753.16 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 17:03:72.17 com.example.demo.admin_bot.service.MainService - TIME: 424.0
+[INFO ]  2021-03-05 17:03:81.21 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-05 17:03:114.21 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-05 17:03:170.21 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@4373057e.
+For admin: 11
+[INFO ]  2021-03-05 17:03:529.21 com.example.demo.admin_bot.service.MainService - TIME: 448.0
+[INFO ]  2021-03-05 17:03:133.25 com.example.demo.admin_bot.service.MainService - TIME: 568.0
+[INFO ]  2021-03-05 17:03:623.34 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 17:03:656.34 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 17:03:718.34 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 17:03:765.34 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 17:03:280.38 com.example.demo.admin_bot.service.MainService - MESSAGE: sdfg
+[INFO ]  2021-03-05 17:03:281.38 com.example.demo.admin_bot.service.MainService - MESSAGE: jfglk
+[INFO ]  2021-03-05 17:03:409.38 com.example.demo.admin_bot.service.MainService - TIME: 126.0
+[INFO ]  2021-03-05 17:03:409.38 com.example.demo.admin_bot.service.MainService - TIME: 126.0
+[INFO ]  2021-03-05 17:03:726.42 com.example.demo.admin_bot.service.MainService - MESSAGE: ejgkelt
+[INFO ]  2021-03-05 17:03:731.42 com.example.demo.admin_bot.service.MainService - TIME: 5.0
+[INFO ]  2021-03-05 17:03:666.45 com.example.demo.admin_bot.service.MainService - MESSAGE: tlrehkjrt;
+[INFO ]  2021-03-05 17:03:671.45 com.example.demo.admin_bot.service.MainService - TIME: 4.0
+[INFO ]  2021-03-05 17:03:655.48 com.example.demo.admin_bot.service.MainService - MESSAGE: esrgtse
+[INFO ]  2021-03-05 17:03:659.48 com.example.demo.admin_bot.service.MainService - TIME: 4.0
+[INFO ]  2021-03-05 17:03:964.54 com.example.demo.admin_bot.service.MainService - MESSAGE: /admin 1234
+[INFO ]  2021-03-05 17:03:62.55 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 17:03:411.55 com.example.demo.admin_bot.service.MainService - TIME: 447.0
+[INFO ]  2021-03-05 17:03:377.01 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-05 17:03:403.01 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-05 17:03:518.01 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@7b331587.
+For admin: 12
+[INFO ]  2021-03-05 17:03:341.02 com.example.demo.admin_bot.service.MainService - TIME: 964.0
+[INFO ]  2021-03-05 17:03:380.04 com.example.demo.admin_bot.service.MainService - TIME: 764.0
+[INFO ]  2021-03-05 17:03:558.43 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 17:03:588.43 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 17:03:643.43 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 17:03:682.43 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 17:03:270.00 com.example.demo.admin_bot.service.MainService - TIME: 289.0
+[INFO ]  2021-03-05 17:03:499.07 com.example.demo.admin_bot.service.MainService - TIME: 702.0
+[INFO ]  2021-03-05 17:03:468.08 com.example.demo.admin_bot.service.MainService - TIME: 210.0
+[INFO ]  2021-03-05 17:03:985.49 com.example.demo.admin_bot.service.MainService - MESSAGE: /admin 1234
+[INFO ]  2021-03-05 17:03:69.50 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 17:03:620.50 com.example.demo.admin_bot.service.MainService - TIME: 636.0
+[INFO ]  2021-03-05 17:03:194.52 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-05 17:03:227.52 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-05 17:03:289.52 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@6129fcd3.
+For admin: 13
+[INFO ]  2021-03-05 17:03:544.52 com.example.demo.admin_bot.service.MainService - TIME: 350.0
+[ERROR]  2021-03-05 17:03:389.59 com.example.demo.admin_bot.service.MainService - org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error answering callback query: [400] Bad Request: query is too old and response timeout expired or query ID is invalid
+[ERROR]  2021-03-05 17:03:177.15 com.example.demo.admin_bot.service.MainService - org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error answering callback query: [400] Bad Request: query is too old and response timeout expired or query ID is invalid
+[ERROR]  2021-03-05 17:03:789.16 com.example.demo.admin_bot.service.MainService - org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error answering callback query: [400] Bad Request: query is too old and response timeout expired or query ID is invalid
+[INFO ]  2021-03-05 17:03:109.01 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 17:03:135.01 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 17:03:183.01 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 17:03:219.01 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 17:03:447.30 com.example.demo.admin_bot.service.MainService - MESSAGE: 123
+[INFO ]  2021-03-05 17:03:563.30 com.example.demo.admin_bot.service.MainService - TIME: 115.0
+[INFO ]  2021-03-05 17:03:117.38 com.example.demo.admin_bot.service.MainService - MESSAGE: /admin 1234
+[INFO ]  2021-03-05 17:03:223.38 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 17:03:342.39 com.example.demo.admin_bot.service.MainService - TIME: 1225.0
+[INFO ]  2021-03-05 17:03:538.40 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-05 17:03:571.40 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-05 17:03:623.40 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@3b10c889.
+For admin: 14
+[INFO ]  2021-03-05 17:03:836.40 com.example.demo.admin_bot.service.MainService - TIME: 298.0
+[INFO ]  2021-03-05 17:03:964.42 com.example.demo.admin_bot.service.MainService - TIME: 326.0
+[ERROR]  2021-03-05 17:03:544.48 com.example.demo.admin_bot.service.MainService - org.telegram.telegrambots.meta.exceptions.TelegramApiValidationException: ChatId parameter can't be empty if inlineMessageId is not present in method: EditMessageReplyMarkup(chatId=null, messageId=481, inlineMessageId=null, replyMarkup=InlineKeyboardMarkup(keyboard=[[InlineKeyboardButton(text=Кол-во комнат: нет, url=null, callbackData=ADMIN_MENU_ROOMS, callbackGame=null, switchInlineQuery=null, switchInlineQueryCurrentChat=null, pay=null, loginUrl=null), InlineKeyboardButton(text=Площадь(м²): нет, url=null, callbackData=ADMIN_MENU_SQUARE, callbackGame=null, switchInlineQuery=null, switchInlineQueryCurrentChat=null, pay=null, loginUrl=null)], [InlineKeyboardButton(text=Этаж: нет, url=null, callbackData=ADMIN_MENU_FLOOR, callbackGame=null, switchInlineQuery=null, switchInlineQueryCurrentChat=null, pay=null, loginUrl=null), InlineKeyboardButton(text=Этажей в доме: нет, url=null, callbackData=ADMIN_MENU_ALL_SQUARE, callbackGame=null, switchInlineQuery=null, switchInlineQueryCurrentChat=null, pay=null, loginUrl=null)], [InlineKeyboardButton(text=Метро: нет, url=null, callbackData=ADMIN_MENU_METRO, callbackGame=null, switchInlineQuery=null, switchInlineQueryCurrentChat=null, pay=null, loginUrl=null), InlineKeyboardButton(text=Адрес: нет, url=null, callbackData=ADMIN_MENU_ADDRESS, callbackGame=null, switchInlineQuery=null, switchInlineQueryCurrentChat=null, pay=null, loginUrl=null)], [InlineKeyboardButton(text=Район: нет, url=null, callbackData=ADMIN_MENU_DISTRICT, callbackGame=null, switchInlineQuery=null, switchInlineQueryCurrentChat=null, pay=null, loginUrl=null), InlineKeyboardButton(text=Цена: нет, url=null, callbackData=ADMIN_MENU_PRICE, callbackGame=null, switchInlineQuery=null, switchInlineQueryCurrentChat=null, pay=null, loginUrl=null)], [InlineKeyboardButton(text=Бюджет: нет, url=null, callbackData=ADMIN_MENU_MONEY_RANGE, callbackGame=null, switchInlineQuery=null, switchInlineQueryCurrentChat=null, pay=null, loginUrl=null), InlineKeyboardButton(text=Фото: нет, url=null, callbackData=ADMIN_MENU_TELEGRAPH, callbackGame=null, switchInlineQuery=null, switchInlineQueryCurrentChat=null, pay=null, loginUrl=null)], [InlineKeyboardButton(text=Доп. информация: нет, url=null, callbackData=ADMIN_MENU_ADDITIONAL_INFO, callbackGame=null, switchInlineQuery=null, switchInlineQueryCurrentChat=null, pay=null, loginUrl=null)]]))
+[INFO ]  2021-03-05 17:03:667.44 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 17:03:696.44 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 17:03:749.44 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 17:03:793.44 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 17:03:486.07 com.example.demo.admin_bot.service.MainService - MESSAGE: 23123
+[INFO ]  2021-03-05 17:03:586.07 com.example.demo.admin_bot.service.MainService - TIME: 97.0
+[INFO ]  2021-03-05 17:03:981.17 com.example.demo.admin_bot.service.MainService - MESSAGE: /admin 1234
+[INFO ]  2021-03-05 17:03:85.18 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 17:03:127.19 com.example.demo.admin_bot.service.MainService - TIME: 1146.0
+[INFO ]  2021-03-05 17:03:905.24 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-05 17:03:976.24 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-05 17:03:33.25 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@4b0cf54e.
+For admin: 15
+[INFO ]  2021-03-05 17:03:571.30 com.example.demo.admin_bot.service.MainService - TIME: 5666.0
+[INFO ]  2021-03-05 17:03:824.54 com.example.demo.admin_bot.service.MainService - TIME: 554.0
+[INFO ]  2021-03-05 17:03:501.56 com.example.demo.admin_bot.service.MainService - TIME: 241.0
+[INFO ]  2021-03-05 17:03:376.59 com.example.demo.admin_bot.service.MainService - TIME: 1567.0
+[INFO ]  2021-03-05 17:03:389.01 com.example.demo.admin_bot.service.MainService - TIME: 839.0
+[INFO ]  2021-03-05 17:03:983.02 com.example.demo.admin_bot.service.MainService - TIME: 337.0
+[INFO ]  2021-03-05 17:03:185.04 com.example.demo.admin_bot.service.MainService - TIME: 350.0
+[INFO ]  2021-03-05 17:03:547.05 com.example.demo.admin_bot.service.MainService - TIME: 530.0
+[INFO ]  2021-03-05 17:03:40.07 com.example.demo.admin_bot.service.MainService - TIME: 451.0
+[INFO ]  2021-03-05 17:03:277.08 com.example.demo.admin_bot.service.MainService - TIME: 293.0
+[ERROR]  2021-03-05 17:03:603.09 com.example.demo.admin_bot.service.MainService - org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error answering callback query: [400] Bad Request: query is too old and response timeout expired or query ID is invalid
+[ERROR]  2021-03-05 17:03:171.27 com.example.demo.admin_bot.service.MainService - org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error answering callback query: [400] Bad Request: query is too old and response timeout expired or query ID is invalid
+[INFO ]  2021-03-05 17:03:492.55 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 17:03:524.55 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 17:03:586.55 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 17:03:632.55 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 17:03:978.15 com.example.demo.admin_bot.service.MainService - MESSAGE: sdf
+[INFO ]  2021-03-05 17:03:242.16 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. Any text message
+[INFO ]  2021-03-05 17:03:505.16 com.example.demo.admin_bot.service.MainService - TIME: 527.0
+[INFO ]  2021-03-05 17:03:705.29 com.example.demo.admin_bot.service.MainService - MESSAGE: sf
+[INFO ]  2021-03-05 17:03:712.29 com.example.demo.admin_bot.service.MainService - TIME: 7.0
+[INFO ]  2021-03-05 17:03:196.35 com.example.demo.admin_bot.service.MainService - MESSAGE: /admin 1234
+[INFO ]  2021-03-05 17:03:288.35 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 17:03:853.35 com.example.demo.admin_bot.service.MainService - TIME: 657.0
+[INFO ]  2021-03-05 17:03:404.37 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-05 17:03:412.37 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-05 17:03:465.37 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@56246b1d.
+For admin: 16
+[INFO ]  2021-03-05 17:03:692.37 com.example.demo.admin_bot.service.MainService - TIME: 288.0
+[INFO ]  2021-03-05 17:03:252.43 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253918852800
+[INFO ]  2021-03-05 17:03:692.43 com.example.demo.admin_bot.service.MainService - TIME: 441.0
+[INFO ]  2021-03-05 17:03:38.46 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256765875772
+[INFO ]  2021-03-05 17:03:417.46 com.example.demo.admin_bot.service.MainService - TIME: 379.0
+[INFO ]  2021-03-05 17:03:359.47 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253618058686
+[INFO ]  2021-03-05 17:03:741.47 com.example.demo.admin_bot.service.MainService - TIME: 382.0
+[INFO ]  2021-03-05 17:03:910.48 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254976624890
+[INFO ]  2021-03-05 17:03:255.49 com.example.demo.admin_bot.service.MainService - TIME: 345.0
+[INFO ]  2021-03-05 17:03:802.50 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254106702515
+[INFO ]  2021-03-05 17:03:77.51 com.example.demo.admin_bot.service.MainService - TIME: 275.0
+[INFO ]  2021-03-05 17:03:983.51 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255919520259
+[INFO ]  2021-03-05 17:03:394.52 com.example.demo.admin_bot.service.MainService - TIME: 411.0
+[INFO ]  2021-03-05 17:03:484.53 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256320307217
+[INFO ]  2021-03-05 17:03:782.53 com.example.demo.admin_bot.service.MainService - TIME: 298.0
+[INFO ]  2021-03-05 17:03:657.54 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254283061087
+[INFO ]  2021-03-05 17:03:804.55 com.example.demo.admin_bot.service.MainService - TIME: 1147.0
+[INFO ]  2021-03-05 17:03:607.57 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253290363957
+[INFO ]  2021-03-05 17:03:840.57 com.example.demo.admin_bot.service.MainService - TIME: 233.0
+[INFO ]  2021-03-05 17:03:794.58 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253291773466
+[ERROR]  2021-03-05 17:03:930.58 com.example.demo.admin_bot.service.MainService - org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error answering callback query: [400] Bad Request: query is too old and response timeout expired or query ID is invalid
+[INFO ]  2021-03-05 17:03:561.30 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255099041615
+[ERROR]  2021-03-05 17:03:843.30 com.example.demo.admin_bot.service.MainService - org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error answering callback query: [400] Bad Request: query is too old and response timeout expired or query ID is invalid
+[INFO ]  2021-03-05 17:03:725.33 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254673342829
+[ERROR]  2021-03-05 17:03:921.33 com.example.demo.admin_bot.service.MainService - org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error answering callback query: [400] Bad Request: query is too old and response timeout expired or query ID is invalid
+[INFO ]  2021-03-05 17:03:304.45 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255438218398
+[ERROR]  2021-03-05 17:03:649.45 com.example.demo.admin_bot.service.MainService - org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException: Error answering callback query: [400] Bad Request: query is too old and response timeout expired or query ID is invalid
+[INFO ]  2021-03-05 18:03:537.26 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 18:03:566.26 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 18:03:620.26 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 18:03:663.26 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 18:03:54.45 com.example.demo.admin_bot.service.MainService - MESSAGE: 45
+[INFO ]  2021-03-05 18:03:151.45 com.example.demo.admin_bot.service.MainService - TIME: 95.0
+[INFO ]  2021-03-05 18:03:334.48 com.example.demo.admin_bot.service.MainService - MESSAGE: /admin 1234
+[INFO ]  2021-03-05 18:03:426.48 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 18:03:545.48 com.example.demo.admin_bot.service.MainService - TIME: 211.0
+[INFO ]  2021-03-05 18:03:535.50 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-05 18:03:570.50 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-05 18:03:627.50 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@315119d0.
+For admin: 17
+[INFO ]  2021-03-05 18:03:628.50 com.example.demo.admin_bot.service.MainService - TIME: 93.0
+[INFO ]  2021-03-05 18:03:16.52 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253097819176
+[INFO ]  2021-03-05 18:03:26.52 com.example.demo.admin_bot.service.MainService - TIME: 11.0
+[INFO ]  2021-03-05 18:03:551.53 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253128077431
+[INFO ]  2021-03-05 18:03:570.53 com.example.demo.admin_bot.service.MainService - TIME: 19.0
+[INFO ]  2021-03-05 18:03:312.55 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256328823377
+[INFO ]  2021-03-05 18:03:324.55 com.example.demo.admin_bot.service.MainService - TIME: 12.0
+[INFO ]  2021-03-05 18:03:436.56 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253314840269
+[INFO ]  2021-03-05 18:03:452.56 com.example.demo.admin_bot.service.MainService - TIME: 16.0
+[INFO ]  2021-03-05 18:03:271.58 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032252734766477
+[INFO ]  2021-03-05 18:03:279.58 com.example.demo.admin_bot.service.MainService - TIME: 8.0
+[INFO ]  2021-03-05 18:03:686.59 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253102555948
+[INFO ]  2021-03-05 18:03:693.59 com.example.demo.admin_bot.service.MainService - TIME: 7.0
+[INFO ]  2021-03-05 18:03:810.05 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256951018993
+[INFO ]  2021-03-05 18:03:821.05 com.example.demo.admin_bot.service.MainService - TIME: 10.0
+[INFO ]  2021-03-05 18:03:496.11 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256528864169
+[INFO ]  2021-03-05 18:03:504.11 com.example.demo.admin_bot.service.MainService - TIME: 60.0
+[INFO ]  2021-03-05 18:03:209.15 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253468497308
+[INFO ]  2021-03-05 18:03:216.15 com.example.demo.admin_bot.service.MainService - TIME: 8.0
+[INFO ]  2021-03-05 18:03:466.16 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254635830913
+[INFO ]  2021-03-05 18:03:473.16 com.example.demo.admin_bot.service.MainService - TIME: 7.0
+[INFO ]  2021-03-05 18:03:645.17 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256555581522
+[INFO ]  2021-03-05 18:03:662.17 com.example.demo.admin_bot.service.MainService - TIME: 17.0
+[INFO ]  2021-03-05 18:03:869.18 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254082201232
+[INFO ]  2021-03-05 18:03:876.18 com.example.demo.admin_bot.service.MainService - TIME: 7.0
+[INFO ]  2021-03-05 18:03:756.19 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255576364237
+[INFO ]  2021-03-05 18:03:774.19 com.example.demo.admin_bot.service.MainService - TIME: 18.0
+[INFO ]  2021-03-05 18:03:963.20 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256151374396
+[INFO ]  2021-03-05 18:03:970.20 com.example.demo.admin_bot.service.MainService - TIME: 7.0
+[INFO ]  2021-03-05 18:03:50.22 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254563172200
+[INFO ]  2021-03-05 18:03:62.22 com.example.demo.admin_bot.service.MainService - TIME: 12.0
+[INFO ]  2021-03-05 18:03:220.23 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255972878251
+[INFO ]  2021-03-05 18:03:226.23 com.example.demo.admin_bot.service.MainService - TIME: 6.0
+[INFO ]  2021-03-05 18:03:177.24 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253096711049
+[INFO ]  2021-03-05 18:03:191.24 com.example.demo.admin_bot.service.MainService - TIME: 14.0
+[INFO ]  2021-03-05 18:03:232.25 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254378866293
+[INFO ]  2021-03-05 18:03:239.25 com.example.demo.admin_bot.service.MainService - TIME: 7.0
+[INFO ]  2021-03-05 18:03:290.26 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255387489123
+[INFO ]  2021-03-05 18:03:305.26 com.example.demo.admin_bot.service.MainService - TIME: 14.0
+[INFO ]  2021-03-05 18:03:495.27 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256032187171
+[INFO ]  2021-03-05 18:03:502.27 com.example.demo.admin_bot.service.MainService - TIME: 7.0
+[INFO ]  2021-03-05 18:03:848.28 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032252731996449
+[INFO ]  2021-03-05 18:03:853.28 com.example.demo.admin_bot.service.MainService - TIME: 6.0
+[INFO ]  2021-03-05 18:03:804.29 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254123660629
+[INFO ]  2021-03-05 18:03:810.29 com.example.demo.admin_bot.service.MainService - TIME: 6.0
+[INFO ]  2021-03-05 18:03:682.30 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253228138648
+[INFO ]  2021-03-05 18:03:696.30 com.example.demo.admin_bot.service.MainService - TIME: 14.0
+[INFO ]  2021-03-05 18:03:693.31 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254403377915
+[INFO ]  2021-03-05 18:03:699.31 com.example.demo.admin_bot.service.MainService - TIME: 6.0
+[INFO ]  2021-03-05 18:03:901.32 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254158939603
+[INFO ]  2021-03-05 18:03:912.32 com.example.demo.admin_bot.service.MainService - TIME: 11.0
+[INFO ]  2021-03-05 18:03:169.34 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254745114088
+[INFO ]  2021-03-05 18:03:174.34 com.example.demo.admin_bot.service.MainService - TIME: 6.0
+[INFO ]  2021-03-05 18:03:172.35 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256632485544
+[INFO ]  2021-03-05 18:03:185.35 com.example.demo.admin_bot.service.MainService - TIME: 13.0
+[INFO ]  2021-03-05 18:03:256.36 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256524235858
+[INFO ]  2021-03-05 18:03:262.36 com.example.demo.admin_bot.service.MainService - TIME: 6.0
+[INFO ]  2021-03-05 18:03:784.37 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256270859718
+[INFO ]  2021-03-05 18:03:796.37 com.example.demo.admin_bot.service.MainService - TIME: 12.0
+[INFO ]  2021-03-05 18:03:315.39 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254471459782
+[INFO ]  2021-03-05 18:03:321.39 com.example.demo.admin_bot.service.MainService - TIME: 6.0
+[INFO ]  2021-03-05 18:03:423.40 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256744946867
+[INFO ]  2021-03-05 18:03:437.40 com.example.demo.admin_bot.service.MainService - TIME: 14.0
+[INFO ]  2021-03-05 18:03:876.41 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256270213061
+[INFO ]  2021-03-05 18:03:881.41 com.example.demo.admin_bot.service.MainService - TIME: 5.0
+[INFO ]  2021-03-05 18:03:993.42 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253836959853
+[INFO ]  2021-03-05 18:03:09.43 com.example.demo.admin_bot.service.MainService - TIME: 16.0
+[INFO ]  2021-03-05 18:03:366.44 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254236732515
+[INFO ]  2021-03-05 18:03:375.44 com.example.demo.admin_bot.service.MainService - TIME: 9.0
+[INFO ]  2021-03-05 18:03:721.45 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254247151693
+[INFO ]  2021-03-05 18:03:733.45 com.example.demo.admin_bot.service.MainService - TIME: 12.0
+[INFO ]  2021-03-05 18:03:830.47 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253820918021
+[INFO ]  2021-03-05 18:03:836.47 com.example.demo.admin_bot.service.MainService - TIME: 6.0
+[INFO ]  2021-03-05 18:03:933.48 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256777438617
+[INFO ]  2021-03-05 18:03:939.48 com.example.demo.admin_bot.service.MainService - TIME: 6.0
+[INFO ]  2021-03-05 18:03:937.02 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254944678508
+[INFO ]  2021-03-05 18:03:943.02 com.example.demo.admin_bot.service.MainService - TIME: 6.0
+[INFO ]  2021-03-05 18:03:06.04 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253650983557
+[INFO ]  2021-03-05 18:03:16.04 com.example.demo.admin_bot.service.MainService - TIME: 10.0
+[INFO ]  2021-03-05 18:03:329.11 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256135493427
+[INFO ]  2021-03-05 18:03:336.11 com.example.demo.admin_bot.service.MainService - TIME: 7.0
+[INFO ]  2021-03-05 18:03:690.12 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256046536640
+[INFO ]  2021-03-05 18:03:700.12 com.example.demo.admin_bot.service.MainService - TIME: 10.0
+[INFO ]  2021-03-05 18:03:910.23 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-05 18:03:915.23 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-05 18:03:931.23 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@752a4fd6.
+For admin: 17
+[INFO ]  2021-03-05 18:03:932.23 com.example.demo.admin_bot.service.MainService - TIME: 22.0
+[INFO ]  2021-03-05 18:03:438.49 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 18:03:478.49 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 18:03:559.49 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 18:03:602.49 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 18:03:914.22 com.example.demo.admin_bot.service.MainService - MESSAGE: dsfs
+[INFO ]  2021-03-05 18:03:16.23 com.example.demo.admin_bot.service.MainService - TIME: 100.0
+[INFO ]  2021-03-05 18:03:573.28 com.example.demo.admin_bot.service.MainService - MESSAGE: /admin 1234
+[INFO ]  2021-03-05 18:03:681.28 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 18:03:805.28 com.example.demo.admin_bot.service.MainService - TIME: 232.0
+[INFO ]  2021-03-05 18:03:302.33 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-05 18:03:337.33 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-05 18:03:404.33 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@12bd1e11.
+For admin: 18
+[INFO ]  2021-03-05 18:03:405.33 com.example.demo.admin_bot.service.MainService - TIME: 103.0
+[INFO ]  2021-03-05 18:03:227.35 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (продажа)
+[INFO ]  2021-03-05 18:03:236.35 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddBuyFlatButton
+[INFO ]  2021-03-05 18:03:272.35 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@70a33fc0.
+For admin: 18
+[INFO ]  2021-03-05 18:03:273.35 com.example.demo.admin_bot.service.MainService - TIME: 46.0
+[INFO ]  2021-03-05 18:03:752.36 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255690819811
+[INFO ]  2021-03-05 18:03:772.36 com.example.demo.admin_bot.service.MainService - TIME: 21.0
+[INFO ]  2021-03-05 18:03:846.37 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254559507519
+[INFO ]  2021-03-05 18:03:869.37 com.example.demo.admin_bot.service.MainService - TIME: 23.0
+[INFO ]  2021-03-05 18:03:181.39 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256270319640
+[INFO ]  2021-03-05 18:03:197.39 com.example.demo.admin_bot.service.MainService - TIME: 16.0
+[INFO ]  2021-03-05 18:03:891.39 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253102347439
+[INFO ]  2021-03-05 18:03:901.39 com.example.demo.admin_bot.service.MainService - TIME: 10.0
+[INFO ]  2021-03-05 18:03:16.41 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254362251819
+[INFO ]  2021-03-05 18:03:39.41 com.example.demo.admin_bot.service.MainService - TIME: 23.0
+[INFO ]  2021-03-05 18:03:234.42 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254448296680
+[INFO ]  2021-03-05 18:03:256.42 com.example.demo.admin_bot.service.MainService - TIME: 22.0
+[INFO ]  2021-03-05 18:03:67.49 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-05 18:03:74.49 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-05 18:03:114.49 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@11d09266.
+For admin: 18
+[INFO ]  2021-03-05 18:03:116.49 com.example.demo.admin_bot.service.MainService - TIME: 49.0
+[INFO ]  2021-03-05 18:03:670.51 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256565109147
+[INFO ]  2021-03-05 18:03:676.51 com.example.demo.admin_bot.service.MainService - TIME: 6.0
+[INFO ]  2021-03-05 18:03:930.52 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253842070114
+[INFO ]  2021-03-05 18:03:945.52 com.example.demo.admin_bot.service.MainService - TIME: 15.0
+[INFO ]  2021-03-05 18:03:225.55 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254321043840
+[INFO ]  2021-03-05 18:03:231.55 com.example.demo.admin_bot.service.MainService - TIME: 6.0
+[INFO ]  2021-03-05 18:03:539.56 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253625230555
+[INFO ]  2021-03-05 18:03:556.56 com.example.demo.admin_bot.service.MainService - TIME: 17.0
+[INFO ]  2021-03-05 18:03:274.10 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 18:03:300.10 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 18:03:350.10 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 18:03:385.10 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 18:03:850.17 com.example.demo.admin_bot.service.MainService - MESSAGE: ывлапжыл
+[INFO ]  2021-03-05 18:03:964.17 com.example.demo.admin_bot.service.MainService - TIME: 112.0
+[INFO ]  2021-03-05 18:03:622.24 com.example.demo.admin_bot.service.MainService - MESSAGE: /admin 1234
+[INFO ]  2021-03-05 18:03:739.24 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 18:03:867.24 com.example.demo.admin_bot.service.MainService - TIME: 245.0
+[INFO ]  2021-03-05 18:03:695.27 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-05 18:03:725.27 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-05 18:03:787.27 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@45cf796.
+For admin: 19
+[INFO ]  2021-03-05 18:03:787.27 com.example.demo.admin_bot.service.MainService - TIME: 93.0
+[INFO ]  2021-03-05 18:03:687.30 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-05 18:03:697.30 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-05 18:03:729.30 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@766a37a5.
+For admin: 19
+[INFO ]  2021-03-05 18:03:730.30 com.example.demo.admin_bot.service.MainService - TIME: 42.0
+[INFO ]  2021-03-05 18:03:80.42 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (продажа)
+[INFO ]  2021-03-05 18:03:91.42 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddBuyFlatButton
+[INFO ]  2021-03-05 18:03:126.42 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@3c45342e.
+For admin: 19
+[INFO ]  2021-03-05 18:03:127.42 com.example.demo.admin_bot.service.MainService - TIME: 47.0
+[INFO ]  2021-03-05 18:03:869.42 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-05 18:03:876.42 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-05 18:03:909.42 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@31d9a3b5.
+For admin: 19
+[INFO ]  2021-03-05 18:03:910.42 com.example.demo.admin_bot.service.MainService - TIME: 41.0
+[INFO ]  2021-03-05 18:03:657.43 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (продажа)
+[INFO ]  2021-03-05 18:03:664.43 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddBuyFlatButton
+[INFO ]  2021-03-05 18:03:696.43 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@e49cec7.
+For admin: 19
+[INFO ]  2021-03-05 18:03:697.43 com.example.demo.admin_bot.service.MainService - TIME: 40.0
+[INFO ]  2021-03-05 18:03:549.49 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (продажа)
+[INFO ]  2021-03-05 18:03:557.49 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddBuyFlatButton
+[INFO ]  2021-03-05 18:03:580.49 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@147db736.
+For admin: 19
+[INFO ]  2021-03-05 18:03:581.49 com.example.demo.admin_bot.service.MainService - TIME: 32.0
+[INFO ]  2021-03-05 18:03:755.50 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-05 18:03:761.50 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-05 18:03:790.50 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@6a0e8509.
+For admin: 19
+[INFO ]  2021-03-05 18:03:791.50 com.example.demo.admin_bot.service.MainService - TIME: 36.0
+[INFO ]  2021-03-05 18:03:822.51 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (продажа)
+[INFO ]  2021-03-05 18:03:828.51 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddBuyFlatButton
+[INFO ]  2021-03-05 18:03:852.51 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@4eb35fb0.
+For admin: 19
+[INFO ]  2021-03-05 18:03:853.51 com.example.demo.admin_bot.service.MainService - TIME: 30.0
+[INFO ]  2021-03-05 18:03:454.53 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-05 18:03:464.53 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-05 18:03:487.53 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@602eb681.
+For admin: 19
+[INFO ]  2021-03-05 18:03:488.53 com.example.demo.admin_bot.service.MainService - TIME: 34.0
+[INFO ]  2021-03-05 18:03:573.54 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-05 18:03:581.54 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-05 18:03:603.54 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@21d0ff85.
+For admin: 19
+[INFO ]  2021-03-05 18:03:603.54 com.example.demo.admin_bot.service.MainService - TIME: 30.0
+[INFO ]  2021-03-05 18:03:914.00 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256829210019
+[INFO ]  2021-03-05 18:03:930.00 com.example.demo.admin_bot.service.MainService - TIME: 16.0
+[INFO ]  2021-03-05 18:03:130.03 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-05 18:03:135.03 com.example.demo.admin_bot.service.MainService - TIME: 5.0
+[INFO ]  2021-03-05 18:03:436.07 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (продажа)
+[INFO ]  2021-03-05 18:03:441.07 com.example.demo.admin_bot.service.MainService - TIME: 5.0
+[INFO ]  2021-03-05 18:03:731.08 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-05 18:03:738.08 com.example.demo.admin_bot.service.MainService - TIME: 7.0
+[INFO ]  2021-03-05 18:03:377.09 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254876839262
+[INFO ]  2021-03-05 18:03:394.09 com.example.demo.admin_bot.service.MainService - TIME: 17.0
+[INFO ]  2021-03-05 18:03:360.12 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253990393572
+[INFO ]  2021-03-05 18:03:379.12 com.example.demo.admin_bot.service.MainService - TIME: 19.0
+[INFO ]  2021-03-05 18:03:682.14 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254310166711
+[INFO ]  2021-03-05 18:03:689.14 com.example.demo.admin_bot.service.MainService - TIME: 8.0
+[INFO ]  2021-03-05 18:03:397.53 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 18:03:430.53 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 18:03:503.53 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 18:03:552.53 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 18:03:535.05 com.example.demo.admin_bot.service.MainService - MESSAGE: /admin 1234
+[INFO ]  2021-03-05 18:03:741.05 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 18:03:874.05 com.example.demo.admin_bot.service.MainService - TIME: 338.0
+[INFO ]  2021-03-05 18:03:506.07 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-05 18:03:546.07 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-05 18:03:607.07 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@3f04d5be.
+For admin: 20
+[INFO ]  2021-03-05 18:03:610.07 com.example.demo.admin_bot.service.MainService - TIME: 104.0
+[INFO ]  2021-03-05 18:03:338.10 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (продажа)
+[INFO ]  2021-03-05 18:03:348.10 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddBuyFlatButton
+[INFO ]  2021-03-05 18:03:387.10 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@65d37ee2.
+For admin: 20
+[INFO ]  2021-03-05 18:03:388.10 com.example.demo.admin_bot.service.MainService - TIME: 50.0
+[INFO ]  2021-03-05 18:03:970.11 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-05 18:03:982.11 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-05 18:03:13.12 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@37a89b16.
+For admin: 20
+[INFO ]  2021-03-05 18:03:14.12 com.example.demo.admin_bot.service.MainService - TIME: 44.0
+[INFO ]  2021-03-05 18:03:949.17 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253206720769
+[INFO ]  2021-03-05 18:03:977.17 com.example.demo.admin_bot.service.MainService - TIME: 29.0
+[INFO ]  2021-03-05 18:03:657.19 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256437498094
+[INFO ]  2021-03-05 18:03:667.19 com.example.demo.admin_bot.service.MainService - TIME: 10.0
+[INFO ]  2021-03-05 18:03:701.24 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255505626952
+[INFO ]  2021-03-05 18:03:714.24 com.example.demo.admin_bot.service.MainService - TIME: 13.0
+[INFO ]  2021-03-05 18:03:820.03 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253065722349
+[INFO ]  2021-03-05 18:03:830.03 com.example.demo.admin_bot.service.MainService - TIME: 10.0
+[INFO ]  2021-03-05 18:03:529.05 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255141120620
+[INFO ]  2021-03-05 18:03:536.05 com.example.demo.admin_bot.service.MainService - TIME: 7.0
+[INFO ]  2021-03-05 18:03:684.08 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253794566742
+[INFO ]  2021-03-05 18:03:697.08 com.example.demo.admin_bot.service.MainService - TIME: 13.0
+[INFO ]  2021-03-05 18:03:124.13 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032252840203659
+[INFO ]  2021-03-05 18:03:141.13 com.example.demo.admin_bot.service.MainService - TIME: 17.0
+[INFO ]  2021-03-05 18:03:323.35 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256205864294
+[INFO ]  2021-03-05 18:03:338.35 com.example.demo.admin_bot.service.MainService - TIME: 15.0
+[INFO ]  2021-03-05 18:03:945.36 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255447888505
+[INFO ]  2021-03-05 18:03:953.36 com.example.demo.admin_bot.service.MainService - TIME: 8.0
+[INFO ]  2021-03-05 18:03:102.43 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-05 18:03:110.43 com.example.demo.admin_bot.service.MainService - TIME: 8.0
+[INFO ]  2021-03-05 18:03:799.44 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (продажа)
+[INFO ]  2021-03-05 18:03:804.44 com.example.demo.admin_bot.service.MainService - TIME: 5.0
+[INFO ]  2021-03-05 18:03:787.01 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 18:03:821.01 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 18:03:884.01 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 18:03:932.01 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 18:03:942.41 com.example.demo.admin_bot.service.MainService - MESSAGE: /admin 1234
+[INFO ]  2021-03-05 18:03:166.42 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 18:03:295.42 com.example.demo.admin_bot.service.MainService - TIME: 352.0
+[INFO ]  2021-03-05 18:03:472.44 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-05 18:03:506.44 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-05 18:03:574.44 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@7d9f5a8b.
+For admin: 21
+[INFO ]  2021-03-05 18:03:575.44 com.example.demo.admin_bot.service.MainService - TIME: 103.0
+[INFO ]  2021-03-05 18:03:950.45 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (продажа)
+[INFO ]  2021-03-05 18:03:960.45 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddBuyFlatButton
+[INFO ]  2021-03-05 18:03:990.45 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@45ffc2c1.
+For admin: 21
+[INFO ]  2021-03-05 18:03:991.45 com.example.demo.admin_bot.service.MainService - TIME: 41.0
+[INFO ]  2021-03-05 18:03:900.48 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255982338031
+[INFO ]  2021-03-05 18:03:928.48 com.example.demo.admin_bot.service.MainService - TIME: 28.0
+[INFO ]  2021-03-05 18:03:288.51 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253491969882
+[INFO ]  2021-03-05 18:03:308.51 com.example.demo.admin_bot.service.MainService - TIME: 19.0
+[INFO ]  2021-03-05 18:03:36.53 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256762667320
+[INFO ]  2021-03-05 18:03:46.53 com.example.demo.admin_bot.service.MainService - TIME: 10.0
+[INFO ]  2021-03-05 18:03:890.59 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 18:03:918.59 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 18:03:973.59 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 18:03:21.00 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 18:03:128.16 com.example.demo.admin_bot.service.MainService - MESSAGE: fed
+[INFO ]  2021-03-05 18:03:227.16 com.example.demo.admin_bot.service.MainService - TIME: 98.0
+[INFO ]  2021-03-05 18:03:416.21 com.example.demo.admin_bot.service.MainService - MESSAGE: /admin 1234
+[INFO ]  2021-03-05 18:03:537.21 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 18:03:730.21 com.example.demo.admin_bot.service.MainService - TIME: 314.0
+[INFO ]  2021-03-05 18:03:15.23 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-05 18:03:50.23 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-05 18:03:124.23 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@5ee709ab.
+For admin: 22
+[INFO ]  2021-03-05 18:03:125.23 com.example.demo.admin_bot.service.MainService - TIME: 110.0
+[INFO ]  2021-03-05 18:03:802.24 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256857408814
+[INFO ]  2021-03-05 18:03:820.24 com.example.demo.admin_bot.service.MainService - TIME: 19.0
+[INFO ]  2021-03-05 18:03:116.26 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253430464444
+[INFO ]  2021-03-05 18:03:146.26 com.example.demo.admin_bot.service.MainService - TIME: 30.0
+[INFO ]  2021-03-05 18:03:935.28 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (продажа)
+[INFO ]  2021-03-05 18:03:951.28 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddBuyFlatButton
+[INFO ]  2021-03-05 18:03:987.28 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@56061e48.
+For admin: 22
+[INFO ]  2021-03-05 18:03:988.28 com.example.demo.admin_bot.service.MainService - TIME: 53.0
+[INFO ]  2021-03-05 18:03:590.58 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 18:03:625.58 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 18:03:688.58 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 18:03:735.58 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 18:03:160.03 com.example.demo.admin_bot.service.MainService - MESSAGE: 5456
+[INFO ]  2021-03-05 18:03:409.03 com.example.demo.admin_bot.service.MainService - TIME: 247.0
+[INFO ]  2021-03-05 18:03:578.07 com.example.demo.admin_bot.service.MainService - MESSAGE: fedaswfed
+[INFO ]  2021-03-05 18:03:583.07 com.example.demo.admin_bot.service.MainService - TIME: 5.0
+[INFO ]  2021-03-05 18:03:844.53 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 18:03:874.53 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 18:03:922.53 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 18:03:959.53 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 18:03:98.44 com.example.demo.admin_bot.service.MainService - MESSAGE: rdfga
+[INFO ]  2021-03-05 18:03:200.44 com.example.demo.admin_bot.service.MainService - TIME: 102.0
+[INFO ]  2021-03-05 18:03:915.46 com.example.demo.admin_bot.service.MainService - MESSAGE: sfvgrs
+[INFO ]  2021-03-05 18:03:926.46 com.example.demo.admin_bot.service.MainService - TIME: 11.0
+[INFO ]  2021-03-05 18:03:743.49 com.example.demo.admin_bot.service.MainService - MESSAGE: /admin 1234
+[INFO ]  2021-03-05 18:03:861.49 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 18:03:994.49 com.example.demo.admin_bot.service.MainService - TIME: 251.0
+[INFO ]  2021-03-05 18:03:201.28 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 18:03:230.28 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 18:03:293.28 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 18:03:340.28 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 18:03:375.11 com.example.demo.admin_bot.service.MainService - MESSAGE: dfgh
+[INFO ]  2021-03-05 18:03:487.11 com.example.demo.admin_bot.service.MainService - TIME: 110.0
+[INFO ]  2021-03-05 18:03:495.12 com.example.demo.admin_bot.service.MainService - MESSAGE: weagfar
+[INFO ]  2021-03-05 18:03:500.12 com.example.demo.admin_bot.service.MainService - TIME: 6.0
+[INFO ]  2021-03-05 18:03:319.15 com.example.demo.admin_bot.service.MainService - MESSAGE: /admin 1234
+[INFO ]  2021-03-05 18:03:440.15 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 18:03:573.15 com.example.demo.admin_bot.service.MainService - TIME: 255.0
+[INFO ]  2021-03-05 18:03:105.23 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-05 18:03:138.23 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-05 18:03:255.23 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@49626269.
+For admin: 24
+[INFO ]  2021-03-05 18:03:256.23 com.example.demo.admin_bot.service.MainService - TIME: 151.0
+[INFO ]  2021-03-05 18:03:245.25 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (продажа)
+[INFO ]  2021-03-05 18:03:257.25 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddBuyFlatButton
+[INFO ]  2021-03-05 18:03:292.25 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@3fb56149.
+For admin: 24
+[INFO ]  2021-03-05 18:03:294.25 com.example.demo.admin_bot.service.MainService - TIME: 49.0
+[INFO ]  2021-03-05 18:03:378.57 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255687933746
+[INFO ]  2021-03-05 18:03:405.57 com.example.demo.admin_bot.service.MainService - TIME: 28.0
+[INFO ]  2021-03-05 18:03:285.59 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253069015137
+[INFO ]  2021-03-05 18:03:306.59 com.example.demo.admin_bot.service.MainService - TIME: 21.0
+[INFO ]  2021-03-05 18:03:473.00 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253548036538
+[INFO ]  2021-03-05 18:03:481.00 com.example.demo.admin_bot.service.MainService - TIME: 8.0
+[INFO ]  2021-03-05 18:03:601.05 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253592189292
+[INFO ]  2021-03-05 18:03:608.05 com.example.demo.admin_bot.service.MainService - TIME: 8.0
+[INFO ]  2021-03-05 18:03:951.19 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 18:03:978.19 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 18:03:28.20 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 18:03:79.20 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 18:03:322.03 com.example.demo.admin_bot.service.MainService - MESSAGE: ывапы
+[INFO ]  2021-03-05 18:03:436.03 com.example.demo.admin_bot.service.MainService - TIME: 113.0
+[INFO ]  2021-03-05 18:03:937.04 com.example.demo.admin_bot.service.MainService - MESSAGE: акц
+[INFO ]  2021-03-05 18:03:943.04 com.example.demo.admin_bot.service.MainService - TIME: 6.0
+[INFO ]  2021-03-05 18:03:824.09 com.example.demo.admin_bot.service.MainService - MESSAGE: цапкцу
+[INFO ]  2021-03-05 18:03:829.09 com.example.demo.admin_bot.service.MainService - TIME: 5.0
+[INFO ]  2021-03-05 18:03:372.17 com.example.demo.admin_bot.service.MainService - MESSAGE: /admin 1234
+[INFO ]  2021-03-05 18:03:473.17 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 18:03:657.17 com.example.demo.admin_bot.service.MainService - TIME: 285.0
+[INFO ]  2021-03-05 19:03:379.35 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-05 19:03:410.35 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-05 19:03:464.35 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@33ae96be.
+For admin: 25
+[INFO ]  2021-03-05 19:03:465.35 com.example.demo.admin_bot.service.MainService - TIME: 86.0
+[INFO ]  2021-03-05 19:03:568.37 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255348254569
+[INFO ]  2021-03-05 19:03:592.37 com.example.demo.admin_bot.service.MainService - TIME: 25.0
+[INFO ]  2021-03-05 19:03:194.39 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256544778092
+[INFO ]  2021-03-05 19:03:212.39 com.example.demo.admin_bot.service.MainService - TIME: 18.0
+[INFO ]  2021-03-05 19:03:377.40 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256857866167
+[INFO ]  2021-03-05 19:03:397.40 com.example.demo.admin_bot.service.MainService - TIME: 19.0
+[INFO ]  2021-03-05 19:03:719.43 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (продажа)
+[INFO ]  2021-03-05 19:03:726.43 com.example.demo.admin_bot.service.MainService - TIME: 7.0
+[INFO ]  2021-03-05 19:03:306.46 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-05 19:03:315.46 com.example.demo.admin_bot.service.MainService - TIME: 9.0
+[INFO ]  2021-03-05 19:03:478.47 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (продажа)
+[INFO ]  2021-03-05 19:03:486.47 com.example.demo.admin_bot.service.MainService - TIME: 9.0
+[INFO ]  2021-03-05 19:03:294.48 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-05 19:03:301.48 com.example.demo.admin_bot.service.MainService - TIME: 8.0
+[INFO ]  2021-03-05 19:03:562.49 com.example.demo.admin_bot.service.MainService - MESSAGE: edfwef
+[INFO ]  2021-03-05 19:03:570.49 com.example.demo.admin_bot.service.MainService - TIME: 8.0
+[INFO ]  2021-03-05 19:03:68.51 com.example.demo.admin_bot.service.MainService - MESSAGE: wgfwr
+[INFO ]  2021-03-05 19:03:73.51 com.example.demo.admin_bot.service.MainService - TIME: 5.0
+[INFO ]  2021-03-05 19:03:287.52 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-05 19:03:295.52 com.example.demo.admin_bot.service.MainService - TIME: 9.0
+[INFO ]  2021-03-05 19:03:286.16 com.example.demo.admin_bot.service.MainService - MESSAGE: ывапык
+[INFO ]  2021-03-05 19:03:293.16 com.example.demo.admin_bot.service.MainService - TIME: 7.0
+[INFO ]  2021-03-05 19:03:247.22 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-05 19:03:251.22 com.example.demo.admin_bot.service.MainService - TIME: 4.0
+[INFO ]  2021-03-05 19:03:653.27 com.example.demo.admin_bot.service.MainService - MESSAGE: /admin 1234
+[INFO ]  2021-03-05 19:03:668.27 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 19:03:669.27 com.example.demo.admin_bot.service.MainService - TIME: 16.0
+[INFO ]  2021-03-05 19:03:898.33 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-05 19:03:907.33 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-05 19:03:935.33 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@47f9ee85.
+For admin: 26
+[INFO ]  2021-03-05 19:03:935.33 com.example.demo.admin_bot.service.MainService - TIME: 37.0
+[INFO ]  2021-03-05 19:03:341.35 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (продажа)
+[INFO ]  2021-03-05 19:03:347.35 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddBuyFlatButton
+[INFO ]  2021-03-05 19:03:377.35 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@4ae67678.
+For admin: 26
+[INFO ]  2021-03-05 19:03:379.35 com.example.demo.admin_bot.service.MainService - TIME: 38.0
+[INFO ]  2021-03-05 19:03:420.37 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-05 19:03:428.37 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-05 19:03:450.37 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@12b8e8a1.
+For admin: 26
+[INFO ]  2021-03-05 19:03:450.37 com.example.demo.admin_bot.service.MainService - TIME: 30.0
+[INFO ]  2021-03-05 19:03:422.40 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256076907043
+[INFO ]  2021-03-05 19:03:443.40 com.example.demo.admin_bot.service.MainService - TIME: 21.0
+[INFO ]  2021-03-05 19:03:485.41 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255030676350
+[INFO ]  2021-03-05 19:03:498.41 com.example.demo.admin_bot.service.MainService - TIME: 13.0
+[INFO ]  2021-03-05 19:03:222.43 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256117782650
+[INFO ]  2021-03-05 19:03:231.43 com.example.demo.admin_bot.service.MainService - TIME: 9.0
+[INFO ]  2021-03-05 19:03:360.46 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253153176651
+[INFO ]  2021-03-05 19:03:369.46 com.example.demo.admin_bot.service.MainService - TIME: 9.0
+[INFO ]  2021-03-05 19:03:762.48 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032252879994122
+[INFO ]  2021-03-05 19:03:772.48 com.example.demo.admin_bot.service.MainService - TIME: 10.0
+[INFO ]  2021-03-05 19:03:69.50 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032252814759689
+[INFO ]  2021-03-05 19:03:80.50 com.example.demo.admin_bot.service.MainService - TIME: 11.0
+[INFO ]  2021-03-05 19:03:795.51 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253118911628
+[INFO ]  2021-03-05 19:03:802.51 com.example.demo.admin_bot.service.MainService - TIME: 7.0
+[INFO ]  2021-03-05 19:03:648.55 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 19:03:682.55 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 19:03:745.55 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 19:03:794.55 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 19:03:334.14 com.example.demo.admin_bot.service.MainService - MESSAGE: 15156
+[INFO ]  2021-03-05 19:03:447.14 com.example.demo.admin_bot.service.MainService - TIME: 111.0
+[INFO ]  2021-03-05 19:03:763.27 com.example.demo.admin_bot.service.MainService - MESSAGE: /admin 1234
+[INFO ]  2021-03-05 19:03:863.27 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 19:03:991.27 com.example.demo.admin_bot.service.MainService - TIME: 228.0
+[INFO ]  2021-03-05 19:03:145.30 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-05 19:03:235.30 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-05 19:03:299.30 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@16b63bb0.
+For admin: 27
+[INFO ]  2021-03-05 19:03:301.30 com.example.demo.admin_bot.service.MainService - TIME: 156.0
+[INFO ]  2021-03-05 19:03:307.32 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253340663112
+[INFO ]  2021-03-05 19:03:327.32 com.example.demo.admin_bot.service.MainService - TIME: 21.0
+[INFO ]  2021-03-05 19:03:765.34 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (продажа)
+[INFO ]  2021-03-05 19:03:776.34 com.example.demo.admin_bot.service.MainService - TIME: 11.0
+[INFO ]  2021-03-05 19:03:241.36 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-05 19:03:254.36 com.example.demo.admin_bot.service.MainService - TIME: 13.0
+[INFO ]  2021-03-05 19:03:403.04 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-05 19:03:414.04 com.example.demo.admin_bot.service.MainService - TIME: 11.0
+[INFO ]  2021-03-05 19:03:498.59 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-05 19:03:532.59 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-05 19:03:594.59 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-05 19:03:643.59 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-05 19:03:714.27 com.example.demo.admin_bot.service.MainService - MESSAGE: wsefgw
+[INFO ]  2021-03-05 19:03:11.28 com.example.demo.admin_bot.service.MainService - TIME: 287.0
+[INFO ]  2021-03-05 19:03:737.39 com.example.demo.admin_bot.service.MainService - MESSAGE: agfwr
+[INFO ]  2021-03-05 19:03:745.39 com.example.demo.admin_bot.service.MainService - TIME: 8.0
+[INFO ]  2021-03-05 19:03:37.24 com.example.demo.admin_bot.service.MainService - MESSAGE: wefw
+[INFO ]  2021-03-05 19:03:44.24 com.example.demo.admin_bot.service.MainService - TIME: 7.0
+[INFO ]  2021-03-05 19:03:779.29 com.example.demo.admin_bot.service.MainService - MESSAGE: /admin 1234
+[INFO ]  2021-03-05 19:03:874.29 com.example.demo.admin_bot.service.handler.MessageHandlerService - New admin: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-05 19:03:876.29 com.example.demo.admin_bot.service.MainService - TIME: 97.0
+[INFO ]  2021-03-05 19:03:698.33 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-05 19:03:706.33 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-05 19:03:767.33 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@37fa6c4c.
+For admin: 28
+[INFO ]  2021-03-05 19:03:768.33 com.example.demo.admin_bot.service.MainService - TIME: 70.0
+[INFO ]  2021-03-05 19:03:164.37 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (продажа)
+[INFO ]  2021-03-05 19:03:172.37 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddBuyFlatButton
+[INFO ]  2021-03-05 19:03:200.37 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@4f3ab37f.
+For admin: 28
+[INFO ]  2021-03-05 19:03:201.37 com.example.demo.admin_bot.service.MainService - TIME: 37.0
+[INFO ]  2021-03-05 19:03:460.39 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256916925900
+[INFO ]  2021-03-05 19:03:486.39 com.example.demo.admin_bot.service.MainService - TIME: 26.0
+[INFO ]  2021-03-05 19:03:594.45 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256221835560
+[INFO ]  2021-03-05 19:03:603.45 com.example.demo.admin_bot.service.MainService - TIME: 9.0
+[INFO ]  2021-03-05 19:03:20.48 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254951673618
+[INFO ]  2021-03-05 19:03:29.48 com.example.demo.admin_bot.service.MainService - TIME: 9.0
+[INFO ]  2021-03-05 19:03:886.53 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253496018014
+[INFO ]  2021-03-05 19:03:916.53 com.example.demo.admin_bot.service.MainService - TIME: 30.0
+[INFO ]  2021-03-05 19:03:81.56 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-05 19:03:89.56 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-05 19:03:112.56 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@76ba8452.
+For admin: 28
+[INFO ]  2021-03-05 19:03:112.56 com.example.demo.admin_bot.service.MainService - TIME: 31.0
+[INFO ]  2021-03-05 19:03:158.58 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (продажа)
+[INFO ]  2021-03-05 19:03:170.58 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddBuyFlatButton
+[INFO ]  2021-03-05 19:03:196.58 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@45847112.
+For admin: 28
+[INFO ]  2021-03-05 19:03:197.58 com.example.demo.admin_bot.service.MainService - TIME: 39.0
+[INFO ]  2021-03-05 19:03:653.59 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256232038349
+[INFO ]  2021-03-05 19:03:666.59 com.example.demo.admin_bot.service.MainService - TIME: 13.0
+[INFO ]  2021-03-05 19:03:732.01 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254710663996
+[INFO ]  2021-03-05 19:03:739.01 com.example.demo.admin_bot.service.MainService - TIME: 7.0
+[INFO ]  2021-03-05 19:03:408.12 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032252888929559
+[INFO ]  2021-03-05 19:03:424.12 com.example.demo.admin_bot.service.MainService - TIME: 16.0
+[INFO ]  2021-03-05 19:03:609.29 com.example.demo.admin_bot.service.MainService - MESSAGE: rhsrehseh
+[INFO ]  2021-03-05 19:03:619.29 com.example.demo.admin_bot.service.MainService - TIME: 10.0
+[INFO ]  2021-03-05 19:03:46.31 com.example.demo.admin_bot.service.MainService - MESSAGE: awerhy
+[INFO ]  2021-03-05 19:03:54.31 com.example.demo.admin_bot.service.MainService - TIME: 8.0
+[INFO ]  2021-03-05 19:03:483.33 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (продажа)
+[INFO ]  2021-03-05 19:03:490.33 com.example.demo.admin_bot.service.MainService - TIME: 7.0
+[INFO ]  2021-03-05 19:03:49.37 com.example.demo.admin_bot.service.MainService - MESSAGE: ryju
+[INFO ]  2021-03-05 19:03:55.37 com.example.demo.admin_bot.service.MainService - TIME: 6.0
+[INFO ]  2021-03-05 19:03:577.38 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-05 19:03:582.38 com.example.demo.admin_bot.service.MainService - TIME: 5.0
+[INFO ]  2021-03-05 19:03:04.40 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255759900384
+[INFO ]  2021-03-05 19:03:28.40 com.example.demo.admin_bot.service.MainService - TIME: 24.0
+[INFO ]  2021-03-05 19:03:254.42 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (продажа)
+[INFO ]  2021-03-05 19:03:263.42 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddBuyFlatButton
+[INFO ]  2021-03-05 19:03:283.42 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@6dd10616.
+For admin: 28
+[INFO ]  2021-03-05 19:03:285.42 com.example.demo.admin_bot.service.MainService - TIME: 31.0
+[INFO ]  2021-03-05 19:03:347.44 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253662087487
+[INFO ]  2021-03-05 19:03:361.44 com.example.demo.admin_bot.service.MainService - TIME: 14.0
+[INFO ]  2021-03-05 19:03:665.45 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255169474432
+[INFO ]  2021-03-05 19:03:677.45 com.example.demo.admin_bot.service.MainService - TIME: 12.0
+[INFO ]  2021-03-05 19:03:454.39 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-05 19:03:461.39 com.example.demo.admin_bot.service.MainService - TIME: 7.0
+[INFO ]  2021-03-05 19:03:607.30 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255086687872
+[INFO ]  2021-03-05 19:03:626.30 com.example.demo.admin_bot.service.MainService - TIME: 19.0
+[INFO ]  2021-03-05 19:03:186.32 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256006435956
+[INFO ]  2021-03-05 19:03:209.32 com.example.demo.admin_bot.service.MainService - TIME: 23.0
+[INFO ]  2021-03-05 19:03:378.37 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (продажа)
+[INFO ]  2021-03-05 19:03:384.37 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddBuyFlatButton
+[INFO ]  2021-03-05 19:03:402.37 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@6cea74e6.
+For admin: 28
+[INFO ]  2021-03-05 19:03:402.37 com.example.demo.admin_bot.service.MainService - TIME: 24.0
+[INFO ]  2021-03-05 19:03:921.39 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255407669833
+[INFO ]  2021-03-05 19:03:936.39 com.example.demo.admin_bot.service.MainService - TIME: 15.0
+[INFO ]  2021-03-05 19:03:488.41 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253412910767
+[INFO ]  2021-03-05 19:03:508.41 com.example.demo.admin_bot.service.MainService - TIME: 20.0
