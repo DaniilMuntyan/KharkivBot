@@ -2,6 +2,7 @@ package com.example.demo.admin_bot.keyboards;
 
 import com.example.demo.admin_bot.constants.MenuVariables;
 import com.example.demo.admin_bot.utils.BeanUtil;
+import com.example.demo.admin_bot.utils.Emoji;
 import com.example.demo.model.AdminChoice;
 import lombok.Getter;
 import lombok.Setter;
@@ -103,31 +104,34 @@ public final class NewFlatMenu {
         return inlineKeyboardMarkup;
     }
 
+    // В зависимости от параметров объекта AdminChoice пишу текста на кнопках
     private List<String> getTexts() {
         List<String> texts = new ArrayList<>();
         String no = "нет";
-        texts.add(menuVariables.getAdminBtnRooms() + " " +
-                (adminChoice.getRooms() == null ? no : adminChoice.getRooms().toString().toLowerCase()));
-        texts.add(menuVariables.getAdminBtnSquare() + " " +
-                (adminChoice.getSquare() == null ? no : adminChoice.getSquare()));
-        texts.add(menuVariables.getAdminBtnFloor() + " " +
-                (adminChoice.getFloor() == null ? no : adminChoice.getFloor()));
-        texts.add(menuVariables.getAdminBtnAllFloor() + " " +
-                (adminChoice.getAllFloors() == null ? no : adminChoice.getAllFloors()));
-        texts.add(menuVariables.getAdminBtnMetro() + " " +
-                (adminChoice.getMetro() == null ? no : adminChoice.getMetro()));
-        texts.add(menuVariables.getAdminBtnAddress() + " " +
-                (adminChoice.getAddress() == null ? no : adminChoice.getAddress()));
-        texts.add(menuVariables.getAdminBtnDistrict() + " " +
-                (adminChoice.getDistrict() == null ? no : adminChoice.getDistrict()));
-        texts.add(menuVariables.getAdminBtnMoney() + " " +
-                (adminChoice.getMoney() == null ? no : adminChoice.getMoney()));
-        texts.add(menuVariables.getAdminBtnMoneyRange() + " " +
-                (adminChoice.getMoneyRange() == null ? no : adminChoice.getMoneyRange()));
-        texts.add(menuVariables.getAdminBtnTelegraph() + " " +
-                (adminChoice.getTelegraph() == null ? no : adminChoice.getTelegraph()));
-        texts.add(menuVariables.getAdminBtnInfo() + " " +
-                (adminChoice.getInfo() == null ? no : adminChoice.getInfo()));
+        String selected = Emoji.SELECTED.toString();
+        texts.add(adminChoice.getRooms() == null ? menuVariables.getAdminBtnRooms() + " " + no:
+                selected + " " + menuVariables.getAdminBtnRooms() + " " +
+                        adminChoice.getRooms().toString().toLowerCase());
+        texts.add(adminChoice.getSquare() == null ? menuVariables.getAdminBtnSquare() + " " + no:
+                selected + " " + menuVariables.getAdminBtnSquare() + " " + adminChoice.getSquare());
+        texts.add(adminChoice.getFloor() == null ? menuVariables.getAdminBtnFloor() + " " + no:
+                selected + " " + menuVariables.getAdminBtnFloor() + " " + adminChoice.getFloor());
+        texts.add(adminChoice.getAllFloors() == null ? menuVariables.getAdminBtnAllFloor() + " " + no:
+                selected + " " + menuVariables.getAdminBtnAllFloor() + " " + adminChoice.getAllFloors());
+        texts.add(adminChoice.getMetro() == null ? menuVariables.getAdminBtnMetro() + " " + no:
+                selected + " " + menuVariables.getAdminBtnMetro() + " " + adminChoice.getMetro());
+        texts.add(adminChoice.getAddress() == null ? menuVariables.getAdminBtnAddress() + " " + no:
+                selected + " " + menuVariables.getAdminBtnAddress() + " " + adminChoice.getAddress());
+        texts.add(adminChoice.getDistrict() == null ? menuVariables.getAdminBtnDistrict() + " " + no:
+                selected + " " + menuVariables.getAdminBtnDistrict() + " " + adminChoice.getDistrict());
+        texts.add(adminChoice.getMoney() == null ? menuVariables.getAdminBtnMoney() + " " + no:
+                selected + " " + menuVariables.getAdminBtnMoney() + " " + adminChoice.getMoney());
+        texts.add(adminChoice.getMoneyRange() == null ? menuVariables.getAdminBtnMoneyRange() + " " + no:
+                selected + " " + menuVariables.getAdminBtnMoneyRange() + " " + adminChoice.getMoneyRange());
+        texts.add(adminChoice.getTelegraph() == null ? menuVariables.getAdminBtnTelegraph() + " " + no:
+                selected + " " + menuVariables.getAdminBtnTelegraph() + " " + adminChoice.getTelegraph());
+        texts.add(adminChoice.getInfo() == null ? menuVariables.getAdminBtnInfo() + " " + no:
+                selected + " " + menuVariables.getAdminBtnInfo() + " " + adminChoice.getInfo());
         texts.add(menuVariables.getAdminBtnCancel());
         return texts;
     }

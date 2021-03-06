@@ -12,6 +12,7 @@ import javax.persistence.*;
 @Table(name="admin_choice", schema="public")
 @Entity
 public final class AdminChoice {
+
     @Id
     @SequenceGenerator(name = "CHOICE_SEQUENCE", sequenceName = "admin_choice_choice_id_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "CHOICE_SEQUENCE")
@@ -54,7 +55,7 @@ public final class AdminChoice {
     @Column(name="square")
     @Getter
     @Setter
-    private Double square;
+    private Float square;
 
     @Column(name="floor")
     @Getter

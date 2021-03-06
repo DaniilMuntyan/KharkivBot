@@ -48,7 +48,7 @@ public class RentalTelegramBot extends TelegramLongPollingBot {
     @Override
     public void onUpdateReceived(Update update) {
         RentFlat rentFlat = RentFlat.builder()
-                .square(25.0)
+                .square(25.0F)
                 .rooms(Rooms.ONE)
                 .address("Защитников Украины, ЖК Металлист, ул. Плехановская 92А")
                 .metro("м. Спортивная")
@@ -61,7 +61,7 @@ public class RentalTelegramBot extends TelegramLongPollingBot {
                 .info("Цена снижена!")
                 .build();
         RentFlat rentFlat2 = RentFlat.builder()
-                .square(58.)
+                .square(58.F)
                 .rooms(Rooms.GOSTINKA)
                 .address("Защитников Украины, ЖК Металлист, ул. Плехановская 92А")
                 .district(District.HOLODNAYA_GORA)

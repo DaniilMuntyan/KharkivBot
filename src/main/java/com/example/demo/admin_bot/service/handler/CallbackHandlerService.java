@@ -4,7 +4,8 @@ import com.example.demo.admin_bot.constants.MenuVariables;
 import com.example.demo.admin_bot.constants.MessagesVariables;
 import com.example.demo.admin_bot.service.AdminService;
 import com.example.demo.admin_bot.service.handler.admin_menu.AdminMenuCallbackHandlerService;
-import com.example.demo.admin_bot.service.handler.admin_menu.rooms.RoomsCallbackHandlerService;
+import com.example.demo.admin_bot.service.handler.admin_menu.submenu.CancelSubmenuHandler;
+import com.example.demo.admin_bot.service.handler.admin_menu.submenu.RoomsCallbackHandlerService;
 import com.example.demo.model.User;
 import com.example.demo.repo.UserRepository;
 import org.apache.log4j.Logger;
@@ -15,10 +16,7 @@ import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.DeleteMessage;
 import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public final class CallbackHandlerService {
@@ -31,15 +29,17 @@ public final class CallbackHandlerService {
 
     private final AdminMenuCallbackHandlerService adminMenuCallbackHandlerService;
     private final RoomsCallbackHandlerService roomsCallbackHandlerService;
+    private final CancelSubmenuHandler cancelSubmenuHandler;
 
     @Autowired
-    public CallbackHandlerService(AdminService adminService, UserRepository userRepository, MenuVariables menuVariables, MessagesVariables messagesVariables, AdminMenuCallbackHandlerService adminMenuCallbackHandlerService, RoomsCallbackHandlerService roomsCallbackHandlerService) {
+    public CallbackHandlerService(AdminService adminService, UserRepository userRepository, MenuVariables menuVariables, MessagesVariables messagesVariables, AdminMenuCallbackHandlerService adminMenuCallbackHandlerService, RoomsCallbackHandlerService roomsCallbackHandlerService, CancelSubmenuHandler cancelSubmenuHandler) {
         this.adminService = adminService;
         this.userRepository = userRepository;
         this.menuVariables = menuVariables;
         this.messagesVariables = messagesVariables;
         this.adminMenuCallbackHandlerService = adminMenuCallbackHandlerService;
         this.roomsCallbackHandlerService = roomsCallbackHandlerService;
+        this.cancelSubmenuHandler = cancelSubmenuHandler;
     }
 
     // Обработка callback'а
@@ -51,30 +51,31 @@ public final class CallbackHandlerService {
 
         Optional<User> user = userRepository.findByChatId(chatId);
 
-        BotApiMethod<?> response = null;
+        List<BotApiMethod<?>> response = new ArrayList<>();
 
         if(user.isPresent() && adminService.isAdmin(user.get())) { // Если админ
-            response = handleAdminCallback(callback, user.get());
+            response.addAll(handleAdminCallback(callback, user.get()));
         }
 
         // Если ответ - это кастомный AnswerCallbackQuery, то возвращаем только его
-        if (response instanceof AnswerCallbackQuery) {
+        if (response.size() == 1 && response.get(0) instanceof AnswerCallbackQuery) {
             // Если получили forbidden - удалить сообщение, потому что только одно меню может работать в этот момент времени
-            if (((AnswerCallbackQuery) response).getText().equals(messagesVariables.getAdminMenuForbidden())) {
+            if (((AnswerCallbackQuery) response.get(0)).getText().equals(messagesVariables.getAdminMenuForbidden())) {
                 DeleteMessage deleteMessage = new DeleteMessage();
                 deleteMessage.setChatId(chatId.toString());
                 deleteMessage.setMessageId(messageId);
-                return Arrays.asList(deleteMessage, response);
+
+                response.add(0, deleteMessage);
             }
-            return Collections.singletonList(response);
         } else {
-            return Arrays.asList(adminService.getAnswerCallback(callback), response);
+            response.add(0, adminService.getAnswerCallback(callback));
         }
+        return response;
     }
 
     // Callback пришел от админа
-    private BotApiMethod<?> handleAdminCallback(CallbackQuery callbackQuery, User admin) {
-        BotApiMethod<?> response = null;
+    private List<BotApiMethod<?>> handleAdminCallback(CallbackQuery callbackQuery, User admin) {
+        List<BotApiMethod<?>> response = new ArrayList<>();
 
         // Только одно меню может работать в данный момент времени.
         boolean forbidden = admin.getAdminChoice().getMenuMessageId() != null &&
@@ -84,15 +85,20 @@ public final class CallbackHandlerService {
             answerCallbackQuery.setCallbackQueryId(callbackQuery.getId());
             answerCallbackQuery.setShowAlert(true);
             answerCallbackQuery.setText(messagesVariables.getAdminMenuForbidden());
-            return answerCallbackQuery;
+            response.add(answerCallbackQuery);
+            return response;
+        }
+
+        if(callbackQuery.getData().startsWith("SUBMENU")) {
+            response.add(cancelSubmenuHandler.handleRoomCallback(callbackQuery, admin));
         }
 
         if(callbackQuery.getData().startsWith("ADMIN_MENU")) {
-            response = adminMenuCallbackHandlerService.handleAdminMenuCallback(callbackQuery, admin);
+            response.addAll(adminMenuCallbackHandlerService.handleAdminMenuCallback(callbackQuery, admin));
         }
 
         if(callbackQuery.getData().startsWith("ROOMS")) {
-            response = roomsCallbackHandlerService.handleRoomCallback(callbackQuery, admin);
+            response.add(roomsCallbackHandlerService.handleRoomCallback(callbackQuery, admin));
         }
 
         return response;

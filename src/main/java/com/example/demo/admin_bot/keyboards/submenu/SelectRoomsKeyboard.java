@@ -1,4 +1,4 @@
-package com.example.demo.admin_bot.keyboards;
+package com.example.demo.admin_bot.keyboards.submenu;
 
 import com.example.demo.admin_bot.constants.MenuVariables;
 import com.example.demo.admin_bot.utils.BeanUtil;
@@ -62,8 +62,8 @@ public final class SelectRoomsKeyboard {
                 .callbackData(menuVariables.getAdminBtnCallbackRoomsFour())
                 .build();
         InlineKeyboardButton buttonCancel = InlineKeyboardButton.builder()
-                .text(menuVariables.getAdminBtnExitRooms())
-                .callbackData(menuVariables.getAdminBtnCallbackCancelRooms())
+                .text(menuVariables.getAdminBtnSubmenuCancel())
+                .callbackData(menuVariables.getAdminBtnCallbackSubmenuCancel())
                 .build();
 
         List<InlineKeyboardButton> row1 = List.of(buttonOne, buttonTwo);

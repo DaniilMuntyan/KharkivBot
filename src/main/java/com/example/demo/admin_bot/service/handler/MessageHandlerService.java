@@ -46,20 +46,18 @@ public class MessageHandlerService {
         String text = message.getText().trim();
         Optional<User> user = userRepository.findByChatId(chatId);
 
+        List<BotApiMethod<?>> response = new ArrayList<>();
+
         DeleteMessage deleteMessage = deleteApiMethod(message);
 
-        SendMessage response = new SendMessage();
-        response.setChatId(chatId.toString());
-
-        BotApiMethod<?> answer = null; // Если пришел любой другой текст - ничего не отправляем
+        SendMessage textResponse = new SendMessage();
+        textResponse.setChatId(chatId.toString());
 
         boolean isAdmin = false;
 
         if(user.isPresent() && adminService.isAdmin(user.get())) { // Если админ
             isAdmin = true;
-            //response = handleAdminMessage(text, response, user.get());
-
-            answer = handleAdminMessage(message, user.get());
+            response.addAll(handleAdminMessage(message, user.get()));
         } else {
             if (adminService.isEnterAdminCommand(text)) { // Если ввел команду с паролем
                 isAdmin = true;
@@ -67,71 +65,65 @@ public class MessageHandlerService {
                 newUser.setAdminMode(true);
                 newUser = userRepository.save(newUser);
                 LOGGER.info("New admin: " + newUser.getName(true));
-                answer = helloAdmin(response);
+                response.add(helloAdmin(textResponse));
             }
         }
-        if (!isAdmin) {
-            return Collections.singletonList(answer);
-        } else {
-            return Arrays.asList(deleteMessage, answer);
+
+        if (isAdmin) {
+            response.add(0, deleteMessage);
         }
+
+        return response;
     }
 
     // Обработка сообщения от админа
-    private BotApiMethod<?> handleAdminMessage(Message message, User admin) {
+    private List<BotApiMethod<?>> handleAdminMessage(Message message, User admin) {
         String text = message.getText();
         Long chatId = message.getChatId();
-        Integer messageId = message.getMessageId();
+
+        List<BotApiMethod<?>> response = new ArrayList<>();
 
         boolean adminCommand = false;
-        BotApiMethod<?> answer = null;
-
-        /*
-        // Если еще есть незаконченный процесс публикации квартиры - выходим.
-        // Только одно меню может работать в данный момент времени.
-        if (admin.getAdminChoice().getMenuMessageId() != null) {
-            return null;
-        }*/
 
         if (text.equals(menuVariables.getAddRentFlatBtnText())) { // Если выбрали "опубликовать квартиру для аренды"
             if (admin.getAdminChoice().getMenuMessageId() != null) {
-                return null;
+                return response; // Возвращаем пустой
             }
             adminCommand = true;
             LOGGER.info("handleAdminMessage. AddRentFlatButton");
             admin.setBotState(State.ADD_RENT_FLAT);
-            userRepository.save(admin);
         }
         if (text.equals(menuVariables.getAddBuyFlatBtnText())) { // Если выбрали "опубликовать квартиру для покупки"
             if (admin.getAdminChoice().getMenuMessageId() != null) {
-                return null;
+                return response; // Возвращаем пустой
             }
             adminCommand = true;
             LOGGER.info("handleAdminMessage. AddBuyFlatButton");
             admin.setBotState(State.ADD_BUY_FLAT);
-            userRepository.save(admin);
         }
         if(text.equals(Commands.START)) {
-            adminCommand = false;
+            adminCommand = true;
             admin.setBotState(State.INIT);
-            admin.setAdminChoice(new AdminChoice());
-            userRepository.save(admin);
+        }
+        if(admin.getBotState() == State.SUBMENU_SQUARE) { // Если ожидаем площадь
+            LOGGER.info("IN MESSAGE_HANDLER IF!!!");
+            adminCommand = true;
         }
 
         if(adminCommand) { // Если пришла команда от администратора - обработать, в соответствии с состоянием
-            answer = botStateService.processInput(message, admin);
+            response.addAll(botStateService.processInput(message, admin));
         } else { // Если пришло любое текстовое сообщение
             if (admin.getBotState() == State.INIT) {
                 LOGGER.info("handleAdminMessage. Any text message");
-                SendMessage response = new SendMessage();
-                response.setChatId(chatId.toString());
-                response.setReplyMarkup(adminService.getMainMenu());
-                response.setText(MessageFormat.format(messagesVariables.getAdminHi(), Emoji.HI, admin.getName(false)));
-                answer = response;
+                SendMessage textResponse = new SendMessage();
+                textResponse.setChatId(chatId.toString());
+                textResponse.setReplyMarkup(adminService.getMainMenu());
+                textResponse.setText(MessageFormat.format(messagesVariables.getAdminHi(), Emoji.HI, admin.getName(false)));
+                response.add(textResponse);
             }
         }
 
-        return answer;
+        return response;
     }
 
     // Зашли в режим админа

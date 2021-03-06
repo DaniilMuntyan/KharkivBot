@@ -38,7 +38,7 @@ public final class BuyFlat {
 
     @Column(name="square")
     @Getter
-    private Double square;
+    private Float square;
 
     @Column(name="floor")
     @Getter

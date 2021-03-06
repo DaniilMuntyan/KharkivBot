@@ -41,7 +41,7 @@ public final class RentFlat {
 
     @Column(name="square")
     @Getter
-    private Double square;
+    private Float square;
 
     @Column(name="floor")
     @Getter

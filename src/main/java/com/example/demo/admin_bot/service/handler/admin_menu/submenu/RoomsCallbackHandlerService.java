@@ -1,4 +1,4 @@
-package com.example.demo.admin_bot.service.handler.admin_menu.rooms;
+package com.example.demo.admin_bot.service.handler.admin_menu.submenu;
 
 import com.example.demo.admin_bot.constants.MenuVariables;
 import com.example.demo.admin_bot.keyboards.NewFlatMenu;
@@ -7,10 +7,8 @@ import com.example.demo.model.User;
 import com.example.demo.user_bot.utils.Rooms;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
-import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageReplyMarkup;
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageText;
 import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
-import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 
 @Service
 public class RoomsCallbackHandlerService {
@@ -60,7 +58,7 @@ public class RoomsCallbackHandlerService {
 
         // Если нажали на любую кнопку, кроме "отмена" - сохраняем изменения данных.
         // Если же нажали "отмена" - остается без изменений
-        if(!data.equals(menuVariables.getAdminBtnCallbackCancelRooms())) {
+        if(!data.equals(menuVariables.getAdminBtnCallbackSubmenuCancel())) {
             adminService.saveAdmin(admin);
         }
 

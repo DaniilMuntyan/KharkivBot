@@ -1231,3 +1231,647 @@ For admin: 28
 [INFO ]  2021-03-05 19:03:936.39 com.example.demo.admin_bot.service.MainService - TIME: 15.0
 [INFO ]  2021-03-05 19:03:488.41 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253412910767
 [INFO ]  2021-03-05 19:03:508.41 com.example.demo.admin_bot.service.MainService - TIME: 20.0
+[INFO ]  2021-03-06 18:03:528.31 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-06 18:03:560.31 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-06 18:03:620.31 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-06 18:03:664.31 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-06 18:03:179.45 com.example.demo.admin_bot.service.MainService - MESSAGE: frgws
+[INFO ]  2021-03-06 18:03:638.45 com.example.demo.admin_bot.service.MainService - TIME: 458.0
+[INFO ]  2021-03-06 18:03:148.47 com.example.demo.admin_bot.service.MainService - MESSAGE: def
+[INFO ]  2021-03-06 18:03:156.47 com.example.demo.admin_bot.service.MainService - TIME: 8.0
+[INFO ]  2021-03-06 18:03:498.48 com.example.demo.admin_bot.service.MainService - MESSAGE: few
+[INFO ]  2021-03-06 18:03:505.48 com.example.demo.admin_bot.service.MainService - TIME: 8.0
+[INFO ]  2021-03-06 18:03:351.49 com.example.demo.admin_bot.service.MainService - MESSAGE: edw
+[INFO ]  2021-03-06 18:03:358.49 com.example.demo.admin_bot.service.MainService - TIME: 8.0
+[INFO ]  2021-03-06 18:03:126.54 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255480371462
+[INFO ]  2021-03-06 18:03:197.54 com.example.demo.admin_bot.service.MainService - TIME: 71.0
+[INFO ]  2021-03-06 18:03:484.55 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255663351846
+[INFO ]  2021-03-06 18:03:519.55 com.example.demo.admin_bot.service.MainService - TIME: 35.0
+[INFO ]  2021-03-06 18:03:368.57 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255496115047
+[INFO ]  2021-03-06 18:03:382.57 com.example.demo.admin_bot.service.MainService - TIME: 14.0
+[INFO ]  2021-03-06 18:03:134.59 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253508254136
+[INFO ]  2021-03-06 18:03:153.59 com.example.demo.admin_bot.service.MainService - TIME: 19.0
+[INFO ]  2021-03-06 18:03:309.00 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254936363594
+[INFO ]  2021-03-06 18:03:322.00 com.example.demo.admin_bot.service.MainService - TIME: 13.0
+[INFO ]  2021-03-06 18:03:266.01 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032252755202741
+[INFO ]  2021-03-06 18:03:273.01 com.example.demo.admin_bot.service.MainService - TIME: 7.0
+[INFO ]  2021-03-06 18:03:952.22 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032252874943198
+[INFO ]  2021-03-06 18:03:965.22 com.example.demo.admin_bot.service.MainService - TIME: 13.0
+[INFO ]  2021-03-06 18:03:170.03 com.example.demo.admin_bot.service.MainService - MESSAGE: ef
+[INFO ]  2021-03-06 18:03:176.03 com.example.demo.admin_bot.service.MainService - TIME: 6.0
+[INFO ]  2021-03-06 18:03:800.08 com.example.demo.admin_bot.service.MainService - MESSAGE: /start
+[INFO ]  2021-03-06 18:03:828.08 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. Any text message
+[INFO ]  2021-03-06 18:03:831.08 com.example.demo.admin_bot.service.MainService - TIME: 32.0
+[INFO ]  2021-03-06 18:03:764.13 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (продажа)
+[INFO ]  2021-03-06 18:03:769.13 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddBuyFlatButton
+[INFO ]  2021-03-06 18:03:799.13 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@3dcda3bf.
+For admin: 28
+[INFO ]  2021-03-06 18:03:799.13 com.example.demo.admin_bot.service.MainService - TIME: 35.0
+[INFO ]  2021-03-06 18:03:192.17 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256789554756
+[INFO ]  2021-03-06 18:03:206.17 com.example.demo.admin_bot.service.MainService - TIME: 14.0
+[INFO ]  2021-03-06 18:03:926.18 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256762073320
+[INFO ]  2021-03-06 18:03:932.18 com.example.demo.admin_bot.service.MainService - TIME: 6.0
+[INFO ]  2021-03-06 18:03:233.20 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255488539742
+[INFO ]  2021-03-06 18:03:243.20 com.example.demo.admin_bot.service.MainService - TIME: 10.0
+[INFO ]  2021-03-06 18:03:354.29 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255677252006
+[INFO ]  2021-03-06 18:03:362.29 com.example.demo.admin_bot.service.MainService - TIME: 8.0
+[INFO ]  2021-03-06 18:03:872.31 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255494004582
+[INFO ]  2021-03-06 18:03:896.31 com.example.demo.admin_bot.service.MainService - TIME: 24.0
+[INFO ]  2021-03-06 18:03:17.35 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-06 18:03:22.35 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-06 18:03:48.35 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@98bda8d.
+For admin: 28
+[INFO ]  2021-03-06 18:03:49.35 com.example.demo.admin_bot.service.MainService - TIME: 32.0
+[INFO ]  2021-03-06 18:03:589.36 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253751330222
+[INFO ]  2021-03-06 18:03:615.36 com.example.demo.admin_bot.service.MainService - TIME: 26.0
+[INFO ]  2021-03-06 18:03:818.04 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-06 18:03:854.04 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-06 18:03:909.04 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-06 18:03:949.04 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-06 18:03:595.28 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-06 18:03:885.28 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-06 18:03:12.29 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@4a2a5977.
+For admin: 28
+[INFO ]  2021-03-06 18:03:16.29 com.example.demo.admin_bot.service.MainService - TIME: 419.0
+[INFO ]  2021-03-06 18:03:108.32 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254486264655
+[INFO ]  2021-03-06 18:03:128.32 com.example.demo.admin_bot.service.MainService - TIME: 20.0
+[INFO ]  2021-03-06 18:03:413.33 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256973188313
+[INFO ]  2021-03-06 18:03:423.33 com.example.demo.admin_bot.service.MainService - TIME: 10.0
+[INFO ]  2021-03-06 18:03:695.08 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254751862931
+[INFO ]  2021-03-06 18:03:706.08 com.example.demo.admin_bot.service.MainService - TIME: 10.0
+[INFO ]  2021-03-06 18:03:908.16 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-06 18:03:942.16 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-06 18:03:996.16 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-06 18:03:38.17 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-06 18:03:946.28 com.example.demo.admin_bot.service.MainService - MESSAGE: 16
+[INFO ]  2021-03-06 18:03:218.29 com.example.demo.admin_bot.service.MainService - TIME: 270.0
+[INFO ]  2021-03-06 18:03:483.30 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255697536457
+[INFO ]  2021-03-06 18:03:491.30 com.example.demo.admin_bot.service.MainService - TIME: 9.0
+[INFO ]  2021-03-06 18:03:69.39 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-06 18:03:76.39 com.example.demo.admin_bot.service.MainService - TIME: 7.0
+[INFO ]  2021-03-06 18:03:537.40 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032252690337089
+[INFO ]  2021-03-06 18:03:545.40 com.example.demo.admin_bot.service.MainService - TIME: 7.0
+[INFO ]  2021-03-06 18:03:609.29 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-06 18:03:643.29 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-06 18:03:702.29 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-06 18:03:748.29 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-06 18:03:504.49 com.example.demo.admin_bot.service.MainService - MESSAGE: wd
+[INFO ]  2021-03-06 18:03:751.49 com.example.demo.admin_bot.service.MainService - TIME: 247.0
+[INFO ]  2021-03-06 18:03:837.50 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255893377445
+[INFO ]  2021-03-06 18:03:846.50 com.example.demo.admin_bot.service.MainService - TIME: 9.0
+[INFO ]  2021-03-06 18:03:303.08 com.example.demo.admin_bot.service.MainService - MESSAGE: /start
+[INFO ]  2021-03-06 18:03:409.08 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. Any text message
+[INFO ]  2021-03-06 18:03:412.08 com.example.demo.admin_bot.service.MainService - TIME: 108.0
+[INFO ]  2021-03-06 18:03:669.11 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253754156303
+[INFO ]  2021-03-06 18:03:677.11 com.example.demo.admin_bot.service.MainService - TIME: 8.0
+[INFO ]  2021-03-06 19:03:463.43 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-06 19:03:495.43 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-06 19:03:548.43 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-06 19:03:589.43 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-06 19:03:614.54 com.example.demo.admin_bot.service.MainService - MESSAGE: 465
+[INFO ]  2021-03-06 19:03:866.54 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. Any text message
+[INFO ]  2021-03-06 19:03:870.54 com.example.demo.admin_bot.service.MainService - TIME: 256.0
+[INFO ]  2021-03-06 19:03:70.58 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-06 19:03:79.58 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-06 19:03:201.58 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@16447153.
+For admin: 28
+[INFO ]  2021-03-06 19:03:202.58 com.example.demo.admin_bot.service.MainService - TIME: 132.0
+[INFO ]  2021-03-06 19:03:533.59 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (продажа)
+[INFO ]  2021-03-06 19:03:544.59 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddBuyFlatButton
+[INFO ]  2021-03-06 19:03:570.59 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@599fd0a4.
+For admin: 28
+[INFO ]  2021-03-06 19:03:571.59 com.example.demo.admin_bot.service.MainService - TIME: 38.0
+[INFO ]  2021-03-06 19:03:198.02 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255293007577
+[INFO ]  2021-03-06 19:03:213.02 com.example.demo.admin_bot.service.MainService - TIME: 16.0
+[INFO ]  2021-03-06 19:03:647.03 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253609586805
+[INFO ]  2021-03-06 19:03:659.03 com.example.demo.admin_bot.service.MainService - TIME: 12.0
+[INFO ]  2021-03-06 19:03:263.05 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256139360821
+[INFO ]  2021-03-06 19:03:279.05 com.example.demo.admin_bot.service.MainService - TIME: 16.0
+[INFO ]  2021-03-06 19:03:435.11 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-06 19:03:442.11 com.example.demo.admin_bot.service.MainService - TIME: 7.0
+[INFO ]  2021-03-06 19:03:05.15 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (продажа)
+[INFO ]  2021-03-06 19:03:11.15 com.example.demo.admin_bot.service.MainService - TIME: 6.0
+[INFO ]  2021-03-06 19:03:132.16 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-06 19:03:139.16 com.example.demo.admin_bot.service.MainService - TIME: 7.0
+[INFO ]  2021-03-06 19:03:72.41 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256180138886
+[INFO ]  2021-03-06 19:03:79.41 com.example.demo.admin_bot.service.MainService - TIME: 6.0
+[INFO ]  2021-03-06 19:03:708.51 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254350039002
+[INFO ]  2021-03-06 19:03:714.51 com.example.demo.admin_bot.service.MainService - TIME: 6.0
+[INFO ]  2021-03-06 19:03:538.09 com.example.demo.admin_bot.service.MainService - MESSAGE: /start
+[INFO ]  2021-03-06 19:03:554.09 com.example.demo.admin_bot.service.MainService - TIME: 16.0
+[INFO ]  2021-03-06 19:03:37.37 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-06 19:03:72.37 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-06 19:03:132.37 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-06 19:03:178.37 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-06 19:03:838.51 com.example.demo.admin_bot.service.MainService - MESSAGE: ува
+[INFO ]  2021-03-06 19:03:115.52 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. Any text message
+[INFO ]  2021-03-06 19:03:123.52 com.example.demo.admin_bot.service.MainService - TIME: 282.0
+[INFO ]  2021-03-06 19:03:69.55 com.example.demo.admin_bot.service.MainService - MESSAGE: уцйва
+[INFO ]  2021-03-06 19:03:78.55 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. Any text message
+[INFO ]  2021-03-06 19:03:80.55 com.example.demo.admin_bot.service.MainService - TIME: 11.0
+[INFO ]  2021-03-06 19:03:781.57 com.example.demo.admin_bot.service.MainService - MESSAGE: ца
+[INFO ]  2021-03-06 19:03:790.57 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. Any text message
+[INFO ]  2021-03-06 19:03:790.57 com.example.demo.admin_bot.service.MainService - TIME: 9.0
+[INFO ]  2021-03-06 19:03:213.18 com.example.demo.admin_bot.service.MainService - MESSAGE: /start
+[INFO ]  2021-03-06 19:03:364.18 com.example.demo.admin_bot.service.MainService - TIME: 151.0
+[INFO ]  2021-03-06 19:03:863.25 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (продажа)
+[INFO ]  2021-03-06 19:03:879.25 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddBuyFlatButton
+[INFO ]  2021-03-06 19:03:913.25 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@33539139.
+For admin: 28
+[INFO ]  2021-03-06 19:03:920.25 com.example.demo.admin_bot.service.MainService - TIME: 57.0
+[INFO ]  2021-03-06 19:03:825.27 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253312955117
+[INFO ]  2021-03-06 19:03:850.27 com.example.demo.admin_bot.service.MainService - TIME: 26.0
+[INFO ]  2021-03-06 19:03:184.29 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253012006760
+[INFO ]  2021-03-06 19:03:203.29 com.example.demo.admin_bot.service.MainService - TIME: 19.0
+[INFO ]  2021-03-06 19:03:609.30 com.example.demo.admin_bot.service.MainService - MESSAGE: wefgW
+[INFO ]  2021-03-06 19:03:617.30 com.example.demo.admin_bot.service.MainService - TIME: 8.0
+[INFO ]  2021-03-06 19:03:657.31 com.example.demo.admin_bot.service.MainService - MESSAGE: WEFEW
+[INFO ]  2021-03-06 19:03:664.31 com.example.demo.admin_bot.service.MainService - TIME: 7.0
+[INFO ]  2021-03-06 19:03:829.34 com.example.demo.admin_bot.service.MainService - MESSAGE: /start
+[INFO ]  2021-03-06 19:03:851.34 com.example.demo.admin_bot.service.MainService - TIME: 22.0
+[INFO ]  2021-03-06 19:03:720.53 com.example.demo.admin_bot.service.MainService - MESSAGE: /start
+[INFO ]  2021-03-06 19:03:739.53 com.example.demo.admin_bot.service.MainService - TIME: 19.0
+[INFO ]  2021-03-06 19:03:516.55 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (продажа)
+[INFO ]  2021-03-06 19:03:524.55 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddBuyFlatButton
+[INFO ]  2021-03-06 19:03:547.55 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@49be6abb.
+For admin: 28
+[INFO ]  2021-03-06 19:03:554.55 com.example.demo.admin_bot.service.MainService - TIME: 38.0
+[INFO ]  2021-03-06 19:03:546.07 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-06 19:03:551.07 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-06 19:03:569.07 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@706990fb.
+For admin: 28
+[INFO ]  2021-03-06 19:03:577.07 com.example.demo.admin_bot.service.MainService - TIME: 31.0
+[INFO ]  2021-03-06 19:03:366.08 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (продажа)
+[INFO ]  2021-03-06 19:03:374.08 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddBuyFlatButton
+[INFO ]  2021-03-06 19:03:390.08 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@5eaf79ba.
+For admin: 28
+[INFO ]  2021-03-06 19:03:395.08 com.example.demo.admin_bot.service.MainService - TIME: 30.0
+[INFO ]  2021-03-06 19:03:394.09 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-06 19:03:405.09 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-06 19:03:423.09 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@4c9e7bc0.
+For admin: 28
+[INFO ]  2021-03-06 19:03:432.09 com.example.demo.admin_bot.service.MainService - TIME: 38.0
+[INFO ]  2021-03-06 19:03:179.10 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (продажа)
+[INFO ]  2021-03-06 19:03:188.10 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddBuyFlatButton
+[INFO ]  2021-03-06 19:03:215.10 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@3c9cd66a.
+For admin: 28
+[INFO ]  2021-03-06 19:03:224.10 com.example.demo.admin_bot.service.MainService - TIME: 45.0
+[INFO ]  2021-03-06 19:03:34.11 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-06 19:03:44.11 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-06 19:03:60.11 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@d17f222.
+For admin: 28
+[INFO ]  2021-03-06 19:03:65.11 com.example.demo.admin_bot.service.MainService - TIME: 31.0
+[INFO ]  2021-03-06 19:03:22.13 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254572971803
+[INFO ]  2021-03-06 19:03:40.13 com.example.demo.admin_bot.service.MainService - TIME: 18.0
+[INFO ]  2021-03-06 19:03:985.13 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254660246862
+[INFO ]  2021-03-06 19:03:01.14 com.example.demo.admin_bot.service.MainService - TIME: 16.0
+[INFO ]  2021-03-06 19:03:30.15 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255186501916
+[INFO ]  2021-03-06 19:03:39.15 com.example.demo.admin_bot.service.MainService - TIME: 9.0
+[INFO ]  2021-03-06 19:03:372.17 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255137012870
+[INFO ]  2021-03-06 19:03:378.17 com.example.demo.admin_bot.service.MainService - TIME: 6.0
+[INFO ]  2021-03-06 19:03:05.19 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254584436695
+[INFO ]  2021-03-06 19:03:13.19 com.example.demo.admin_bot.service.MainService - TIME: 8.0
+[INFO ]  2021-03-06 19:03:250.21 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253347930194
+[INFO ]  2021-03-06 19:03:256.21 com.example.demo.admin_bot.service.MainService - TIME: 6.0
+[INFO ]  2021-03-06 19:03:397.28 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254233576108
+[INFO ]  2021-03-06 19:03:408.28 com.example.demo.admin_bot.service.MainService - TIME: 11.0
+[INFO ]  2021-03-06 19:03:356.31 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256587114203
+[INFO ]  2021-03-06 19:03:363.31 com.example.demo.admin_bot.service.MainService - TIME: 7.0
+[INFO ]  2021-03-06 19:03:497.53 com.example.demo.admin_bot.service.MainService - MESSAGE: asde
+[INFO ]  2021-03-06 19:03:502.53 com.example.demo.admin_bot.service.MainService - TIME: 5.0
+[INFO ]  2021-03-06 19:03:70.55 com.example.demo.admin_bot.service.MainService - MESSAGE: wef
+[INFO ]  2021-03-06 19:03:76.55 com.example.demo.admin_bot.service.MainService - TIME: 6.0
+[INFO ]  2021-03-06 19:03:790.57 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-06 19:03:798.57 com.example.demo.admin_bot.service.MainService - TIME: 8.0
+[INFO ]  2021-03-06 19:03:661.59 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (продажа)
+[INFO ]  2021-03-06 19:03:667.59 com.example.demo.admin_bot.service.MainService - TIME: 6.0
+[INFO ]  2021-03-06 19:03:772.14 com.example.demo.admin_bot.service.MainService - MESSAGE: fdjklg
+[INFO ]  2021-03-06 19:03:777.14 com.example.demo.admin_bot.service.MainService - TIME: 5.0
+[INFO ]  2021-03-06 19:03:751.15 com.example.demo.admin_bot.service.MainService - MESSAGE: dmlfgb
+[INFO ]  2021-03-06 19:03:756.15 com.example.demo.admin_bot.service.MainService - TIME: 5.0
+[INFO ]  2021-03-06 19:03:696.18 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253521197914
+[INFO ]  2021-03-06 19:03:703.18 com.example.demo.admin_bot.service.MainService - TIME: 7.0
+[INFO ]  2021-03-06 19:03:331.20 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253066917177
+[INFO ]  2021-03-06 19:03:341.20 com.example.demo.admin_bot.service.MainService - TIME: 10.0
+[INFO ]  2021-03-06 19:03:91.22 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256232319356
+[INFO ]  2021-03-06 19:03:109.22 com.example.demo.admin_bot.service.MainService - TIME: 18.0
+[INFO ]  2021-03-06 19:03:391.23 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255280275589
+[INFO ]  2021-03-06 19:03:396.23 com.example.demo.admin_bot.service.MainService - TIME: 5.0
+[INFO ]  2021-03-06 19:03:279.57 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253355622068
+[INFO ]  2021-03-06 19:03:286.57 com.example.demo.admin_bot.service.MainService - TIME: 7.0
+[INFO ]  2021-03-06 19:03:889.59 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-06 19:03:896.59 com.example.demo.admin_bot.service.MainService - TIME: 7.0
+[INFO ]  2021-03-06 19:03:970.02 com.example.demo.admin_bot.service.MainService - MESSAGE: /start
+[INFO ]  2021-03-06 19:03:986.02 com.example.demo.admin_bot.service.MainService - TIME: 16.0
+[INFO ]  2021-03-06 19:03:686.08 com.example.demo.admin_bot.service.MainService - MESSAGE: /start
+[INFO ]  2021-03-06 19:03:700.08 com.example.demo.admin_bot.service.MainService - TIME: 14.0
+[INFO ]  2021-03-06 19:03:132.13 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (продажа)
+[INFO ]  2021-03-06 19:03:140.13 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddBuyFlatButton
+[INFO ]  2021-03-06 19:03:162.13 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@d49d54f.
+For admin: 28
+[INFO ]  2021-03-06 19:03:167.13 com.example.demo.admin_bot.service.MainService - TIME: 35.0
+[INFO ]  2021-03-06 19:03:249.49 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-06 19:03:284.49 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-06 19:03:341.49 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-06 19:03:386.49 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-06 19:03:463.06 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-06 19:03:788.06 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-06 19:03:932.06 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@7925e8ae.
+For admin: 28
+[INFO ]  2021-03-06 19:03:953.06 com.example.demo.admin_bot.service.MainService - TIME: 489.0
+[INFO ]  2021-03-06 19:03:93.10 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256485906284
+[INFO ]  2021-03-06 19:03:123.10 com.example.demo.admin_bot.service.MainService - TIME: 99.0
+[INFO ]  2021-03-06 19:03:763.11 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256056913154
+[INFO ]  2021-03-06 19:03:789.11 com.example.demo.admin_bot.service.MainService - TIME: 26.0
+[INFO ]  2021-03-06 19:03:255.13 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253640191752
+[INFO ]  2021-03-06 19:03:267.13 com.example.demo.admin_bot.service.MainService - TIME: 12.0
+[INFO ]  2021-03-06 19:03:474.14 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255160745488
+[INFO ]  2021-03-06 19:03:488.14 com.example.demo.admin_bot.service.MainService - TIME: 14.0
+[INFO ]  2021-03-06 19:03:565.19 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256711779945
+[INFO ]  2021-03-06 19:03:581.19 com.example.demo.admin_bot.service.MainService - TIME: 16.0
+[INFO ]  2021-03-06 19:03:409.34 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-06 19:03:445.34 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-06 19:03:506.34 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-06 19:03:553.34 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-06 19:03:23.47 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253212831362
+[INFO ]  2021-03-06 19:03:175.47 com.example.demo.admin_bot.service.MainService - TIME: 151.0
+[INFO ]  2021-03-06 19:03:666.56 com.example.demo.admin_bot.service.MainService - MESSAGE: /start
+[INFO ]  2021-03-06 19:03:898.56 com.example.demo.admin_bot.service.MainService - TIME: 232.0
+[INFO ]  2021-03-06 19:03:615.58 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-06 19:03:628.58 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-06 19:03:662.58 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@68ba823a.
+For admin: 28
+[INFO ]  2021-03-06 19:03:669.58 com.example.demo.admin_bot.service.MainService - TIME: 54.0
+[INFO ]  2021-03-06 19:03:961.00 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254852985401
+[INFO ]  2021-03-06 19:03:995.00 com.example.demo.admin_bot.service.MainService - TIME: 34.0
+[INFO ]  2021-03-06 19:03:131.02 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256911648197
+[INFO ]  2021-03-06 19:03:138.02 com.example.demo.admin_bot.service.MainService - TIME: 7.0
+[INFO ]  2021-03-06 19:03:940.03 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255707414049
+[INFO ]  2021-03-06 19:03:969.03 com.example.demo.admin_bot.service.MainService - TIME: 29.0
+[INFO ]  2021-03-06 19:03:112.05 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255999504876
+[INFO ]  2021-03-06 19:03:120.05 com.example.demo.admin_bot.service.MainService - TIME: 8.0
+[INFO ]  2021-03-06 19:03:700.06 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256735177803
+[INFO ]  2021-03-06 19:03:712.06 com.example.demo.admin_bot.service.MainService - TIME: 12.0
+[INFO ]  2021-03-06 19:03:769.07 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254650309296
+[INFO ]  2021-03-06 19:03:776.07 com.example.demo.admin_bot.service.MainService - TIME: 7.0
+[INFO ]  2021-03-06 19:03:58.09 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032252748611311
+[INFO ]  2021-03-06 19:03:76.09 com.example.demo.admin_bot.service.MainService - TIME: 18.0
+[INFO ]  2021-03-06 19:03:551.13 com.example.demo.admin_bot.service.MainService - MESSAGE: 12.43
+[INFO ]  2021-03-06 19:03:565.13 com.example.demo.admin_bot.service.MainService - TIME: 14.0
+[INFO ]  2021-03-06 19:03:743.04 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-06 19:03:779.04 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-06 19:03:832.04 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-06 19:03:873.04 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-06 19:03:283.21 com.example.demo.admin_bot.service.MainService - MESSAGE: wef
+[INFO ]  2021-03-06 19:03:557.21 com.example.demo.admin_bot.service.BotStateService - STATE.SUBMENU_SQUARE!!!
+[INFO ]  2021-03-06 19:03:559.21 com.example.demo.admin_bot.service.MainService - TIME: 275.0
+[INFO ]  2021-03-06 19:03:584.22 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256785851077
+[INFO ]  2021-03-06 19:03:597.22 com.example.demo.admin_bot.service.MainService - TIME: 14.0
+[INFO ]  2021-03-06 19:03:679.24 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256164396333
+[INFO ]  2021-03-06 19:03:768.24 com.example.demo.admin_bot.service.MainService - TIME: 89.0
+[INFO ]  2021-03-06 19:03:137.27 com.example.demo.admin_bot.service.MainService - MESSAGE: 123
+[INFO ]  2021-03-06 19:03:143.27 com.example.demo.admin_bot.service.BotStateService - STATE.SUBMENU_SQUARE!!!
+[INFO ]  2021-03-06 19:03:169.27 com.example.demo.admin_bot.service.MainService - TIME: 32.0
+[INFO ]  2021-03-06 19:03:682.13 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-06 19:03:713.13 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-06 19:03:768.13 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-06 19:03:810.13 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-06 19:03:255.53 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254686788946
+[INFO ]  2021-03-06 19:03:554.53 com.example.demo.admin_bot.service.MainService - TIME: 298.0
+[INFO ]  2021-03-06 19:03:118.58 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254915911786
+[INFO ]  2021-03-06 19:03:206.58 com.example.demo.admin_bot.service.MainService - TIME: 88.0
+[INFO ]  2021-03-06 19:03:342.00 com.example.demo.admin_bot.service.MainService - MESSAGE: 234
+[INFO ]  2021-03-06 19:03:352.00 com.example.demo.admin_bot.service.handler.MessageHandlerService - IN MESSAGE_HANDLER IF!!!
+[INFO ]  2021-03-06 19:03:353.00 com.example.demo.admin_bot.service.BotStateService - processInput!!! SUBMENU_SQUARE
+[INFO ]  2021-03-06 19:03:373.00 com.example.demo.admin_bot.service.MainService - TIME: 33.0
+[INFO ]  2021-03-06 19:03:902.02 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254106957501
+[INFO ]  2021-03-06 19:03:910.02 com.example.demo.admin_bot.service.MainService - TIME: 8.0
+[INFO ]  2021-03-06 19:03:472.06 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-06 19:03:509.06 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-06 19:03:573.06 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-06 19:03:628.06 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-06 19:03:539.41 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-06 19:03:571.41 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-06 19:03:628.41 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-06 19:03:671.41 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-06 19:03:850.41 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256892198902
+[INFO ]  2021-03-06 19:03:179.42 com.example.demo.admin_bot.service.MainService - TIME: 328.0
+[INFO ]  2021-03-06 19:03:544.50 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253648218512
+[INFO ]  2021-03-06 19:03:556.50 com.example.demo.admin_bot.service.MainService - TIME: 12.0
+[INFO ]  2021-03-06 19:03:409.55 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255184320349
+[INFO ]  2021-03-06 19:03:423.55 com.example.demo.admin_bot.service.MainService - TIME: 14.0
+[INFO ]  2021-03-06 19:03:545.57 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032252794026121
+[INFO ]  2021-03-06 19:03:646.57 com.example.demo.admin_bot.service.MainService - TIME: 101.0
+[INFO ]  2021-03-06 19:03:228.59 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032252829665575
+[INFO ]  2021-03-06 19:03:243.59 com.example.demo.admin_bot.service.MainService - TIME: 15.0
+[INFO ]  2021-03-06 19:03:188.01 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255234840593
+[INFO ]  2021-03-06 19:03:197.01 com.example.demo.admin_bot.service.MainService - TIME: 10.0
+[INFO ]  2021-03-06 19:03:584.02 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256210122858
+[INFO ]  2021-03-06 19:03:596.02 com.example.demo.admin_bot.service.MainService - TIME: 12.0
+[INFO ]  2021-03-06 20:03:184.24 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-06 20:03:213.24 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-06 20:03:262.24 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-06 20:03:300.24 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-06 20:03:844.01 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253442986315
+[INFO ]  2021-03-06 20:03:149.02 com.example.demo.admin_bot.service.MainService - TIME: 299.0
+[INFO ]  2021-03-06 20:03:47.04 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254742581100
+[INFO ]  2021-03-06 20:03:59.04 com.example.demo.admin_bot.service.MainService - TIME: 12.0
+[INFO ]  2021-03-06 20:03:686.06 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254173481293
+[INFO ]  2021-03-06 20:03:782.06 com.example.demo.admin_bot.service.MainService - TIME: 97.0
+[INFO ]  2021-03-06 20:03:423.08 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (продажа)
+[INFO ]  2021-03-06 20:03:434.08 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddBuyFlatButton
+[INFO ]  2021-03-06 20:03:473.08 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@4a47033f.
+For admin: 28
+[INFO ]  2021-03-06 20:03:481.08 com.example.demo.admin_bot.service.MainService - TIME: 59.0
+[INFO ]  2021-03-06 20:03:652.11 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254834794687
+[INFO ]  2021-03-06 20:03:703.11 com.example.demo.admin_bot.service.MainService - TIME: 51.0
+[INFO ]  2021-03-06 20:03:223.52 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255481405007
+[INFO ]  2021-03-06 20:03:233.52 com.example.demo.admin_bot.service.MainService - TIME: 10.0
+[INFO ]  2021-03-06 20:03:173.55 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256089842600
+[INFO ]  2021-03-06 20:03:204.55 com.example.demo.admin_bot.service.MainService - TIME: 31.0
+[INFO ]  2021-03-06 20:03:630.55 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-06 20:03:668.55 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-06 20:03:733.55 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-06 20:03:785.55 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-06 20:03:974.07 com.example.demo.admin_bot.service.MainService - MESSAGE: 456
+[INFO ]  2021-03-06 20:03:234.08 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. Any text message
+[INFO ]  2021-03-06 20:03:239.08 com.example.demo.admin_bot.service.MainService - TIME: 263.0
+[INFO ]  2021-03-06 20:03:917.13 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-06 20:03:927.13 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-06 20:03:69.14 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@253b3a5d.
+For admin: 28
+[INFO ]  2021-03-06 20:03:78.14 com.example.demo.admin_bot.service.MainService - TIME: 161.0
+[INFO ]  2021-03-06 20:03:814.15 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253817922642
+[INFO ]  2021-03-06 20:03:853.15 com.example.demo.admin_bot.service.MainService - TIME: 39.0
+[INFO ]  2021-03-06 20:03:777.17 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (продажа)
+[INFO ]  2021-03-06 20:03:785.17 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddBuyFlatButton
+[INFO ]  2021-03-06 20:03:807.17 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@6fb95a76.
+For admin: 28
+[INFO ]  2021-03-06 20:03:816.17 com.example.demo.admin_bot.service.MainService - TIME: 39.0
+[INFO ]  2021-03-06 20:03:420.20 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253593655821
+[INFO ]  2021-03-06 20:03:455.20 com.example.demo.admin_bot.service.MainService - TIME: 35.0
+[INFO ]  2021-03-06 20:03:239.23 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-06 20:03:246.23 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-06 20:03:270.23 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@5c6a90a0.
+For admin: 28
+[INFO ]  2021-03-06 20:03:276.23 com.example.demo.admin_bot.service.MainService - TIME: 37.0
+[INFO ]  2021-03-06 20:03:415.25 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254425845853
+[INFO ]  2021-03-06 20:03:444.25 com.example.demo.admin_bot.service.MainService - TIME: 29.0
+[INFO ]  2021-03-06 20:03:296.30 com.example.demo.admin_bot.service.MainService - MESSAGE: 1wfwe
+[INFO ]  2021-03-06 20:03:301.30 com.example.demo.admin_bot.service.handler.MessageHandlerService - IN MESSAGE_HANDLER IF!!!
+[INFO ]  2021-03-06 20:03:302.30 com.example.demo.admin_bot.service.MainService - TIME: 7.0
+[INFO ]  2021-03-06 20:03:04.32 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253613788062
+[INFO ]  2021-03-06 20:03:11.32 com.example.demo.admin_bot.service.MainService - TIME: 7.0
+[INFO ]  2021-03-06 20:03:98.34 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254261986574
+[INFO ]  2021-03-06 20:03:112.34 com.example.demo.admin_bot.service.MainService - TIME: 14.0
+[INFO ]  2021-03-06 20:03:998.35 com.example.demo.admin_bot.service.MainService - MESSAGE: rwfw
+[INFO ]  2021-03-06 20:03:04.36 com.example.demo.admin_bot.service.handler.MessageHandlerService - IN MESSAGE_HANDLER IF!!!
+[INFO ]  2021-03-06 20:03:04.36 com.example.demo.admin_bot.service.MainService - TIME: 6.0
+[INFO ]  2021-03-06 20:03:169.38 com.example.demo.admin_bot.service.MainService - MESSAGE: 123 3412
+[INFO ]  2021-03-06 20:03:175.38 com.example.demo.admin_bot.service.handler.MessageHandlerService - IN MESSAGE_HANDLER IF!!!
+[INFO ]  2021-03-06 20:03:175.38 com.example.demo.admin_bot.service.MainService - TIME: 6.0
+[INFO ]  2021-03-06 20:03:607.39 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253873244917
+[INFO ]  2021-03-06 20:03:614.39 com.example.demo.admin_bot.service.MainService - TIME: 7.0
+[INFO ]  2021-03-06 20:03:671.41 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256826705724
+[INFO ]  2021-03-06 20:03:687.41 com.example.demo.admin_bot.service.MainService - TIME: 16.0
+[INFO ]  2021-03-06 20:03:471.43 com.example.demo.admin_bot.service.MainService - MESSAGE: 192
+[INFO ]  2021-03-06 20:03:477.43 com.example.demo.admin_bot.service.handler.MessageHandlerService - IN MESSAGE_HANDLER IF!!!
+[INFO ]  2021-03-06 20:03:489.43 com.example.demo.admin_bot.service.MainService - TIME: 18.0
+[INFO ]  2021-03-06 20:03:295.46 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255400387403
+[INFO ]  2021-03-06 20:03:307.46 com.example.demo.admin_bot.service.MainService - TIME: 12.0
+[INFO ]  2021-03-06 20:03:579.47 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253209874146
+[INFO ]  2021-03-06 20:03:595.47 com.example.demo.admin_bot.service.MainService - TIME: 16.0
+[INFO ]  2021-03-06 20:03:649.52 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255897054284
+[INFO ]  2021-03-06 20:03:662.52 com.example.demo.admin_bot.service.MainService - TIME: 13.0
+[INFO ]  2021-03-06 20:03:625.53 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253890973575
+[INFO ]  2021-03-06 20:03:631.53 com.example.demo.admin_bot.service.MainService - TIME: 7.0
+[INFO ]  2021-03-06 20:03:658.06 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256431381126
+[INFO ]  2021-03-06 20:03:671.06 com.example.demo.admin_bot.service.MainService - TIME: 13.0
+[INFO ]  2021-03-06 20:03:490.08 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253705118663
+[INFO ]  2021-03-06 20:03:496.08 com.example.demo.admin_bot.service.MainService - TIME: 6.0
+[INFO ]  2021-03-06 20:03:873.09 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253062397053
+[INFO ]  2021-03-06 20:03:880.09 com.example.demo.admin_bot.service.MainService - TIME: 7.0
+[INFO ]  2021-03-06 20:03:523.12 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255968654149
+[INFO ]  2021-03-06 20:03:530.12 com.example.demo.admin_bot.service.MainService - TIME: 7.0
+[INFO ]  2021-03-06 20:03:119.14 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256474675526
+[INFO ]  2021-03-06 20:03:125.14 com.example.demo.admin_bot.service.MainService - TIME: 6.0
+[INFO ]  2021-03-06 20:03:631.22 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254520324476
+[INFO ]  2021-03-06 20:03:637.22 com.example.demo.admin_bot.service.MainService - TIME: 6.0
+[INFO ]  2021-03-06 20:03:193.26 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254523248567
+[INFO ]  2021-03-06 20:03:215.26 com.example.demo.admin_bot.service.MainService - TIME: 22.0
+[INFO ]  2021-03-06 20:03:516.27 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (продажа)
+[INFO ]  2021-03-06 20:03:521.27 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddBuyFlatButton
+[INFO ]  2021-03-06 20:03:536.27 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@7763e33d.
+For admin: 28
+[INFO ]  2021-03-06 20:03:541.27 com.example.demo.admin_bot.service.MainService - TIME: 25.0
+[INFO ]  2021-03-06 20:03:98.30 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-06 20:03:104.30 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-06 20:03:122.30 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@1cf51d79.
+For admin: 28
+[INFO ]  2021-03-06 20:03:128.30 com.example.demo.admin_bot.service.MainService - TIME: 29.0
+[INFO ]  2021-03-06 20:03:173.31 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (продажа)
+[INFO ]  2021-03-06 20:03:178.31 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddBuyFlatButton
+[INFO ]  2021-03-06 20:03:192.31 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@13b4164.
+For admin: 28
+[INFO ]  2021-03-06 20:03:199.31 com.example.demo.admin_bot.service.MainService - TIME: 26.0
+[INFO ]  2021-03-06 20:03:67.32 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (аренда)
+[INFO ]  2021-03-06 20:03:72.32 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-06 20:03:87.32 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@1518515c.
+For admin: 28
+[INFO ]  2021-03-06 20:03:93.32 com.example.demo.admin_bot.service.MainService - TIME: 26.0
+[INFO ]  2021-03-06 20:03:178.34 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255701117687
+[INFO ]  2021-03-06 20:03:195.34 com.example.demo.admin_bot.service.MainService - TIME: 17.0
+[INFO ]  2021-03-06 20:03:906.36 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255121175145
+[INFO ]  2021-03-06 20:03:911.36 com.example.demo.admin_bot.service.MainService - TIME: 5.0
+[INFO ]  2021-03-06 20:03:284.39 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253746505002
+[INFO ]  2021-03-06 20:03:292.39 com.example.demo.admin_bot.service.MainService - TIME: 8.0
+[INFO ]  2021-03-06 20:03:383.41 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254764050961
+[INFO ]  2021-03-06 20:03:388.41 com.example.demo.admin_bot.service.MainService - TIME: 5.0
+[INFO ]  2021-03-06 20:03:648.59 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-06 20:03:684.59 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-06 20:03:745.59 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-06 20:03:791.59 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-06 20:03:806.38 com.example.demo.admin_bot.service.MainService - MESSAGE: wre
+[INFO ]  2021-03-06 20:03:70.39 com.example.demo.admin_bot.service.handler.MessageHandlerService - IN MESSAGE_HANDLER IF!!!
+[INFO ]  2021-03-06 20:03:73.39 com.example.demo.admin_bot.service.MainService - TIME: 266.0
+[INFO ]  2021-03-06 20:03:425.42 com.example.demo.admin_bot.service.MainService - MESSAGE: /start
+[INFO ]  2021-03-06 20:03:535.42 com.example.demo.admin_bot.service.MainService - TIME: 110.0
+[INFO ]  2021-03-06 20:03:81.45 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (продажа)
+[INFO ]  2021-03-06 20:03:90.45 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddBuyFlatButton
+[INFO ]  2021-03-06 20:03:119.45 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@1ebe35fe.
+For admin: 28
+[INFO ]  2021-03-06 20:03:127.45 com.example.demo.admin_bot.service.MainService - TIME: 45.0
+[INFO ]  2021-03-06 20:03:549.53 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032252692380112
+[INFO ]  2021-03-06 20:03:580.53 com.example.demo.admin_bot.service.MainService - TIME: 32.0
+[INFO ]  2021-03-06 20:03:731.55 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254757255951
+[INFO ]  2021-03-06 20:03:750.55 com.example.demo.admin_bot.service.MainService - TIME: 19.0
+[INFO ]  2021-03-06 20:03:153.58 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254381610599
+[INFO ]  2021-03-06 20:03:171.58 com.example.demo.admin_bot.service.MainService - TIME: 18.0
+[INFO ]  2021-03-06 20:03:703.00 com.example.demo.admin_bot.service.MainService - MESSAGE: sg
+[INFO ]  2021-03-06 20:03:709.00 com.example.demo.admin_bot.service.handler.MessageHandlerService - IN MESSAGE_HANDLER IF!!!
+[INFO ]  2021-03-06 20:03:710.00 com.example.demo.admin_bot.service.MainService - TIME: 7.0
+[INFO ]  2021-03-06 20:03:680.02 com.example.demo.admin_bot.service.MainService - MESSAGE: erghset
+[INFO ]  2021-03-06 20:03:688.02 com.example.demo.admin_bot.service.handler.MessageHandlerService - IN MESSAGE_HANDLER IF!!!
+[INFO ]  2021-03-06 20:03:689.02 com.example.demo.admin_bot.service.MainService - TIME: 9.0
+[INFO ]  2021-03-06 20:03:130.05 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254723844747
+[INFO ]  2021-03-06 20:03:137.05 com.example.demo.admin_bot.service.MainService - TIME: 7.0
+[INFO ]  2021-03-06 20:03:715.14 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255326782606
+[INFO ]  2021-03-06 20:03:729.14 com.example.demo.admin_bot.service.MainService - TIME: 14.0
+[INFO ]  2021-03-06 20:03:119.16 com.example.demo.admin_bot.service.MainService - MESSAGE: 123
+[INFO ]  2021-03-06 20:03:125.16 com.example.demo.admin_bot.service.handler.MessageHandlerService - IN MESSAGE_HANDLER IF!!!
+[INFO ]  2021-03-06 20:03:134.16 com.example.demo.admin_bot.service.MainService - TIME: 15.0
+[INFO ]  2021-03-06 20:03:620.19 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254225796643
+[INFO ]  2021-03-06 20:03:633.19 com.example.demo.admin_bot.service.MainService - TIME: 13.0
+[INFO ]  2021-03-06 20:03:770.20 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256013429375
+[INFO ]  2021-03-06 20:03:776.20 com.example.demo.admin_bot.service.MainService - TIME: 6.0
+[INFO ]  2021-03-06 20:03:221.22 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032252866499909
+[INFO ]  2021-03-06 20:03:235.22 com.example.demo.admin_bot.service.MainService - TIME: 13.0
+[INFO ]  2021-03-06 20:03:477.23 com.example.demo.admin_bot.service.MainService - MESSAGE: swfs
+[INFO ]  2021-03-06 20:03:482.23 com.example.demo.admin_bot.service.handler.MessageHandlerService - IN MESSAGE_HANDLER IF!!!
+[INFO ]  2021-03-06 20:03:483.23 com.example.demo.admin_bot.service.MainService - TIME: 6.0
+[INFO ]  2021-03-06 20:03:959.24 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255020099789
+[INFO ]  2021-03-06 20:03:967.24 com.example.demo.admin_bot.service.MainService - TIME: 8.0
+[INFO ]  2021-03-06 20:03:307.27 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253927621945
+[INFO ]  2021-03-06 20:03:318.27 com.example.demo.admin_bot.service.MainService - TIME: 11.0
+[INFO ]  2021-03-06 20:03:910.29 com.example.demo.admin_bot.service.MainService - MESSAGE: 13242323
+[INFO ]  2021-03-06 20:03:915.29 com.example.demo.admin_bot.service.handler.MessageHandlerService - IN MESSAGE_HANDLER IF!!!
+[INFO ]  2021-03-06 20:03:923.29 com.example.demo.admin_bot.service.MainService - TIME: 14.0
+[INFO ]  2021-03-06 20:03:796.31 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255454572311
+[INFO ]  2021-03-06 20:03:808.31 com.example.demo.admin_bot.service.MainService - TIME: 12.0
+[INFO ]  2021-03-06 20:03:680.33 com.example.demo.admin_bot.service.MainService - MESSAGE: 2345324324
+[INFO ]  2021-03-06 20:03:686.33 com.example.demo.admin_bot.service.handler.MessageHandlerService - IN MESSAGE_HANDLER IF!!!
+[INFO ]  2021-03-06 20:03:695.33 com.example.demo.admin_bot.service.MainService - TIME: 15.0
+[INFO ]  2021-03-06 20:03:964.37 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256607328458
+[INFO ]  2021-03-06 20:03:974.37 com.example.demo.admin_bot.service.MainService - TIME: 10.0
+[INFO ]  2021-03-06 20:03:816.39 com.example.demo.admin_bot.service.MainService - MESSAGE: 123
+[INFO ]  2021-03-06 20:03:824.39 com.example.demo.admin_bot.service.handler.MessageHandlerService - IN MESSAGE_HANDLER IF!!!
+[INFO ]  2021-03-06 20:03:834.39 com.example.demo.admin_bot.service.MainService - TIME: 18.0
+[INFO ]  2021-03-06 20:03:910.40 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256238027092
+[INFO ]  2021-03-06 20:03:922.40 com.example.demo.admin_bot.service.MainService - TIME: 12.0
+[INFO ]  2021-03-06 20:03:805.43 com.example.demo.admin_bot.service.MainService - MESSAGE: -478193247132897142934314237489132789471
+[INFO ]  2021-03-06 20:03:810.43 com.example.demo.admin_bot.service.handler.MessageHandlerService - IN MESSAGE_HANDLER IF!!!
+[ERROR]  2021-03-06 20:03:840.43 com.example.demo.admin_bot.service.MainService - org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; nested exception is org.hibernate.exception.DataException: could not execute statement
+[INFO ]  2021-03-06 21:03:904.08 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-06 21:03:943.08 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-06 21:03:04.09 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-06 21:03:50.09 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-06 21:03:564.23 com.example.demo.admin_bot.service.MainService - MESSAGE: awef
+[INFO ]  2021-03-06 21:03:837.23 com.example.demo.admin_bot.service.handler.MessageHandlerService - IN MESSAGE_HANDLER IF!!!
+[INFO ]  2021-03-06 21:03:840.23 com.example.demo.admin_bot.service.MainService - TIME: 275.0
+[INFO ]  2021-03-06 21:03:441.28 com.example.demo.admin_bot.service.MainService - MESSAGE: wefw
+[INFO ]  2021-03-06 21:03:449.28 com.example.demo.admin_bot.service.handler.MessageHandlerService - IN MESSAGE_HANDLER IF!!!
+[INFO ]  2021-03-06 21:03:450.28 com.example.demo.admin_bot.service.MainService - TIME: 9.0
+[INFO ]  2021-03-06 21:03:848.30 com.example.demo.admin_bot.service.MainService - MESSAGE: /start
+[INFO ]  2021-03-06 21:03:959.30 com.example.demo.admin_bot.service.MainService - TIME: 111.0
+[INFO ]  2021-03-06 21:03:351.33 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (продажа)
+[INFO ]  2021-03-06 21:03:358.33 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddBuyFlatButton
+[INFO ]  2021-03-06 21:03:390.33 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@18ece0ca.
+For admin: 28
+[INFO ]  2021-03-06 21:03:397.33 com.example.demo.admin_bot.service.MainService - TIME: 46.0
+[INFO ]  2021-03-06 21:03:181.35 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032252690873185
+[INFO ]  2021-03-06 21:03:208.35 com.example.demo.admin_bot.service.MainService - TIME: 28.0
+[INFO ]  2021-03-06 21:03:468.36 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254120861451
+[INFO ]  2021-03-06 21:03:478.36 com.example.demo.admin_bot.service.MainService - TIME: 10.0
+[INFO ]  2021-03-06 21:03:483.37 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253600985423
+[INFO ]  2021-03-06 21:03:505.37 com.example.demo.admin_bot.service.MainService - TIME: 22.0
+[INFO ]  2021-03-06 21:03:751.38 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256588436499
+[INFO ]  2021-03-06 21:03:761.38 com.example.demo.admin_bot.service.MainService - TIME: 10.0
+[INFO ]  2021-03-06 21:03:337.44 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254822239381
+[INFO ]  2021-03-06 21:03:353.44 com.example.demo.admin_bot.service.MainService - TIME: 16.0
+[INFO ]  2021-03-06 21:03:748.45 com.example.demo.admin_bot.service.MainService - MESSAGE: wsg
+[INFO ]  2021-03-06 21:03:754.45 com.example.demo.admin_bot.service.handler.MessageHandlerService - IN MESSAGE_HANDLER IF!!!
+[INFO ]  2021-03-06 21:03:755.45 com.example.demo.admin_bot.service.MainService - TIME: 8.0
+[INFO ]  2021-03-06 21:03:391.47 com.example.demo.admin_bot.service.MainService - MESSAGE: 3214
+[INFO ]  2021-03-06 21:03:398.47 com.example.demo.admin_bot.service.handler.MessageHandlerService - IN MESSAGE_HANDLER IF!!!
+[INFO ]  2021-03-06 21:03:409.47 com.example.demo.admin_bot.service.MainService - TIME: 18.0
+[INFO ]  2021-03-06 21:03:601.49 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255090166033
+[INFO ]  2021-03-06 21:03:616.49 com.example.demo.admin_bot.service.MainService - TIME: 15.0
+[INFO ]  2021-03-06 21:03:399.52 com.example.demo.admin_bot.service.MainService - MESSAGE: 238492034839208423048230
+[INFO ]  2021-03-06 21:03:405.52 com.example.demo.admin_bot.service.handler.MessageHandlerService - IN MESSAGE_HANDLER IF!!!
+[INFO ]  2021-03-06 21:03:414.52 com.example.demo.admin_bot.service.MainService - TIME: 15.0
+[INFO ]  2021-03-06 21:03:979.54 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254414065364
+[INFO ]  2021-03-06 21:03:997.54 com.example.demo.admin_bot.service.MainService - TIME: 18.0
+[INFO ]  2021-03-06 21:03:644.58 com.example.demo.admin_bot.service.MainService - MESSAGE: 2374982743897489742174234729473894723189473
+[INFO ]  2021-03-06 21:03:650.58 com.example.demo.admin_bot.service.handler.MessageHandlerService - IN MESSAGE_HANDLER IF!!!
+[INFO ]  2021-03-06 21:03:659.58 com.example.demo.admin_bot.service.MainService - TIME: 15.0
+[INFO ]  2021-03-06 21:03:246.54 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255405754714
+[INFO ]  2021-03-06 21:03:258.54 com.example.demo.admin_bot.service.MainService - TIME: 12.0
+[INFO ]  2021-03-06 21:03:559.59 com.example.demo.admin_bot.service.MainService - MESSAGE: -37249812734982741234783743527385973357624385498237589437834785
+[INFO ]  2021-03-06 21:03:566.59 com.example.demo.admin_bot.service.handler.MessageHandlerService - IN MESSAGE_HANDLER IF!!!
+[INFO ]  2021-03-06 21:03:575.59 com.example.demo.admin_bot.service.MainService - TIME: 16.0
+[INFO ]  2021-03-06 21:03:642.17 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-06 21:03:673.17 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-06 21:03:730.17 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-06 21:03:822.17 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-06 21:03:563.21 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253302284123
+[INFO ]  2021-03-06 21:03:49.22 com.example.demo.admin_bot.service.MainService - TIME: 485.0
+[INFO ]  2021-03-06 21:03:817.25 com.example.demo.admin_bot.service.MainService - MESSAGE: wefwefew
+[INFO ]  2021-03-06 21:03:827.25 com.example.demo.admin_bot.service.handler.MessageHandlerService - IN MESSAGE_HANDLER IF!!!
+[INFO ]  2021-03-06 21:03:828.25 com.example.demo.admin_bot.service.MainService - TIME: 10.0
+[INFO ]  2021-03-06 21:03:295.29 com.example.demo.admin_bot.service.MainService - MESSAGE: 74235987345972149580125234753485943275893793427593423
+[INFO ]  2021-03-06 21:03:304.29 com.example.demo.admin_bot.service.handler.MessageHandlerService - IN MESSAGE_HANDLER IF!!!
+[INFO ]  2021-03-06 21:03:305.29 com.example.demo.admin_bot.service.MainService - TIME: 10.0
+[INFO ]  2021-03-06 21:03:834.36 com.example.demo.admin_bot.service.MainService - MESSAGE: -174983274389271328423743127423987413829714382743928
+[INFO ]  2021-03-06 21:03:842.36 com.example.demo.admin_bot.service.handler.MessageHandlerService - IN MESSAGE_HANDLER IF!!!
+[INFO ]  2021-03-06 21:03:842.36 com.example.demo.admin_bot.service.MainService - TIME: 8.0
+[INFO ]  2021-03-06 21:03:140.41 com.example.demo.admin_bot.service.MainService - MESSAGE: 23.485934587294782543974974392742374237432987432984739824
+[INFO ]  2021-03-06 21:03:148.41 com.example.demo.admin_bot.service.handler.MessageHandlerService - IN MESSAGE_HANDLER IF!!!
+[INFO ]  2021-03-06 21:03:173.41 com.example.demo.admin_bot.service.MainService - TIME: 33.0
+[INFO ]  2021-03-06 21:03:197.50 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254951479420
+[INFO ]  2021-03-06 21:03:211.50 com.example.demo.admin_bot.service.MainService - TIME: 14.0
+[INFO ]  2021-03-06 21:03:620.51 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254398318724
+[INFO ]  2021-03-06 21:03:671.51 com.example.demo.admin_bot.service.MainService - TIME: 51.0
+[INFO ]  2021-03-06 21:03:537.53 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256329761846
+[INFO ]  2021-03-06 21:03:549.53 com.example.demo.admin_bot.service.MainService - TIME: 12.0
+[INFO ]  2021-03-06 21:03:530.54 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253753295213
+[INFO ]  2021-03-06 21:03:549.54 com.example.demo.admin_bot.service.MainService - TIME: 19.0
+[INFO ]  2021-03-06 21:03:848.41 com.example.demo.admin_bot.service.MainService - MESSAGE: ывап
+[INFO ]  2021-03-06 21:03:855.41 com.example.demo.admin_bot.service.handler.MessageHandlerService - IN MESSAGE_HANDLER IF!!!
+[INFO ]  2021-03-06 21:03:855.41 com.example.demo.admin_bot.service.MainService - TIME: 7.0
+[INFO ]  2021-03-06 21:03:483.15 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-06 21:03:512.15 com.example.demo.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-06 21:03:563.15 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-06 21:03:600.15 com.example.demo.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-06 21:03:122.30 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253047923175
+[INFO ]  2021-03-06 21:03:565.30 com.example.demo.admin_bot.service.MainService - TIME: 442.0
+[INFO ]  2021-03-06 21:03:129.32 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255585473679
+[INFO ]  2021-03-06 21:03:148.32 com.example.demo.admin_bot.service.MainService - TIME: 19.0
+[INFO ]  2021-03-06 21:03:859.40 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255866372706
+[INFO ]  2021-03-06 21:03:872.40 com.example.demo.admin_bot.service.MainService - TIME: 13.0
+[INFO ]  2021-03-06 21:03:122.43 com.example.demo.admin_bot.service.MainService - MESSAGE: jweroitfjw
+[INFO ]  2021-03-06 21:03:130.43 com.example.demo.admin_bot.service.handler.MessageHandlerService - IN MESSAGE_HANDLER IF!!!
+[INFO ]  2021-03-06 21:03:131.43 com.example.demo.admin_bot.service.MainService - TIME: 9.0
+[INFO ]  2021-03-06 21:03:775.45 com.example.demo.admin_bot.service.MainService - MESSAGE: wef
+[INFO ]  2021-03-06 21:03:784.45 com.example.demo.admin_bot.service.handler.MessageHandlerService - IN MESSAGE_HANDLER IF!!!
+[INFO ]  2021-03-06 21:03:786.45 com.example.demo.admin_bot.service.MainService - TIME: 11.0
+[INFO ]  2021-03-06 21:03:170.47 com.example.demo.admin_bot.service.MainService - MESSAGE: /start
+[INFO ]  2021-03-06 21:03:220.47 com.example.demo.admin_bot.service.MainService - TIME: 50.0
+[INFO ]  2021-03-06 21:03:795.48 com.example.demo.admin_bot.service.MainService - MESSAGE: ✏ Добавить квартиру (продажа)
+[INFO ]  2021-03-06 21:03:803.48 com.example.demo.admin_bot.service.handler.MessageHandlerService - handleAdminMessage. AddBuyFlatButton
+[INFO ]  2021-03-06 21:03:830.48 com.example.demo.admin_bot.service.BotStateService - newAdminChoice: com.example.demo.model.AdminChoice@aa56601.
+For admin: 28
+[INFO ]  2021-03-06 21:03:837.48 com.example.demo.admin_bot.service.MainService - TIME: 42.0
+[INFO ]  2021-03-06 21:03:206.51 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253792909409
+[INFO ]  2021-03-06 21:03:236.51 com.example.demo.admin_bot.service.MainService - TIME: 30.0
+[INFO ]  2021-03-06 21:03:676.52 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253885774658
+[INFO ]  2021-03-06 21:03:685.52 com.example.demo.admin_bot.service.MainService - TIME: 9.0
+[INFO ]  2021-03-06 21:03:984.53 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032256632027065
+[INFO ]  2021-03-06 21:03:02.54 com.example.demo.admin_bot.service.MainService - TIME: 17.0
+[INFO ]  2021-03-06 21:03:91.55 com.example.demo.admin_bot.service.MainService - MESSAGE: sefer
+[INFO ]  2021-03-06 21:03:97.55 com.example.demo.admin_bot.service.handler.MessageHandlerService - IN MESSAGE_HANDLER IF!!!
+[INFO ]  2021-03-06 21:03:98.55 com.example.demo.admin_bot.service.MainService - TIME: 7.0
+[INFO ]  2021-03-06 21:03:498.56 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254376550628
+[INFO ]  2021-03-06 21:03:504.56 com.example.demo.admin_bot.service.MainService - TIME: 6.0
+[INFO ]  2021-03-06 21:03:229.58 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255885555928
+[INFO ]  2021-03-06 21:03:241.58 com.example.demo.admin_bot.service.MainService - TIME: 12.0
+[INFO ]  2021-03-06 21:03:817.59 com.example.demo.admin_bot.service.MainService - MESSAGE: 23432
+[INFO ]  2021-03-06 21:03:821.59 com.example.demo.admin_bot.service.handler.MessageHandlerService - IN MESSAGE_HANDLER IF!!!
+[INFO ]  2021-03-06 21:03:830.59 com.example.demo.admin_bot.service.MainService - TIME: 13.0
+[INFO ]  2021-03-06 21:03:558.01 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032253006160174
+[INFO ]  2021-03-06 21:03:569.01 com.example.demo.admin_bot.service.MainService - TIME: 11.0
+[INFO ]  2021-03-06 21:03:569.02 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032252897946851
+[INFO ]  2021-03-06 21:03:576.02 com.example.demo.admin_bot.service.MainService - TIME: 7.0
+[INFO ]  2021-03-06 21:03:781.04 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032254755436352
+[INFO ]  2021-03-06 21:03:787.04 com.example.demo.admin_bot.service.MainService - TIME: 6.0
+[INFO ]  2021-03-06 21:03:604.05 com.example.demo.admin_bot.service.handler.CallbackHandlerService - CALLBACK: 1901032255510386618
+[INFO ]  2021-03-06 21:03:617.05 com.example.demo.admin_bot.service.MainService - TIME: 13.0

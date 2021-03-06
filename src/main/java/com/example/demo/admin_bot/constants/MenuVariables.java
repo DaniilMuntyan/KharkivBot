@@ -139,15 +139,15 @@ public class MenuVariables {
         return MessageFormat.format(adminMenuTextSelectRoom, Emoji.DOWN);
     }
 
-    @Value("${admin.bot.button.text.exitRooms}")
-    private String adminBtnExitRooms;
-    public String getAdminBtnExitRooms() {
-        return MessageFormat.format(adminBtnExitRooms, Emoji.CANCEL);
+    @Value("${admin.bot.button.text.submenu.cancel}")
+    private String adminBtnSubmenuCancel;
+    public String getAdminBtnSubmenuCancel() {
+        return MessageFormat.format(adminBtnSubmenuCancel, Emoji.CANCEL);
     }
 
-    @Value("${admin.bot.button.callback.cancel.rooms}")
+    @Value("${admin.bot.button.callback.submenu.cancel}")
     @Getter
-    private String adminBtnCallbackCancelRooms;
+    private String adminBtnCallbackSubmenuCancel;
 
     @Value("${admin.menu.addBuyFlat.text}")
     private String adminAddBuyFlatText;
