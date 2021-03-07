@@ -23,6 +23,10 @@ public class MenuVariables {
         return MessageFormat.format(addBuyFlat, Emoji.ADD);
     }
 
+    @Value("${admin.bot.button.callback.prefix}")
+    @Getter
+    private String adminBtnCallbackMenuPrefix;
+
     @Value("${admin.bot.button.text.rooms}")
     @Getter
     private String adminBtnRooms;
@@ -100,6 +104,20 @@ public class MenuVariables {
     @Getter
     private String adminBtnCallbackInfo;
 
+    @Value("${admin.bot.button.text.map}")
+    @Getter
+    private String adminBtnMap;
+    @Value("${admin.bot.button.callback.map}")
+    @Getter
+    private String adminBtnCallbackMap;
+
+    @Value("${admin.bot.button.text.contact}")
+    @Getter
+    private String adminBtnContact;
+    @Value("${admin.bot.button.callback.contact}")
+    @Getter
+    private String adminBtnCallbackContact;
+
     @Value("${admin.bot.button.text.cancel}")
     private String adminBtnCancel;
     public String getAdminBtnCancel() {
@@ -108,6 +126,34 @@ public class MenuVariables {
     @Value("${admin.bot.button.callback.cancel}")
     @Getter
     private String adminBtnCallbackCancel;
+
+    @Value("${admin.bot.button.text.submenu.googleMaps}")
+    private String adminBtnSubmenuGoogleMaps;
+    public String getAdminBtnSubmenuGoogleMaps() {
+        return MessageFormat.format(adminBtnSubmenuGoogleMaps, Emoji.EARTH);
+    }
+    @Value("${admin.bot.button.link.submenu.googleMapsLink}")
+    @Getter
+    private String adminBtnSubmenuGoogleMapsLink;
+    @Value("${admin.bot.button.callback.submenu.googleMaps}")
+    @Getter
+    private String adminBtnCallbackSubmenuGoogleMaps;
+
+    @Value("${admin.bot.button.text.submenu.contact}")
+    private String adminBtnSubmenuContact;
+    public String getAdminBtnSubmenuContact() {
+        return MessageFormat.format(adminBtnSubmenuContact, Emoji.CONTACT);
+    }
+    @Value("${admin.bot.button.callback.submenu.contactPrefix}")
+    @Getter
+    private String adminBtnCallbackSubmenuContactPrefix;
+    @Value("${admin.bot.button.callback.submenu.contact}")
+    @Getter
+    private String adminBtnCallbackSubmenuMyContact;
+
+    @Value("${admin.bot.button.callback.submenu.roomsPrefix}")
+    @Getter
+    private String adminBtnCallbackSubmenuRoomsPrefix;
 
     @Value("${admin.bot.button.callback.roomsZero}")
     @Getter
@@ -133,17 +179,15 @@ public class MenuVariables {
     @Getter
     private String adminBtnRoomsZero;
 
-    @Value("${admin.bot.menu.text.selectRoom}")
-    private String adminMenuTextSelectRoom;
-    public String getAdminMenuTextSelectRoom() {
-        return MessageFormat.format(adminMenuTextSelectRoom, Emoji.DOWN);
-    }
-
     @Value("${admin.bot.button.text.submenu.cancel}")
     private String adminBtnSubmenuCancel;
     public String getAdminBtnSubmenuCancel() {
         return MessageFormat.format(adminBtnSubmenuCancel, Emoji.CANCEL);
     }
+
+    @Value("${admin.bot.button.callback.submenu.cancelPrefix}")
+    @Getter
+    private String adminBtnCallbackSubmenuCancelPrefix;
 
     @Value("${admin.bot.button.callback.submenu.cancel}")
     @Getter
@@ -159,6 +203,20 @@ public class MenuVariables {
     private String adminAddRentFlatText;
     public String getAdminAddRentFlatText() {
         return MessageFormat.format(adminAddRentFlatText, Emoji.ADD);
+    }
+
+    @Value("${admin.bot.button.callback.submenu.districtPrefix}")
+    @Getter
+    private String adminBtnCallbackSubmenuDistrictPrefix;
+    public String getCallbackSubmenuDistrict(String buttonText) {
+        return adminBtnCallbackSubmenuDistrictPrefix + buttonText;
+    }
+
+    @Value("${admin.bot.button.callback.submenu.rangePrefix}")
+    @Getter
+    private String adminBtnCallbackSubmenuRangePrefix;
+    public String getCallbackSubmenuRange(String buttonText) {
+        return adminBtnCallbackSubmenuRangePrefix + buttonText;
     }
 
 }

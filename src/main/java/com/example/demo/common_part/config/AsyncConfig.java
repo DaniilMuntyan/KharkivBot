@@ -1,6 +1,6 @@
-package com.example.demo.config;
+package com.example.demo.common_part.config;
 
-import com.example.demo.constants.ProgramVariables;
+import com.example.demo.common_part.constants.ProgramVariables;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

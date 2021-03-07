@@ -4,40 +4,25 @@ import com.example.demo.admin_bot.constants.MenuVariables;
 import com.example.demo.admin_bot.utils.BeanUtil;
 import com.example.demo.admin_bot.utils.Emoji;
 import lombok.Getter;
-import lombok.Setter;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public final class SelectRoomsKeyboard {
+public final class RoomsKeyboard {
     @Getter
-    private InlineKeyboardMarkup selectRoomsMenu;
-
-    @Getter
-    @Setter
-    private boolean[] choice;
+    private final InlineKeyboardMarkup keyboard;
 
     private final MenuVariables menuVariables;
 
-    public SelectRoomsKeyboard() {
+    public RoomsKeyboard() {
         this.menuVariables = BeanUtil.getBean(MenuVariables.class);
 
-        this.choice = new boolean[] {false, false, false, false, false};
-
-        this.selectRoomsMenu = getKeyboardFromChoice();
+        this.keyboard = getKeyboardFrom();
     }
 
-    public SelectRoomsKeyboard(boolean[] choice) {
-        this.menuVariables = BeanUtil.getBean(MenuVariables.class);
-        if (choice.length == 5) {
-            this.choice = choice;
-            this.selectRoomsMenu = getKeyboardFromChoice();
-        }
-    }
-
-    private InlineKeyboardMarkup getKeyboardFromChoice() {
+    private InlineKeyboardMarkup getKeyboardFrom() {
         InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
         List<String> texts = this.getTexts();
 
@@ -78,36 +63,12 @@ public final class SelectRoomsKeyboard {
 
     private List<String> getTexts() {
         List<String> answer = new ArrayList<>();
-        answer.add((this.choice[0] ? Emoji.SELECTED : "") + " " + menuVariables.getAdminBtnRoomsZero());
-        answer.add((this.choice[1] ? Emoji.SELECTED : "") + " " + Emoji.ONE.toString());
-        answer.add((this.choice[2] ? Emoji.SELECTED : "") + " " + Emoji.TWO.toString());
-        answer.add((this.choice[3] ? Emoji.SELECTED : "") + " " + Emoji.THREE.toString());
-        answer.add((this.choice[4] ? Emoji.SELECTED : "") + " " + Emoji.FOUR.toString());
+        answer.add(menuVariables.getAdminBtnRoomsZero());
+        answer.add(Emoji.ONE.toString());
+        answer.add(Emoji.TWO.toString());
+        answer.add(Emoji.THREE.toString());
+        answer.add(Emoji.FOUR.toString());
 
         return answer;
-    }
-
-    public void refreshKeyboard() {
-        this.selectRoomsMenu = getKeyboardFromChoice();
-    }
-
-    public void pickZero() {
-        this.choice[0] = !this.choice[0];
-    }
-
-    public void pickOne() {
-        this.choice[1] = !this.choice[1];
-    }
-
-    public void pickTwo() {
-        this.choice[2] = !this.choice[2];
-    }
-
-    public void pickThree() {
-        this.choice[3] = !this.choice[3];
-    }
-
-    public void pickFour() {
-        this.choice[4] = !this.choice[4];
     }
 }

@@ -3,15 +3,13 @@ package com.example.demo.admin_bot.service;
 import com.example.demo.admin_bot.constants.MenuVariables;
 import com.example.demo.admin_bot.constants.Commands;
 import com.example.demo.admin_bot.keyboards.NewFlatMenu;
-import com.example.demo.constants.ProgramVariables;
-import com.example.demo.model.AdminChoice;
-import com.example.demo.model.User;
-import com.example.demo.repo.AdminChoiceRepository;
-import com.example.demo.repo.UserRepository;
+import com.example.demo.common_part.constants.ProgramVariables;
+import com.example.demo.common_part.model.AdminChoice;
+import com.example.demo.common_part.model.User;
+import com.example.demo.common_part.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.AnswerCallbackQuery;
-import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageText;
 import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardButton;
@@ -24,17 +22,17 @@ import java.util.List;
 public class AdminService {
     private final ProgramVariables programVariables;
     private final MenuVariables menuVariables;
-    private final AdminChoiceRepository adminChoiceRepository;
     private final UserRepository userRepository;
+    private final AdminChoiceService adminChoiceService;
 
     private ReplyKeyboardMarkup mainMenu;
     private AnswerCallbackQuery answerCallbackQuery;
 
     @Autowired
-    public AdminService(ProgramVariables programVariables, MenuVariables menuVariables, AdminChoiceRepository adminChoiceRepository, UserRepository userRepository) {
+    public AdminService(ProgramVariables programVariables, MenuVariables menuVariables, AdminChoiceService adminChoiceService, UserRepository userRepository) {
         this.programVariables = programVariables;
         this.menuVariables = menuVariables;
-        this.adminChoiceRepository = adminChoiceRepository;
+        this.adminChoiceService = adminChoiceService;
         this.userRepository = userRepository;
     }
 
@@ -90,23 +88,23 @@ public class AdminService {
         return new NewFlatMenu(false);
     }
 
-    public NewFlatMenu getAddBuyFlatMenu(AdminChoice adminChoice) {
-        return new NewFlatMenu(adminChoice);
-    }
-
     public NewFlatMenu getAddRentFlatMenu() {
         return new NewFlatMenu(true);
     }
 
-    public NewFlatMenu getAddRentFlatMenu(AdminChoice adminChoice) {
-        return new NewFlatMenu(adminChoice);
+    public AdminChoice saveChoice(NewFlatMenu newFlatMenu) {
+        return adminChoiceService.saveChoice(newFlatMenu.getAdminChoice());
     }
 
-    public AdminChoice saveChoice(NewFlatMenu newFlatMenu) {
-        return adminChoiceRepository.save(newFlatMenu.getAdminChoice());
+    public AdminChoice saveChoice(AdminChoice adminChoice) {
+        return adminChoiceService.saveChoice(adminChoice);
     }
 
     public User saveAdmin(User admin) {
         return userRepository.save(admin);
+    }
+
+    public void saveAdminState(User admin) {
+        userRepository.editAdminState(admin.getId(), admin.getBotState().ordinal());
     }
 }

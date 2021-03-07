@@ -1,6 +1,6 @@
-package com.example.demo.repo;
+package com.example.demo.common_part.repo;
 
-import com.example.demo.model.User;
+import com.example.demo.common_part.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -18,4 +18,9 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Modifying
     @Query("UPDATE User u SET u.lastAction = ?2 WHERE u.id = ?1")
     void editLastAction(Long id, Date lastAction);
+
+    @Transactional
+    @Modifying
+    @Query(value = "UPDATE \"user\" SET state = ?2 WHERE user_id = ?1", nativeQuery = true)
+    void editAdminState(long adminId, int state);
 }

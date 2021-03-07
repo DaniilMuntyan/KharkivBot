@@ -8,22 +8,29 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKe
 
 import java.util.List;
 
-public final class SquareKeyboard {
+public final class ContactKeyboard {
     @Getter
     private final InlineKeyboardMarkup keyboard;
 
-    public SquareKeyboard() {
-        InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
+    public ContactKeyboard() {
         MenuVariables menuVariables = BeanUtil.getBean(MenuVariables.class);
+
+        InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
+
+        InlineKeyboardButton buttonMyContact = InlineKeyboardButton.builder()
+                .text(menuVariables.getAdminBtnSubmenuContact())
+                .callbackData(menuVariables.getAdminBtnCallbackSubmenuMyContact())
+                .build();
 
         InlineKeyboardButton buttonCancel = InlineKeyboardButton.builder()
                 .text(menuVariables.getAdminBtnSubmenuCancel())
                 .callbackData(menuVariables.getAdminBtnCallbackSubmenuCancel())
                 .build();
 
-        List<InlineKeyboardButton> row1 = List.of(buttonCancel);
+        List<InlineKeyboardButton> row1 = List.of(buttonMyContact);
+        List<InlineKeyboardButton> row2 = List.of(buttonCancel);
 
-        inlineKeyboardMarkup.setKeyboard(List.of(row1));
+        inlineKeyboardMarkup.setKeyboard(List.of(row1, row2));
         this.keyboard = inlineKeyboardMarkup;
     }
 }

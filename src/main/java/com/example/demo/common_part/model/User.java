@@ -1,4 +1,4 @@
-package com.example.demo.model;
+package com.example.demo.common_part.model;
 
 import com.example.demo.admin_bot.utils.State;
 import lombok.AllArgsConstructor;

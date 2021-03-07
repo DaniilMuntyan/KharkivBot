@@ -1,10 +1,10 @@
 package com.example.demo.user_bot.botapi;
 
-import com.example.demo.user_bot.utils.District;
-import com.example.demo.user_bot.utils.RentalRange;
+import com.example.demo.common_part.utils.District;
+import com.example.demo.common_part.utils.RentalRange;
 import com.example.demo.user_bot.utils.Rooms;
-import com.example.demo.model.RentFlat;
-import com.example.demo.repo.RentFlatRepository;
+import com.example.demo.common_part.model.RentFlat;
+import com.example.demo.common_part.repo.RentFlatRepository;
 import lombok.SneakyThrows;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;

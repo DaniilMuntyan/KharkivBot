@@ -1,5 +1,7 @@
-package com.example.demo.model;
+package com.example.demo.common_part.model;
 
+import com.example.demo.common_part.utils.BuyRange;
+import com.example.demo.common_part.utils.District;
 import com.example.demo.user_bot.utils.*;
 import lombok.*;
 
@@ -58,6 +60,16 @@ public final class BuyFlat {
     public BuyRange getRange() {
         return buyRange;
     }
+
+    @Column(name="map")
+    @Getter
+    @Setter
+    private String mapLink;
+
+    @Column(name="contact")
+    @Getter
+    @Setter
+    private String contact;
 
     @Column(name="telegraph")
     @Getter

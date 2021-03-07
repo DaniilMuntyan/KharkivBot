@@ -3,11 +3,10 @@ package com.example.demo.admin_bot.service.handler;
 import com.example.demo.admin_bot.constants.MenuVariables;
 import com.example.demo.admin_bot.constants.MessagesVariables;
 import com.example.demo.admin_bot.service.AdminService;
-import com.example.demo.admin_bot.service.handler.admin_menu.AdminMenuCallbackHandlerService;
-import com.example.demo.admin_bot.service.handler.admin_menu.submenu.CancelSubmenuHandler;
-import com.example.demo.admin_bot.service.handler.admin_menu.submenu.RoomsCallbackHandlerService;
-import com.example.demo.model.User;
-import com.example.demo.repo.UserRepository;
+import com.example.demo.admin_bot.service.handler.admin_menu.AdminMenuCallbackHandler;
+import com.example.demo.admin_bot.service.handler.admin_menu.submenu.*;
+import com.example.demo.common_part.model.User;
+import com.example.demo.common_part.repo.UserRepository;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,27 +18,33 @@ import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
 import java.util.*;
 
 @Service
-public final class CallbackHandlerService {
-    private static final Logger LOGGER = Logger.getLogger(CallbackHandlerService.class);
+public final class CallbackHandler {
+    private static final Logger LOGGER = Logger.getLogger(CallbackHandler.class);
 
     private final AdminService adminService;
     private final UserRepository userRepository;
-    private final MenuVariables menuVariables;
     private final MessagesVariables messagesVariables;
+    private final MenuVariables menuVariables;
 
-    private final AdminMenuCallbackHandlerService adminMenuCallbackHandlerService;
-    private final RoomsCallbackHandlerService roomsCallbackHandlerService;
+    private final AdminMenuCallbackHandler adminMenuCallbackHandler;
+    private final RoomsCallbackHandler roomsCallbackHandler;
+    private final DistrictCallbackHandler districtCallbackHandler;
     private final CancelSubmenuHandler cancelSubmenuHandler;
+    private final MoneyRangeCallbackHandler moneyRangeCallbackHandler;
+    private final ContactCallbackHandler contactCallbackHandler;
 
     @Autowired
-    public CallbackHandlerService(AdminService adminService, UserRepository userRepository, MenuVariables menuVariables, MessagesVariables messagesVariables, AdminMenuCallbackHandlerService adminMenuCallbackHandlerService, RoomsCallbackHandlerService roomsCallbackHandlerService, CancelSubmenuHandler cancelSubmenuHandler) {
+    public CallbackHandler(AdminService adminService, UserRepository userRepository, MessagesVariables messagesVariables, MenuVariables menuVariables, AdminMenuCallbackHandler adminMenuCallbackHandler, RoomsCallbackHandler roomsCallbackHandler, DistrictCallbackHandler districtCallbackHandler, CancelSubmenuHandler cancelSubmenuHandler, MoneyRangeCallbackHandler moneyRangeCallbackHandler, ContactCallbackHandler contactCallbackHandler) {
         this.adminService = adminService;
         this.userRepository = userRepository;
-        this.menuVariables = menuVariables;
         this.messagesVariables = messagesVariables;
-        this.adminMenuCallbackHandlerService = adminMenuCallbackHandlerService;
-        this.roomsCallbackHandlerService = roomsCallbackHandlerService;
+        this.menuVariables = menuVariables;
+        this.adminMenuCallbackHandler = adminMenuCallbackHandler;
+        this.roomsCallbackHandler = roomsCallbackHandler;
+        this.districtCallbackHandler = districtCallbackHandler;
         this.cancelSubmenuHandler = cancelSubmenuHandler;
+        this.moneyRangeCallbackHandler = moneyRangeCallbackHandler;
+        this.contactCallbackHandler = contactCallbackHandler;
     }
 
     // Обработка callback'а
@@ -89,16 +94,34 @@ public final class CallbackHandlerService {
             return response;
         }
 
-        if(callbackQuery.getData().startsWith("SUBMENU")) {
-            response.add(cancelSubmenuHandler.handleRoomCallback(callbackQuery, admin));
+        // Кнопка "отмена"
+        if(callbackQuery.getData().startsWith(menuVariables.getAdminBtnCallbackSubmenuCancelPrefix())) {
+            response.add(cancelSubmenuHandler.handleCancelSubmenuCallback(callbackQuery, admin));
         }
 
-        if(callbackQuery.getData().startsWith("ADMIN_MENU")) {
-            response.addAll(adminMenuCallbackHandlerService.handleAdminMenuCallback(callbackQuery, admin));
+        // Кнопки главного меню (кол-во комнат, площадь и тд)
+        if(callbackQuery.getData().startsWith(menuVariables.getAdminBtnCallbackMenuPrefix())) {
+            response.addAll(adminMenuCallbackHandler.handleAdminMenuCallback(callbackQuery, admin));
         }
 
-        if(callbackQuery.getData().startsWith("ROOMS")) {
-            response.add(roomsCallbackHandlerService.handleRoomCallback(callbackQuery, admin));
+        // Кнопки подпункта меню "Кол-во комнат"
+        if(callbackQuery.getData().startsWith(menuVariables.getAdminBtnCallbackSubmenuRoomsPrefix())) {
+            response.add(roomsCallbackHandler.handleRoomCallback(callbackQuery, admin));
+        }
+
+        // Кнопки подпункта меню "Район"
+        if(callbackQuery.getData().startsWith(menuVariables.getAdminBtnCallbackSubmenuDistrictPrefix())) {
+            response.add(districtCallbackHandler.handleDistrictCallback(callbackQuery, admin));
+        }
+
+        // Кнопки подпункта меню "Бюджет"
+        if(callbackQuery.getData().startsWith(menuVariables.getAdminBtnCallbackSubmenuRangePrefix())) {
+            response.add(moneyRangeCallbackHandler.handleMoneyRangeCallback(callbackQuery, admin));
+        }
+
+        // Кнопка подпункта "Контакт"
+        if(callbackQuery.getData().startsWith(menuVariables.getAdminBtnCallbackSubmenuContactPrefix())) {
+            response.add(contactCallbackHandler.handleContactCallback(callbackQuery, admin));
         }
 
         return response;

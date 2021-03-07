@@ -8,13 +8,14 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKe
 
 import java.util.List;
 
-public final class SquareKeyboard {
+public final class MetroKeyboard {
     @Getter
     private final InlineKeyboardMarkup keyboard;
 
-    public SquareKeyboard() {
-        InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
+    public MetroKeyboard() {
         MenuVariables menuVariables = BeanUtil.getBean(MenuVariables.class);
+
+        InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
 
         InlineKeyboardButton buttonCancel = InlineKeyboardButton.builder()
                 .text(menuVariables.getAdminBtnSubmenuCancel())
@@ -26,4 +27,5 @@ public final class SquareKeyboard {
         inlineKeyboardMarkup.setKeyboard(List.of(row1));
         this.keyboard = inlineKeyboardMarkup;
     }
+
 }

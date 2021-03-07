@@ -1,4 +1,7 @@
-package com.example.demo.user_bot.utils;
+package com.example.demo.common_part.utils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public enum BuyRange {
     USD_14000_20000("14000 - 20000"), USD_20000_25000("20000 - 25000"), USD_25000_30000("25000 - 30000"),
@@ -13,7 +16,16 @@ public enum BuyRange {
         this.range = range + " $";
     }
 
-    public String getBuyRange() {
-        return range;
+    public static List<String> getAllNames() {
+        List<String> s = new ArrayList<>();
+        for (BuyRange temp: BuyRange.values()) {
+            s.add(temp.toString());
+        }
+        return s;
+    }
+
+    @Override
+    public String toString() {
+        return this.range;
     }
 }

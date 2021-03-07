@@ -7,24 +7,22 @@ import com.example.demo.admin_bot.constants.MessagesVariables;
 import com.example.demo.admin_bot.service.BotStateService;
 import com.example.demo.admin_bot.utils.Emoji;
 import com.example.demo.admin_bot.utils.State;
-import com.example.demo.model.AdminChoice;
-import com.example.demo.model.User;
-import com.example.demo.repo.UserRepository;
+import com.example.demo.common_part.model.User;
+import com.example.demo.common_part.repo.UserRepository;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.DeleteMessage;
-import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageText;
 import org.telegram.telegrambots.meta.api.objects.Message;
 
 import java.text.MessageFormat;
 import java.util.*;
 
 @Service
-public class MessageHandlerService {
-    private static final Logger LOGGER = Logger.getLogger(MessageHandlerService.class);
+public class MessageHandler {
+    private static final Logger LOGGER = Logger.getLogger(MessageHandler.class);
 
     private final UserRepository userRepository;
     private final AdminService adminService;
@@ -33,7 +31,7 @@ public class MessageHandlerService {
     private final BotStateService botStateService;
 
     @Autowired
-    public MessageHandlerService(UserRepository userRepository, AdminService adminService, MessagesVariables messagesVariables, MenuVariables menuVariables, BotStateService botStateService) {
+    public MessageHandler(UserRepository userRepository, AdminService adminService, MessagesVariables messagesVariables, MenuVariables menuVariables, BotStateService botStateService) {
         this.userRepository = userRepository;
         this.adminService = adminService;
         this.messagesVariables = messagesVariables;
@@ -101,16 +99,15 @@ public class MessageHandlerService {
             LOGGER.info("handleAdminMessage. AddBuyFlatButton");
             admin.setBotState(State.ADD_BUY_FLAT);
         }
-        if(text.equals(Commands.START)) {
+        if (text.equals(Commands.START)) {
             adminCommand = true;
             admin.setBotState(State.INIT);
         }
-        if(admin.getBotState() == State.SUBMENU_SQUARE) { // Если ожидаем площадь
-            LOGGER.info("IN MESSAGE_HANDLER IF!!!");
+        if (checkMenuBotState(admin.getBotState())) {
             adminCommand = true;
         }
 
-        if(adminCommand) { // Если пришла команда от администратора - обработать, в соответствии с состоянием
+        if (adminCommand) { // Если пришла команда от администратора - обработать, в соответствии с состоянием
             response.addAll(botStateService.processInput(message, admin));
         } else { // Если пришло любое текстовое сообщение
             if (admin.getBotState() == State.INIT) {
@@ -138,5 +135,13 @@ public class MessageHandlerService {
                 .chatId(message.getChatId().toString())
                 .messageId(message.getMessageId())
                 .build();
+    }
+
+    private boolean checkMenuBotState(State botState) {
+        return botState == State.SUBMENU_SQUARE || botState == State.SUBMENU_FLOOR ||
+                botState == State.SUBMENU_ALL_FLOORS || botState == State.SUBMENU_METRO ||
+                botState == State.SUBMENU_ADDRESS || botState == State.SUBMENU_PRICE ||
+                botState == State.SUBMENU_PHOTO || botState == State.SUBMENU_INFO ||
+                botState == State.SUBMENU_CONTACT || botState == State.SUBMENU_MAP;
     }
 }

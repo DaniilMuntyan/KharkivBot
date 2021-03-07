@@ -1,8 +1,8 @@
-package com.example.demo.model;
+package com.example.demo.common_part.model;
 
-import com.example.demo.user_bot.utils.District;
+import com.example.demo.common_part.utils.District;
 import com.example.demo.user_bot.utils.Emoji;
-import com.example.demo.user_bot.utils.RentalRange;
+import com.example.demo.common_part.utils.RentalRange;
 import com.example.demo.user_bot.utils.Rooms;
 import lombok.*;
 
@@ -61,6 +61,16 @@ public final class RentFlat {
     public RentalRange getRange() {
         return rentalRange;
     }
+
+    @Column(name="map")
+    @Getter
+    @Setter
+    private String mapLink;
+
+    @Column(name="contact")
+    @Getter
+    @Setter
+    private String contact;
 
     @Column(name="telegraph")
     @Getter

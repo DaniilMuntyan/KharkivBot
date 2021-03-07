@@ -1,7 +1,6 @@
-package com.example.demo.repo;
+package com.example.demo.common_part.repo;
 
-import com.example.demo.model.AdminChoice;
-import com.example.demo.model.BuyFlat;
+import com.example.demo.common_part.model.AdminChoice;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

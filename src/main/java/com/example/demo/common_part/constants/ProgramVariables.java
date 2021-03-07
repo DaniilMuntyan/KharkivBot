@@ -1,4 +1,4 @@
-package com.example.demo.constants;
+package com.example.demo.common_part.constants;
 
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;

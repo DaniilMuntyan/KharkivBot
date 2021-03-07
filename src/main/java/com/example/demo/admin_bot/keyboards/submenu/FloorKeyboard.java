@@ -2,19 +2,21 @@ package com.example.demo.admin_bot.keyboards.submenu;
 
 import com.example.demo.admin_bot.constants.MenuVariables;
 import com.example.demo.admin_bot.utils.BeanUtil;
+import com.example.demo.admin_bot.utils.Emoji;
 import lombok.Getter;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 
 import java.util.List;
 
-public final class SquareKeyboard {
+public final class FloorKeyboard {
     @Getter
     private final InlineKeyboardMarkup keyboard;
 
-    public SquareKeyboard() {
-        InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
+    public FloorKeyboard() {
         MenuVariables menuVariables = BeanUtil.getBean(MenuVariables.class);
+
+        InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
 
         InlineKeyboardButton buttonCancel = InlineKeyboardButton.builder()
                 .text(menuVariables.getAdminBtnSubmenuCancel())

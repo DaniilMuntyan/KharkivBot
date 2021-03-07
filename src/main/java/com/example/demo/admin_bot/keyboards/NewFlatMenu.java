@@ -3,7 +3,7 @@ package com.example.demo.admin_bot.keyboards;
 import com.example.demo.admin_bot.constants.MenuVariables;
 import com.example.demo.admin_bot.utils.BeanUtil;
 import com.example.demo.admin_bot.utils.Emoji;
-import com.example.demo.model.AdminChoice;
+import com.example.demo.common_part.model.AdminChoice;
 import lombok.Getter;
 import lombok.Setter;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
@@ -85,8 +85,16 @@ public final class NewFlatMenu {
                 .text(texts.get(10))
                 .callbackData(menuVariables.getAdminBtnCallbackInfo())
                 .build();
-        InlineKeyboardButton buttonCancel = InlineKeyboardButton.builder()
+        InlineKeyboardButton buttonMap = InlineKeyboardButton.builder()
                 .text(texts.get(11))
+                .callbackData(menuVariables.getAdminBtnCallbackMap())
+                .build();
+        InlineKeyboardButton buttonContact = InlineKeyboardButton.builder()
+                .text(texts.get(12))
+                .callbackData(menuVariables.getAdminBtnCallbackContact())
+                .build();
+        InlineKeyboardButton buttonCancel = InlineKeyboardButton.builder()
+                .text(texts.get(13))
                 .callbackData(menuVariables.getAdminBtnCallbackCancel())
                 .build();
 
@@ -95,9 +103,10 @@ public final class NewFlatMenu {
         List<InlineKeyboardButton> row3 = List.of(buttonMetro, buttonAddress);
         List<InlineKeyboardButton> row4 = List.of(buttonDistrict, buttonMoney);
         List<InlineKeyboardButton> row5 = List.of(buttonMoneyRange, buttonTelegraph);
-        List<InlineKeyboardButton> row6 = List.of(buttonInfo);
-        List<InlineKeyboardButton> row7 = List.of(buttonCancel);
-        List<List<InlineKeyboardButton>> rowList = List.of(row1, row2, row3, row4, row5, row6, row7);
+        List<InlineKeyboardButton> row6 = List.of(buttonInfo, buttonMap);
+        List<InlineKeyboardButton> row7 = List.of(buttonContact);
+        List<InlineKeyboardButton> row8 = List.of(buttonCancel);
+        List<List<InlineKeyboardButton>> rowList = List.of(row1, row2, row3, row4, row5, row6, row7, row8);
 
         inlineKeyboardMarkup.setKeyboard(rowList);
 
@@ -132,7 +141,12 @@ public final class NewFlatMenu {
                 selected + " " + menuVariables.getAdminBtnTelegraph() + " " + adminChoice.getTelegraph());
         texts.add(adminChoice.getInfo() == null ? menuVariables.getAdminBtnInfo() + " " + no:
                 selected + " " + menuVariables.getAdminBtnInfo() + " " + adminChoice.getInfo());
+        texts.add(adminChoice.getMapLink() == null ? menuVariables.getAdminBtnMap() + " " + no:
+                selected + " " + menuVariables.getAdminBtnMap() + " " + adminChoice.getMapLink());
+        texts.add(adminChoice.getContact() == null ? menuVariables.getAdminBtnContact() + " " + no:
+                selected + " " + menuVariables.getAdminBtnContact() + " " + adminChoice.getContact());
         texts.add(menuVariables.getAdminBtnCancel());
+
         return texts;
     }
 

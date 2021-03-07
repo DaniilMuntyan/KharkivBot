@@ -1,6 +1,6 @@
-package com.example.demo.repo;
+package com.example.demo.common_part.repo;
 
-import com.example.demo.model.RentFlat;
+import com.example.demo.common_part.model.RentFlat;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

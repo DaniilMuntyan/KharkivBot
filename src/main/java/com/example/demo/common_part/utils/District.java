@@ -1,4 +1,7 @@
-package com.example.demo.user_bot.utils;
+package com.example.demo.common_part.utils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public enum District {
     ALEKSEEVKA("Алексеевка"), SALTOVKA("Салтовка"), CENTER("Центр"),
@@ -16,5 +19,18 @@ public enum District {
 
     public String getName() {
         return name;
+    }
+
+    public static List<String> getAllNames() {
+        List<String> s = new ArrayList<>();
+        for (District temp: District.values()) {
+            s.add(temp.getName());
+        }
+        return s;
+    }
+
+    @Override
+    public String toString() {
+        return this.name;
     }
 }
