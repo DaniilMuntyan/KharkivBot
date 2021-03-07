@@ -3,6 +3,7 @@ package com.example.demo.admin_bot.service;
 import com.example.demo.admin_bot.keyboards.NewFlatMenu;
 import com.example.demo.common_part.model.AdminChoice;
 import com.example.demo.common_part.repo.AdminChoiceRepository;
+import com.example.demo.user_bot.utils.Emoji;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,4 +23,9 @@ public class AdminChoiceService {
     public AdminChoice saveChoice(AdminChoice adminChoice) {
         return adminChoiceRepository.save(adminChoice);
     }
+
+    public void deleteChoice(AdminChoice adminChoice) {
+        this.adminChoiceRepository.delete(adminChoice);
+    }
+
 }

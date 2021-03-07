@@ -4,6 +4,8 @@ import com.example.demo.admin_bot.constants.MenuVariables;
 import com.example.demo.admin_bot.constants.MessagesVariables;
 import com.example.demo.admin_bot.service.AdminService;
 import com.example.demo.admin_bot.service.handler.admin_menu.AdminMenuCallbackHandler;
+import com.example.demo.admin_bot.service.handler.admin_menu.ConfirmMessageCallbackHandler;
+import com.example.demo.admin_bot.service.handler.admin_menu.ConfirmPublishCallbackHandler;
 import com.example.demo.admin_bot.service.handler.admin_menu.submenu.*;
 import com.example.demo.common_part.model.User;
 import com.example.demo.common_part.repo.UserRepository;
@@ -32,9 +34,11 @@ public final class CallbackHandler {
     private final CancelSubmenuHandler cancelSubmenuHandler;
     private final MoneyRangeCallbackHandler moneyRangeCallbackHandler;
     private final ContactCallbackHandler contactCallbackHandler;
+    private final ConfirmMessageCallbackHandler confirmMessageCallbackHandler;
+    private final ConfirmPublishCallbackHandler confirmPublishCallbackHandler;
 
     @Autowired
-    public CallbackHandler(AdminService adminService, UserRepository userRepository, MessagesVariables messagesVariables, MenuVariables menuVariables, AdminMenuCallbackHandler adminMenuCallbackHandler, RoomsCallbackHandler roomsCallbackHandler, DistrictCallbackHandler districtCallbackHandler, CancelSubmenuHandler cancelSubmenuHandler, MoneyRangeCallbackHandler moneyRangeCallbackHandler, ContactCallbackHandler contactCallbackHandler) {
+    public CallbackHandler(AdminService adminService, UserRepository userRepository, MessagesVariables messagesVariables, MenuVariables menuVariables, AdminMenuCallbackHandler adminMenuCallbackHandler, RoomsCallbackHandler roomsCallbackHandler, DistrictCallbackHandler districtCallbackHandler, CancelSubmenuHandler cancelSubmenuHandler, MoneyRangeCallbackHandler moneyRangeCallbackHandler, ContactCallbackHandler contactCallbackHandler, ConfirmMessageCallbackHandler confirmMessageCallbackHandler, ConfirmPublishCallbackHandler confirmPublishCallbackHandler) {
         this.adminService = adminService;
         this.userRepository = userRepository;
         this.messagesVariables = messagesVariables;
@@ -45,6 +49,8 @@ public final class CallbackHandler {
         this.cancelSubmenuHandler = cancelSubmenuHandler;
         this.moneyRangeCallbackHandler = moneyRangeCallbackHandler;
         this.contactCallbackHandler = contactCallbackHandler;
+        this.confirmMessageCallbackHandler = confirmMessageCallbackHandler;
+        this.confirmPublishCallbackHandler = confirmPublishCallbackHandler;
     }
 
     // Обработка callback'а
@@ -81,6 +87,8 @@ public final class CallbackHandler {
     // Callback пришел от админа
     private List<BotApiMethod<?>> handleAdminCallback(CallbackQuery callbackQuery, User admin) {
         List<BotApiMethod<?>> response = new ArrayList<>();
+
+        LOGGER.info("CALLBACK DATA: " + callbackQuery.getData());
 
         // Только одно меню может работать в данный момент времени.
         boolean forbidden = admin.getAdminChoice().getMenuMessageId() != null &&
@@ -122,6 +130,16 @@ public final class CallbackHandler {
         // Кнопка подпункта "Контакт"
         if(callbackQuery.getData().startsWith(menuVariables.getAdminBtnCallbackSubmenuContactPrefix())) {
             response.add(contactCallbackHandler.handleContactCallback(callbackQuery, admin));
+        }
+
+        // Кнопки подтверждения отсылки сообщения всем пользователям
+        if(callbackQuery.getData().startsWith(menuVariables.getAdminBtnCallbackConfirmPrefix())) {
+            response.add(confirmMessageCallbackHandler.handleConfirmCallback(callbackQuery, admin));
+        }
+
+        // Кнопки подтверждения публикации квартиры
+        if(callbackQuery.getData().startsWith(menuVariables.getAdminBtnCallbackPublishPrefix())) {
+            response.addAll(confirmPublishCallbackHandler.handlePublishConfirm(callbackQuery, admin));
         }
 
         return response;

@@ -8,10 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
+import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 @Service
 public class MainService {
@@ -41,7 +44,7 @@ public class MainService {
                     bot.executeAsync(method);
                 }
             }
-            LOGGER.info("TIME: " + (double) (System.currentTimeMillis() - start));
+            LOGGER.info("TIME: " + (double) (System.currentTimeMillis() - start) / 1000);
         } catch (Exception exception) {
             exception.printStackTrace();
             LOGGER.error(exception);

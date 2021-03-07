@@ -2,6 +2,7 @@ package com.example.demo.common_part.model;
 
 import com.example.demo.common_part.utils.BuyRange;
 import com.example.demo.common_part.utils.District;
+import com.example.demo.common_part.utils.RentalRange;
 import com.example.demo.user_bot.utils.*;
 import lombok.*;
 
@@ -78,4 +79,43 @@ public final class BuyFlat {
     @Column(name="info")
     @Getter
     private String info;
+
+    public String getMarkdownMessage() {
+        return (Emoji.RECORD + ((telegraph != null) ?
+                (" [№ " + id.toString() + "](" + telegraph + ")" + "\n") : (" № " + id.toString() + "\n"))) +
+                ((rooms != null) ? (Emoji.ROOMS + " " + rooms + "к\n") : "") +
+                ((square != null && square != 0.0) ? (Emoji.SQUARE + " " + square + "м²\n") : "") +
+                ((floor != null && allFloors != null) ? (Emoji.FLOOR + " Этаж: " + floor + "/" + allFloors + "\n") : "") +
+                ((metro != null && !metro.isEmpty()) ? (Emoji.METRO + " " + metro + "\n") : "") +
+                ((address != null && !address.isEmpty()) ? (Emoji.ADDRESS + " " + address + "\n") : "") +
+                ((money != null && !money.isEmpty()) ? (Emoji.MONEY + " " + money + "\n") : "") +
+                ((info != null && !info.isEmpty()) ? (Emoji.INFO + " " + info + "\n") : "");
+    }
+
+    public String getHtmlMessage() {
+        return ((telegraph != null) ? Emoji.RECORD + " <a href=\"" + telegraph + "\">" + id.toString() + "</a>" + "\n" : "") +
+                ((rooms != null) ? (Emoji.ROOMS + " " + rooms + (rooms != Rooms.GOSTINKA ? "к" : "") + "к\n") : "") +
+                (((square != null && square != 0.0) ? (Emoji.SQUARE + " " + square + "м²\n") : "")) +
+                (((floor != null && allFloors != null) ? (Emoji.FLOOR + " Этаж: " + floor + "/" + allFloors + "\n") : "")) +
+                ((metro != null && !metro.isEmpty()) ? (Emoji.METRO + " " + metro + "\n") : "") +
+                ((address != null && !address.isEmpty()) ? (Emoji.ADDRESS + " " + address + "\n") : "") +
+                ((money != null && !money.isEmpty()) ? (Emoji.MONEY + " " + money + "\n") : "") +
+                ((info != null && !info.isEmpty()) ? (Emoji.INFO + " " + info + "\n") : "");
+    }
+
+    public BuyFlat(AdminChoice adminChoice) {
+        this.address = adminChoice.getAddress();
+        this.allFloors = adminChoice.getAllFloors();
+        this.contact = adminChoice.getContact();
+        this.floor = adminChoice.getFloor();
+        this.district = adminChoice.getDistrict();
+        this.info = adminChoice.getInfo();
+        this.mapLink = adminChoice.getMapLink();
+        this.metro = adminChoice.getMetro();
+        this.money = adminChoice.getMoney();
+        this.buyRange = BuyRange.valueOfRange(adminChoice.getMoneyRange());
+        this.rooms = adminChoice.getRooms();
+        this.square = adminChoice.getSquare();
+        this.telegraph = adminChoice.getTelegraph();
+    }
 }

@@ -101,4 +101,33 @@ public class MessagesVariables {
         return MessageFormat.format(contactMessageText, Emoji.SUBMENU);
     }
 
+    @Value("${admin.menu.confirmMessage.messageText}")
+    private String confirmMessageMessageText;
+    public String getConfirmMessageMessageText() {
+        return MessageFormat.format(confirmMessageMessageText, Emoji.WARNING);
+    }
+
+    @Value("${admin.menu.confirmMessage.cancel}")
+    private String adminConfirmMessageCancel;
+    public String getAdminConfirmMessageCancel() {
+        return MessageFormat.format(adminConfirmMessageCancel, Emoji.FAIL);
+    }
+
+    @Value("${admin.menu.confirmMessage.success}")
+    private String adminConfirmMessageSuccess;
+    public String getAdminConfirmMessageSuccess() {
+        return MessageFormat.format(adminConfirmMessageSuccess, Emoji.SUCCESS);
+    }
+
+    @Value("${admin.menu.confirmPublish.cancel}")
+    private String adminConfirmPublishCancel;
+    public String getAdminConfirmPublishCancel() {
+        return MessageFormat.format(adminConfirmPublishCancel, Emoji.FAIL);
+    }
+
+    @Value("${admin.menu.confirmPublish.success}")
+    private String adminConfirmPublishSuccess;
+    public String getAdminConfirmPublishSuccess(String flatNumber) {
+        return MessageFormat.format(adminConfirmPublishSuccess, Emoji.SUCCESS, flatNumber);
+    }
 }

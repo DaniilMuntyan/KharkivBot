@@ -6,6 +6,7 @@ import com.example.demo.admin_bot.keyboards.NewFlatMenu;
 import com.example.demo.common_part.constants.ProgramVariables;
 import com.example.demo.common_part.model.AdminChoice;
 import com.example.demo.common_part.model.User;
+import com.example.demo.common_part.repo.AdminChoiceRepository;
 import com.example.demo.common_part.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -61,9 +62,13 @@ public class AdminService {
         row1.add(new KeyboardButton(menuVariables.getAddRentFlatBtnText()));
         KeyboardRow row2 = new KeyboardRow();
         row2.add(new KeyboardButton(menuVariables.getAddBuyFlatBtnText()));
+        KeyboardRow row3 = new KeyboardRow();
+        row3.add(new KeyboardButton(menuVariables.getBulkMessageText()));
+
 
         keyboard.add(row1);
         keyboard.add(row2);
+        keyboard.add(row3);
 
         replyKeyboardMarkup.setKeyboard(keyboard);
         this.mainMenu = replyKeyboardMarkup;
@@ -106,5 +111,17 @@ public class AdminService {
 
     public void saveAdminState(User admin) {
         userRepository.editAdminState(admin.getId(), admin.getBotState().ordinal());
+    }
+
+    // Чтобы установить новый adminChoice для админа - сохранить новый и удалить предыдущий.
+    // Чтобы не хранился в базе
+    public void setAdminChoice(User admin, AdminChoice newAdminChoice) {
+        AdminChoice prevAdminChoice = admin.getAdminChoice();
+        this.adminChoiceService.saveChoice(newAdminChoice);
+        admin.setAdminChoice(newAdminChoice);
+        this.saveAdmin(admin);
+        if (admin.getAdminChoice() != null) {
+            this.adminChoiceService.deleteChoice(prevAdminChoice);
+        }
     }
 }

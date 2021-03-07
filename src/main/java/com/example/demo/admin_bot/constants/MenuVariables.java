@@ -14,13 +14,19 @@ public class MenuVariables {
     @Value("${admin.bot.button.addRentFlat.text}")
     private String addRentFlat;
     public String getAddRentFlatBtnText() {
-        return MessageFormat.format(addRentFlat, Emoji.ADD);
+        return MessageFormat.format(addRentFlat, Emoji.MAIN_MENU);
     }
 
     @Value("${admin.bot.button.addBuyFlat.text}")
     private String addBuyFlat;
     public String getAddBuyFlatBtnText() {
-        return MessageFormat.format(addBuyFlat, Emoji.ADD);
+        return MessageFormat.format(addBuyFlat, Emoji.MAIN_MENU);
+    }
+
+    @Value("${admin.bot.button.bulkMessage.text}")
+    private String bulkMessage;
+    public String getBulkMessageText() {
+        return MessageFormat.format(bulkMessage, Emoji.MAIN_MENU);
     }
 
     @Value("${admin.bot.button.callback.prefix}")
@@ -127,6 +133,39 @@ public class MenuVariables {
     @Getter
     private String adminBtnCallbackCancel;
 
+    @Value("${admin.bot.button.text.publish}")
+    private String adminBtnPublish;
+    public String getAdminBtnPublish() {
+        return MessageFormat.format(adminBtnPublish, Emoji.PUBLISH);
+    }
+    @Value("${admin.bot.button.callback.publish}")
+    @Getter
+    private String adminBtnCallbackPublish;
+
+    @Value("${admin.bot.button.text.confirmMessageYes}")
+    private String adminBtnConfirmMessageYes;
+    public String getAdminBtnConfirmMessageYes() {
+        return MessageFormat.format(adminBtnConfirmMessageYes, Emoji.YES);
+    }
+
+    @Value("${admin.bot.button.text.confirmMessageNo}")
+    private String adminBtnConfirmMessageNo;
+    public String getAdminBtnConfirmMessageNo() {
+        return MessageFormat.format(adminBtnConfirmMessageNo, Emoji.NO);
+    }
+
+    @Value("${admin.bot.button.callback.confirmMessagePrefix}")
+    @Getter
+    private String adminBtnCallbackConfirmPrefix;
+
+    @Value("${admin.bot.button.callback.confirmMessageYes}")
+    @Getter
+    private String adminBtnCallbackConfirmMessageYes;
+
+    @Value("${admin.bot.button.callback.confirmMessageNo}")
+    @Getter
+    private String adminBtnCallbackConfirmMessageNo;
+
     @Value("${admin.bot.button.text.submenu.googleMaps}")
     private String adminBtnSubmenuGoogleMaps;
     public String getAdminBtnSubmenuGoogleMaps() {
@@ -196,13 +235,19 @@ public class MenuVariables {
     @Value("${admin.menu.addBuyFlat.text}")
     private String adminAddBuyFlatText;
     public String getAdminAddBuyFlatText() {
-        return MessageFormat.format(adminAddBuyFlatText, Emoji.ADD);
+        return MessageFormat.format(adminAddBuyFlatText, Emoji.MAIN_MENU);
     }
 
     @Value("${admin.menu.addRentFlat.text}")
     private String adminAddRentFlatText;
     public String getAdminAddRentFlatText() {
-        return MessageFormat.format(adminAddRentFlatText, Emoji.ADD);
+        return MessageFormat.format(adminAddRentFlatText, Emoji.MAIN_MENU);
+    }
+
+    @Value("${admin.menu.bulkMessage.text}")
+    private String adminBulkMessageText;
+    public String getAdminBulkMessageText() {
+        return MessageFormat.format(adminBulkMessageText, Emoji.MAIN_MENU);
     }
 
     @Value("${admin.bot.button.callback.submenu.districtPrefix}")
@@ -217,6 +262,40 @@ public class MenuVariables {
     private String adminBtnCallbackSubmenuRangePrefix;
     public String getCallbackSubmenuRange(String buttonText) {
         return adminBtnCallbackSubmenuRangePrefix + buttonText;
+    }
+
+    @Value("${admin.bot.button.text.submenu.publishConfirm.yes}")
+    private String adminBtnPublishConfirmYes;
+    public String getAdminBtnPublishConfirmYes() {
+        return MessageFormat.format(adminBtnConfirmMessageYes, Emoji.YES);
+    }
+    @Value("${admin.bot.button.callback.submenu.publishConfirm.yes}")
+    @Getter
+    private String adminBtnCallbackSubmenuConfirmYes;
+
+    @Value("${admin.bot.button.callback.submenu.publishConfirmPrefix}")
+    @Getter
+    private String adminBtnCallbackPublishPrefix;
+
+    @Value("${admin.bot.button.text.submenu.publishConfirm.no}")
+    private String adminBtnPublishConfirmNo;
+    public String getAdminBtnPublishConfirmNo() {
+        return MessageFormat.format(adminBtnConfirmMessageNo, Emoji.NO);
+    }
+    @Value("${admin.bot.button.callback.submenu.publishConfirm.no}")
+    @Getter
+    private String adminBtnCallbackSubmenuConfirmNo;
+
+    @Value("${newFlat.button.map.text}")
+    private String newFlatBtnMap;
+    public String getNewFlatBtnMap() {
+        return MessageFormat.format(newFlatBtnMap, Emoji.EARTH);
+    }
+
+    @Value("${newFlat.button.contact.text}")
+    private String newFlatBtnContact;
+    public String getNewFlatBtnContact() {
+        return MessageFormat.format(newFlatBtnContact, Emoji.CONTACT);
     }
 
 }

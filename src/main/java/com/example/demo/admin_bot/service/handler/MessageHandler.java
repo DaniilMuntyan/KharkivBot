@@ -7,6 +7,7 @@ import com.example.demo.admin_bot.constants.MessagesVariables;
 import com.example.demo.admin_bot.service.BotStateService;
 import com.example.demo.admin_bot.utils.Emoji;
 import com.example.demo.admin_bot.utils.State;
+import com.example.demo.common_part.model.AdminChoice;
 import com.example.demo.common_part.model.User;
 import com.example.demo.common_part.repo.UserRepository;
 import org.apache.log4j.Logger;
@@ -67,9 +68,9 @@ public class MessageHandler {
             }
         }
 
-        if (isAdmin) {
+        /*if (isAdmin) {
             response.add(0, deleteMessage);
-        }
+        }*/
 
         return response;
     }
@@ -84,7 +85,8 @@ public class MessageHandler {
         boolean adminCommand = false;
 
         if (text.equals(menuVariables.getAddRentFlatBtnText())) { // Если выбрали "опубликовать квартиру для аренды"
-            if (admin.getAdminChoice().getMenuMessageId() != null) {
+            if (admin.getAdminChoice().getMenuMessageId() != null) { // Если процесс публикации не завершен
+                response.add(deleteApiMethod(message));
                 return response; // Возвращаем пустой
             }
             adminCommand = true;
@@ -93,11 +95,21 @@ public class MessageHandler {
         }
         if (text.equals(menuVariables.getAddBuyFlatBtnText())) { // Если выбрали "опубликовать квартиру для покупки"
             if (admin.getAdminChoice().getMenuMessageId() != null) {
+                response.add(deleteApiMethod(message));
                 return response; // Возвращаем пустой
             }
             adminCommand = true;
             LOGGER.info("handleAdminMessage. AddBuyFlatButton");
             admin.setBotState(State.ADD_BUY_FLAT);
+        }
+        if(text.equals(menuVariables.getBulkMessageText())) { // Если выбрали "Написать сообщение"
+            if(admin.getAdminChoice().getMenuMessageId() != null) {
+                response.add(deleteApiMethod(message));
+                return response;
+            }
+            adminCommand = true;
+            LOGGER.info("handleAdminMessage. BulkMessage");
+            admin.setBotState(State.WRITE_MESSAGE);
         }
         if (text.equals(Commands.START)) {
             adminCommand = true;
@@ -118,6 +130,12 @@ public class MessageHandler {
                 textResponse.setText(MessageFormat.format(messagesVariables.getAdminHi(), Emoji.HI, admin.getName(false)));
                 response.add(textResponse);
             }
+        }
+
+        // Если не ждем сообщение от админа - то удаляем ненужное
+        // Так же, если находимся в начальном состоянии (не идет никакого процесса)
+        if(admin.getBotState() != State.WAIT_MESSAGE && admin.getBotState() != State.INIT) {
+            response.add(0, deleteApiMethod(message));
         }
 
         return response;
@@ -142,6 +160,7 @@ public class MessageHandler {
                 botState == State.SUBMENU_ALL_FLOORS || botState == State.SUBMENU_METRO ||
                 botState == State.SUBMENU_ADDRESS || botState == State.SUBMENU_PRICE ||
                 botState == State.SUBMENU_PHOTO || botState == State.SUBMENU_INFO ||
-                botState == State.SUBMENU_CONTACT || botState == State.SUBMENU_MAP;
+                botState == State.SUBMENU_CONTACT || botState == State.SUBMENU_MAP ||
+                botState == State.WAIT_MESSAGE;
     }
 }

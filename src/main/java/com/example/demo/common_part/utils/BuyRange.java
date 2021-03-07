@@ -12,6 +12,15 @@ public enum BuyRange {
 
     private final String range;
 
+    public static BuyRange valueOfRange(String range) {
+        for(BuyRange temp: BuyRange.values()) {
+            if (temp.toString().equals(range)) {
+                return temp;
+            }
+        }
+        return null;
+    }
+
     BuyRange(String range) {
         this.range = range + " $";
     }

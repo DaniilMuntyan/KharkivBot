@@ -115,6 +115,11 @@ public class AdminMenuCallbackHandler {
             infoCallback(response, callbackQuery, admin);
         }
 
+        // Публикация
+        if (callbackQuery.getData().equals(menuVariables.getAdminBtnCallbackPublish())) {
+            publishCallback(response, callbackQuery, admin);
+        }
+
         return response;
     }
 
@@ -127,8 +132,8 @@ public class AdminMenuCallbackHandler {
 
     private void cancelCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, User admin) {
         admin.setBotState(State.INIT);
-        admin.setAdminChoice(new AdminChoice());
-        adminService.saveAdmin(admin);
+        adminService.setAdminChoice(admin, new AdminChoice());
+        //adminService.saveAdmin(admin);
 
         // Удаляю меню
         response.add(deleteApiMethod(callbackQuery.getMessage()));
@@ -326,6 +331,26 @@ public class AdminMenuCallbackHandler {
         admin.setBotState(State.SUBMENU_CONTACT);
         adminService.saveAdminState(admin);
     }
+
+    private void publishCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, User admin) {
+        EditMessageText editMessageText = new EditMessageText();
+
+        PublishKeyboard publishKeyboard = new PublishKeyboard();
+
+        editMessageText.setChatId(callbackQuery.getMessage().getChatId().toString());
+        editMessageText.setMessageId(callbackQuery.getMessage().getMessageId());
+        editMessageText.setText(admin.getAdminChoice().getHtmlMessage());
+        editMessageText.enableHtml(true);
+        editMessageText.setReplyMarkup(publishKeyboard.getKeyboard());
+        response.add(editMessageText);
+
+        System.out.println("PUBLISH CALLBACK!!! messageId: " + callbackQuery.getMessage().getMessageId());
+        System.out.println(editMessageText);
+
+        admin.setBotState(State.SUBMENU_PUBLISHING);
+        adminService.saveAdminState(admin);
+    }
+
 
 
 }

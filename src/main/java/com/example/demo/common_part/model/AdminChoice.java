@@ -1,6 +1,7 @@
 package com.example.demo.common_part.model;
 
 import com.example.demo.common_part.utils.District;
+import com.example.demo.user_bot.utils.Emoji;
 import com.example.demo.user_bot.utils.Rooms;
 import lombok.*;
 
@@ -99,5 +100,20 @@ public final class AdminChoice {
 
     public AdminChoice(boolean isRentFlat) {
         this.isRentFlat = isRentFlat;
+    }
+
+    public String getHtmlMessage() {
+        return ((telegraph != null) ? Emoji.RECORD + " <a href=\"" + telegraph + "\">№ XXXXXX</a>" + "\n" : "") +
+                ((rooms != null) ? (Emoji.ROOMS + " " + rooms + (rooms != Rooms.GOSTINKA ? "к" : "") + "\n") : "") +
+                (((square != null && square != 0.0) ? (Emoji.SQUARE + " " + square + "м²\n") : "")) +
+                (((floor != null && allFloors != null) ? (Emoji.FLOOR + " Этаж: " + floor + "/" + allFloors + "\n") : "")) +
+                ((metro != null && !metro.isEmpty()) ? (Emoji.METRO + " " + metro + "\n") : "") +
+                ((address != null && !address.isEmpty()) ? (Emoji.ADDRESS + " " + address + "\n") : "") +
+                ((money != null && !money.isEmpty()) ? (Emoji.MONEY + " " + money + "\n") : "") +
+                ((info != null && !info.isEmpty()) ? (Emoji.INFO + " " + info + "\n") : "") +
+                "\nОстальные пункты:\n" +
+                ((moneyRange != null) ? "Бюджет: " + moneyRange + "\n" : "") +
+                ((mapLink != null) ? "На карте: " + "<a href=\"" + mapLink + "\">ссылка</a>\n" : "") +
+                ((contact != null) ? "Контакт для связи: @" + contact.substring(contact.lastIndexOf('/') + 1) : "");
     }
 }

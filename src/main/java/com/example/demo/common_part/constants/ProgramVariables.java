@@ -28,4 +28,8 @@ public final class ProgramVariables {
     @Getter
     private String adminPassword;
 
+    @Value("${admin.telegram.channel}")
+    @Getter
+    private  String telegramChannel;
+
 }

@@ -19,10 +19,10 @@ public final class RoomsKeyboard {
     public RoomsKeyboard() {
         this.menuVariables = BeanUtil.getBean(MenuVariables.class);
 
-        this.keyboard = getKeyboardFrom();
+        this.keyboard = getRoomsMenu();
     }
 
-    private InlineKeyboardMarkup getKeyboardFrom() {
+    private InlineKeyboardMarkup getRoomsMenu() {
         InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
         List<String> texts = this.getTexts();
 

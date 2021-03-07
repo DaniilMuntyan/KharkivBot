@@ -1,5 +1,6 @@
 package com.example.demo.common_part.model;
 
+import com.example.demo.admin_bot.utils.AdminChoiceParameter;
 import com.example.demo.admin_bot.utils.State;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
