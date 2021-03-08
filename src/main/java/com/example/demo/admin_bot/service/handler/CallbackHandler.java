@@ -55,7 +55,6 @@ public final class CallbackHandler {
 
     // Обработка callback'а
     public List<BotApiMethod<?>> handleCallback(CallbackQuery callback) {
-        LOGGER.info("CALLBACK: " + callback.getId());
         Long chatId = callback.getMessage().getChatId();
         String data = callback.getData();
         Integer messageId = callback.getMessage().getMessageId();
@@ -68,19 +67,6 @@ public final class CallbackHandler {
             response.addAll(handleAdminCallback(callback, user.get()));
         }
 
-        // Если ответ - это кастомный AnswerCallbackQuery, то возвращаем только его
-        if (response.size() == 1 && response.get(0) instanceof AnswerCallbackQuery) {
-            // Если получили forbidden - удалить сообщение, потому что только одно меню может работать в этот момент времени
-            if (((AnswerCallbackQuery) response.get(0)).getText().equals(messagesVariables.getAdminMenuForbidden())) {
-                DeleteMessage deleteMessage = new DeleteMessage();
-                deleteMessage.setChatId(chatId.toString());
-                deleteMessage.setMessageId(messageId);
-
-                response.add(0, deleteMessage);
-            }
-        } else {
-            response.add(0, adminService.getAnswerCallback(callback));
-        }
         return response;
     }
 
@@ -91,14 +77,24 @@ public final class CallbackHandler {
         // Только одно меню может работать в данный момент времени.
         boolean forbidden = admin.getAdminChoice().getMenuMessageId() != null &&
                 !admin.getAdminChoice().getMenuMessageId().equals(callbackQuery.getMessage().getMessageId());
-        if(forbidden) {
+        if(forbidden) { // Если получили forbidden - удалить сообщение, потому что только одно меню может работать в этот момент времени
             AnswerCallbackQuery answerCallbackQuery = new AnswerCallbackQuery();
             answerCallbackQuery.setCallbackQueryId(callbackQuery.getId());
             answerCallbackQuery.setShowAlert(true);
             answerCallbackQuery.setText(messagesVariables.getAdminMenuForbidden());
-            response.add(answerCallbackQuery);
+
+            DeleteMessage deleteMessage = new DeleteMessage();
+            deleteMessage.setChatId(admin.getChatId().toString());
+            deleteMessage.setMessageId(callbackQuery.getMessage().getMessageId());
+
+            response.add(deleteMessage); // Сначала удаляем меню
+            response.add(answerCallbackQuery); // Потом показываем уведомление
+
             return response;
         }
+
+        // Если не получили Forbidden - отвечаем на callback, чтобы ушел кружек загрузки
+        response.add(0, adminService.getAnswerCallback(callbackQuery));
 
         // Кнопка "отмена"
         if(callbackQuery.getData().startsWith(menuVariables.getAdminBtnCallbackSubmenuCancelPrefix())) {
