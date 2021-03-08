@@ -43,7 +43,7 @@ public class MessageHandler {
     public List<BotApiMethod<?>> handleMessage(Message message) {
         Long chatId = message.getChatId();
         String text = message.getText().trim();
-        String username = message.getFrom().getUserName(); // Обновляю дый раз, когда получаю новое сообщение
+        String username = message.getFrom().getUserName(); // Обновляю каждый раз, когда получаю новое сообщение
         Optional<User> user = userRepository.findByChatId(chatId);
 
         List<BotApiMethod<?>> response = new ArrayList<>();
@@ -86,7 +86,7 @@ public class MessageHandler {
 
         boolean adminCommand = false;
 
-        if(!admin.getUsername().equals(username)) { // Если админ поменял свой юзернейм
+        if(admin.getUsername() != null && !admin.getUsername().equals(username)) { // Если админ поменял свой юзернейм
             admin.setUsername(username);
         }
 

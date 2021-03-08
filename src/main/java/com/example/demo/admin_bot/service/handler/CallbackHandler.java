@@ -88,8 +88,6 @@ public final class CallbackHandler {
     private List<BotApiMethod<?>> handleAdminCallback(CallbackQuery callbackQuery, User admin) {
         List<BotApiMethod<?>> response = new ArrayList<>();
 
-        LOGGER.info("CALLBACK DATA: " + callbackQuery.getData());
-
         // Только одно меню может работать в данный момент времени.
         boolean forbidden = admin.getAdminChoice().getMenuMessageId() != null &&
                 !admin.getAdminChoice().getMenuMessageId().equals(callbackQuery.getMessage().getMessageId());
