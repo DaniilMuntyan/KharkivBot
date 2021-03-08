@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
+import org.telegram.telegrambots.meta.api.objects.Message;
 
 import java.util.List;
 
@@ -34,7 +35,7 @@ public final class PublishingService {
 
     public String publish(User admin, List<BotApiMethod<?>> response) {
         List<User> allUsers = userRepository.findAll();
-        String flatNumber;
+        String result;
 
         PublishFlatKeyboard publishFlatKeyboard = new PublishFlatKeyboard(admin.getAdminChoice());
 
@@ -44,23 +45,30 @@ public final class PublishingService {
         if (admin.getAdminChoice().getIsRentFlat()) {
             RentFlat rentFlat = rentalFlatService.save(new RentFlat(admin.getAdminChoice()));
             sendMessage.setText(rentFlat.getHtmlMessage());
-            flatNumber = rentFlat.getId().toString();
+            result = rentFlat.getId().toString();
         } else {
             BuyFlat buyFlat = buyFlatService.save(new BuyFlat(admin.getAdminChoice()));
             sendMessage.setText(buyFlat.getHtmlMessage());
-            flatNumber = buyFlat.getId().toString();
+            result = buyFlat.getId().toString();
         }
 
         for (User user: allUsers) {
             // TODO: отправляем только тем пользователям, у которых соответствующие предпочтения
             sendMessage.setChatId(user.getChatId().toString());
-            queryService.execute(sendMessage);
+            List<BotApiMethod<?>> temp = queryService.execute(sendMessage, admin);
+            if (!temp.isEmpty()) {
+                result = "ERROR";
+                response.addAll(temp);
+                break;
+            }
         }
 
-        // Публикую в канал
-        sendMessage.setChatId(programVariables.getTelegramChannel());
-        response.add(sendMessage);
+        // Публикую в канал, если квартира под аренду и если нет ошибки
+        if (admin.getAdminChoice().getIsRentFlat() && !result.equals("ERROR")) {
+            sendMessage.setChatId(programVariables.getTelegramChannel());
+            response.add(sendMessage);
+        }
 
-        return flatNumber;
+        return result;
     }
 }

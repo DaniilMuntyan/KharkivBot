@@ -103,7 +103,7 @@ public final class AdminChoice {
     }
 
     public String getHtmlMessage() {
-        return ((telegraph != null) ? Emoji.RECORD + " <a href=\"" + telegraph + "\">№ XXXXXX</a>" + "\n" : "") +
+        return ((telegraph != null) ? Emoji.RECORD + " <a href=\"" + telegraph + "\">№ XXXXXX</a>": "№ XXXXXX") + "\n" +
                 ((rooms != null) ? (Emoji.ROOMS + " " + rooms + (rooms != Rooms.GOSTINKA ? "к" : "") + "\n") : "") +
                 (((square != null && square != 0.0) ? (Emoji.SQUARE + " " + square + "м²\n") : "")) +
                 (((floor != null && allFloors != null) ? (Emoji.FLOOR + " Этаж: " + floor + "/" + allFloors + "\n") : "")) +

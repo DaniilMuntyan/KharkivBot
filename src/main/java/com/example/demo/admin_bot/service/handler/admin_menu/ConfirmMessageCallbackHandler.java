@@ -50,7 +50,7 @@ public class ConfirmMessageCallbackHandler {
             sendMessage.setEntities(callbackQuery.getMessage().getEntities());
             for (User user: allUsers) {
                 sendMessage.setChatId(user.getChatId().toString());
-                queryService.execute(sendMessage);
+                queryService.execute(sendMessage, admin);
             }
 
             EditMessageText editMessageText = new EditMessageText();

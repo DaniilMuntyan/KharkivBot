@@ -80,21 +80,9 @@ public final class BuyFlat {
     @Getter
     private String info;
 
-    public String getMarkdownMessage() {
-        return (Emoji.RECORD + ((telegraph != null) ?
-                (" [№ " + id.toString() + "](" + telegraph + ")" + "\n") : (" № " + id.toString() + "\n"))) +
-                ((rooms != null) ? (Emoji.ROOMS + " " + rooms + "к\n") : "") +
-                ((square != null && square != 0.0) ? (Emoji.SQUARE + " " + square + "м²\n") : "") +
-                ((floor != null && allFloors != null) ? (Emoji.FLOOR + " Этаж: " + floor + "/" + allFloors + "\n") : "") +
-                ((metro != null && !metro.isEmpty()) ? (Emoji.METRO + " " + metro + "\n") : "") +
-                ((address != null && !address.isEmpty()) ? (Emoji.ADDRESS + " " + address + "\n") : "") +
-                ((money != null && !money.isEmpty()) ? (Emoji.MONEY + " " + money + "\n") : "") +
-                ((info != null && !info.isEmpty()) ? (Emoji.INFO + " " + info + "\n") : "");
-    }
-
     public String getHtmlMessage() {
-        return ((telegraph != null) ? Emoji.RECORD + " <a href=\"" + telegraph + "\">" + id.toString() + "</a>" + "\n" : "") +
-                ((rooms != null) ? (Emoji.ROOMS + " " + rooms + (rooms != Rooms.GOSTINKA ? "к" : "") + "к\n") : "") +
+        return (Emoji.RECORD  + ((telegraph != null) ? " № <a href=\"" + telegraph + "\">" + id.toString() + "</a>" : " № " + id.toString()) + "\n") +
+                ((rooms != null) ? (Emoji.ROOMS + " " + rooms + (rooms != Rooms.GOSTINKA ? "к" : "") + "\n") : "") +
                 (((square != null && square != 0.0) ? (Emoji.SQUARE + " " + square + "м²\n") : "")) +
                 (((floor != null && allFloors != null) ? (Emoji.FLOOR + " Этаж: " + floor + "/" + allFloors + "\n") : "")) +
                 ((metro != null && !metro.isEmpty()) ? (Emoji.METRO + " " + metro + "\n") : "") +

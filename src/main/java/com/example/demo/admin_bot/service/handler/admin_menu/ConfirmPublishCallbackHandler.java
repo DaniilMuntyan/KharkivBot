@@ -47,20 +47,22 @@ public final class ConfirmPublishCallbackHandler {
         // Если подтвердили публикацию
         if(data.equals(menuVariables.getAdminBtnCallbackSubmenuConfirmYes())) {
             // Передаю параметром response - для публикации в канал
-            String flatNumber = publishingService.publish(admin, response);
+            // Если была ошибка при отправлении - вернется "ERROR", если нет - айдишник квартиры
+            String result = publishingService.publish(admin, response);
 
-            EditMessageText editMessageText = new EditMessageText();
-            editMessageText.setMessageId(messageId);
-            editMessageText.setChatId(chatId.toString());
-            editMessageText.setText(messagesVariables.getAdminConfirmPublishSuccess(flatNumber));
-            response.add(editMessageText);
+            if (!result.equals("ERROR")) {
+                EditMessageText editMessageText = new EditMessageText();
+                editMessageText.setMessageId(messageId);
+                editMessageText.setChatId(chatId.toString());
+                editMessageText.setText(messagesVariables.getAdminConfirmPublishSuccess(result));
+                response.add(editMessageText);
 
-            // Возвращаем состояние в исходное
-            admin.setBotState(State.INIT);
-            adminService.setAdminChoice(admin, new AdminChoice()); // Обновляем выбор
-        } else {
+                // Возвращаем состояние в исходное
+                admin.setBotState(State.INIT);
+                adminService.setAdminChoice(admin, new AdminChoice()); // Обновляем выбор
+            }
+        } else { // Если отменяем публикацию
             response.add(commonMethods.getEditNewFlatKeyboard(chatId, messageId, admin));
-
             // Отмена публикации - возвращаемся обратно
             admin.setBotState(admin.getAdminChoice().getIsRentFlat() ?
                     State.ADD_RENT_FLAT : State.ADD_BUY_FLAT);

@@ -8,7 +8,7 @@ public enum Emoji {
     SUBMENU(":pencil2:"), RIGHT(":point_right:"), SELECTED(":white_check_mark:"),
     CANCEL(":x:"), EARTH(":earth_africa:"), CONTACT(":iphone:"), YES(":white_check_mark:"),
     NO(":x:"), WARNING(":warning:"), FAIL(":no_entry:"), SUCCESS(":white_check_mark:"),
-    PUBLISH(":memo:");
+    PUBLISH(":memo:"), ERROR(":pensive:");
 
     private final String emojiName;
 

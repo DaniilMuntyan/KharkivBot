@@ -43,11 +43,10 @@ public class MessageHandler {
     public List<BotApiMethod<?>> handleMessage(Message message) {
         Long chatId = message.getChatId();
         String text = message.getText().trim();
+        String username = message.getFrom().getUserName(); // Обновляю дый раз, когда получаю новое сообщение
         Optional<User> user = userRepository.findByChatId(chatId);
 
         List<BotApiMethod<?>> response = new ArrayList<>();
-
-        DeleteMessage deleteMessage = deleteApiMethod(message);
 
         SendMessage textResponse = new SendMessage();
         textResponse.setChatId(chatId.toString());
@@ -56,33 +55,40 @@ public class MessageHandler {
 
         if(user.isPresent() && adminService.isAdmin(user.get())) { // Если админ
             isAdmin = true;
-            response.addAll(handleAdminMessage(message, user.get()));
+            response.addAll(handleAdminMessage(message, user.get(), username));
         } else {
             if (adminService.isEnterAdminCommand(text)) { // Если ввел команду с паролем
                 isAdmin = true;
-                User newUser = new User(message);
-                newUser.setAdminMode(true);
-                newUser = userRepository.save(newUser);
-                LOGGER.info("New admin: " + newUser.getName(true));
+                if (user.isPresent()) { // Если админ уже есть в базе
+                    User admin = user.get();
+                    admin.setAdminMode(true);
+                    admin = userRepository.save(admin);
+                    LOGGER.info("Admin entered: " + admin.getName(true));
+                } else { // Если админа нет в базе, он первый раз заходит в режим админа
+                    User newUser = new User(message);
+                    newUser.setAdminMode(true);
+                    newUser = userRepository.save(newUser);
+                    LOGGER.info("New admin: " + newUser.getName(true));
+                }
                 response.add(helloAdmin(textResponse));
             }
         }
-
-        /*if (isAdmin) {
-            response.add(0, deleteMessage);
-        }*/
 
         return response;
     }
 
     // Обработка сообщения от админа
-    private List<BotApiMethod<?>> handleAdminMessage(Message message, User admin) {
+    private List<BotApiMethod<?>> handleAdminMessage(Message message, User admin, String username) {
         String text = message.getText();
         Long chatId = message.getChatId();
 
         List<BotApiMethod<?>> response = new ArrayList<>();
 
         boolean adminCommand = false;
+
+        if(!admin.getUsername().equals(username)) { // Если админ поменял свой юзернейм
+            admin.setUsername(username);
+        }
 
         if (text.equals(menuVariables.getAddRentFlatBtnText())) { // Если выбрали "опубликовать квартиру для аренды"
             if (admin.getAdminChoice().getMenuMessageId() != null) { // Если процесс публикации не завершен
@@ -115,6 +121,10 @@ public class MessageHandler {
             adminCommand = true;
             admin.setBotState(State.INIT);
         }
+        if (text.equals(Commands.EXIT)) {
+            adminCommand = true;
+            admin.setBotState(State.EXIT);
+        }
         if (checkMenuBotState(admin.getBotState())) {
             adminCommand = true;
         }
@@ -133,7 +143,7 @@ public class MessageHandler {
         }
 
         // Если не ждем сообщение от админа - то удаляем ненужное
-        // Так же, если находимся в начальном состоянии (не идет никакого процесса)
+        // И если не находимся в начальном состоянии (идет какой-то процесс)
         if(admin.getBotState() != State.WAIT_MESSAGE && admin.getBotState() != State.INIT) {
             response.add(0, deleteApiMethod(message));
         }

@@ -17,6 +17,7 @@ import org.telegram.telegrambots.meta.api.methods.updatingmessages.DeleteMessage
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageReplyMarkup;
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageText;
 import org.telegram.telegrambots.meta.api.objects.Message;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardRemove;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -48,6 +49,11 @@ public class BotStateService {
         // Если прислали /start - удалить текущее меню и прислать сообщение
         if (admin.getBotState() == State.INIT) {
             this.processInit(answer, message, admin);
+        }
+
+        // Если прислали /exit - выйти из режима админа
+        if (admin.getBotState() == State.EXIT) {
+            this.processExit(answer, message, admin);
         }
 
         // Если нажали на кнопку "Добавить квартиру (продажа)"
@@ -323,5 +329,28 @@ public class BotStateService {
             answer.add(sendMessage);
         }
     }
+
+    private void processExit(List<BotApiMethod<?>> answer, Message message, User admin) {
+        if (admin.getAdminChoice().getMenuMessageId() != null) {
+            DeleteMessage deleteMessage = new DeleteMessage();
+            deleteMessage.setMessageId(admin.getAdminChoice().getMenuMessageId());
+            deleteMessage.setChatId(message.getChatId().toString());
+            admin.getAdminChoice().setMenuMessageId(null); // Удалили меню
+
+            answer.add(deleteMessage);
+        }
+
+        admin.setAdminMode(false);
+        admin.setBotState(State.INIT);
+
+        SendMessage textResponse = new SendMessage();
+        textResponse.setChatId(message.getChatId().toString());
+        textResponse.setReplyMarkup(ReplyKeyboardRemove.builder().removeKeyboard(true).build());
+        textResponse.setText(MessageFormat.format(messagesVariables.getAdminBye(), Emoji.HI));
+        answer.add(textResponse);
+
+        //adminService.setAdminChoice(admin, new AdminChoice());
+    }
+
 
 }

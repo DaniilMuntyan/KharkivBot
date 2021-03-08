@@ -19,6 +19,16 @@ public class MessagesVariables {
     @Getter
     private String adminHi;
 
+    @Value("${admin.bye}")
+    @Getter
+    private String adminBye;
+
+    @Value("${admin.error.sendMessage}")
+    private String adminErrorSendMessage;
+    public String getAdminErrorSendMessage() {
+        return MessageFormat.format(adminErrorSendMessage, Emoji.ERROR);
+    }
+
     @Value("${admin.menu.forbidden}")
     @Getter
     private String adminMenuForbidden;
