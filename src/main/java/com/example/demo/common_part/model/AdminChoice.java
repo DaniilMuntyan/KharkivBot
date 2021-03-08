@@ -82,6 +82,9 @@ public final class AdminChoice {
     @Getter
     @Setter
     private String mapLink;
+    public String getHtmlMapLink() {
+        return prepareHtml(mapLink);
+    }
 
     @Column(name="contact")
     @Getter
@@ -102,8 +105,8 @@ public final class AdminChoice {
         this.isRentFlat = isRentFlat;
     }
 
-    public String getHtmlMessage() {
-        return ((telegraph != null) ? Emoji.RECORD + " <a href=\"" + telegraph + "\">№ XXXXXX</a>": "№ XXXXXX") + "\n" +
+    public String getHtmlMessage() { // Вынести в сервис
+        return ((telegraph != null) ? Emoji.RECORD + " <a href=\"" + prepareHtml(telegraph) + "\">№ XXXXXX</a>": "№ XXXXXX") + "\n" +
                 ((rooms != null) ? (Emoji.ROOMS + " " + rooms + (rooms != Rooms.GOSTINKA ? "к" : "") + "\n") : "") +
                 (((square != null && square != 0.0) ? (Emoji.SQUARE + " " + square + "м²\n") : "")) +
                 (((floor != null && allFloors != null) ? (Emoji.FLOOR + " Этаж: " + floor + "/" + allFloors + "\n") : "")) +
@@ -113,7 +116,15 @@ public final class AdminChoice {
                 ((info != null && !info.isEmpty()) ? (Emoji.INFO + " " + info + "\n") : "") +
                 "\nОстальные пункты:\n" +
                 ((moneyRange != null) ? "Бюджет: " + moneyRange + "\n" : "") +
-                ((mapLink != null) ? "На карте: " + "<a href=\"" + mapLink + "\">ссылка</a>\n" : "") +
+                ((mapLink != null) ? "На карте: " + "<a href=\"" + prepareHtml(mapLink) + "\">ссылка</a>\n" : "") +
                 ((contact != null) ? "Контакт для связи: @" + contact.substring(contact.lastIndexOf('/') + 1) : "");
+    }
+
+    private String prepareHtml(String url) { // Вынести в сервис
+        url = url.replace("&", "&amp;");
+        url = url.replace("\"", "&quot;");
+        url = url.replace(">", "&gt;");
+        url = url.replace("<", "&lt;");
+        return url;
     }
 }

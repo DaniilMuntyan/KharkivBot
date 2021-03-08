@@ -56,8 +56,6 @@ public final class CallbackHandler {
     // Обработка callback'а
     public List<BotApiMethod<?>> handleCallback(CallbackQuery callback) {
         Long chatId = callback.getMessage().getChatId();
-        String data = callback.getData();
-        Integer messageId = callback.getMessage().getMessageId();
 
         Optional<User> user = userRepository.findByChatId(chatId);
 

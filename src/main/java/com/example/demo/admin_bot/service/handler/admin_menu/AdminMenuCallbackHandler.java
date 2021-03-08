@@ -339,8 +339,9 @@ public class AdminMenuCallbackHandler {
 
         editMessageText.setChatId(callbackQuery.getMessage().getChatId().toString());
         editMessageText.setMessageId(callbackQuery.getMessage().getMessageId());
-        editMessageText.setText(admin.getAdminChoice().getHtmlMessage());
         editMessageText.enableHtml(true);
+        editMessageText.enableWebPagePreview();
+        editMessageText.setText(admin.getAdminChoice().getHtmlMessage());
         editMessageText.setReplyMarkup(publishKeyboard.getKeyboard());
         response.add(editMessageText);
 
@@ -350,7 +351,4 @@ public class AdminMenuCallbackHandler {
         admin.setBotState(State.SUBMENU_PUBLISHING);
         adminService.saveAdminState(admin);
     }
-
-
-
 }

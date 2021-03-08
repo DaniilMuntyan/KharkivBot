@@ -93,14 +93,30 @@ public final class RentFlat {
     }
 
     public String getHtmlMessage() {
-        return (Emoji.RECORD  + ((telegraph != null) ? " № <a href=\"" + telegraph + "\">" + id.toString() + "</a>" + "\n" : " № " + id.toString()) + "\n") +
+        return (Emoji.RECORD  + ((telegraph != null) ? " № <a href=\"" + htmlEncode(telegraph) + "\">" + id.toString() + "</a>" + "\n" : " № " + id.toString()) + "\n") +
                 ((rooms != null) ? (Emoji.ROOMS + " " + rooms + (rooms != Rooms.GOSTINKA ? "к" : "") + "\n") : "") +
                 (((square != null && square != 0.0) ? (Emoji.SQUARE + " " + square + "м²\n") : "")) +
                 (((floor != null && allFloors != null) ? (Emoji.FLOOR + " Этаж: " + floor + "/" + allFloors + "\n") : "")) +
                 ((metro != null && !metro.isEmpty()) ? (Emoji.METRO + " " + metro + "\n") : "") +
                 ((address != null && !address.isEmpty()) ? (Emoji.ADDRESS + " " + address + "\n") : "") +
                 ((money != null && !money.isEmpty()) ? (Emoji.MONEY + " " + money + "\n") : "") +
-                ((info != null && !info.isEmpty()) ? (Emoji.INFO + " " + info + "\n") : "");
+                ((info != null && !info.isEmpty()) ? (Emoji.INFO + " " + htmlEncode(info) + "\n") : "");
+    }
+
+    private String htmlEncode(String text) { // Вынести в сервис
+        text = text.replace("&", "&amp;");
+        text = text.replace("\"", "&quot;");
+        text = text.replace(">", "&gt;");
+        text = text.replace("<", "&lt;");
+        return text;
+    }
+
+    private String htmlDecode(String url) { // Вынести в сервис
+        url = url.replace("\"&amp;\"", "&");
+        url = url.replace("&quot;", "\"");
+        url = url.replace("&gt;", ">");
+        url = url.replace("&lt;", "<");
+        return url;
     }
 
     public RentFlat(AdminChoice adminChoice) {

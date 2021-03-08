@@ -33,7 +33,7 @@ public final class PublishFlatKeyboard {
         if (this.adminChoice.getMapLink() != null) {
             InlineKeyboardButton buttonMap = InlineKeyboardButton.builder()
                     .text(menuVariables.getNewFlatBtnMap())
-                    .url(this.adminChoice.getMapLink())
+                    .url(this.adminChoice.getHtmlMapLink())
                     .build();
             rows.add(List.of(buttonMap));
         }
