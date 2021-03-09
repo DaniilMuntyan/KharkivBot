@@ -55,8 +55,15 @@ public class MainService {
         }
     }
 
-    private void write(String s, double time) {
-        try (FileWriter writer = new FileWriter("time.csv", true)) {
+    private synchronized void write(String s, double time) {
+        File csvFile = new File("./files/time.csv");
+        try {
+            csvFile.getParentFile().mkdirs();
+            csvFile.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try (FileWriter writer = new FileWriter(csvFile, true)) {
 
             String sb = "\n" + s + "," + time;
             writer.write(sb);
