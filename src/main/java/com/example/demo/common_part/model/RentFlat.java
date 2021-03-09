@@ -93,7 +93,7 @@ public final class RentFlat {
     }
 
     public String getHtmlMessage() {
-        return (Emoji.RECORD  + ((telegraph != null) ? " № <a href=\"" + htmlEncode(telegraph) + "\">" + id.toString() + "</a>" + "\n" : " № " + id.toString()) + "\n") +
+        return (Emoji.RECORD  + ((telegraph != null) ? " <a href=\"№ " + htmlEncode(telegraph) + "\">" + id.toString() + "</a>" : " № " + id.toString())) + "\n" +
                 ((rooms != null) ? (Emoji.ROOMS + " " + rooms + (rooms != Rooms.GOSTINKA ? "к" : "") + "\n") : "") +
                 (((square != null && square != 0.0) ? (Emoji.SQUARE + " " + square + "м²\n") : "")) +
                 (((floor != null && allFloors != null) ? (Emoji.FLOOR + " Этаж: " + floor + "/" + allFloors + "\n") : "")) +
