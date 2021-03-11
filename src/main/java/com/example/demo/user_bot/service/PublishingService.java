@@ -6,12 +6,12 @@ import com.example.demo.common_part.model.RentFlat;
 import com.example.demo.common_part.model.User;
 import com.example.demo.common_part.repo.UserRepository;
 import com.example.demo.user_bot.keyboards.PublishFlatKeyboard;
+import com.example.demo.user_bot.queue.UserBotSendingQueue;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
-import org.telegram.telegrambots.meta.api.objects.Message;
 
 import java.util.List;
 
@@ -23,14 +23,16 @@ public final class PublishingService {
     private final RentalFlatService rentalFlatService;
     private final BuyFlatService buyFlatService;
     private final ProgramVariables programVariables;
+    private final UserBotSendingQueue userBotSendingQueue;
 
     @Autowired
-    public PublishingService(UserRepository userRepository, QueryService queryService, RentalFlatService rentalFlatService, BuyFlatService buyFlatService, ProgramVariables programVariables) {
+    public PublishingService(UserRepository userRepository, QueryService queryService, RentalFlatService rentalFlatService, BuyFlatService buyFlatService, ProgramVariables programVariables, UserBotSendingQueue userBotSendingQueue) {
         this.userRepository = userRepository;
         this.queryService = queryService;
         this.rentalFlatService = rentalFlatService;
         this.buyFlatService = buyFlatService;
         this.programVariables = programVariables;
+        this.userBotSendingQueue = userBotSendingQueue;
     }
 
     public String publish(User admin, List<BotApiMethod<?>> response) {
@@ -54,19 +56,28 @@ public final class PublishingService {
 
         for (User user: allUsers) {
             // TODO: отправляем только тем пользователям, у которых соответствующие предпочтения
-            sendMessage.setChatId(user.getChatId().toString());
-            List<BotApiMethod<?>> temp = queryService.execute(sendMessage, admin);
+            userBotSendingQueue.addBulkMessageToQueue(SendMessage.builder()
+                    .text(sendMessage.getText())
+                    .chatId(user.getChatId().toString())
+                    .parseMode(sendMessage.getParseMode())
+                    .build());
+            //response.add(sendMessage);
+
+            /*List<BotApiMethod<?>> temp = queryService.execute(sendMessage, admin);
             if (!temp.isEmpty()) {
                 result = "ERROR";
                 response.addAll(temp);
                 break;
-            }
+            }*/
         }
 
         // Публикую в канал, если квартира под аренду и если нет ошибки
         if (admin.getAdminChoice().getIsRentFlat() && !result.equals("ERROR")) {
-            sendMessage.setChatId(programVariables.getTelegramChannel());
-            response.add(sendMessage);
+            response.add(SendMessage.builder()
+                    .chatId(programVariables.getTelegramChannel())
+                    .text(sendMessage.getText())
+                    .parseMode(sendMessage.getParseMode())
+                    .build());
         }
 
         return result;

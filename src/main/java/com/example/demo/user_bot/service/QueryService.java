@@ -17,7 +17,7 @@ import java.util.List;
 
 @Service
 public final class QueryService {
-    private static final Logger LOGGER = Logger.getLogger(QueryService.class);
+    /*private static final Logger LOGGER = Logger.getLogger(QueryService.class);
 
     private final RentalTelegramBot rentalTelegramBot;
     private final CommonMethods commonMethods;
@@ -63,6 +63,6 @@ public final class QueryService {
             }
         }
         return response;
-    }
+    }*/
 
 }

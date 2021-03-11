@@ -1,12 +1,9 @@
 package com.example.demo.user_bot.keyboards;
 
-import com.example.demo.admin_bot.constants.MenuVariables;
+import com.example.demo.common_part.constants.AdminMenuVariables;
 import com.example.demo.admin_bot.utils.BeanUtil;
-import com.example.demo.common_part.model.AdminChoice;
-import com.example.demo.common_part.utils.BuyRange;
-import com.example.demo.common_part.utils.RentalRange;
+import com.example.demo.admin_bot.model.AdminChoice;
 import lombok.Getter;
-import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 
@@ -16,11 +13,11 @@ import java.util.List;
 public final class PublishFlatKeyboard {
     @Getter
     private final InlineKeyboardMarkup keyboard;
-    private final MenuVariables menuVariables;
+    private final AdminMenuVariables adminMenuVariables;
     private final AdminChoice adminChoice;
 
     public PublishFlatKeyboard(AdminChoice adminChoice) {
-        this.menuVariables = BeanUtil.getBean(MenuVariables.class);
+        this.adminMenuVariables = BeanUtil.getBean(AdminMenuVariables.class);
         this.adminChoice = adminChoice;
         this.keyboard = getNewFlatMenu();
     }
@@ -32,7 +29,7 @@ public final class PublishFlatKeyboard {
 
         if (this.adminChoice.getMapLink() != null) {
             InlineKeyboardButton buttonMap = InlineKeyboardButton.builder()
-                    .text(menuVariables.getNewFlatBtnMap())
+                    .text(adminMenuVariables.getNewFlatBtnMap())
                     .url(this.adminChoice.getHtmlMapLink())
                     .build();
             rows.add(List.of(buttonMap));
@@ -40,7 +37,7 @@ public final class PublishFlatKeyboard {
 
         if (this.adminChoice.getContact() != null) {
             InlineKeyboardButton buttonContact = InlineKeyboardButton.builder()
-                    .text(menuVariables.getNewFlatBtnContact())
+                    .text(adminMenuVariables.getNewFlatBtnContact())
                     .url(this.adminChoice.getContact())
                     .build();
             rows.add(List.of(buttonContact));

@@ -1,13 +1,13 @@
 package com.example.demo.admin_bot.service.handler;
 
-import com.example.demo.admin_bot.constants.Commands;
-import com.example.demo.admin_bot.constants.MenuVariables;
+import com.example.demo.admin_bot.model.AdminChoice;
+import com.example.demo.admin_bot.utils.AdminState;
+import com.example.demo.common_part.constants.Commands;
+import com.example.demo.common_part.constants.AdminMenuVariables;
 import com.example.demo.admin_bot.service.AdminService;
 import com.example.demo.admin_bot.constants.MessagesVariables;
-import com.example.demo.admin_bot.service.BotStateService;
-import com.example.demo.admin_bot.utils.Emoji;
-import com.example.demo.admin_bot.utils.State;
-import com.example.demo.common_part.model.AdminChoice;
+import com.example.demo.common_part.service.BotStateService;
+import com.example.demo.common_part.utils.Emoji;
 import com.example.demo.common_part.model.User;
 import com.example.demo.common_part.repo.UserRepository;
 import org.apache.log4j.Logger;
@@ -22,21 +22,21 @@ import java.text.MessageFormat;
 import java.util.*;
 
 @Service
-public class MessageHandler {
-    private static final Logger LOGGER = Logger.getLogger(MessageHandler.class);
+public class AdminBotMessageHandler {
+    private static final Logger LOGGER = Logger.getLogger(AdminBotMessageHandler.class);
 
     private final UserRepository userRepository;
     private final AdminService adminService;
     private final MessagesVariables messagesVariables;
-    private final MenuVariables menuVariables;
+    private final AdminMenuVariables adminMenuVariables;
     private final BotStateService botStateService;
 
     @Autowired
-    public MessageHandler(UserRepository userRepository, AdminService adminService, MessagesVariables messagesVariables, MenuVariables menuVariables, BotStateService botStateService) {
+    public AdminBotMessageHandler(UserRepository userRepository, AdminService adminService, MessagesVariables messagesVariables, AdminMenuVariables adminMenuVariables, BotStateService botStateService) {
         this.userRepository = userRepository;
         this.adminService = adminService;
         this.messagesVariables = messagesVariables;
-        this.menuVariables = menuVariables;
+        this.adminMenuVariables = adminMenuVariables;
         this.botStateService = botStateService;
     }
 
@@ -67,6 +67,8 @@ public class MessageHandler {
                 } else { // Если админа нет в базе, он первый раз заходит в режим админа
                     User newUser = new User(message);
                     newUser.setAdminMode(true);
+                    newUser.setAdminChoice(new AdminChoice());
+                    newUser.setBotAdminState(AdminState.ADMIN_INIT);
                     newUser = userRepository.save(newUser);
                     LOGGER.info("New admin: " + newUser.getName(true));
                 }
@@ -90,49 +92,49 @@ public class MessageHandler {
             admin.setUsername(username);
         }
 
-        if (text.equals(menuVariables.getAddRentFlatBtnText())) { // Если выбрали "опубликовать квартиру для аренды"
+        if (text.equals(adminMenuVariables.getAddRentFlatBtnText())) { // Если выбрали "опубликовать квартиру для аренды"
             if (admin.getAdminChoice().getMenuMessageId() != null) { // Если процесс публикации не завершен
                 response.add(deleteApiMethod(message));
                 return response; // Возвращаем пустой
             }
             adminCommand = true;
             LOGGER.info("handleAdminMessage. AddRentFlatButton");
-            admin.setBotState(State.ADD_RENT_FLAT);
+            admin.setBotAdminState(AdminState.ADMIN_ADD_RENT_FLAT);
         }
-        if (text.equals(menuVariables.getAddBuyFlatBtnText())) { // Если выбрали "опубликовать квартиру для покупки"
+        if (text.equals(adminMenuVariables.getAddBuyFlatBtnText())) { // Если выбрали "опубликовать квартиру для покупки"
             if (admin.getAdminChoice().getMenuMessageId() != null) {
                 response.add(deleteApiMethod(message));
                 return response; // Возвращаем пустой
             }
             adminCommand = true;
             LOGGER.info("handleAdminMessage. AddBuyFlatButton");
-            admin.setBotState(State.ADD_BUY_FLAT);
+            admin.setBotAdminState(AdminState.ADMIN_ADD_BUY_FLAT);
         }
-        if(text.equals(menuVariables.getBulkMessageText())) { // Если выбрали "Написать сообщение"
+        if(text.equals(adminMenuVariables.getBulkMessageText())) { // Если выбрали "Написать сообщение"
             if(admin.getAdminChoice().getMenuMessageId() != null) {
                 response.add(deleteApiMethod(message));
                 return response;
             }
             adminCommand = true;
             LOGGER.info("handleAdminMessage. BulkMessage");
-            admin.setBotState(State.WRITE_MESSAGE);
+            admin.setBotAdminState(AdminState.ADMIN_WRITE_MESSAGE);
         }
         if (text.equals(Commands.START)) {
             adminCommand = true;
-            admin.setBotState(State.INIT);
+            admin.setBotAdminState(AdminState.ADMIN_INIT);
         }
         if (text.equals(Commands.EXIT)) {
             adminCommand = true;
-            admin.setBotState(State.EXIT);
+            admin.setBotAdminState(AdminState.ADMIN_EXIT);
         }
-        if (checkMenuBotState(admin.getBotState())) {
+        if (checkMenuBotState(admin.getBotAdminState())) {
             adminCommand = true;
         }
 
         if (adminCommand) { // Если пришла команда от администратора - обработать, в соответствии с состоянием
-            response.addAll(botStateService.processInput(message, admin));
+            response.addAll(botStateService.processInput(message, admin, true));
         } else { // Если пришло любое текстовое сообщение
-            if (admin.getBotState() == State.INIT) {
+            if (admin.getBotAdminState() == AdminState.ADMIN_INIT) {
                 LOGGER.info("handleAdminMessage. Any text message");
                 SendMessage textResponse = new SendMessage();
                 textResponse.setChatId(chatId.toString());
@@ -144,7 +146,7 @@ public class MessageHandler {
 
         // Если не ждем сообщение от админа - то удаляем ненужное
         // И если не находимся в начальном состоянии (идет какой-то процесс)
-        if(admin.getBotState() != State.WAIT_MESSAGE && admin.getBotState() != State.INIT) {
+        if(admin.getBotAdminState() != AdminState.ADMIN_WAIT_MESSAGE && admin.getBotAdminState() != AdminState.ADMIN_INIT) {
             response.add(0, deleteApiMethod(message));
         }
 
@@ -165,12 +167,12 @@ public class MessageHandler {
                 .build();
     }
 
-    private boolean checkMenuBotState(State botState) {
-        return botState == State.SUBMENU_SQUARE || botState == State.SUBMENU_FLOOR ||
-                botState == State.SUBMENU_ALL_FLOORS || botState == State.SUBMENU_METRO ||
-                botState == State.SUBMENU_ADDRESS || botState == State.SUBMENU_PRICE ||
-                botState == State.SUBMENU_PHOTO || botState == State.SUBMENU_INFO ||
-                botState == State.SUBMENU_CONTACT || botState == State.SUBMENU_MAP ||
-                botState == State.WAIT_MESSAGE;
+    private boolean checkMenuBotState(AdminState botAdminState) {
+        return botAdminState == AdminState.ADMIN_SUBMENU_SQUARE || botAdminState == AdminState.ADMIN_SUBMENU_FLOOR ||
+                botAdminState == AdminState.ADMIN_SUBMENU_ALL_FLOORS || botAdminState == AdminState.ADMIN_SUBMENU_METRO ||
+                botAdminState == AdminState.ADMIN_SUBMENU_ADDRESS || botAdminState == AdminState.ADMIN_SUBMENU_PRICE ||
+                botAdminState == AdminState.ADMIN_SUBMENU_PHOTO || botAdminState == AdminState.ADMIN_SUBMENU_INFO ||
+                botAdminState == AdminState.ADMIN_SUBMENU_CONTACT || botAdminState == AdminState.ADMIN_SUBMENU_MAP ||
+                botAdminState == AdminState.ADMIN_WAIT_MESSAGE;
     }
 }

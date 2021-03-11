@@ -1,6 +1,6 @@
 package com.example.demo.admin_bot.keyboards.submenu;
 
-import com.example.demo.admin_bot.constants.MenuVariables;
+import com.example.demo.common_part.constants.AdminMenuVariables;
 import com.example.demo.admin_bot.utils.BeanUtil;
 import lombok.Getter;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
@@ -13,13 +13,13 @@ public final class MetroKeyboard {
     private final InlineKeyboardMarkup keyboard;
 
     public MetroKeyboard() {
-        MenuVariables menuVariables = BeanUtil.getBean(MenuVariables.class);
+        AdminMenuVariables adminMenuVariables = BeanUtil.getBean(AdminMenuVariables.class);
 
         InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
 
         InlineKeyboardButton buttonCancel = InlineKeyboardButton.builder()
-                .text(menuVariables.getAdminBtnSubmenuCancel())
-                .callbackData(menuVariables.getAdminBtnCallbackSubmenuCancel())
+                .text(adminMenuVariables.getAdminBtnSubmenuCancel())
+                .callbackData(adminMenuVariables.getAdminBtnCallbackSubmenuCancel())
                 .build();
 
         List<InlineKeyboardButton> row1 = List.of(buttonCancel);

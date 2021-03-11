@@ -1,8 +1,7 @@
 package com.example.demo.admin_bot.keyboards.submenu;
 
-import com.example.demo.admin_bot.constants.MenuVariables;
+import com.example.demo.common_part.constants.AdminMenuVariables;
 import com.example.demo.admin_bot.utils.BeanUtil;
-import com.example.demo.admin_bot.utils.Emoji;
 import com.example.demo.common_part.utils.District;
 import lombok.Getter;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
@@ -14,10 +13,10 @@ import java.util.List;
 public final class DistrictKeyboard {
     @Getter
     private final InlineKeyboardMarkup keyboard;
-    private final MenuVariables menuVariables;
+    private final AdminMenuVariables adminMenuVariables;
 
     public DistrictKeyboard() {
-        this.menuVariables = BeanUtil.getBean(MenuVariables.class);
+        this.adminMenuVariables = BeanUtil.getBean(AdminMenuVariables.class);
         this.keyboard = getDistrictMenu();
     }
 
@@ -29,14 +28,14 @@ public final class DistrictKeyboard {
         for (String temp: texts) {
             InlineKeyboardButton button = InlineKeyboardButton.builder()
                     .text(temp)
-                    .callbackData(menuVariables.getCallbackSubmenuDistrict(temp))
+                    .callbackData(adminMenuVariables.getCallbackSubmenuDistrict(temp))
                     .build();
             districtButtons.add(button);
         }
 
         InlineKeyboardButton buttonCancel = InlineKeyboardButton.builder()
-                .text(menuVariables.getAdminBtnSubmenuCancel())
-                .callbackData(menuVariables.getAdminBtnCallbackSubmenuCancel())
+                .text(adminMenuVariables.getAdminBtnSubmenuCancel())
+                .callbackData(adminMenuVariables.getAdminBtnCallbackSubmenuCancel())
                 .build();
 
         List<List<InlineKeyboardButton>> rows = new ArrayList<>();

@@ -1,6 +1,6 @@
 package com.example.demo.admin_bot.service.handler.admin_menu.submenu;
 
-import com.example.demo.admin_bot.constants.MenuVariables;
+import com.example.demo.common_part.constants.AdminMenuVariables;
 import com.example.demo.admin_bot.service.AdminService;
 import com.example.demo.common_part.model.User;
 import com.example.demo.common_part.utils.District;
@@ -11,13 +11,13 @@ import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
 
 @Service
 public final class DistrictCallbackHandler {
-    private final MenuVariables menuVariables;
+    private final AdminMenuVariables adminMenuVariables;
     private final AdminService adminService;
     private final CommonMethods commonMethods;
 
     @Autowired
-    public DistrictCallbackHandler(MenuVariables menuVariables, AdminService adminService, CommonMethods commonMethods) {
-        this.menuVariables = menuVariables;
+    public DistrictCallbackHandler(AdminMenuVariables adminMenuVariables, AdminService adminService, CommonMethods commonMethods) {
+        this.adminMenuVariables = adminMenuVariables;
         this.adminService = adminService;
         this.commonMethods = commonMethods;
     }
@@ -30,7 +30,7 @@ public final class DistrictCallbackHandler {
 
         // Ищем на какую кнопку нажали (цикл вместо if-ов)
         for(District temp: District.values()) {
-            if (callbackQuery.getData().equals(menuVariables.getCallbackSubmenuDistrict(temp.getName()))) {
+            if (callbackQuery.getData().equals(adminMenuVariables.getCallbackSubmenuDistrict(temp.getName()))) {
                 admin.getAdminChoice().setDistrict(temp);
                 break;
             }
@@ -38,7 +38,7 @@ public final class DistrictCallbackHandler {
 
         // Если нажали на любую кнопку, кроме "отмена" - сохраняем изменения данных.
         // Если же нажали "отмена" - все остается без изменений
-        if(!data.equals(menuVariables.getAdminBtnCallbackSubmenuCancel())) {
+        if(!data.equals(adminMenuVariables.getAdminBtnCallbackSubmenuCancel())) {
             adminService.saveChoice(admin.getAdminChoice());
         }
 

@@ -1,9 +1,8 @@
 package com.example.demo.admin_bot.keyboards.submenu;
 
-import com.example.demo.admin_bot.constants.MenuVariables;
+import com.example.demo.common_part.constants.AdminMenuVariables;
 import com.example.demo.admin_bot.utils.BeanUtil;
 import com.example.demo.common_part.utils.BuyRange;
-import com.example.demo.common_part.utils.District;
 import com.example.demo.common_part.utils.RentalRange;
 import lombok.Getter;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
@@ -15,11 +14,11 @@ import java.util.List;
 public final class MoneyRangeKeyboard {
     @Getter
     private final InlineKeyboardMarkup keyboard;
-    private final MenuVariables menuVariables;
+    private final AdminMenuVariables adminMenuVariables;
     private final boolean isRentFlat;
 
     public MoneyRangeKeyboard(boolean isRentFlat) {
-        this.menuVariables = BeanUtil.getBean(MenuVariables.class);
+        this.adminMenuVariables = BeanUtil.getBean(AdminMenuVariables.class);
         this.isRentFlat = isRentFlat;
         this.keyboard = getMoneyRangeMenu();
     }
@@ -33,14 +32,14 @@ public final class MoneyRangeKeyboard {
             // Callback состоит из префикса и самого диапазона бюджета
             InlineKeyboardButton button = InlineKeyboardButton.builder()
                     .text(temp)
-                    .callbackData(menuVariables.getCallbackSubmenuRange(temp))
+                    .callbackData(adminMenuVariables.getCallbackSubmenuRange(temp))
                     .build();
             rangeButtons.add(button);
         }
 
         InlineKeyboardButton buttonCancel = InlineKeyboardButton.builder()
-                .text(menuVariables.getAdminBtnSubmenuCancel())
-                .callbackData(menuVariables.getAdminBtnCallbackSubmenuCancel())
+                .text(adminMenuVariables.getAdminBtnSubmenuCancel())
+                .callbackData(adminMenuVariables.getAdminBtnCallbackSubmenuCancel())
                 .build();
 
         List<List<InlineKeyboardButton>> rows = new ArrayList<>();

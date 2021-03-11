@@ -1,9 +1,8 @@
 package com.example.demo.admin_bot.service;
 
 import com.example.demo.admin_bot.keyboards.NewFlatMenu;
-import com.example.demo.common_part.model.AdminChoice;
-import com.example.demo.common_part.repo.AdminChoiceRepository;
-import com.example.demo.user_bot.utils.Emoji;
+import com.example.demo.admin_bot.model.AdminChoice;
+import com.example.demo.admin_bot.repo.AdminChoiceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

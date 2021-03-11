@@ -1,8 +1,6 @@
 package com.example.demo.admin_bot.botapi;
 
-import com.example.demo.admin_bot.service.MainService;
-import com.example.demo.admin_bot.utils.BeanUtil;
-import com.example.demo.user_bot.botapi.RentalTelegramBot;
+import com.example.demo.admin_bot.service.AdminMainService;
 import lombok.SneakyThrows;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,12 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.bind.annotation.RestController;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
-import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
-import org.telegram.telegrambots.meta.api.methods.PartialBotApiMethod;
-import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
-
-import java.util.List;
 
 @PropertySource("classpath:application.properties")
 @RestController
@@ -28,11 +21,11 @@ public class AdminTelegramBot extends TelegramLongPollingBot {
     @Value("${bot2.token}")
     private String botToken;
 
-    private final MainService mainService;
+    private final AdminMainService adminMainService;
 
     @Autowired
-    public AdminTelegramBot(MainService mainService) {
-        this.mainService = mainService;
+    public AdminTelegramBot(AdminMainService adminMainService) {
+        this.adminMainService = adminMainService;
         LOGGER.info("AdminTelegramBot is creating...");
     }
 
@@ -49,6 +42,6 @@ public class AdminTelegramBot extends TelegramLongPollingBot {
     @SneakyThrows
     @Override
     public void onUpdateReceived(Update update) {
-        mainService.handleUpdate(update, this);
+        adminMainService.handleUpdate(update, this);
     }
 }

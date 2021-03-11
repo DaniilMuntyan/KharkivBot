@@ -1,12 +1,13 @@
 package com.example.demo.admin_bot.service.handler.admin_menu;
 
-import com.example.demo.admin_bot.constants.MenuVariables;
+import com.example.demo.admin_bot.utils.AdminState;
+import com.example.demo.common_part.constants.AdminMenuVariables;
 import com.example.demo.admin_bot.constants.MessagesVariables;
 import com.example.demo.admin_bot.service.AdminService;
 import com.example.demo.admin_bot.service.handler.admin_menu.submenu.CommonMethods;
-import com.example.demo.admin_bot.utils.State;
 import com.example.demo.common_part.model.User;
 import com.example.demo.common_part.repo.UserRepository;
+import com.example.demo.user_bot.queue.UserBotSendingQueue;
 import com.example.demo.user_bot.service.QueryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,21 +20,23 @@ import java.util.List;
 
 @Service
 public class ConfirmMessageCallbackHandler {
-    private final MenuVariables menuVariables;
+    private final AdminMenuVariables adminMenuVariables;
     private final AdminService adminService;
     private final CommonMethods commonMethods;
     private final UserRepository userRepository;
     private final QueryService queryService;
     private final MessagesVariables messagesVariables;
+    private final UserBotSendingQueue userBotSendingQueue;
 
     @Autowired
-    public ConfirmMessageCallbackHandler(MenuVariables menuVariables, AdminService adminService, CommonMethods commonMethods, UserRepository userRepository, QueryService queryService, MessagesVariables messagesVariables) {
-        this.menuVariables = menuVariables;
+    public ConfirmMessageCallbackHandler(AdminMenuVariables adminMenuVariables, AdminService adminService, CommonMethods commonMethods, UserRepository userRepository, QueryService queryService, MessagesVariables messagesVariables, UserBotSendingQueue userBotSendingQueue) {
+        this.adminMenuVariables = adminMenuVariables;
         this.adminService = adminService;
         this.commonMethods = commonMethods;
         this.userRepository = userRepository;
         this.queryService = queryService;
         this.messagesVariables = messagesVariables;
+        this.userBotSendingQueue = userBotSendingQueue;
     }
 
     public BotApiMethod<?> handleConfirmCallback(CallbackQuery callbackQuery, User admin) {
@@ -43,14 +46,15 @@ public class ConfirmMessageCallbackHandler {
         BotApiMethod<?> response;
 
         // Если подтвердили рассылку сообщения
-        if(data.equals(menuVariables.getAdminBtnCallbackConfirmMessageYes())) {
+        if(data.equals(adminMenuVariables.getAdminBtnCallbackConfirmMessageYes())) {
             List<User> allUsers = userRepository.findAll();
             SendMessage sendMessage = new SendMessage();
             sendMessage.setText(callbackQuery.getMessage().getText());
             sendMessage.setEntities(callbackQuery.getMessage().getEntities());
             for (User user: allUsers) {
                 sendMessage.setChatId(user.getChatId().toString());
-                queryService.execute(sendMessage, admin);
+                userBotSendingQueue.addBulkMessageToQueue(sendMessage);
+                //queryService.execute(sendMessage, admin);
             }
 
             EditMessageText editMessageText = new EditMessageText();
@@ -69,7 +73,7 @@ public class ConfirmMessageCallbackHandler {
         // Если отменили рассылку сообщения - меняем текст сообщения и ничего не делаем
 
         // Возвращаем состояние в исходное. Так как в этом подпункте можем как писать, так и нажать на кнопку
-        admin.setBotState(State.INIT);
+        admin.setBotAdminState(AdminState.ADMIN_INIT);
         adminService.saveAdminState(admin);
 
         return response;

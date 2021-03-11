@@ -1,6 +1,6 @@
 package com.example.demo.admin_bot.utils;
 
-import com.example.demo.admin_bot.constants.MenuVariables;
+import com.example.demo.common_part.constants.AdminMenuVariables;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,35 +10,35 @@ public enum AdminChoiceParameter {
     CONTACT;
 
     static {
-        MenuVariables menuVariables = BeanUtil.getBean(MenuVariables.class);
+        AdminMenuVariables adminMenuVariables = BeanUtil.getBean(AdminMenuVariables.class);
 
-        DISTRICT.btnText = menuVariables.getAdminBtnDistrict();
-        METRO.btnText = menuVariables.getAdminBtnMetro();
-        ADDRESS.btnText = menuVariables.getAdminBtnAddress();
-        ROOMS.btnText = menuVariables.getAdminBtnRooms();
-        SQUARE.btnText = menuVariables.getAdminBtnSquare();
-        FLOOR.btnText = menuVariables.getAdminBtnFloor();
-        ALL_FLOORS.btnText = menuVariables.getAdminBtnAllFloor();
-        MONEY.btnText = menuVariables.getAdminBtnMoney();
-        MONEY_RANGE.btnText = menuVariables.getAdminBtnMoneyRange();
-        MAP_LINK.btnText = menuVariables.getAdminBtnMap();
-        CONTACT.btnText = menuVariables.getAdminBtnContact();
-        TELEGRAPH.btnText = menuVariables.getAdminBtnTelegraph();
-        INFO.btnText = menuVariables.getAdminBtnInfo();
+        DISTRICT.btnText = adminMenuVariables.getAdminBtnDistrict();
+        METRO.btnText = adminMenuVariables.getAdminBtnMetro();
+        ADDRESS.btnText = adminMenuVariables.getAdminBtnAddress();
+        ROOMS.btnText = adminMenuVariables.getAdminBtnRooms();
+        SQUARE.btnText = adminMenuVariables.getAdminBtnSquare();
+        FLOOR.btnText = adminMenuVariables.getAdminBtnFloor();
+        ALL_FLOORS.btnText = adminMenuVariables.getAdminBtnAllFloor();
+        MONEY.btnText = adminMenuVariables.getAdminBtnMoney();
+        MONEY_RANGE.btnText = adminMenuVariables.getAdminBtnMoneyRange();
+        MAP_LINK.btnText = adminMenuVariables.getAdminBtnMap();
+        CONTACT.btnText = adminMenuVariables.getAdminBtnContact();
+        TELEGRAPH.btnText = adminMenuVariables.getAdminBtnTelegraph();
+        INFO.btnText = adminMenuVariables.getAdminBtnInfo();
 
-        DISTRICT.btnCallback = menuVariables.getAdminBtnCallbackDistrict();
-        METRO.btnCallback = menuVariables.getAdminBtnCallbackMetro();
-        ADDRESS.btnCallback = menuVariables.getAdminBtnCallbackAddress();
-        ROOMS.btnCallback = menuVariables.getAdminBtnCallbackRooms();
-        SQUARE.btnCallback = menuVariables.getAdminBtnCallbackSquare();
-        FLOOR.btnCallback = menuVariables.getAdminBtnCallbackFloor();
-        ALL_FLOORS.btnCallback = menuVariables.getAdminBtnCallbackAllFloor();
-        MONEY.btnCallback = menuVariables.getAdminBtnCallbackMoney();
-        MONEY_RANGE.btnCallback = menuVariables.getAdminBtnCallbackMoneyRange();
-        MAP_LINK.btnCallback = menuVariables.getAdminBtnCallbackMap();
-        CONTACT.btnCallback = menuVariables.getAdminBtnCallbackContact();
-        TELEGRAPH.btnCallback = menuVariables.getAdminBtnCallbackTelegraph();
-        INFO.btnCallback = menuVariables.getAdminBtnCallbackInfo();
+        DISTRICT.btnCallback = adminMenuVariables.getAdminBtnCallbackDistrict();
+        METRO.btnCallback = adminMenuVariables.getAdminBtnCallbackMetro();
+        ADDRESS.btnCallback = adminMenuVariables.getAdminBtnCallbackAddress();
+        ROOMS.btnCallback = adminMenuVariables.getAdminBtnCallbackRooms();
+        SQUARE.btnCallback = adminMenuVariables.getAdminBtnCallbackSquare();
+        FLOOR.btnCallback = adminMenuVariables.getAdminBtnCallbackFloor();
+        ALL_FLOORS.btnCallback = adminMenuVariables.getAdminBtnCallbackAllFloor();
+        MONEY.btnCallback = adminMenuVariables.getAdminBtnCallbackMoney();
+        MONEY_RANGE.btnCallback = adminMenuVariables.getAdminBtnCallbackMoneyRange();
+        MAP_LINK.btnCallback = adminMenuVariables.getAdminBtnCallbackMap();
+        CONTACT.btnCallback = adminMenuVariables.getAdminBtnCallbackContact();
+        TELEGRAPH.btnCallback = adminMenuVariables.getAdminBtnCallbackTelegraph();
+        INFO.btnCallback = adminMenuVariables.getAdminBtnCallbackInfo();
 
         DISTRICT.adminChoiceFieldName = "district";
         METRO.adminChoiceFieldName = "metro";

@@ -1,7 +1,9 @@
 package com.example.demo.common_part.model;
 
-import com.example.demo.admin_bot.utils.AdminChoiceParameter;
-import com.example.demo.admin_bot.utils.State;
+import com.example.demo.admin_bot.model.AdminChoice;
+import com.example.demo.admin_bot.utils.AdminState;
+import com.example.demo.user_bot.model.UserChoice;
+import com.example.demo.user_bot.utils.UserState;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -41,13 +43,24 @@ public final class User {
     @Column(name="admin_mode")
     private boolean adminMode;
 
-    @Column(name="state")
+    @Column(name="admin_state")
     @Enumerated(EnumType.ORDINAL)
-    private State botState;
+    private AdminState botAdminState;
+
+    @Column(name="user_state")
+    @Enumerated(EnumType.ORDINAL)
+    private UserState botUserState;
+
+    @Column(name="phone")
+    private String phone;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "admin_choice", referencedColumnName = "choice_id")
     private AdminChoice adminChoice;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_choice", referencedColumnName = "choice_id")
+    private UserChoice userChoice;
 
     @Column(name="created_at")
     @CreationTimestamp
@@ -57,14 +70,14 @@ public final class User {
     @CreationTimestamp
     private Date lastAction;
 
-    public User(Long chatId, String firstName, String lastName, String username) {
+    /*public User(Long chatId, String firstName, String lastName, String username) {
         this.chatId = chatId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
         this.adminMode = false;
-        this.botState = State.INIT;
-    }
+        this.botState = State.ADMIN_INIT;
+    }*/
 
     public User(Message message) {
         this.chatId = message.getChatId();
@@ -72,8 +85,8 @@ public final class User {
         this.lastName = message.getFrom().getLastName();
         this.username = message.getFrom().getUserName();
         this.adminMode = false;
-        this.botState = State.INIT;
-        this.adminChoice = new AdminChoice();
+        this.botUserState = UserState.USER_INIT;
+        this.userChoice = new UserChoice();
     }
 
     public String getName(boolean withUsername) {

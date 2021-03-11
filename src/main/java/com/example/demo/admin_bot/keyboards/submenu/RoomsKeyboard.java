@@ -1,8 +1,8 @@
 package com.example.demo.admin_bot.keyboards.submenu;
 
-import com.example.demo.admin_bot.constants.MenuVariables;
+import com.example.demo.common_part.constants.AdminMenuVariables;
 import com.example.demo.admin_bot.utils.BeanUtil;
-import com.example.demo.admin_bot.utils.Emoji;
+import com.example.demo.common_part.utils.Emoji;
 import lombok.Getter;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
@@ -14,10 +14,10 @@ public final class RoomsKeyboard {
     @Getter
     private final InlineKeyboardMarkup keyboard;
 
-    private final MenuVariables menuVariables;
+    private final AdminMenuVariables adminMenuVariables;
 
     public RoomsKeyboard() {
-        this.menuVariables = BeanUtil.getBean(MenuVariables.class);
+        this.adminMenuVariables = BeanUtil.getBean(AdminMenuVariables.class);
 
         this.keyboard = getRoomsMenu();
     }
@@ -28,27 +28,27 @@ public final class RoomsKeyboard {
 
         InlineKeyboardButton buttonZero = InlineKeyboardButton.builder()
                 .text(texts.get(0))
-                .callbackData(menuVariables.getAdminBtnCallbackRoomsZero())
+                .callbackData(adminMenuVariables.getAdminBtnCallbackRoomsZero())
                 .build();
         InlineKeyboardButton buttonOne = InlineKeyboardButton.builder()
                 .text(texts.get(1))
-                .callbackData(menuVariables.getAdminBtnCallbackRoomsOne())
+                .callbackData(adminMenuVariables.getAdminBtnCallbackRoomsOne())
                 .build();
         InlineKeyboardButton buttonTwo = InlineKeyboardButton.builder()
                 .text(texts.get(2))
-                .callbackData(menuVariables.getAdminBtnCallbackRoomsTwo())
+                .callbackData(adminMenuVariables.getAdminBtnCallbackRoomsTwo())
                 .build();
         InlineKeyboardButton buttonThree = InlineKeyboardButton.builder()
                 .text(texts.get(3))
-                .callbackData(menuVariables.getAdminBtnCallbackRoomsThree())
+                .callbackData(adminMenuVariables.getAdminBtnCallbackRoomsThree())
                 .build();
         InlineKeyboardButton buttonFour = InlineKeyboardButton.builder()
                 .text(texts.get(4))
-                .callbackData(menuVariables.getAdminBtnCallbackRoomsFour())
+                .callbackData(adminMenuVariables.getAdminBtnCallbackRoomsFour())
                 .build();
         InlineKeyboardButton buttonCancel = InlineKeyboardButton.builder()
-                .text(menuVariables.getAdminBtnSubmenuCancel())
-                .callbackData(menuVariables.getAdminBtnCallbackSubmenuCancel())
+                .text(adminMenuVariables.getAdminBtnSubmenuCancel())
+                .callbackData(adminMenuVariables.getAdminBtnCallbackSubmenuCancel())
                 .build();
 
         List<InlineKeyboardButton> row1 = List.of(buttonOne, buttonTwo);
@@ -63,7 +63,7 @@ public final class RoomsKeyboard {
 
     private List<String> getTexts() {
         List<String> answer = new ArrayList<>();
-        answer.add(menuVariables.getAdminBtnRoomsZero());
+        answer.add(adminMenuVariables.getAdminBtnRoomsZero());
         answer.add(Emoji.ONE.toString());
         answer.add(Emoji.TWO.toString());
         answer.add(Emoji.THREE.toString());

@@ -1,16 +1,17 @@
-package com.example.demo.admin_bot.constants;
+package com.example.demo.common_part.constants;
 
-import com.example.demo.admin_bot.utils.Emoji;
+import com.example.demo.common_part.utils.Emoji;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.PropertySources;
 import org.springframework.stereotype.Component;
 
 import java.text.MessageFormat;
 
 @Component
-@PropertySource(value="classpath:menu.properties", encoding = "UTF-8")
-public class MenuVariables {
+@PropertySource(value= "classpath:admin-menu.properties", encoding = "UTF-8")
+public class AdminMenuVariables {
     @Value("${admin.bot.button.addRentFlat.text}")
     private String addRentFlat;
     public String getAddRentFlatBtnText() {
@@ -286,16 +287,15 @@ public class MenuVariables {
     @Getter
     private String adminBtnCallbackSubmenuConfirmNo;
 
-    @Value("${newFlat.button.map.text}")
+    @Value("${admin.bot.newFlat.button.map.text}")
     private String newFlatBtnMap;
     public String getNewFlatBtnMap() {
         return MessageFormat.format(newFlatBtnMap, Emoji.EARTH);
     }
 
-    @Value("${newFlat.button.contact.text}")
+    @Value("${admin.bot.newFlat.button.contact.text}")
     private String newFlatBtnContact;
     public String getNewFlatBtnContact() {
         return MessageFormat.format(newFlatBtnContact, Emoji.CONTACT);
     }
-
 }

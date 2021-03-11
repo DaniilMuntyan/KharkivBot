@@ -23,6 +23,17 @@ create table "admin_choice"( -- Таблица для публикации но�
                                primary key (choice_id)
 );
 
+DROP TABLE IF EXISTS "user_choice";
+create table "user_choice"( -- Таблица для предпочтений пользователя
+                              choice_id SERIAL,
+                              menu_message_id INTEGER,
+                              is_rent_flat BOOLEAN,
+                              rooms VARCHAR(10),
+                              districts VARCHAR(20),
+                              budget VARCHAR(20),
+                              primary key (choice_id)
+);
+
 DROP TABLE IF EXISTS "user";
 create table "user"(
                        user_id SERIAL,
@@ -31,8 +42,11 @@ create table "user"(
                        lastname varchar(100),
                        username varchar(100),
                        admin_mode boolean,
-                       state smallint,
+                       admin_state smallint,
+                       user_state smallint,
+                       phone varchar(20),
                        admin_choice INTEGER REFERENCES "admin_choice"(choice_id),
+                       user_choice INTEGER REFERENCES "user_choice"(choice_id),
                        created_at timestamp with time zone not null default now(),
                        last_action timestamp with time zone,
                        primary key(user_id)

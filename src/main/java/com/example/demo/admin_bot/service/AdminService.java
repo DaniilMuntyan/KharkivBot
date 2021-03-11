@@ -1,12 +1,11 @@
 package com.example.demo.admin_bot.service;
 
-import com.example.demo.admin_bot.constants.MenuVariables;
-import com.example.demo.admin_bot.constants.Commands;
+import com.example.demo.common_part.constants.AdminMenuVariables;
+import com.example.demo.common_part.constants.Commands;
 import com.example.demo.admin_bot.keyboards.NewFlatMenu;
 import com.example.demo.common_part.constants.ProgramVariables;
-import com.example.demo.common_part.model.AdminChoice;
+import com.example.demo.admin_bot.model.AdminChoice;
 import com.example.demo.common_part.model.User;
-import com.example.demo.common_part.repo.AdminChoiceRepository;
 import com.example.demo.common_part.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,17 +21,16 @@ import java.util.List;
 @Service
 public class AdminService {
     private final ProgramVariables programVariables;
-    private final MenuVariables menuVariables;
+    private final AdminMenuVariables adminMenuVariables;
     private final UserRepository userRepository;
     private final AdminChoiceService adminChoiceService;
 
     private ReplyKeyboardMarkup mainMenu;
-    private AnswerCallbackQuery answerCallbackQuery;
 
     @Autowired
-    public AdminService(ProgramVariables programVariables, MenuVariables menuVariables, AdminChoiceService adminChoiceService, UserRepository userRepository) {
+    public AdminService(ProgramVariables programVariables, AdminMenuVariables adminMenuVariables, AdminChoiceService adminChoiceService, UserRepository userRepository) {
         this.programVariables = programVariables;
-        this.menuVariables = menuVariables;
+        this.adminMenuVariables = adminMenuVariables;
         this.adminChoiceService = adminChoiceService;
         this.userRepository = userRepository;
     }
@@ -59,11 +57,11 @@ public class AdminService {
         List<KeyboardRow> keyboard = new ArrayList<>();
 
         KeyboardRow row1 = new KeyboardRow();
-        row1.add(new KeyboardButton(menuVariables.getAddRentFlatBtnText()));
+        row1.add(new KeyboardButton(adminMenuVariables.getAddRentFlatBtnText()));
         KeyboardRow row2 = new KeyboardRow();
-        row2.add(new KeyboardButton(menuVariables.getAddBuyFlatBtnText()));
+        row2.add(new KeyboardButton(adminMenuVariables.getAddBuyFlatBtnText()));
         KeyboardRow row3 = new KeyboardRow();
-        row3.add(new KeyboardButton(menuVariables.getBulkMessageText()));
+        row3.add(new KeyboardButton(adminMenuVariables.getBulkMessageText()));
 
 
         keyboard.add(row1);
@@ -77,16 +75,10 @@ public class AdminService {
     }
 
     public AnswerCallbackQuery getAnswerCallback(CallbackQuery callbackQuery) {
-        if(this.answerCallbackQuery != null) {
-            return this.answerCallbackQuery;
-        }
-
         AnswerCallbackQuery answerCallbackQuery = new AnswerCallbackQuery();
         answerCallbackQuery.setCallbackQueryId(callbackQuery.getId());
         answerCallbackQuery.setShowAlert(false);
-        this.answerCallbackQuery = answerCallbackQuery;
-
-        return this.answerCallbackQuery;
+        return answerCallbackQuery;
     }
 
     public NewFlatMenu getAddBuyFlatMenu() {
@@ -110,7 +102,7 @@ public class AdminService {
     }
 
     public void saveAdminState(User admin) {
-        userRepository.editAdminState(admin.getId(), admin.getBotState().ordinal());
+        userRepository.editAdminState(admin.getId(), admin.getBotAdminState().ordinal());
     }
 
     // Чтобы установить новый adminChoice для админа - сохранить новый и удалить предыдущий.

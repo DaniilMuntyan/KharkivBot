@@ -1,4 +1,4 @@
-package com.example.demo.user_bot.utils;
+package com.example.demo.common_part.utils;
 
 public enum Rooms {
     GOSTINKA("Гостинка"), ONE("1"), TWO("2"), THREE("3"), FOUR("4");

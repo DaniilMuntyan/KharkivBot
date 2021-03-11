@@ -1,12 +1,12 @@
 package com.example.demo.admin_bot.service.handler.admin_menu;
 
-import com.example.demo.admin_bot.constants.MenuVariables;
+import com.example.demo.admin_bot.utils.AdminState;
+import com.example.demo.common_part.constants.AdminMenuVariables;
 import com.example.demo.admin_bot.constants.MessagesVariables;
 import com.example.demo.admin_bot.keyboards.submenu.*;
 import com.example.demo.admin_bot.service.AdminService;
-import com.example.demo.admin_bot.utils.Emoji;
-import com.example.demo.admin_bot.utils.State;
-import com.example.demo.common_part.model.AdminChoice;
+import com.example.demo.common_part.utils.Emoji;
+import com.example.demo.admin_bot.model.AdminChoice;
 import com.example.demo.common_part.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,13 +23,13 @@ import java.util.List;
 
 @Service
 public class AdminMenuCallbackHandler {
-    private final MenuVariables menuVariables;
+    private final AdminMenuVariables adminMenuVariables;
     private final AdminService adminService;
     private final MessagesVariables messagesVariables;
 
     @Autowired
-    public AdminMenuCallbackHandler(MenuVariables menuVariables, AdminService adminService, MessagesVariables messagesVariables) {
-        this.menuVariables = menuVariables;
+    public AdminMenuCallbackHandler(AdminMenuVariables adminMenuVariables, AdminService adminService, MessagesVariables messagesVariables) {
+        this.adminMenuVariables = adminMenuVariables;
         this.adminService = adminService;
         this.messagesVariables = messagesVariables;
     }
@@ -46,77 +46,77 @@ public class AdminMenuCallbackHandler {
         }
 
         // Отмена публикации квартиры
-        if (callbackQuery.getData().equals(menuVariables.getAdminBtnCallbackCancel())) {
+        if (callbackQuery.getData().equals(adminMenuVariables.getAdminBtnCallbackCancel())) {
             cancelCallback(response, callbackQuery, admin);
         }
 
         // Количество комнат
-        if (callbackQuery.getData().equals(menuVariables.getAdminBtnCallbackRooms())) {
+        if (callbackQuery.getData().equals(adminMenuVariables.getAdminBtnCallbackRooms())) {
             roomsCallback(response, callbackQuery, admin);
         }
 
         // Площадь
-        if (callbackQuery.getData().equals(menuVariables.getAdminBtnCallbackSquare())) {
+        if (callbackQuery.getData().equals(adminMenuVariables.getAdminBtnCallbackSquare())) {
             squareCallback(response, callbackQuery, admin);
         }
 
         // Этаж
-        if (callbackQuery.getData().equals(menuVariables.getAdminBtnCallbackFloor())) {
+        if (callbackQuery.getData().equals(adminMenuVariables.getAdminBtnCallbackFloor())) {
             floorCallback(response, callbackQuery, admin);
         }
 
         // Всего этажей
-        if (callbackQuery.getData().equals(menuVariables.getAdminBtnCallbackAllFloor())) {
+        if (callbackQuery.getData().equals(adminMenuVariables.getAdminBtnCallbackAllFloor())) {
             allFloorCallback(response, callbackQuery, admin);
         }
 
         // Метро
-        if (callbackQuery.getData().equals(menuVariables.getAdminBtnCallbackMetro())) {
+        if (callbackQuery.getData().equals(adminMenuVariables.getAdminBtnCallbackMetro())) {
             metroCallback(response, callbackQuery, admin);
         }
 
         // Адрес
-        if (callbackQuery.getData().equals(menuVariables.getAdminBtnCallbackAddress())) {
+        if (callbackQuery.getData().equals(adminMenuVariables.getAdminBtnCallbackAddress())) {
             addressCallback(response, callbackQuery, admin);
         }
 
         // Район
-        if (callbackQuery.getData().equals(menuVariables.getAdminBtnCallbackDistrict())) {
+        if (callbackQuery.getData().equals(adminMenuVariables.getAdminBtnCallbackDistrict())) {
             districtCallback(response, callbackQuery, admin);
         }
 
         // Цена
-        if (callbackQuery.getData().equals(menuVariables.getAdminBtnCallbackMoney())) {
+        if (callbackQuery.getData().equals(adminMenuVariables.getAdminBtnCallbackMoney())) {
             priceCallback(response, callbackQuery, admin);
         }
 
         // Бюджет
-        if (callbackQuery.getData().equals(menuVariables.getAdminBtnCallbackMoneyRange())) {
+        if (callbackQuery.getData().equals(adminMenuVariables.getAdminBtnCallbackMoneyRange())) {
             moneyRangeCallback(response, callbackQuery, admin);
         }
 
         // На карте
-        if (callbackQuery.getData().equals(menuVariables.getAdminBtnCallbackMap())) {
+        if (callbackQuery.getData().equals(adminMenuVariables.getAdminBtnCallbackMap())) {
             mapCallback(response, callbackQuery, admin);
         }
 
         // Контакт
-        if (callbackQuery.getData().equals(menuVariables.getAdminBtnCallbackContact())) {
+        if (callbackQuery.getData().equals(adminMenuVariables.getAdminBtnCallbackContact())) {
             contactCallback(response, callbackQuery, admin);
         }
 
         // Фото
-        if (callbackQuery.getData().equals(menuVariables.getAdminBtnCallbackTelegraph())) {
+        if (callbackQuery.getData().equals(adminMenuVariables.getAdminBtnCallbackTelegraph())) {
             photoCallback(response, callbackQuery, admin);
         }
 
         // Доп. информация
-        if (callbackQuery.getData().equals(menuVariables.getAdminBtnCallbackInfo())) {
+        if (callbackQuery.getData().equals(adminMenuVariables.getAdminBtnCallbackInfo())) {
             infoCallback(response, callbackQuery, admin);
         }
 
         // Публикация
-        if (callbackQuery.getData().equals(menuVariables.getAdminBtnCallbackPublish())) {
+        if (callbackQuery.getData().equals(adminMenuVariables.getAdminBtnCallbackPublish())) {
             publishCallback(response, callbackQuery, admin);
         }
 
@@ -131,7 +131,7 @@ public class AdminMenuCallbackHandler {
     }
 
     private void cancelCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, User admin) {
-        admin.setBotState(State.INIT);
+        admin.setBotAdminState(AdminState.ADMIN_INIT);
         adminService.setAdminChoice(admin, new AdminChoice());
         //adminService.saveAdmin(admin);
 
@@ -168,7 +168,7 @@ public class AdminMenuCallbackHandler {
         editMessageText.setReplyMarkup(squareKeyboard.getKeyboard());
         response.add(editMessageText);
 
-        admin.setBotState(State.SUBMENU_SQUARE);
+        admin.setBotAdminState(AdminState.ADMIN_SUBMENU_SQUARE);
         adminService.saveAdminState(admin);
     }
 
@@ -183,7 +183,7 @@ public class AdminMenuCallbackHandler {
         editMessageText.setReplyMarkup(floorKeyboard.getKeyboard());
         response.add(editMessageText);
 
-        admin.setBotState(State.SUBMENU_FLOOR);
+        admin.setBotAdminState(AdminState.ADMIN_SUBMENU_FLOOR);
         adminService.saveAdminState(admin);
     }
 
@@ -198,7 +198,7 @@ public class AdminMenuCallbackHandler {
         editMessageText.setReplyMarkup(allFloorsKeyboard.getKeyboard());
         response.add(editMessageText);
 
-        admin.setBotState(State.SUBMENU_ALL_FLOORS);
+        admin.setBotAdminState(AdminState.ADMIN_SUBMENU_ALL_FLOORS);
         adminService.saveAdminState(admin);
     }
 
@@ -213,7 +213,7 @@ public class AdminMenuCallbackHandler {
         editMessageText.setReplyMarkup(metroKeyboard.getKeyboard());
         response.add(editMessageText);
 
-        admin.setBotState(State.SUBMENU_METRO);
+        admin.setBotAdminState(AdminState.ADMIN_SUBMENU_METRO);
         adminService.saveAdminState(admin);
     }
 
@@ -228,7 +228,7 @@ public class AdminMenuCallbackHandler {
         editMessageText.setReplyMarkup(addressKeyboard.getKeyboard());
         response.add(editMessageText);
 
-        admin.setBotState(State.SUBMENU_ADDRESS);
+        admin.setBotAdminState(AdminState.ADMIN_SUBMENU_ADDRESS);
         adminService.saveAdminState(admin);
     }
 
@@ -255,7 +255,7 @@ public class AdminMenuCallbackHandler {
         editMessageText.setReplyMarkup(priceKeyboard.getKeyboard());
         response.add(editMessageText);
 
-        admin.setBotState(State.SUBMENU_PRICE);
+        admin.setBotAdminState(AdminState.ADMIN_SUBMENU_PRICE);
         adminService.saveAdminState(admin);
     }
 
@@ -283,7 +283,7 @@ public class AdminMenuCallbackHandler {
         editMessageText.setReplyMarkup(photoKeyboard.getKeyboard());
         response.add(editMessageText);
 
-        admin.setBotState(State.SUBMENU_PHOTO);
+        admin.setBotAdminState(AdminState.ADMIN_SUBMENU_PHOTO);
         adminService.saveAdminState(admin);
     }
 
@@ -298,7 +298,7 @@ public class AdminMenuCallbackHandler {
         editMessageText.setReplyMarkup(infoKeyboard.getKeyboard());
         response.add(editMessageText);
 
-        admin.setBotState(State.SUBMENU_INFO);
+        admin.setBotAdminState(AdminState.ADMIN_SUBMENU_INFO);
         adminService.saveAdminState(admin);
     }
 
@@ -313,7 +313,7 @@ public class AdminMenuCallbackHandler {
         editMessageText.setReplyMarkup(mapKeyboard.getKeyboard());
         response.add(editMessageText);
 
-        admin.setBotState(State.SUBMENU_MAP);
+        admin.setBotAdminState(AdminState.ADMIN_SUBMENU_MAP);
         adminService.saveAdminState(admin);
     }
 
@@ -328,7 +328,7 @@ public class AdminMenuCallbackHandler {
         editMessageText.setReplyMarkup(contactKeyboard.getKeyboard());
         response.add(editMessageText);
 
-        admin.setBotState(State.SUBMENU_CONTACT);
+        admin.setBotAdminState(AdminState.ADMIN_SUBMENU_CONTACT);
         adminService.saveAdminState(admin);
     }
 
@@ -348,7 +348,7 @@ public class AdminMenuCallbackHandler {
         System.out.println("PUBLISH CALLBACK!!! messageId: " + callbackQuery.getMessage().getMessageId());
         System.out.println(editMessageText);
 
-        admin.setBotState(State.SUBMENU_PUBLISHING);
+        admin.setBotAdminState(AdminState.ADMIN_SUBMENU_PUBLISHING);
         adminService.saveAdminState(admin);
     }
 }

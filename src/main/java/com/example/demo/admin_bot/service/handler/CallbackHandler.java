@@ -1,6 +1,6 @@
 package com.example.demo.admin_bot.service.handler;
 
-import com.example.demo.admin_bot.constants.MenuVariables;
+import com.example.demo.common_part.constants.AdminMenuVariables;
 import com.example.demo.admin_bot.constants.MessagesVariables;
 import com.example.demo.admin_bot.service.AdminService;
 import com.example.demo.admin_bot.service.handler.admin_menu.AdminMenuCallbackHandler;
@@ -26,7 +26,7 @@ public final class CallbackHandler {
     private final AdminService adminService;
     private final UserRepository userRepository;
     private final MessagesVariables messagesVariables;
-    private final MenuVariables menuVariables;
+    private final AdminMenuVariables adminMenuVariables;
 
     private final AdminMenuCallbackHandler adminMenuCallbackHandler;
     private final RoomsCallbackHandler roomsCallbackHandler;
@@ -38,11 +38,11 @@ public final class CallbackHandler {
     private final ConfirmPublishCallbackHandler confirmPublishCallbackHandler;
 
     @Autowired
-    public CallbackHandler(AdminService adminService, UserRepository userRepository, MessagesVariables messagesVariables, MenuVariables menuVariables, AdminMenuCallbackHandler adminMenuCallbackHandler, RoomsCallbackHandler roomsCallbackHandler, DistrictCallbackHandler districtCallbackHandler, CancelSubmenuHandler cancelSubmenuHandler, MoneyRangeCallbackHandler moneyRangeCallbackHandler, ContactCallbackHandler contactCallbackHandler, ConfirmMessageCallbackHandler confirmMessageCallbackHandler, ConfirmPublishCallbackHandler confirmPublishCallbackHandler) {
+    public CallbackHandler(AdminService adminService, UserRepository userRepository, MessagesVariables messagesVariables, AdminMenuVariables adminMenuVariables, AdminMenuCallbackHandler adminMenuCallbackHandler, RoomsCallbackHandler roomsCallbackHandler, DistrictCallbackHandler districtCallbackHandler, CancelSubmenuHandler cancelSubmenuHandler, MoneyRangeCallbackHandler moneyRangeCallbackHandler, ContactCallbackHandler contactCallbackHandler, ConfirmMessageCallbackHandler confirmMessageCallbackHandler, ConfirmPublishCallbackHandler confirmPublishCallbackHandler) {
         this.adminService = adminService;
         this.userRepository = userRepository;
         this.messagesVariables = messagesVariables;
-        this.menuVariables = menuVariables;
+        this.adminMenuVariables = adminMenuVariables;
         this.adminMenuCallbackHandler = adminMenuCallbackHandler;
         this.roomsCallbackHandler = roomsCallbackHandler;
         this.districtCallbackHandler = districtCallbackHandler;
@@ -95,42 +95,42 @@ public final class CallbackHandler {
         response.add(0, adminService.getAnswerCallback(callbackQuery));
 
         // Кнопка "отмена"
-        if(callbackQuery.getData().startsWith(menuVariables.getAdminBtnCallbackSubmenuCancelPrefix())) {
+        if(callbackQuery.getData().startsWith(adminMenuVariables.getAdminBtnCallbackSubmenuCancelPrefix())) {
             response.add(cancelSubmenuHandler.handleCancelSubmenuCallback(callbackQuery, admin));
         }
 
         // Кнопки главного меню (кол-во комнат, площадь и тд)
-        if(callbackQuery.getData().startsWith(menuVariables.getAdminBtnCallbackMenuPrefix())) {
+        if(callbackQuery.getData().startsWith(adminMenuVariables.getAdminBtnCallbackMenuPrefix())) {
             response.addAll(adminMenuCallbackHandler.handleAdminMenuCallback(callbackQuery, admin));
         }
 
         // Кнопки подпункта меню "Кол-во комнат"
-        if(callbackQuery.getData().startsWith(menuVariables.getAdminBtnCallbackSubmenuRoomsPrefix())) {
+        if(callbackQuery.getData().startsWith(adminMenuVariables.getAdminBtnCallbackSubmenuRoomsPrefix())) {
             response.add(roomsCallbackHandler.handleRoomCallback(callbackQuery, admin));
         }
 
         // Кнопки подпункта меню "Район"
-        if(callbackQuery.getData().startsWith(menuVariables.getAdminBtnCallbackSubmenuDistrictPrefix())) {
+        if(callbackQuery.getData().startsWith(adminMenuVariables.getAdminBtnCallbackSubmenuDistrictPrefix())) {
             response.add(districtCallbackHandler.handleDistrictCallback(callbackQuery, admin));
         }
 
         // Кнопки подпункта меню "Бюджет"
-        if(callbackQuery.getData().startsWith(menuVariables.getAdminBtnCallbackSubmenuRangePrefix())) {
+        if(callbackQuery.getData().startsWith(adminMenuVariables.getAdminBtnCallbackSubmenuRangePrefix())) {
             response.add(moneyRangeCallbackHandler.handleMoneyRangeCallback(callbackQuery, admin));
         }
 
         // Кнопка подпункта "Контакт"
-        if(callbackQuery.getData().startsWith(menuVariables.getAdminBtnCallbackSubmenuContactPrefix())) {
+        if(callbackQuery.getData().startsWith(adminMenuVariables.getAdminBtnCallbackSubmenuContactPrefix())) {
             response.add(contactCallbackHandler.handleContactCallback(callbackQuery, admin));
         }
 
         // Кнопки подтверждения отсылки сообщения всем пользователям
-        if(callbackQuery.getData().startsWith(menuVariables.getAdminBtnCallbackConfirmPrefix())) {
+        if(callbackQuery.getData().startsWith(adminMenuVariables.getAdminBtnCallbackConfirmPrefix())) {
             response.add(confirmMessageCallbackHandler.handleConfirmCallback(callbackQuery, admin));
         }
 
         // Кнопки подтверждения публикации квартиры
-        if(callbackQuery.getData().startsWith(menuVariables.getAdminBtnCallbackPublishPrefix())) {
+        if(callbackQuery.getData().startsWith(adminMenuVariables.getAdminBtnCallbackPublishPrefix())) {
             response.addAll(confirmPublishCallbackHandler.handlePublishConfirm(callbackQuery, admin));
         }
 

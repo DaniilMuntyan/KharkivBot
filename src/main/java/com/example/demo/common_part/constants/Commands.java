@@ -1,4 +1,4 @@
-package com.example.demo.admin_bot.constants;
+package com.example.demo.common_part.constants;
 
 import java.util.ArrayList;
 import java.util.Arrays;

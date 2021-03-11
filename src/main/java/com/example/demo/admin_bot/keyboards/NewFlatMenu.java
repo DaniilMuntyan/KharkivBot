@@ -1,10 +1,10 @@
 package com.example.demo.admin_bot.keyboards;
 
-import com.example.demo.admin_bot.constants.MenuVariables;
+import com.example.demo.common_part.constants.AdminMenuVariables;
 import com.example.demo.admin_bot.utils.AdminChoiceParameter;
 import com.example.demo.admin_bot.utils.BeanUtil;
-import com.example.demo.admin_bot.utils.Emoji;
-import com.example.demo.common_part.model.AdminChoice;
+import com.example.demo.common_part.utils.Emoji;
+import com.example.demo.admin_bot.model.AdminChoice;
 import lombok.Getter;
 import org.apache.log4j.Logger;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
@@ -17,7 +17,7 @@ import java.util.List;
 public final class NewFlatMenu {
     private static final Logger LOGGER = Logger.getLogger(NewFlatMenu.class);
 
-    private final MenuVariables menuVariables;
+    private final AdminMenuVariables adminMenuVariables;
     @Getter
     private final AdminChoice adminChoice;
     private final InlineKeyboardMarkup newFlatMenu;
@@ -25,7 +25,7 @@ public final class NewFlatMenu {
     private final String no = "нет";
 
     public NewFlatMenu(boolean isRentFlat) {
-        this.menuVariables = BeanUtil.getBean(MenuVariables.class);
+        this.adminMenuVariables = BeanUtil.getBean(AdminMenuVariables.class);
         this.adminChoice = new AdminChoice(isRentFlat);
         // Объект AdminChoice в виде словаря, для доступа к значениям выбора
         this.adminChoiceMap = getHashMapFromAdminChoice();
@@ -33,7 +33,7 @@ public final class NewFlatMenu {
     }
 
     public NewFlatMenu(AdminChoice adminChoice) {
-        this.menuVariables = BeanUtil.getBean(MenuVariables.class);
+        this.adminMenuVariables = BeanUtil.getBean(AdminMenuVariables.class);
         this.adminChoice = adminChoice;
         // Объект AdminChoice в виде словаря, для доступа к значениям выбора
         this.adminChoiceMap = getHashMapFromAdminChoice();
@@ -79,15 +79,15 @@ public final class NewFlatMenu {
         boolean publish = checkForPublish();
         if (publish) {
             InlineKeyboardButton buttonPublish = InlineKeyboardButton.builder()
-                    .text(menuVariables.getAdminBtnPublish())
-                    .callbackData(menuVariables.getAdminBtnCallbackPublish())
+                    .text(adminMenuVariables.getAdminBtnPublish())
+                    .callbackData(adminMenuVariables.getAdminBtnCallbackPublish())
                     .build();
             adminChoiceButtons.add(List.of(buttonPublish));
         }
 
         InlineKeyboardButton buttonCancel = InlineKeyboardButton.builder()
-                .text(menuVariables.getAdminBtnCancel())
-                .callbackData(menuVariables.getAdminBtnCallbackCancel())
+                .text(adminMenuVariables.getAdminBtnCancel())
+                .callbackData(adminMenuVariables.getAdminBtnCallbackCancel())
                 .build();
         adminChoiceButtons.add(List.of(buttonCancel));
 

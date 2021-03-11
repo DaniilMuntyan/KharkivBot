@@ -1,6 +1,6 @@
 package com.example.demo.admin_bot.service.handler.admin_menu.submenu;
 
-import com.example.demo.admin_bot.constants.MenuVariables;
+import com.example.demo.common_part.constants.AdminMenuVariables;
 import com.example.demo.admin_bot.service.AdminService;
 import com.example.demo.common_part.model.User;
 import com.example.demo.common_part.utils.BuyRange;
@@ -12,13 +12,13 @@ import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
 
 @Service
 public final class MoneyRangeCallbackHandler {
-    private final MenuVariables menuVariables;
+    private final AdminMenuVariables adminMenuVariables;
     private final AdminService adminService;
     private final CommonMethods commonMethods;
 
     @Autowired
-    public MoneyRangeCallbackHandler(MenuVariables menuVariables, AdminService adminService, CommonMethods commonMethods) {
-        this.menuVariables = menuVariables;
+    public MoneyRangeCallbackHandler(AdminMenuVariables adminMenuVariables, AdminService adminService, CommonMethods commonMethods) {
+        this.adminMenuVariables = adminMenuVariables;
         this.adminService = adminService;
         this.commonMethods = commonMethods;
     }
@@ -32,14 +32,14 @@ public final class MoneyRangeCallbackHandler {
         // Ищем на какую кнопку нажали (цикл вместо if-ов) в зависимости от значения переменной isRentFlat
         if (admin.getAdminChoice().getIsRentFlat()) {
             for (RentalRange temp : RentalRange.values()) {
-                if (callbackQuery.getData().equals(menuVariables.getCallbackSubmenuRange(temp.toString()))) {
+                if (callbackQuery.getData().equals(adminMenuVariables.getCallbackSubmenuRange(temp.toString()))) {
                     admin.getAdminChoice().setMoneyRange(temp.toString());
                     break;
                 }
             }
         } else {
             for (BuyRange temp : BuyRange.values()) {
-                if (callbackQuery.getData().equals(menuVariables.getCallbackSubmenuRange(temp.toString()))) {
+                if (callbackQuery.getData().equals(adminMenuVariables.getCallbackSubmenuRange(temp.toString()))) {
                     admin.getAdminChoice().setMoneyRange(temp.toString());
                     break;
                 }
@@ -48,7 +48,7 @@ public final class MoneyRangeCallbackHandler {
 
         // Если нажали на любую кнопку, кроме "отмена" - сохраняем изменения данных.
         // Если же нажали "отмена" - все остается без изменений
-        if (!data.equals(menuVariables.getAdminBtnCallbackSubmenuCancel())) {
+        if (!data.equals(adminMenuVariables.getAdminBtnCallbackSubmenuCancel())) {
             adminService.saveChoice(admin.getAdminChoice());
         }
 

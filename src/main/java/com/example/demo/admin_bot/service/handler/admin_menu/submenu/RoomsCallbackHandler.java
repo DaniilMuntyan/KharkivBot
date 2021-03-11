@@ -1,9 +1,9 @@
 package com.example.demo.admin_bot.service.handler.admin_menu.submenu;
 
-import com.example.demo.admin_bot.constants.MenuVariables;
+import com.example.demo.common_part.constants.AdminMenuVariables;
 import com.example.demo.admin_bot.service.AdminService;
 import com.example.demo.common_part.model.User;
-import com.example.demo.user_bot.utils.Rooms;
+import com.example.demo.common_part.utils.Rooms;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
@@ -11,13 +11,13 @@ import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
 
 @Service
 public class RoomsCallbackHandler {
-    private final MenuVariables menuVariables;
+    private final AdminMenuVariables adminMenuVariables;
     private final AdminService adminService;
     private final CommonMethods commonMethods;
 
     @Autowired
-    public RoomsCallbackHandler(MenuVariables menuVariables, AdminService adminService, CommonMethods commonMethods) {
-        this.menuVariables = menuVariables;
+    public RoomsCallbackHandler(AdminMenuVariables adminMenuVariables, AdminService adminService, CommonMethods commonMethods) {
+        this.adminMenuVariables = adminMenuVariables;
         this.adminService = adminService;
         this.commonMethods = commonMethods;
     }
@@ -29,38 +29,38 @@ public class RoomsCallbackHandler {
         BotApiMethod<?> response;
 
         // Если выбрали 1-у комнату
-        if(data.equals(menuVariables.getAdminBtnCallbackRoomsOne())) {
+        if(data.equals(adminMenuVariables.getAdminBtnCallbackRoomsOne())) {
             admin.getAdminChoice().setRooms(Rooms.ONE);
         }
 
         // Если выбрали 2-е комнаты
-        if(data.equals(menuVariables.getAdminBtnCallbackRoomsTwo())) {
+        if(data.equals(adminMenuVariables.getAdminBtnCallbackRoomsTwo())) {
             admin.getAdminChoice().setRooms(Rooms.TWO);
         }
 
         // Если выбрали 3 комнаты
-        if(data.equals(menuVariables.getAdminBtnCallbackRoomsThree())) {
+        if(data.equals(adminMenuVariables.getAdminBtnCallbackRoomsThree())) {
             admin.getAdminChoice().setRooms(Rooms.THREE);
         }
 
         // Если выбрали 4 комнаты
-        if(data.equals(menuVariables.getAdminBtnCallbackRoomsFour())) {
+        if(data.equals(adminMenuVariables.getAdminBtnCallbackRoomsFour())) {
             admin.getAdminChoice().setRooms(Rooms.FOUR);
         }
 
         // Если выбрали гостинку
-        if(data.equals(menuVariables.getAdminBtnCallbackRoomsZero())) {
+        if(data.equals(adminMenuVariables.getAdminBtnCallbackRoomsZero())) {
             admin.getAdminChoice().setRooms(Rooms.GOSTINKA);
         }
 
         // Если выбрали гостинку
-        if(data.equals(menuVariables.getAdminBtnCallbackRoomsZero())) {
+        if(data.equals(adminMenuVariables.getAdminBtnCallbackRoomsZero())) {
             admin.getAdminChoice().setRooms(Rooms.GOSTINKA);
         }
 
         // Если нажали на любую кнопку, кроме "отмена" - сохраняем изменения данных.
         // Если же нажали "отмена" - остается без изменений
-        if(!data.equals(menuVariables.getAdminBtnCallbackSubmenuCancel())) {
+        if(!data.equals(adminMenuVariables.getAdminBtnCallbackSubmenuCancel())) {
             adminService.saveChoice(admin.getAdminChoice());
         }
 

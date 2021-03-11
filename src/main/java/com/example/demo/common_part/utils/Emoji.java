@@ -1,4 +1,4 @@
-package com.example.demo.admin_bot.utils;
+package com.example.demo.common_part.utils;
 
 import com.vdurmont.emoji.EmojiParser;
 
@@ -8,7 +8,16 @@ public enum Emoji {
     SUBMENU(":pencil2:"), RIGHT(":point_right:"), SELECTED(":white_check_mark:"),
     CANCEL(":x:"), EARTH(":earth_africa:"), CONTACT(":iphone:"), YES(":white_check_mark:"),
     NO(":x:"), WARNING(":warning:"), FAIL(":no_entry:"), SUCCESS(":white_check_mark:"),
-    PUBLISH(":memo:"), ERROR(":pensive:");
+    PUBLISH(":memo:"), ERROR(":pensive:"), BACK(":arrow_left:"), SAVE(":white_check_mark:"),
+    PHONE("::calling"),
+    RECORD(":memo:"),
+    ROOMS(":bed:"),
+    SQUARE(":triangular_ruler:"),
+    FLOOR(":building_construction:"),
+    ADDRESS(":round_pushpin:"),
+    METRO(":part_alternation_mark:"),
+    MONEY(":dollar:"),
+    INFO(":information_source:");
 
     private final String emojiName;
 

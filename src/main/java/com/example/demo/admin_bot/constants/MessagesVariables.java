@@ -1,6 +1,6 @@
 package com.example.demo.admin_bot.constants;
 
-import com.example.demo.admin_bot.utils.Emoji;
+import com.example.demo.common_part.utils.Emoji;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
@@ -139,5 +139,11 @@ public class MessagesVariables {
     private String adminConfirmPublishSuccess;
     public String getAdminConfirmPublishSuccess(String flatNumber) {
         return MessageFormat.format(adminConfirmPublishSuccess, Emoji.SUCCESS, flatNumber);
+    }
+
+    @Value("${user.hi}")
+    private String userHi;
+    public String getUserHi(String name) {
+        return MessageFormat.format(userHi, Emoji.HI, name);
     }
 }

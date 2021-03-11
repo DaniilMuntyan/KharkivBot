@@ -1,8 +1,7 @@
 package com.example.demo.admin_bot.keyboards.submenu;
 
-import com.example.demo.admin_bot.constants.MenuVariables;
+import com.example.demo.common_part.constants.AdminMenuVariables;
 import com.example.demo.admin_bot.utils.BeanUtil;
-import com.example.demo.admin_bot.utils.Emoji;
 import lombok.Getter;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
@@ -18,18 +17,18 @@ public final class PublishKeyboard {
     }
 
     private InlineKeyboardMarkup getPublishMenu() {
-        MenuVariables menuVariables = BeanUtil.getBean(MenuVariables.class);
+        AdminMenuVariables adminMenuVariables = BeanUtil.getBean(AdminMenuVariables.class);
 
         InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
 
         InlineKeyboardButton buttonYes = InlineKeyboardButton.builder()
-                .text(menuVariables.getAdminBtnPublishConfirmYes())
-                .callbackData(menuVariables.getAdminBtnCallbackSubmenuConfirmYes())
+                .text(adminMenuVariables.getAdminBtnPublishConfirmYes())
+                .callbackData(adminMenuVariables.getAdminBtnCallbackSubmenuConfirmYes())
                 .build();
 
         InlineKeyboardButton buttonNo = InlineKeyboardButton.builder()
-                .text(menuVariables.getAdminBtnPublishConfirmNo())
-                .callbackData(menuVariables.getAdminBtnCallbackSubmenuConfirmNo())
+                .text(adminMenuVariables.getAdminBtnPublishConfirmNo())
+                .callbackData(adminMenuVariables.getAdminBtnCallbackSubmenuConfirmNo())
                 .build();
 
         List<InlineKeyboardButton> row1 = List.of(buttonYes, buttonNo);

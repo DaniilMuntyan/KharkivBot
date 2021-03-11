@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 @PropertySources({
         @PropertySource("classpath:program.properties"),
-        @PropertySource("classpath:menu.properties")
+        @PropertySource("classpath:admin-menu.properties")
 })
 public final class ProgramVariables {
     @Value("${spring.taskExecutor.corePoolSize}")
@@ -30,6 +30,18 @@ public final class ProgramVariables {
 
     @Value("${admin.telegram.channel}")
     @Getter
-    private  String telegramChannel;
+    private String telegramChannel;
+
+    @Value("${delay.user.message}")
+    @Getter
+    private Integer delayUserMessage;
+
+    @Value("${delay.user.api}")
+    @Getter
+    private Integer delayUserApi;
+
+    @Value("${delay.channel.message}")
+    @Getter
+    private Integer delayChannelMessage;
 
 }

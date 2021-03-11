@@ -1,20 +1,19 @@
 package com.example.demo.admin_bot.service;
 
-import com.example.demo.admin_bot.constants.MenuVariables;
 import com.example.demo.admin_bot.constants.MessagesVariables;
 import com.example.demo.admin_bot.keyboards.NewFlatMenu;
 import com.example.demo.admin_bot.keyboards.submenu.BulkMessageConfirmKeyboard;
-import com.example.demo.admin_bot.utils.Emoji;
-import com.example.demo.admin_bot.utils.State;
-import com.example.demo.common_part.model.AdminChoice;
+import com.example.demo.admin_bot.model.AdminChoice;
+import com.example.demo.admin_bot.utils.AdminState;
+import com.example.demo.common_part.constants.AdminMenuVariables;
 import com.example.demo.common_part.model.User;
+import com.example.demo.common_part.utils.Emoji;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.DeleteMessage;
-import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageReplyMarkup;
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageText;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardRemove;
@@ -25,112 +24,112 @@ import java.util.Arrays;
 import java.util.List;
 
 @Service
-public class BotStateService {
-    private static final Logger LOGGER = Logger.getLogger(BotStateService.class);
+public class AdminBotStateService {
+    private static final Logger LOGGER = Logger.getLogger(AdminBotStateService.class);
 
     private final AdminService adminService;
-    private final MenuVariables menuVariables;
+    private final AdminMenuVariables adminMenuVariables;
     private final MessagesVariables messagesVariables;
 
     // В некоторых методах возможен Exception, поэтому не всегда надо возвращаться в предыдущее состояние
     private boolean notBack;
 
     @Autowired
-    public BotStateService(AdminService adminService, MenuVariables menuVariables, MessagesVariables messagesVariables) {
+    public AdminBotStateService(AdminService adminService, AdminMenuVariables adminMenuVariables, MessagesVariables messagesVariables) {
         this.adminService = adminService;
-        this.menuVariables = menuVariables;
+        this.adminMenuVariables = adminMenuVariables;
         this.messagesVariables = messagesVariables;
     }
 
-    public List<BotApiMethod<?>> processInput(Message message, User admin) {
+    public List<BotApiMethod<?>> processAdminInput(Message message, User admin) {
         List<BotApiMethod<?>> answer = new ArrayList<>();
         notBack = true;
 
         // Если прислали /start - удалить текущее меню и прислать сообщение
-        if (admin.getBotState() == State.INIT) {
+        if (admin.getBotAdminState() == AdminState.ADMIN_INIT) {
             this.processInit(answer, message, admin);
         }
 
         // Если прислали /exit - выйти из режима админа
-        if (admin.getBotState() == State.EXIT) {
+        if (admin.getBotAdminState() == AdminState.ADMIN_EXIT) {
             this.processExit(answer, message, admin);
         }
 
         // Если нажали на кнопку "Добавить квартиру (продажа)"
-        if (admin.getBotState() == State.ADD_BUY_FLAT) {
+        if (admin.getBotAdminState() == AdminState.ADMIN_ADD_BUY_FLAT) {
             processAddBuyFlat(answer, message, admin);
         }
 
         // Если нажали на кнопку "Добавить квартиру (аренда)"
-        if (admin.getBotState() == State.ADD_RENT_FLAT) {
+        if (admin.getBotAdminState() == AdminState.ADMIN_ADD_RENT_FLAT) {
             processAddRentFlat(answer, message, admin);
         }
 
-        // Порядок обработки WRITE_MESSAGE и WAIT_MESSAGE - важен.
-        // Потому что внутри processNewMessage мы меняем состояние на WAIT_MESSAGE
+        // Порядок обработки ADMIN_WRITE_MESSAGE и ADMIN_WAIT_MESSAGE - важен.
+        // Потому что внутри processNewMessage мы меняем состояние на ADMIN_WAIT_MESSAGE
         // Если прирслали сообщение для рассылки
-        if (admin.getBotState() == State.WAIT_MESSAGE) {
+        if (admin.getBotAdminState() == AdminState.ADMIN_WAIT_MESSAGE) {
             processAdminMessage(answer, message, admin);
         }
 
         // Если нажали на кнопку "Написать сообщение"
-        if (admin.getBotState() == State.WRITE_MESSAGE) {
+        if (admin.getBotAdminState() == AdminState.ADMIN_WRITE_MESSAGE) {
             processNewMessage(answer, message, admin);
         }
 
         // Ввели площадь
-        if (admin.getBotState() == State.SUBMENU_SQUARE) {
+        if (admin.getBotAdminState() == AdminState.ADMIN_SUBMENU_SQUARE) {
             processSquare(answer, message, admin);
         }
 
         // Ввели номер этажа квартиры
-        if (admin.getBotState() == State.SUBMENU_FLOOR) {
+        if (admin.getBotAdminState() == AdminState.ADMIN_SUBMENU_FLOOR) {
             processFloor(answer, message, admin);
         }
 
         // Ввели количество этажей в доме
-        if (admin.getBotState() == State.SUBMENU_ALL_FLOORS) {
+        if (admin.getBotAdminState() == AdminState.ADMIN_SUBMENU_ALL_FLOORS) {
             processAllFloor(answer, message, admin);
         }
 
         // Ввели станцию метро
-        if (admin.getBotState() == State.SUBMENU_METRO) {
+        if (admin.getBotAdminState() == AdminState.ADMIN_SUBMENU_METRO) {
             processMetro(answer, message, admin);
         }
 
         // Ввели адрес
-        if (admin.getBotState() == State.SUBMENU_ADDRESS) {
+        if (admin.getBotAdminState() == AdminState.ADMIN_SUBMENU_ADDRESS) {
             processAddress(answer, message, admin);
         }
 
         // Ввели цену
-        if (admin.getBotState() == State.SUBMENU_PRICE) {
+        if (admin.getBotAdminState() == AdminState.ADMIN_SUBMENU_PRICE) {
             processPrice(answer, message, admin);
         }
 
         // Ввели ссылку на карту
-        if (admin.getBotState() == State.SUBMENU_MAP) {
+        if (admin.getBotAdminState() == AdminState.ADMIN_SUBMENU_MAP) {
             processMap(answer, message, admin);
         }
 
         // Ввели контакт
-        if (admin.getBotState() == State.SUBMENU_CONTACT) {
+        if (admin.getBotAdminState() == AdminState.ADMIN_SUBMENU_CONTACT) {
             processContact(answer, message, admin);
         }
 
         // Ввели ссылку на фото
-        if (admin.getBotState() == State.SUBMENU_PHOTO) {
+        if (admin.getBotAdminState() == AdminState.ADMIN_SUBMENU_PHOTO) {
             processPhoto(answer, message, admin);
         }
 
         // Ввели доп. информацию
-        if (admin.getBotState() == State.SUBMENU_INFO) {
+        if (admin.getBotAdminState() == AdminState.ADMIN_SUBMENU_INFO) {
             processInfo(answer, message, admin);
         }
 
         // Возвращаемся
         if(admin.getAdminChoice().getIsRentFlat() != null && !notBack) {
-            admin.setBotState(admin.getAdminChoice().getIsRentFlat() ? State.ADD_RENT_FLAT : State.ADD_BUY_FLAT);
+            admin.setBotAdminState(admin.getAdminChoice().getIsRentFlat() ? AdminState.ADMIN_ADD_RENT_FLAT : AdminState.ADMIN_ADD_BUY_FLAT);
         }
 
         adminService.saveAdmin(admin); // Сохраняем измененные параметры администратора
@@ -152,7 +151,7 @@ public class BotStateService {
         editMessageText.setChatId(chatId.toString());
         editMessageText.setReplyMarkup(newFlatMenu.getKeyboard());
         editMessageText.setText(admin.getAdminChoice().getIsRentFlat() ?
-                menuVariables.getAdminAddRentFlatText() : menuVariables.getAdminAddBuyFlatText());
+                adminMenuVariables.getAdminAddRentFlatText() : adminMenuVariables.getAdminAddBuyFlatText());
         this.notBack = false; // Поменяли клавиатуру - значит можем вернуться в предыдущее состояние поубликации квартиры
         return editMessageText;
     }
@@ -182,7 +181,7 @@ public class BotStateService {
 
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(message.getChatId().toString());
-        sendMessage.setText(menuVariables.getAdminAddBuyFlatText());
+        sendMessage.setText(adminMenuVariables.getAdminAddBuyFlatText());
         sendMessage.setReplyMarkup(newFlatMenu.getKeyboard());
         answer.add(sendMessage);
     }
@@ -194,7 +193,7 @@ public class BotStateService {
 
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(message.getChatId().toString());
-        sendMessage.setText(menuVariables.getAdminAddRentFlatText());
+        sendMessage.setText(adminMenuVariables.getAdminAddRentFlatText());
         sendMessage.setReplyMarkup(newFlatMenu.getKeyboard());
         answer.add(sendMessage);
     }
@@ -306,12 +305,12 @@ public class BotStateService {
         }
 
         // Меняем состояние, чтобы ждать сообщения
-        admin.setBotState(State.WAIT_MESSAGE);
+        admin.setBotAdminState(AdminState.ADMIN_WAIT_MESSAGE);
         adminService.saveAdminState(admin);
 
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(message.getChatId().toString());
-        sendMessage.setText(menuVariables.getAdminBulkMessageText());
+        sendMessage.setText(adminMenuVariables.getAdminBulkMessageText());
         answer.add(sendMessage);
     }
 
@@ -341,7 +340,7 @@ public class BotStateService {
         }
 
         admin.setAdminMode(false);
-        admin.setBotState(State.INIT);
+        admin.setBotAdminState(AdminState.ADMIN_INIT);
 
         SendMessage textResponse = new SendMessage();
         textResponse.setChatId(message.getChatId().toString());
