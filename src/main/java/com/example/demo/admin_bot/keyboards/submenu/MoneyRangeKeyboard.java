@@ -1,7 +1,7 @@
 package com.example.demo.admin_bot.keyboards.submenu;
 
 import com.example.demo.common_part.constants.AdminMenuVariables;
-import com.example.demo.admin_bot.utils.BeanUtil;
+import com.example.demo.common_part.utils.BeanUtil;
 import com.example.demo.common_part.utils.BuyRange;
 import com.example.demo.common_part.utils.RentalRange;
 import lombok.Getter;

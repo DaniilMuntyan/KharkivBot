@@ -3,7 +3,7 @@ package com.example.demo.admin_bot.service;
 import com.example.demo.admin_bot.queue.AdminBotChannelQueue;
 import com.example.demo.user_bot.queue.UserBotSendingQueue;
 import com.example.demo.admin_bot.botapi.AdminTelegramBot;
-import com.example.demo.admin_bot.service.handler.CallbackHandler;
+import com.example.demo.admin_bot.service.handler.AdminBotCallbackHandler;
 import com.example.demo.admin_bot.service.handler.AdminBotMessageHandler;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,14 +20,14 @@ import java.util.List;
 public class AdminMainService {
     private static final Logger LOGGER = Logger.getLogger(AdminMainService.class);
     private final AdminBotMessageHandler adminBotMessageHandler;
-    private final CallbackHandler callbackHandler;
+    private final AdminBotCallbackHandler adminBotCallbackHandler;
     private final UserBotSendingQueue userBotSendingQueue;
     private final AdminBotChannelQueue adminBotChannelQueue;
 
     @Autowired
-    public AdminMainService(AdminBotMessageHandler adminBotMessageHandler, CallbackHandler callbackHandler, UserBotSendingQueue userBotSendingQueue, AdminBotChannelQueue adminBotChannelQueue) {
+    public AdminMainService(AdminBotMessageHandler adminBotMessageHandler, AdminBotCallbackHandler adminBotCallbackHandler, UserBotSendingQueue userBotSendingQueue, AdminBotChannelQueue adminBotChannelQueue) {
         this.adminBotMessageHandler = adminBotMessageHandler;
-        this.callbackHandler = callbackHandler;
+        this.adminBotCallbackHandler = adminBotCallbackHandler;
         this.userBotSendingQueue = userBotSendingQueue;
         this.adminBotChannelQueue = adminBotChannelQueue;
     }
@@ -43,8 +43,7 @@ public class AdminMainService {
                 s = update.getMessage().getText();
             }
             if (update.hasCallbackQuery()) { // Пришел callback
-                methods = callbackHandler.handleCallback(update.getCallbackQuery());
-                LOGGER.info(update.getCallbackQuery().getId());
+                methods = adminBotCallbackHandler.handleCallback(update.getCallbackQuery());
                 s = update.getCallbackQuery().getData();
             }
 

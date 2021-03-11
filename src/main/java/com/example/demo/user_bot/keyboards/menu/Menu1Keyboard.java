@@ -1,10 +1,12 @@
-package com.example.demo.user_bot.service;
+package com.example.demo.user_bot.keyboards.menu;
 
 import com.example.demo.common_part.constants.UserMenuVariables;
-import com.example.demo.common_part.model.User;
-import com.example.demo.common_part.repo.UserRepository;
+import com.example.demo.common_part.utils.BeanUtil;
+import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardButton;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
@@ -12,19 +14,17 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.Keyboard
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
-public final class UserService {
+@Component
+public final class Menu1Keyboard {
     private final UserMenuVariables userMenuVariables;
 
-    private final UserRepository userRepository;
-
     @Autowired
-    public UserService(UserMenuVariables userMenuVariables, UserRepository userRepository) {
+    public Menu1Keyboard(UserMenuVariables userMenuVariables) {
         this.userMenuVariables = userMenuVariables;
-        this.userRepository = userRepository;
     }
 
-    public ReplyKeyboardMarkup getMenu1() {
+    // Квиатура для меню №1 (главное меню: мои предпочтения, настройки)
+    public ReplyKeyboardMarkup getKeyboard() {
         ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup();
         replyKeyboardMarkup.setResizeKeyboard(true);
 
@@ -41,9 +41,5 @@ public final class UserService {
         replyKeyboardMarkup.setKeyboard(keyboard);
 
         return replyKeyboardMarkup;
-    }
-
-    public User saveUser(User user) {
-        return userRepository.save(user);
     }
 }

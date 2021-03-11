@@ -12868,3 +12868,325 @@ For admin: 28
 [INFO ]  2021-03-11 02:03:50.36 com.example.demo.user_bot.service.UserBotStateService - USER_INIT
 [INFO ]  2021-03-11 02:03:55.36 com.example.demo.user_bot.service.UserMainService - USER TIME: 10.0
 [INFO ]  2021-03-11 02:03:184.36 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT METHOD: sendmessage
+[INFO ]  2021-03-11 17:03:895.13 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-11 17:03:917.13 com.example.demo.common_part.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-11 17:03:939.13 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-11 17:03:973.13 com.example.demo.common_part.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-11 17:03:71.26 com.example.demo.user_bot.service.UserBotStateService - USER_INIT
+[INFO ]  2021-03-11 17:03:269.26 com.example.demo.user_bot.service.UserMainService - USER TIME: 326.0
+[INFO ]  2021-03-11 17:03:435.26 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT METHOD: sendmessage
+[INFO ]  2021-03-11 17:03:253.29 com.example.demo.user_bot.service.UserBotStateService - USER_INIT
+[INFO ]  2021-03-11 17:03:262.29 com.example.demo.user_bot.service.UserMainService - USER TIME: 16.0
+[INFO ]  2021-03-11 17:03:903.30 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT METHOD: sendmessage
+[INFO ]  2021-03-11 17:03:313.34 com.example.demo.user_bot.service.UserBotStateService - USER_INIT
+[INFO ]  2021-03-11 17:03:343.34 com.example.demo.user_bot.service.UserMainService - USER TIME: 53.0
+[INFO ]  2021-03-11 17:03:551.34 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT METHOD: sendmessage
+[INFO ]  2021-03-11 17:03:143.35 com.example.demo.user_bot.service.UserBotStateService - USER_INIT
+[INFO ]  2021-03-11 17:03:159.35 com.example.demo.user_bot.service.UserMainService - USER TIME: 105.0
+[INFO ]  2021-03-11 17:03:167.35 com.example.demo.user_bot.service.UserBotStateService - USER_INIT
+[INFO ]  2021-03-11 17:03:187.35 com.example.demo.user_bot.service.UserMainService - USER TIME: 48.0
+[INFO ]  2021-03-11 17:03:381.35 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT METHOD: sendmessage
+[INFO ]  2021-03-11 17:03:546.35 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT METHOD: sendmessage
+[INFO ]  2021-03-11 17:03:983.35 com.example.demo.user_bot.service.UserBotStateService - USER_INIT
+[INFO ]  2021-03-11 17:03:04.36 com.example.demo.user_bot.service.UserMainService - USER TIME: 33.0
+[INFO ]  2021-03-11 17:03:330.36 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT METHOD: sendmessage
+[INFO ]  2021-03-11 17:03:232.37 com.example.demo.user_bot.service.UserBotStateService - USER_INIT
+[INFO ]  2021-03-11 17:03:237.37 com.example.demo.user_bot.service.UserMainService - USER TIME: 15.0
+[INFO ]  2021-03-11 17:03:486.37 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT METHOD: sendmessage
+[INFO ]  2021-03-11 17:03:931.37 com.example.demo.user_bot.service.UserBotStateService - USER_INIT
+[INFO ]  2021-03-11 17:03:937.37 com.example.demo.user_bot.service.UserMainService - USER TIME: 13.0
+[INFO ]  2021-03-11 17:03:134.38 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT METHOD: sendmessage
+[INFO ]  2021-03-11 17:03:596.38 com.example.demo.user_bot.service.UserBotStateService - USER_INIT
+[INFO ]  2021-03-11 17:03:598.38 com.example.demo.user_bot.service.UserBotStateService - USER_INIT
+[INFO ]  2021-03-11 17:03:602.38 com.example.demo.user_bot.service.UserMainService - USER TIME: 13.0
+[INFO ]  2021-03-11 17:03:607.38 com.example.demo.user_bot.service.UserMainService - USER TIME: 18.0
+[INFO ]  2021-03-11 17:03:704.38 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT METHOD: sendmessage
+[INFO ]  2021-03-11 17:03:959.38 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT METHOD: sendmessage
+[INFO ]  2021-03-11 17:03:275.39 com.example.demo.user_bot.service.UserBotStateService - USER_INIT
+[INFO ]  2021-03-11 17:03:276.39 com.example.demo.user_bot.service.UserBotStateService - USER_INIT
+[INFO ]  2021-03-11 17:03:280.39 com.example.demo.user_bot.service.UserMainService - USER TIME: 10.0
+[INFO ]  2021-03-11 17:03:288.39 com.example.demo.user_bot.service.UserMainService - USER TIME: 18.0
+[INFO ]  2021-03-11 17:03:344.39 com.example.demo.user_bot.service.UserBotStateService - USER_INIT
+[INFO ]  2021-03-11 17:03:348.39 com.example.demo.user_bot.service.UserMainService - USER TIME: 9.0
+[INFO ]  2021-03-11 17:03:478.39 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT METHOD: sendmessage
+[INFO ]  2021-03-11 17:03:661.39 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT METHOD: sendmessage
+[INFO ]  2021-03-11 17:03:794.39 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT METHOD: sendmessage
+[INFO ]  2021-03-11 17:03:977.39 com.example.demo.user_bot.service.UserBotStateService - USER_INIT
+[INFO ]  2021-03-11 17:03:982.39 com.example.demo.user_bot.service.UserMainService - USER TIME: 10.0
+[INFO ]  2021-03-11 17:03:364.40 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT METHOD: sendmessage
+[INFO ]  2021-03-11 17:03:93.59 com.example.demo.user_bot.service.UserBotStateService - USER_INIT
+[INFO ]  2021-03-11 17:03:98.59 com.example.demo.user_bot.service.UserMainService - USER TIME: 10.0
+[INFO ]  2021-03-11 17:03:828.59 com.example.demo.user_bot.service.UserBotStateService - USER_INIT
+[INFO ]  2021-03-11 17:03:829.59 com.example.demo.user_bot.service.UserBotStateService - USER_INIT
+[INFO ]  2021-03-11 17:03:830.59 com.example.demo.user_bot.service.UserBotStateService - USER_INIT
+[INFO ]  2021-03-11 17:03:834.59 com.example.demo.user_bot.service.UserMainService - USER TIME: 15.0
+[INFO ]  2021-03-11 17:03:838.59 com.example.demo.user_bot.service.UserMainService - USER TIME: 18.0
+[INFO ]  2021-03-11 17:03:839.59 com.example.demo.user_bot.service.UserMainService - USER TIME: 19.0
+[INFO ]  2021-03-11 17:03:03.00 com.example.demo.user_bot.service.UserBotStateService - USER_INIT
+[INFO ]  2021-03-11 17:03:07.00 com.example.demo.user_bot.service.UserMainService - USER TIME: 8.0
+[INFO ]  2021-03-11 17:03:122.00 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT METHOD: sendmessage
+[INFO ]  2021-03-11 17:03:602.00 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT METHOD: sendmessage
+[INFO ]  2021-03-11 17:03:495.02 com.example.demo.user_bot.service.UserBotStateService - USER_INIT
+[INFO ]  2021-03-11 17:03:499.02 com.example.demo.user_bot.service.UserMainService - USER TIME: 8.0
+[INFO ]  2021-03-11 17:03:827.02 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT METHOD: sendmessage
+[INFO ]  2021-03-11 17:03:120.03 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT METHOD: sendmessage
+[INFO ]  2021-03-11 17:03:474.03 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT METHOD: sendmessage
+[INFO ]  2021-03-11 17:03:483.03 com.example.demo.user_bot.service.UserBotStateService - USER_INIT
+[INFO ]  2021-03-11 17:03:486.03 com.example.demo.user_bot.service.UserBotStateService - USER_INIT
+[INFO ]  2021-03-11 17:03:491.03 com.example.demo.user_bot.service.UserMainService - USER TIME: 33.0
+[INFO ]  2021-03-11 17:03:492.03 com.example.demo.user_bot.service.UserMainService - USER TIME: 33.0
+[INFO ]  2021-03-11 17:03:509.03 com.example.demo.user_bot.service.UserBotStateService - USER_INIT
+[INFO ]  2021-03-11 17:03:510.03 com.example.demo.user_bot.service.UserBotStateService - USER_INIT
+[INFO ]  2021-03-11 17:03:509.03 com.example.demo.user_bot.service.UserBotStateService - USER_INIT
+[INFO ]  2021-03-11 17:03:521.03 com.example.demo.user_bot.service.UserBotStateService - USER_INIT
+[INFO ]  2021-03-11 17:03:520.03 com.example.demo.user_bot.service.UserBotStateService - USER_INIT
+[INFO ]  2021-03-11 17:03:531.03 com.example.demo.user_bot.service.UserMainService - USER TIME: 71.0
+[INFO ]  2021-03-11 17:03:510.03 com.example.demo.user_bot.service.UserBotStateService - USER_INIT
+[INFO ]  2021-03-11 17:03:532.03 com.example.demo.user_bot.service.UserMainService - USER TIME: 63.0
+[INFO ]  2021-03-11 17:03:534.03 com.example.demo.user_bot.service.UserMainService - USER TIME: 71.0
+[INFO ]  2021-03-11 17:03:529.03 com.example.demo.user_bot.service.UserBotStateService - USER_INIT
+[INFO ]  2021-03-11 17:03:538.03 com.example.demo.user_bot.service.UserMainService - USER TIME: 68.0
+[INFO ]  2021-03-11 17:03:538.03 com.example.demo.user_bot.service.UserBotStateService - USER_INIT
+[INFO ]  2021-03-11 17:03:541.03 com.example.demo.user_bot.service.UserMainService - USER TIME: 70.0
+[INFO ]  2021-03-11 17:03:544.03 com.example.demo.user_bot.service.UserMainService - USER TIME: 72.0
+[INFO ]  2021-03-11 17:03:547.03 com.example.demo.user_bot.service.UserMainService - USER TIME: 72.0
+[INFO ]  2021-03-11 17:03:549.03 com.example.demo.user_bot.service.UserMainService - USER TIME: 75.0
+[INFO ]  2021-03-11 17:03:663.03 com.example.demo.user_bot.service.UserBotStateService - USER_INIT
+[INFO ]  2021-03-11 17:03:666.03 com.example.demo.user_bot.service.UserBotStateService - USER_INIT
+[INFO ]  2021-03-11 17:03:675.03 com.example.demo.user_bot.service.UserBotStateService - USER_INIT
+[INFO ]  2021-03-11 17:03:676.03 com.example.demo.user_bot.service.UserBotStateService - USER_INIT
+[INFO ]  2021-03-11 17:03:677.03 com.example.demo.user_bot.service.UserMainService - USER TIME: 20.0
+[INFO ]  2021-03-11 17:03:680.03 com.example.demo.user_bot.service.UserMainService - USER TIME: 23.0
+[INFO ]  2021-03-11 17:03:684.03 com.example.demo.user_bot.service.UserMainService - USER TIME: 26.0
+[INFO ]  2021-03-11 17:03:684.03 com.example.demo.user_bot.service.UserMainService - USER TIME: 26.0
+[INFO ]  2021-03-11 17:03:778.03 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT METHOD: sendmessage
+[INFO ]  2021-03-11 17:03:236.04 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT METHOD: sendmessage
+[INFO ]  2021-03-11 17:03:522.04 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT METHOD: sendmessage
+[INFO ]  2021-03-11 17:03:777.04 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT METHOD: sendmessage
+[INFO ]  2021-03-11 17:03:420.05 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT METHOD: sendmessage
+[INFO ]  2021-03-11 17:03:935.05 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT METHOD: sendmessage
+[INFO ]  2021-03-11 17:03:148.06 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT METHOD: sendmessage
+[INFO ]  2021-03-11 17:03:954.06 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT METHOD: sendmessage
+[INFO ]  2021-03-11 17:03:142.07 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT METHOD: sendmessage
+[INFO ]  2021-03-11 17:03:417.07 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT METHOD: sendmessage
+[INFO ]  2021-03-11 17:03:580.07 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT METHOD: sendmessage
+[INFO ]  2021-03-11 17:03:875.07 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT METHOD: sendmessage
+[INFO ]  2021-03-11 17:03:903.09 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT METHOD: sendmessage
+[INFO ]  2021-03-11 17:03:204.10 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT METHOD: sendmessage
+[INFO ]  2021-03-11 17:03:500.10 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT METHOD: sendmessage
+[INFO ]  2021-03-12 00:03:819.00 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-12 00:03:847.00 com.example.demo.common_part.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-12 00:03:877.00 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-12 00:03:935.00 com.example.demo.common_part.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-12 00:03:160.31 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-12 00:03:189.31 com.example.demo.common_part.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-12 00:03:216.31 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-12 00:03:273.31 com.example.demo.common_part.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-12 00:03:119.08 com.example.demo.user_bot.service.handler.UserBotMessageHandler - New user: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-12 00:03:120.08 com.example.demo.user_bot.service.UserBotStateService - FIRST_INIT
+[INFO ]  2021-03-12 00:03:160.08 com.example.demo.user_bot.service.UserMainService - USER TIME: 232.0
+[INFO ]  2021-03-12 00:03:151.47 com.example.demo.user_bot.service.handler.UserBotMessageHandler - New user: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-12 00:03:152.47 com.example.demo.user_bot.service.UserBotStateService - INIT
+[INFO ]  2021-03-12 00:03:283.47 com.example.demo.user_bot.service.UserMainService - USER TIME: 146.0
+[INFO ]  2021-03-12 00:03:639.47 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT MESSAGE
+[INFO ]  2021-03-12 01:03:803.18 com.example.demo.user_bot.service.UserMainService - 1901032256735027282
+[INFO ]  2021-03-12 01:03:803.18 com.example.demo.user_bot.service.UserMainService - USER TIME: 1.0
+[INFO ]  2021-03-12 01:03:721.23 com.example.demo.user_bot.service.UserBotStateService - INIT
+[INFO ]  2021-03-12 01:03:727.23 com.example.demo.user_bot.service.UserMainService - USER TIME: 18.0
+[INFO ]  2021-03-12 01:03:44.24 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT MESSAGE
+[INFO ]  2021-03-12 01:03:677.25 com.example.demo.user_bot.service.UserBotStateService - INIT
+[INFO ]  2021-03-12 01:03:684.25 com.example.demo.user_bot.service.UserMainService - USER TIME: 53.0
+[INFO ]  2021-03-12 01:03:790.25 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT MESSAGE
+[INFO ]  2021-03-12 01:03:542.26 com.example.demo.user_bot.service.UserBotStateService - INIT
+[INFO ]  2021-03-12 01:03:549.26 com.example.demo.user_bot.service.UserMainService - USER TIME: 16.0
+[INFO ]  2021-03-12 01:03:696.26 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT MESSAGE
+[INFO ]  2021-03-12 01:03:676.27 com.example.demo.user_bot.service.UserBotStateService - INIT
+[INFO ]  2021-03-12 01:03:682.27 com.example.demo.user_bot.service.UserMainService - USER TIME: 16.0
+[INFO ]  2021-03-12 01:03:806.27 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT MESSAGE
+[INFO ]  2021-03-12 01:03:577.28 com.example.demo.user_bot.service.UserBotStateService - INIT
+[INFO ]  2021-03-12 01:03:584.28 com.example.demo.user_bot.service.UserMainService - USER TIME: 16.0
+[INFO ]  2021-03-12 01:03:708.28 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT MESSAGE
+[INFO ]  2021-03-12 01:03:713.29 com.example.demo.user_bot.service.UserBotStateService - INIT
+[INFO ]  2021-03-12 01:03:720.29 com.example.demo.user_bot.service.UserMainService - USER TIME: 14.0
+[INFO ]  2021-03-12 01:03:848.29 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT MESSAGE
+[INFO ]  2021-03-12 01:03:758.30 com.example.demo.user_bot.service.UserBotStateService - INIT
+[INFO ]  2021-03-12 01:03:764.30 com.example.demo.user_bot.service.UserMainService - USER TIME: 14.0
+[INFO ]  2021-03-12 01:03:888.30 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT MESSAGE
+[INFO ]  2021-03-12 01:03:765.31 com.example.demo.user_bot.service.UserBotStateService - INIT
+[INFO ]  2021-03-12 01:03:771.31 com.example.demo.user_bot.service.UserMainService - USER TIME: 11.0
+[INFO ]  2021-03-12 01:03:881.31 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT MESSAGE
+[INFO ]  2021-03-12 01:03:677.32 com.example.demo.user_bot.service.UserBotStateService - INIT
+[INFO ]  2021-03-12 01:03:683.32 com.example.demo.user_bot.service.UserMainService - USER TIME: 14.0
+[INFO ]  2021-03-12 01:03:796.32 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT MESSAGE
+[INFO ]  2021-03-12 01:03:504.33 com.example.demo.user_bot.service.UserBotStateService - INIT
+[INFO ]  2021-03-12 01:03:511.33 com.example.demo.user_bot.service.UserMainService - USER TIME: 15.0
+[INFO ]  2021-03-12 01:03:619.33 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT MESSAGE
+[INFO ]  2021-03-12 01:03:774.37 com.example.demo.user_bot.service.UserBotStateService - INIT
+[INFO ]  2021-03-12 01:03:778.37 com.example.demo.user_bot.service.UserMainService - USER TIME: 9.0
+[INFO ]  2021-03-12 01:03:892.37 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT MESSAGE
+[INFO ]  2021-03-12 01:03:62.42 com.example.demo.user_bot.service.UserBotStateService - INIT
+[INFO ]  2021-03-12 01:03:68.42 com.example.demo.user_bot.service.UserMainService - USER TIME: 11.0
+[INFO ]  2021-03-12 01:03:199.42 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT MESSAGE
+[INFO ]  2021-03-12 01:03:253.43 com.example.demo.user_bot.service.UserBotStateService - INIT
+[INFO ]  2021-03-12 01:03:259.43 com.example.demo.user_bot.service.UserMainService - USER TIME: 13.0
+[INFO ]  2021-03-12 01:03:385.43 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT MESSAGE
+[INFO ]  2021-03-12 01:03:901.07 com.example.demo.admin_bot.service.AdminMainService - TIME: 8.0
+[INFO ]  2021-03-12 01:03:675.11 com.example.demo.admin_bot.service.handler.AdminBotMessageHandler - Admin entered: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-12 01:03:11.12 com.example.demo.admin_bot.service.AdminMainService - TIME: 349.0
+[ERROR]  2021-03-12 01:03:978.13 com.example.demo.admin_bot.service.AdminMainService - java.lang.NullPointerException
+[INFO ]  2021-03-12 01:03:338.41 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-12 01:03:374.41 com.example.demo.common_part.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-12 01:03:416.41 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-12 01:03:499.41 com.example.demo.common_part.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-12 01:03:252.37 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-12 01:03:279.37 com.example.demo.common_part.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-12 01:03:307.37 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-12 01:03:367.37 com.example.demo.common_part.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-12 01:03:970.30 com.example.demo.user_bot.service.handler.UserBotMessageHandler - New user: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-12 01:03:972.30 com.example.demo.user_bot.service.UserBotStateService - INIT
+[INFO ]  2021-03-12 01:03:147.31 com.example.demo.user_bot.service.UserMainService - USER TIME: 369.0
+[INFO ]  2021-03-12 01:03:290.31 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT MESSAGE
+[INFO ]  2021-03-12 01:03:944.31 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-12 01:03:973.31 com.example.demo.common_part.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-12 01:03:00.32 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-12 01:03:57.32 com.example.demo.common_part.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-12 01:03:418.57 com.example.demo.user_bot.service.handler.UserBotMessageHandler - New user: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-12 01:03:419.57 com.example.demo.user_bot.service.UserBotStateService - INIT
+[INFO ]  2021-03-12 01:03:420.57 com.example.demo.user_bot.service.UserBotStateService - STATE: INIT
+[INFO ]  2021-03-12 01:03:630.57 com.example.demo.user_bot.service.UserMainService - USER TIME: 407.0
+[INFO ]  2021-03-12 01:03:778.57 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT MESSAGE
+[INFO ]  2021-03-12 01:03:585.30 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-12 01:03:609.30 com.example.demo.common_part.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-12 01:03:634.30 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-12 01:03:685.30 com.example.demo.common_part.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-12 01:03:103.45 com.example.demo.user_bot.service.handler.UserBotMessageHandler - New user: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-12 01:03:106.45 com.example.demo.user_bot.service.handler.UserBotMessageHandler - STATE: FIRST_INIT
+[INFO ]  2021-03-12 01:03:107.45 com.example.demo.user_bot.service.UserBotStateService - INIT
+[INFO ]  2021-03-12 01:03:107.45 com.example.demo.user_bot.service.UserBotStateService - STATE: INIT
+[INFO ]  2021-03-12 01:03:266.45 com.example.demo.user_bot.service.UserMainService - USER TIME: 351.0
+[INFO ]  2021-03-12 01:03:398.45 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT MESSAGE
+[INFO ]  2021-03-12 01:03:591.01 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-12 01:03:616.01 com.example.demo.common_part.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-12 01:03:642.01 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-12 01:03:695.01 com.example.demo.common_part.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-12 01:03:521.14 com.example.demo.user_bot.service.handler.UserBotMessageHandler - New user: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-12 01:03:536.14 com.example.demo.user_bot.service.handler.UserBotMessageHandler - STATE: FIRST_INIT == FIRST_INIT?   true
+[INFO ]  2021-03-12 01:03:536.14 com.example.demo.user_bot.service.UserBotStateService - INIT
+[INFO ]  2021-03-12 01:03:537.14 com.example.demo.user_bot.service.UserBotStateService - STATE: INIT
+[INFO ]  2021-03-12 01:03:716.14 com.example.demo.user_bot.service.UserMainService - USER TIME: 393.0
+[INFO ]  2021-03-12 01:03:924.14 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT MESSAGE
+[INFO ]  2021-03-12 01:03:59.34 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-12 01:03:82.34 com.example.demo.common_part.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-12 01:03:103.34 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-12 01:03:148.34 com.example.demo.common_part.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-12 01:03:550.46 com.example.demo.user_bot.service.handler.UserBotMessageHandler - New user: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-12 01:03:708.46 com.example.demo.user_bot.service.UserMainService - USER TIME: 347.0
+[INFO ]  2021-03-12 01:03:861.46 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT MESSAGE
+[INFO ]  2021-03-12 01:03:987.46 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT MESSAGE
+[INFO ]  2021-03-12 01:03:866.27 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-12 01:03:893.27 com.example.demo.common_part.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-12 01:03:918.27 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-12 01:03:972.27 com.example.demo.common_part.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-12 01:03:563.40 com.example.demo.user_bot.service.handler.UserBotMessageHandler - New user: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-12 01:03:606.40 com.example.demo.user_bot.service.UserMainService - USER TIME: 232.0
+[INFO ]  2021-03-12 01:03:615.42 com.example.demo.user_bot.service.UserMainService - USER TIME: 143.0
+[INFO ]  2021-03-12 01:03:733.42 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT MESSAGE
+[INFO ]  2021-03-12 01:03:856.42 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT MESSAGE
+[INFO ]  2021-03-12 01:03:488.08 com.example.demo.user_bot.service.UserMainService - USER TIME: 16.0
+[INFO ]  2021-03-12 01:03:597.08 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT MESSAGE
+[INFO ]  2021-03-12 01:03:740.08 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT MESSAGE
+[INFO ]  2021-03-12 01:03:120.44 com.example.demo.user_bot.service.UserMainService - USER TIME: 15.0
+[INFO ]  2021-03-12 01:03:453.44 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT MESSAGE
+[INFO ]  2021-03-12 01:03:569.44 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT MESSAGE
+[INFO ]  2021-03-12 01:03:218.35 com.example.demo.admin_bot.service.AdminMainService - TIME: 6.0
+[INFO ]  2021-03-12 01:03:890.38 com.example.demo.admin_bot.service.AdminMainService - TIME: 14.0
+[INFO ]  2021-03-12 01:03:993.44 com.example.demo.admin_bot.service.AdminMainService - TIME: 6.0
+[INFO ]  2021-03-12 01:03:544.47 com.example.demo.admin_bot.service.handler.AdminBotMessageHandler - Admin entered: Danyil Muntian (@daniil_muntyan)
+[INFO ]  2021-03-12 01:03:944.47 com.example.demo.admin_bot.service.AdminMainService - TIME: 420.0
+[INFO ]  2021-03-12 01:03:655.49 com.example.demo.admin_bot.service.handler.AdminBotMessageHandler - handleAdminMessage. AddBuyFlatButton
+[INFO ]  2021-03-12 01:03:972.49 com.example.demo.admin_bot.service.AdminMainService - TIME: 325.0
+[INFO ]  2021-03-12 01:03:61.51 com.example.demo.admin_bot.service.AdminMainService - 1901032255278805107
+[INFO ]  2021-03-12 01:03:377.51 com.example.demo.admin_bot.service.AdminMainService - TIME: 332.0
+[INFO ]  2021-03-12 01:03:973.51 com.example.demo.admin_bot.service.AdminMainService - 1901032254789244050
+[INFO ]  2021-03-12 01:03:239.52 com.example.demo.admin_bot.service.AdminMainService - TIME: 278.0
+[ERROR]  2021-03-12 01:03:856.52 com.example.demo.admin_bot.service.AdminMainService - org.springframework.dao.InvalidDataAccessResourceUsageException: could not execute statement; SQL [n/a]; nested exception is org.hibernate.exception.SQLGrammarException: could not execute statement
+[INFO ]  2021-03-12 01:03:271.52 com.example.demo.admin_bot.botapi.AdminTelegramBot - AdminTelegramBot is creating...
+[INFO ]  2021-03-12 01:03:296.52 com.example.demo.common_part.config.AsyncConfig - AsyncConfig is creating...
+[INFO ]  2021-03-12 01:03:322.52 com.example.demo.user_bot.botapi.RentalTelegramBot - RentalTelegramBot is creating...
+[INFO ]  2021-03-12 01:03:375.52 com.example.demo.common_part.config.AsyncConfig - Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 100. QueueCapacity: 60
+[INFO ]  2021-03-12 01:03:965.12 com.example.demo.admin_bot.service.AdminMainService - 1901032255780540644
+[INFO ]  2021-03-12 01:03:241.13 com.example.demo.admin_bot.service.AdminMainService - TIME: 593.0
+[INFO ]  2021-03-12 01:03:434.14 com.example.demo.admin_bot.service.AdminMainService - TIME: 344.0
+[INFO ]  2021-03-12 01:03:336.15 com.example.demo.admin_bot.service.AdminMainService - 1901032253461423597
+[INFO ]  2021-03-12 01:03:615.15 com.example.demo.admin_bot.service.AdminMainService - TIME: 292.0
+[INFO ]  2021-03-12 01:03:890.16 com.example.demo.admin_bot.service.AdminMainService - TIME: 289.0
+[INFO ]  2021-03-12 01:03:609.17 com.example.demo.admin_bot.service.AdminMainService - 1901032253591367078
+[INFO ]  2021-03-12 01:03:838.17 com.example.demo.admin_bot.service.AdminMainService - TIME: 245.0
+[INFO ]  2021-03-12 01:03:936.18 com.example.demo.admin_bot.service.AdminMainService - TIME: 399.0
+[INFO ]  2021-03-12 01:03:659.19 com.example.demo.admin_bot.service.AdminMainService - 1901032252838873837
+[INFO ]  2021-03-12 01:03:916.19 com.example.demo.admin_bot.service.AdminMainService - TIME: 271.0
+[INFO ]  2021-03-12 01:03:826.20 com.example.demo.admin_bot.service.AdminMainService - TIME: 284.0
+[INFO ]  2021-03-12 01:03:471.21 com.example.demo.admin_bot.service.AdminMainService - 1901032255780126554
+[INFO ]  2021-03-12 01:03:755.21 com.example.demo.admin_bot.service.AdminMainService - TIME: 306.0
+[INFO ]  2021-03-12 01:03:116.23 com.example.demo.admin_bot.service.AdminMainService - TIME: 287.0
+[INFO ]  2021-03-12 01:03:787.23 com.example.demo.admin_bot.service.AdminMainService - 1901032255233166006
+[INFO ]  2021-03-12 01:03:19.24 com.example.demo.admin_bot.service.AdminMainService - TIME: 247.0
+[INFO ]  2021-03-12 01:03:905.24 com.example.demo.admin_bot.service.AdminMainService - 1901032255464859093
+[INFO ]  2021-03-12 01:03:195.25 com.example.demo.admin_bot.service.AdminMainService - TIME: 308.0
+[INFO ]  2021-03-12 01:03:926.25 com.example.demo.admin_bot.service.AdminMainService - 1901032253891618582
+[INFO ]  2021-03-12 01:03:179.26 com.example.demo.admin_bot.service.AdminMainService - TIME: 267.0
+[INFO ]  2021-03-12 01:03:142.27 com.example.demo.admin_bot.service.AdminMainService - TIME: 266.0
+[INFO ]  2021-03-12 01:03:167.28 com.example.demo.admin_bot.service.AdminMainService - 1901032255496865239
+[INFO ]  2021-03-12 01:03:406.28 com.example.demo.admin_bot.service.AdminMainService - TIME: 248.0
+[INFO ]  2021-03-12 01:03:389.29 com.example.demo.admin_bot.service.AdminMainService - 1901032254588239195
+[INFO ]  2021-03-12 01:03:635.29 com.example.demo.admin_bot.service.AdminMainService - TIME: 264.0
+[INFO ]  2021-03-12 01:03:566.30 com.example.demo.admin_bot.service.AdminMainService - 1901032255810743837
+[INFO ]  2021-03-12 01:03:821.30 com.example.demo.admin_bot.service.AdminMainService - TIME: 270.0
+[INFO ]  2021-03-12 01:03:699.31 com.example.demo.admin_bot.service.AdminMainService - 1901032253526024538
+[INFO ]  2021-03-12 01:03:937.31 com.example.demo.admin_bot.service.AdminMainService - TIME: 245.0
+[INFO ]  2021-03-12 01:03:83.33 com.example.demo.admin_bot.service.AdminMainService - 1901032256950441969
+[INFO ]  2021-03-12 01:03:343.33 com.example.demo.admin_bot.service.AdminMainService - TIME: 332.0
+[INFO ]  2021-03-12 01:03:393.34 com.example.demo.admin_bot.service.AdminMainService - 1901032256464941148
+[INFO ]  2021-03-12 01:03:478.34 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT MESSAGE
+[INFO ]  2021-03-12 01:03:620.34 com.example.demo.admin_bot.service.AdminMainService - TIME: 332.0
+[INFO ]  2021-03-12 01:03:492.40 com.example.demo.admin_bot.service.handler.AdminBotMessageHandler - handleAdminMessage. AddRentFlatButton
+[INFO ]  2021-03-12 01:03:785.40 com.example.demo.admin_bot.service.AdminMainService - TIME: 300.0
+[INFO ]  2021-03-12 01:03:782.41 com.example.demo.admin_bot.service.AdminMainService - 1901032256388488292
+[INFO ]  2021-03-12 01:03:16.42 com.example.demo.admin_bot.service.AdminMainService - TIME: 251.0
+[INFO ]  2021-03-12 01:03:627.42 com.example.demo.admin_bot.service.AdminMainService - 1901032256173379583
+[INFO ]  2021-03-12 01:03:907.42 com.example.demo.admin_bot.service.AdminMainService - TIME: 292.0
+[INFO ]  2021-03-12 01:03:583.43 com.example.demo.admin_bot.service.AdminMainService - 1901032253729651174
+[INFO ]  2021-03-12 01:03:830.43 com.example.demo.admin_bot.service.AdminMainService - TIME: 258.0
+[INFO ]  2021-03-12 01:03:812.44 com.example.demo.admin_bot.service.AdminMainService - TIME: 287.0
+[INFO ]  2021-03-12 01:03:632.45 com.example.demo.admin_bot.service.AdminMainService - 1901032256732168988
+[INFO ]  2021-03-12 01:03:860.45 com.example.demo.admin_bot.service.AdminMainService - TIME: 240.0
+[INFO ]  2021-03-12 01:03:35.48 com.example.demo.admin_bot.service.AdminMainService - TIME: 268.0
+[INFO ]  2021-03-12 01:03:845.48 com.example.demo.admin_bot.service.AdminMainService - 1901032254299276615
+[INFO ]  2021-03-12 01:03:78.49 com.example.demo.admin_bot.service.AdminMainService - TIME: 244.0
+[INFO ]  2021-03-12 01:03:956.49 com.example.demo.admin_bot.service.AdminMainService - TIME: 274.0
+[INFO ]  2021-03-12 01:03:705.50 com.example.demo.admin_bot.service.AdminMainService - 1901032253071056698
+[INFO ]  2021-03-12 01:03:951.50 com.example.demo.admin_bot.service.AdminMainService - TIME: 259.0
+[INFO ]  2021-03-12 01:03:311.52 com.example.demo.admin_bot.service.AdminMainService - TIME: 272.0
+[INFO ]  2021-03-12 01:03:25.53 com.example.demo.admin_bot.service.AdminMainService - 1901032255703910830
+[INFO ]  2021-03-12 01:03:276.53 com.example.demo.admin_bot.service.AdminMainService - TIME: 262.0
+[INFO ]  2021-03-12 01:03:782.54 com.example.demo.admin_bot.service.AdminMainService - TIME: 235.0
+[INFO ]  2021-03-12 01:03:536.55 com.example.demo.admin_bot.service.AdminMainService - 1901032253949137929
+[INFO ]  2021-03-12 01:03:959.55 com.example.demo.admin_bot.service.AdminMainService - TIME: 429.0
+[INFO ]  2021-03-12 01:03:828.56 com.example.demo.admin_bot.service.AdminMainService - 1901032253887399437
+[INFO ]  2021-03-12 01:03:67.57 com.example.demo.admin_bot.service.AdminMainService - TIME: 251.0
+[INFO ]  2021-03-12 01:03:857.07 com.example.demo.admin_bot.service.AdminMainService - 1901032255994163402
+[INFO ]  2021-03-12 01:03:417.08 com.example.demo.admin_bot.service.AdminMainService - TIME: 570.0
+[INFO ]  2021-03-12 01:03:723.09 com.example.demo.admin_bot.service.AdminMainService - TIME: 311.0
+[INFO ]  2021-03-12 01:03:472.10 com.example.demo.admin_bot.service.AdminMainService - 1901032253963932441
+[INFO ]  2021-03-12 01:03:781.10 com.example.demo.admin_bot.service.AdminMainService - TIME: 315.0
+[INFO ]  2021-03-12 01:03:483.11 com.example.demo.admin_bot.service.AdminMainService - 1901032254554725906
+[INFO ]  2021-03-12 01:03:780.11 com.example.demo.admin_bot.service.AdminMainService - TIME: 308.0
+[INFO ]  2021-03-12 01:03:655.12 com.example.demo.admin_bot.service.AdminMainService - 1901032253530229792
+[INFO ]  2021-03-12 01:03:885.12 com.example.demo.admin_bot.service.AdminMainService - TIME: 241.0
+[INFO ]  2021-03-12 01:03:658.13 com.example.demo.admin_bot.service.AdminMainService - 1901032256737399640
+[INFO ]  2021-03-12 01:03:926.13 com.example.demo.admin_bot.service.AdminMainService - TIME: 274.0
+[INFO ]  2021-03-12 01:03:507.14 com.example.demo.admin_bot.service.AdminMainService - 1901032253098690640
+[INFO ]  2021-03-12 01:03:783.14 com.example.demo.admin_bot.service.AdminMainService - TIME: 287.0
+[INFO ]  2021-03-12 01:03:538.15 com.example.demo.admin_bot.service.AdminMainService - 1901032256202663466
+[INFO ]  2021-03-12 01:03:826.15 com.example.demo.user_bot.queue.UserBotSendingQueue - SENT MESSAGE
+[INFO ]  2021-03-12 01:03:989.15 com.example.demo.admin_bot.service.AdminMainService - TIME: 502.0

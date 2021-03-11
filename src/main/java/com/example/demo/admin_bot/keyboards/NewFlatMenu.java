@@ -2,7 +2,7 @@ package com.example.demo.admin_bot.keyboards;
 
 import com.example.demo.common_part.constants.AdminMenuVariables;
 import com.example.demo.admin_bot.utils.AdminChoiceParameter;
-import com.example.demo.admin_bot.utils.BeanUtil;
+import com.example.demo.common_part.utils.BeanUtil;
 import com.example.demo.common_part.utils.Emoji;
 import com.example.demo.admin_bot.model.AdminChoice;
 import lombok.Getter;
@@ -91,96 +91,10 @@ public final class NewFlatMenu {
                 .build();
         adminChoiceButtons.add(List.of(buttonCancel));
 
-
-        /*InlineKeyboardButton buttonRooms = InlineKeyboardButton.builder()
-                .text(texts.get(0))
-                .callbackData(menuVariables.getAdminBtnCallbackRooms())
-                .build();
-        InlineKeyboardButton buttonSquare = InlineKeyboardButton.builder()
-                .text(texts.get(1))
-                .callbackData(menuVariables.getAdminBtnCallbackSquare())
-                .build();
-        InlineKeyboardButton buttonFloor = InlineKeyboardButton.builder()
-                .text(texts.get(2))
-                .callbackData(menuVariables.getAdminBtnCallbackFloor())
-                .build();
-        InlineKeyboardButton buttonAllFloor = InlineKeyboardButton.builder()
-                .text(texts.get(3))
-                .callbackData(menuVariables.getAdminBtnCallbackAllFloor())
-                .build();
-        InlineKeyboardButton buttonMetro = InlineKeyboardButton.builder()
-                .text(texts.get(4))
-                .callbackData(menuVariables.getAdminBtnCallbackMetro())
-                .build();
-        InlineKeyboardButton buttonAddress = InlineKeyboardButton.builder()
-                .text(texts.get(5))
-                .callbackData(menuVariables.getAdminBtnCallbackAddress())
-                .build();
-        InlineKeyboardButton buttonDistrict = InlineKeyboardButton.builder()
-                .text(texts.get(6))
-                .callbackData(menuVariables.getAdminBtnCallbackDistrict())
-                .build();
-        InlineKeyboardButton buttonMoney = InlineKeyboardButton.builder()
-                .text(texts.get(7))
-                .callbackData(menuVariables.getAdminBtnCallbackMoney())
-                .build();
-        InlineKeyboardButton buttonMoneyRange = InlineKeyboardButton.builder()
-                .text(texts.get(8))
-                .callbackData(menuVariables.getAdminBtnCallbackMoneyRange())
-                .build();
-        InlineKeyboardButton buttonTelegraph = InlineKeyboardButton.builder()
-                .text(texts.get(9))
-                .callbackData(menuVariables.getAdminBtnCallbackTelegraph())
-                .build();
-        InlineKeyboardButton buttonInfo = InlineKeyboardButton.builder()
-                .text(texts.get(10))
-                .callbackData(menuVariables.getAdminBtnCallbackInfo())
-                .build();
-        InlineKeyboardButton buttonMap = InlineKeyboardButton.builder()
-                .text(texts.get(11))
-                .callbackData(menuVariables.getAdminBtnCallbackMap())
-                .build();
-        InlineKeyboardButton buttonContact = InlineKeyboardButton.builder()
-                .text(texts.get(12))
-                .callbackData(menuVariables.getAdminBtnCallbackContact())
-                .build();
-        InlineKeyboardButton buttonCancel = InlineKeyboardButton.builder()
-                .text(texts.get(13))
-                .callbackData(menuVariables.getAdminBtnCallbackCancel())
-                .build();*/
-
-        /*List<InlineKeyboardButton> row1 = List.of(buttonRooms, buttonSquare);
-        List<InlineKeyboardButton> row2 = List.of(buttonFloor, buttonAllFloor);
-        List<InlineKeyboardButton> row3 = List.of(buttonMetro, buttonAddress);
-        List<InlineKeyboardButton> row4 = List.of(buttonDistrict, buttonMoney);
-        List<InlineKeyboardButton> row5 = List.of(buttonMoneyRange, buttonTelegraph);
-        List<InlineKeyboardButton> row6 = List.of(buttonInfo, buttonMap);
-        List<InlineKeyboardButton> row7 = List.of(buttonContact);
-        List<InlineKeyboardButton> row8 = List.of(buttonCancel);
-        List<List<InlineKeyboardButton>> rowList = List.of(row1, row2, row3, row4, row5, row6, row7, row8);*/
-
         inlineKeyboardMarkup.setKeyboard(adminChoiceButtons);
 
         return inlineKeyboardMarkup;
     }
-
-
-    /*private void initChoice() {
-        this.choice = new HashMap<>();
-        this.choice.put(AdminChoiceParameter.ADDRESS, this.getAdminChoice().getAddress() != null);
-        this.choice.put(AdminChoiceParameter.CONTACT, this.getAdminChoice().getContact() != null);
-        this.choice.put(AdminChoiceParameter.ALL_FLOORS, this.getAdminChoice().getAllFloors() != null);
-        this.choice.put(AdminChoiceParameter.INFO, this.getAdminChoice().getInfo() != null);
-        this.choice.put(AdminChoiceParameter.DISTRICT, this.getAdminChoice().getDistrict() != null);
-        this.choice.put(AdminChoiceParameter.FLOOR, this.getAdminChoice().getFloor() != null);
-        this.choice.put(AdminChoiceParameter.MAP_LINK, this.getAdminChoice().getMapLink() != null);
-        this.choice.put(AdminChoiceParameter.METRO, this.getAdminChoice().getMetro() != null);
-        this.choice.put(AdminChoiceParameter.MONEY, this.getAdminChoice().getMoney() != null);
-        this.choice.put(AdminChoiceParameter.MONEY_RANGE, this.getAdminChoice().getMoneyRange() != null);
-        this.choice.put(AdminChoiceParameter.ROOMS, this.getAdminChoice().getRooms() != null);
-        this.choice.put(AdminChoiceParameter.SQUARE, this.getAdminChoice().getSquare() != null);
-        this.choice.put(AdminChoiceParameter.TELEGRAPH, this.getAdminChoice().getTelegraph() != null);
-    }*/
 
     // В зависимости от параметров объекта AdminChoice пишу текста на кнопках
     private void setTextsAndCallbacks(List<String> texts, List<String> callbacks) {

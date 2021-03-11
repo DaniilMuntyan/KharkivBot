@@ -8,7 +8,6 @@ import com.example.demo.admin_bot.service.handler.admin_menu.submenu.CommonMetho
 import com.example.demo.common_part.model.User;
 import com.example.demo.common_part.repo.UserRepository;
 import com.example.demo.user_bot.queue.UserBotSendingQueue;
-import com.example.demo.user_bot.service.QueryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
@@ -24,17 +23,15 @@ public class ConfirmMessageCallbackHandler {
     private final AdminService adminService;
     private final CommonMethods commonMethods;
     private final UserRepository userRepository;
-    private final QueryService queryService;
     private final MessagesVariables messagesVariables;
     private final UserBotSendingQueue userBotSendingQueue;
 
     @Autowired
-    public ConfirmMessageCallbackHandler(AdminMenuVariables adminMenuVariables, AdminService adminService, CommonMethods commonMethods, UserRepository userRepository, QueryService queryService, MessagesVariables messagesVariables, UserBotSendingQueue userBotSendingQueue) {
+    public ConfirmMessageCallbackHandler(AdminMenuVariables adminMenuVariables, AdminService adminService, CommonMethods commonMethods, UserRepository userRepository, MessagesVariables messagesVariables, UserBotSendingQueue userBotSendingQueue) {
         this.adminMenuVariables = adminMenuVariables;
         this.adminService = adminService;
         this.commonMethods = commonMethods;
         this.userRepository = userRepository;
-        this.queryService = queryService;
         this.messagesVariables = messagesVariables;
         this.userBotSendingQueue = userBotSendingQueue;
     }

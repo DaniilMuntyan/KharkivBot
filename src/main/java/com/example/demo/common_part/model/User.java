@@ -85,7 +85,7 @@ public final class User {
         this.lastName = message.getFrom().getLastName();
         this.username = message.getFrom().getUserName();
         this.adminMode = false;
-        this.botUserState = UserState.USER_INIT;
+        this.botUserState = UserState.FIRST_INIT; // Пользователь новый => сначала выбирает параметры поиска
         this.userChoice = new UserChoice();
     }
 

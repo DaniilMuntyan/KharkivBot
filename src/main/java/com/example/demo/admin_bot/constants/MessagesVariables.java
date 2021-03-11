@@ -146,4 +146,35 @@ public class MessagesVariables {
     public String getUserHi(String name) {
         return MessageFormat.format(userHi, Emoji.HI, name);
     }
+
+    @Value("${user.firstHi}")
+    private String userFirstHi;
+    public String getUserFirstHi(String name) {
+        return MessageFormat.format(userFirstHi, Emoji.HI, name);
+    }
+
+    @Value("${user.init.category.text}")
+    private String userInitCategoryText;
+    public String getUserInitCategoryText() {
+        return MessageFormat.format(userInitCategoryText, Emoji.DOWN);
+    }
+
+    @Value("${user.init.rooms.text}")
+    private String userInitRoomsText;
+    public String getUserInitRoomsText() {
+        return MessageFormat.format(userInitRoomsText, Emoji.DOWN);
+    }
+
+    @Value("${user.init.districts.text}")
+    private String userInitDistrictsText;
+    public String getUserInitDistrictsText() {
+        return MessageFormat.format(userInitDistrictsText, Emoji.DOWN);
+    }
+
+    @Value("${user.init.budget.text}")
+    private String userInitBudgetText;
+    public String getUserInitBudgetText() {
+        return MessageFormat.format(userInitBudgetText, Emoji.DOWN);
+    }
+
 }

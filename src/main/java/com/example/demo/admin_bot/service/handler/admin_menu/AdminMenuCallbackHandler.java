@@ -345,9 +345,6 @@ public class AdminMenuCallbackHandler {
         editMessageText.setReplyMarkup(publishKeyboard.getKeyboard());
         response.add(editMessageText);
 
-        System.out.println("PUBLISH CALLBACK!!! messageId: " + callbackQuery.getMessage().getMessageId());
-        System.out.println(editMessageText);
-
         admin.setBotAdminState(AdminState.ADMIN_SUBMENU_PUBLISHING);
         adminService.saveAdminState(admin);
     }

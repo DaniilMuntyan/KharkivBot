@@ -28,9 +28,9 @@ create table "user_choice"( -- Таблица для предпочтений п
                               choice_id SERIAL,
                               menu_message_id INTEGER,
                               is_rent_flat BOOLEAN,
-                              rooms VARCHAR(10),
-                              districts VARCHAR(20),
-                              budget VARCHAR(20),
+                              rooms varchar(10),
+                              districts varchar(40),
+                              budget varchar(40),
                               primary key (choice_id)
 );
 

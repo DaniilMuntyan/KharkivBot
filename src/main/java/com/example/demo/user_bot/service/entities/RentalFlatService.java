@@ -1,4 +1,4 @@
-package com.example.demo.user_bot.service;
+package com.example.demo.user_bot.service.entities;
 
 import com.example.demo.common_part.model.RentFlat;
 import com.example.demo.common_part.repo.RentFlatRepository;

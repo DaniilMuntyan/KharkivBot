@@ -1,7 +1,7 @@
 package com.example.demo.admin_bot.queue;
 
 import com.example.demo.admin_bot.botapi.AdminTelegramBot;
-import com.example.demo.admin_bot.utils.BeanUtil;
+import com.example.demo.common_part.utils.BeanUtil;
 import com.example.demo.common_part.constants.ProgramVariables;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;

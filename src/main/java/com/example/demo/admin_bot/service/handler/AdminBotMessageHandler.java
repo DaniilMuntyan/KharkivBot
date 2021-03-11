@@ -62,6 +62,9 @@ public class AdminBotMessageHandler {
                 if (user.isPresent()) { // Если админ уже есть в базе
                     User admin = user.get();
                     admin.setAdminMode(true);
+                    if (admin.getAdminChoice() == null) { // Если админ в базе есть, но AdminChoice еще не имеет
+                        admin.setAdminChoice(new AdminChoice());
+                    }
                     admin = userRepository.save(admin);
                     LOGGER.info("Admin entered: " + admin.getName(true));
                 } else { // Если админа нет в базе, он первый раз заходит в режим админа

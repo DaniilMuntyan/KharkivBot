@@ -4,17 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public enum District {
-    ALEKSEEVKA("Алексеевка"), SALTOVKA("Салтовка"), CENTER("Центр"),
-    SEV_SALTOVKA("Сев. Салтовка"), ZASH_UKRAINE("Защ. Украины"), HTZ_ROGAN("ХТЗ / Рогань"),
-    ODESSKAYA("Одесская"), PAVLOVO_POLE("Павлово Поле"), HOLODNAYA_GORA("Холодная Гора"),
-    KLOCHKOVSKOY("р-н Клочковской"), GAGARINA("Пр. Гагарина"), NOVYIE_DOMA("Новые дома"),
-    C_RYNOK_USHD("Ц. Рынок / ЮЖД"), ZHUKOVSKOGO_HAI("Жуковского / ХАИ"),
-    ZAVOD_MALYSHEVA("Завод Малышева");
+    ALEKSEEVKA("Алексеевка", "1"), SALTOVKA("Салтовка", "2"), CENTER("Центр", "3"),
+    SEV_SALTOVKA("Сев. Салтовка", "4"), ZASH_UKRAINE("Защ. Украины", "5"),
+    HTZ_ROGAN("ХТЗ / Рогань", "6"), ODESSKAYA("Одесская", "7"),
+    PAVLOVO_POLE("Павлово Поле", "8"), HOLODNAYA_GORA("Холодная Гора", "9"),
+    KLOCHKOVSKOY("р-н Клочковской", "10"), GAGARINA("Пр. Гагарина", "11"),
+    NOVYIE_DOMA("Новые дома", "12"), C_RYNOK_USHD("Ц. Рынок / ЮЖД", "13"),
+    ZHUKOVSKOGO_HAI("Жуковского / ХАИ", "14"), ZAVOD_MALYSHEVA("Завод Малышева", "15");
 
     private final String name;
+    private final String identifier;
 
-    District(String name) {
+    District(final String name, final String identifier) {
         this.name = name;
+        this.identifier = identifier;
+    }
+
+    public String getIdentifier() {
+        return identifier;
     }
 
     public String getName() {

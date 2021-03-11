@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
+import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
 import java.io.File;
@@ -44,7 +45,14 @@ public class UserMainService {
                 LOGGER.info(update.getCallbackQuery().getId());
                 s = update.getCallbackQuery().getData();
             }
-            userBotSendingQueue.addAllMethods(methods);
+
+            for (BotApiMethod<?> method: methods) {
+                if (method instanceof SendMessage) {
+                    userBotSendingQueue.addMessageToQueue((SendMessage) method);
+                } else {
+                    userBotSendingQueue.addMethodToQueue(method);
+                }
+            }
 
             LOGGER.info("USER TIME: " + (double) (System.currentTimeMillis() - start));
             write(s, (double) (System.currentTimeMillis() - start));

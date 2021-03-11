@@ -1,6 +1,7 @@
 package com.example.demo.admin_bot.utils;
 
 import com.example.demo.common_part.constants.AdminMenuVariables;
+import com.example.demo.common_part.utils.BeanUtil;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -66,7 +67,4 @@ public enum AdminChoiceParameter {
     private String btnCallback;
     @Getter
     private String adminChoiceFieldName;
-    @Getter
-    @Setter
-    private String choiceValue;
 }

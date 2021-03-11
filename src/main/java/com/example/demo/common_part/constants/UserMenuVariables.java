@@ -12,6 +12,84 @@ import java.text.MessageFormat;
 @Component
 @PropertySource(value= "classpath:user-menu.properties", encoding = "UTF-8")
 public class UserMenuVariables {
+    @Value("${user.bot.menuInit.category.button.rental.text}")
+    @Getter
+    private String menuInitBtnCategoryRentalText;
+    @Value("${user.bot.menuInit.category.button.rental.callback}")
+    @Getter
+    private String menuInitCategoryBtnRentalCallback;
+
+    @Value("${user.bot.menuInit.category.button.buy.text}")
+    @Getter
+    private String menuInitBtnCategoryBuyText;
+    @Value("${user.bot.menuInit.category.button.buy.callback}")
+    @Getter
+    private String menuInitCategoryBtnBuyCallback;
+
+    @Value("${user.bot.menuInit.rooms.button.room1.text}")
+    private String menuInitRoomsBtnRoom1Text;
+    public String getMenuInitRoomsBtnRoom1Text() {
+        return MessageFormat.format(menuInitRoomsBtnRoom1Text, Emoji.ONE);
+    }
+    @Value("${user.bot.menuInit.rooms.button.room1.callback}")
+    @Getter
+    private String menuInitRoomsBtnRoom1Callback;
+
+    @Value("${user.bot.menuInit.rooms.button.room2.text}")
+    private String menuInitRoomsBtnRoom2Text;
+    public String getMenuInitRoomsBtnRoom2Text() {
+        return MessageFormat.format(menuInitRoomsBtnRoom1Text, Emoji.TWO);
+    }
+    @Value("${user.bot.menuInit.rooms.button.room2.callback}")
+    @Getter
+    private String menuInitRoomsBtnRoom2Callback;
+
+    @Value("${user.bot.menuInit.rooms.button.room3.text}")
+    private String menuInitRoomsBtnRoom3Text;
+    public String getMenuInitRoomsBtnRoom3Text() {
+        return MessageFormat.format(menuInitRoomsBtnRoom3Text, Emoji.THREE);
+    }
+    @Value("${user.bot.menuInit.rooms.button.room3.callback}")
+    @Getter
+    private String menuInitRoomsBtnRoom3Callback;
+
+    @Value("${user.bot.menuInit.rooms.button.room4.text}")
+    private String menuInitRoomsBtnRoom4Text;
+    public String getMenuInitRoomsBtnRoom4Text() {
+        return MessageFormat.format(menuInitRoomsBtnRoom4Text, Emoji.FOUR);
+    }
+    @Value("${user.bot.menuInit.rooms.button.room4.callback}")
+    @Getter
+    private String menuInitRoomsBtnRoom4Callback;
+
+    @Value("${user.bot.menuInit.rooms.button.room0.text}")
+    @Getter
+    private String menuInitRoomsBtnRoom0Text;
+    @Value("${user.bot.menuInit.rooms.button.room0.callback}")
+    @Getter
+    private String menuInitRoomsBtnRoom0Callback;
+
+    @Value("${user.bot.menuInit.button.next.text}")
+    private String menuInitBtnNextText;
+    public String getMenuInitBtnNextText() {
+        return MessageFormat.format(menuInitBtnNextText, Emoji.NEXT);
+    }
+    @Value("${user.bot.menuInit.button.next.callback}")
+    @Getter
+    private String menuInitBtnNextCallback;
+
+    @Value("${user.bot.menuInit.button.callbackPrefix}")
+    @Getter
+    private String menuInitBtnCallbackPrefix;
+
+    @Value("${user.bot.menuInit.districts.button.districtPrefix.callback}")
+    @Getter
+    private String menuInitDistrictsBtnPrefixCallback;
+
+    @Value("${user.bot.menuInit.budget.button.rangePrefix.callback}")
+    @Getter
+    private String menuInitBudgetBtnRangePrefixCallback;
+
     @Value("${user.bot.menu1.button.choice.text}")
     @Getter
     private String menu1BtnChoiceText;
@@ -158,6 +236,19 @@ public class UserMenuVariables {
     @Value("${user.bot.menu2.3.button.districtPrefix.callback}")
     @Getter
     private String menu23BtnDistrictPrefixCallback;
+
+    @Value("${user.bot.menu2.4.button.back.text}")
+    private String menu24BtnBackText;
+    public String getMenu24BtnBackText() {
+        return MessageFormat.format(menu24BtnBackText, Emoji.BACK);
+    }
+    @Value("${user.bot.menu2.4.button.back.callback}")
+    @Getter
+    private String menu24BtnBackCallback;
+
+    @Value("${user.bot.menu2.4.button.rangePrefix.callback}")
+    @Getter
+    private String menu24BtnRangePrefixCallback;
 
     @Value("${user.bot.menu3.2.button.sendMyPhone.text}")
     private String menu32BtnSendMyPhoneText;

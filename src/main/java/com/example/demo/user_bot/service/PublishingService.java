@@ -7,6 +7,8 @@ import com.example.demo.common_part.model.User;
 import com.example.demo.common_part.repo.UserRepository;
 import com.example.demo.user_bot.keyboards.PublishFlatKeyboard;
 import com.example.demo.user_bot.queue.UserBotSendingQueue;
+import com.example.demo.user_bot.service.entities.BuyFlatService;
+import com.example.demo.user_bot.service.entities.RentalFlatService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,16 +21,14 @@ import java.util.List;
 public final class PublishingService {
     private static final Logger LOGGER = Logger.getLogger(PublishingService.class);
     private final UserRepository userRepository;
-    private final QueryService queryService;
     private final RentalFlatService rentalFlatService;
     private final BuyFlatService buyFlatService;
     private final ProgramVariables programVariables;
     private final UserBotSendingQueue userBotSendingQueue;
 
     @Autowired
-    public PublishingService(UserRepository userRepository, QueryService queryService, RentalFlatService rentalFlatService, BuyFlatService buyFlatService, ProgramVariables programVariables, UserBotSendingQueue userBotSendingQueue) {
+    public PublishingService(UserRepository userRepository, RentalFlatService rentalFlatService, BuyFlatService buyFlatService, ProgramVariables programVariables, UserBotSendingQueue userBotSendingQueue) {
         this.userRepository = userRepository;
-        this.queryService = queryService;
         this.rentalFlatService = rentalFlatService;
         this.buyFlatService = buyFlatService;
         this.programVariables = programVariables;
@@ -61,14 +61,6 @@ public final class PublishingService {
                     .chatId(user.getChatId().toString())
                     .parseMode(sendMessage.getParseMode())
                     .build());
-            //response.add(sendMessage);
-
-            /*List<BotApiMethod<?>> temp = queryService.execute(sendMessage, admin);
-            if (!temp.isEmpty()) {
-                result = "ERROR";
-                response.addAll(temp);
-                break;
-            }*/
         }
 
         // Публикую в канал, если квартира под аренду и если нет ошибки

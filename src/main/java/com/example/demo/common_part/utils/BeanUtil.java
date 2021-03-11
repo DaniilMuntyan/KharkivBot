@@ -1,4 +1,4 @@
-package com.example.demo.admin_bot.utils;
+package com.example.demo.common_part.utils;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

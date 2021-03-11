@@ -2,7 +2,7 @@ package com.example.demo;
 
 import com.example.demo.admin_bot.queue.AdminBotChannelQueue;
 import com.example.demo.user_bot.queue.UserBotSendingQueue;
-import com.example.demo.admin_bot.utils.BeanUtil;
+import com.example.demo.common_part.utils.BeanUtil;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;

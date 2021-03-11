@@ -17,7 +17,8 @@ public enum Emoji {
     ADDRESS(":round_pushpin:"),
     METRO(":part_alternation_mark:"),
     MONEY(":dollar:"),
-    INFO(":information_source:");
+    INFO(":information_source:"),
+    NEXT(":white_check_mark:"), DOWN(":point_down:");
 
     private final String emojiName;
 

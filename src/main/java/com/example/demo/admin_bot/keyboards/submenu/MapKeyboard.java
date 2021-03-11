@@ -1,7 +1,7 @@
 package com.example.demo.admin_bot.keyboards.submenu;
 
 import com.example.demo.common_part.constants.AdminMenuVariables;
-import com.example.demo.admin_bot.utils.BeanUtil;
+import com.example.demo.common_part.utils.BeanUtil;
 import lombok.Getter;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;

@@ -1,7 +1,6 @@
 package com.example.demo.common_part.service;
 
 import com.example.demo.admin_bot.service.AdminBotStateService;
-import com.example.demo.admin_bot.utils.AdminState;
 import com.example.demo.common_part.model.User;
 import com.example.demo.user_bot.service.UserBotStateService;
 import org.apache.log4j.Logger;
@@ -11,7 +10,6 @@ import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.objects.Message;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Service

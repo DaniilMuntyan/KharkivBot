@@ -20,8 +20,8 @@ import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
 import java.util.*;
 
 @Service
-public final class CallbackHandler {
-    private static final Logger LOGGER = Logger.getLogger(CallbackHandler.class);
+public final class AdminBotCallbackHandler {
+    private static final Logger LOGGER = Logger.getLogger(AdminBotCallbackHandler.class);
 
     private final AdminService adminService;
     private final UserRepository userRepository;
@@ -38,7 +38,7 @@ public final class CallbackHandler {
     private final ConfirmPublishCallbackHandler confirmPublishCallbackHandler;
 
     @Autowired
-    public CallbackHandler(AdminService adminService, UserRepository userRepository, MessagesVariables messagesVariables, AdminMenuVariables adminMenuVariables, AdminMenuCallbackHandler adminMenuCallbackHandler, RoomsCallbackHandler roomsCallbackHandler, DistrictCallbackHandler districtCallbackHandler, CancelSubmenuHandler cancelSubmenuHandler, MoneyRangeCallbackHandler moneyRangeCallbackHandler, ContactCallbackHandler contactCallbackHandler, ConfirmMessageCallbackHandler confirmMessageCallbackHandler, ConfirmPublishCallbackHandler confirmPublishCallbackHandler) {
+    public AdminBotCallbackHandler(AdminService adminService, UserRepository userRepository, MessagesVariables messagesVariables, AdminMenuVariables adminMenuVariables, AdminMenuCallbackHandler adminMenuCallbackHandler, RoomsCallbackHandler roomsCallbackHandler, DistrictCallbackHandler districtCallbackHandler, CancelSubmenuHandler cancelSubmenuHandler, MoneyRangeCallbackHandler moneyRangeCallbackHandler, ContactCallbackHandler contactCallbackHandler, ConfirmMessageCallbackHandler confirmMessageCallbackHandler, ConfirmPublishCallbackHandler confirmPublishCallbackHandler) {
         this.adminService = adminService;
         this.userRepository = userRepository;
         this.messagesVariables = messagesVariables;
