@@ -2,7 +2,7 @@ package com.example.demo.common_part.service;
 
 import com.example.demo.admin_bot.service.AdminBotStateService;
 import com.example.demo.common_part.model.User;
-import com.example.demo.user_bot.service.UserBotStateService;
+import com.example.demo.user_bot.service.state_handler.UserBotStateService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

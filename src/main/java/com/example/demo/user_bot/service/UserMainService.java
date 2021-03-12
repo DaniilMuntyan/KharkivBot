@@ -2,7 +2,8 @@ package com.example.demo.user_bot.service;
 
 import com.example.demo.user_bot.botapi.RentalTelegramBot;
 import com.example.demo.user_bot.queue.UserBotSendingQueue;
-import com.example.demo.user_bot.service.handler.UserBotMessageHandler;
+import com.example.demo.user_bot.service.handler.callback.UserBotCallbackHandler;
+import com.example.demo.user_bot.service.handler.message.UserBotMessageHandler;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
@@ -22,11 +23,14 @@ public class UserMainService {
     private static final Logger LOGGER = Logger.getLogger(UserMainService.class);
 
     private final UserBotMessageHandler userBotMessageHandler;
+    private final UserBotCallbackHandler userBotCallbackHandler;
+
     private final UserBotSendingQueue userBotSendingQueue;
 
     @Autowired
-    public UserMainService(UserBotMessageHandler userBotMessageHandler, UserBotSendingQueue userBotSendingQueue) {
+    public UserMainService(UserBotMessageHandler userBotMessageHandler, UserBotCallbackHandler userBotCallbackHandler, UserBotSendingQueue userBotSendingQueue) {
         this.userBotMessageHandler = userBotMessageHandler;
+        this.userBotCallbackHandler = userBotCallbackHandler;
         this.userBotSendingQueue = userBotSendingQueue;
     }
 
@@ -41,8 +45,7 @@ public class UserMainService {
                 s = update.getMessage().getText();
             }
             if (update.hasCallbackQuery()) { // Пришел callback
-                //methods = callbackHandler.handleCallback(update.getCallbackQuery());
-                LOGGER.info(update.getCallbackQuery().getId());
+                methods = userBotCallbackHandler.handleCallback(update.getCallbackQuery());
                 s = update.getCallbackQuery().getData();
             }
 

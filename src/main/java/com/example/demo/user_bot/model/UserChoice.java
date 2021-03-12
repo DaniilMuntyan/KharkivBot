@@ -35,11 +35,11 @@ public final class UserChoice {
 
     @Column(name="rooms")
     @Setter
-    private String rooms; // Каждый символ соответствует кол-ву комнат ("0" - гостинка и тд)
+    private String rooms; // Каждый символ соответствует идентификатору комнаты
 
     @Column(name="districts")
     @Setter
-    private String districts; // Каждый символ соответствует кол-ву комнат ("0" - гостинка и тд)
+    private String districts; // Каждый символ соответствует идентификатору района
 
     @Column(name="budget")
     @Setter
@@ -70,7 +70,7 @@ public final class UserChoice {
     }
 
     public String getBudget() {
-        return budget;
+        return budget != null ? budget : "";
     }
     /*public Enum<?>[] getBudget() {
         if (this.budget != null) {

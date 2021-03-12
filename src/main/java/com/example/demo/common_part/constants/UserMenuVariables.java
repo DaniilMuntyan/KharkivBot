@@ -12,6 +12,11 @@ import java.text.MessageFormat;
 @Component
 @PropertySource(value= "classpath:user-menu.properties", encoding = "UTF-8")
 public class UserMenuVariables {
+
+    @Value("${user.bot.menuInit.category.button.categoryPrefix.callback}")
+    @Getter
+    private String menuInitBtnCategoryCallbackPrefix;
+
     @Value("${user.bot.menuInit.category.button.rental.text}")
     @Getter
     private String menuInitBtnCategoryRentalText;
@@ -25,6 +30,14 @@ public class UserMenuVariables {
     @Value("${user.bot.menuInit.category.button.buy.callback}")
     @Getter
     private String menuInitCategoryBtnBuyCallback;
+
+    @Value("${user.bot.menuInit.button.categoryNext.callback}")
+    @Getter
+    private String menuInitBtnCategoryNextCallback;
+
+    @Value("${user.bot.menuInit.rooms.button.callbackPrefix}")
+    @Getter
+    private String menuInitRoomsBtnCallbackPrefix;
 
     @Value("${user.bot.menuInit.rooms.button.room1.text}")
     private String menuInitRoomsBtnRoom1Text;
@@ -69,14 +82,15 @@ public class UserMenuVariables {
     @Getter
     private String menuInitRoomsBtnRoom0Callback;
 
+    @Value("${user.bot.menuInit.button.roomNext.callback}")
+    @Getter
+    private String menuInitBtnRoomNextCallback;
+
     @Value("${user.bot.menuInit.button.next.text}")
     private String menuInitBtnNextText;
     public String getMenuInitBtnNextText() {
         return MessageFormat.format(menuInitBtnNextText, Emoji.NEXT);
     }
-    @Value("${user.bot.menuInit.button.next.callback}")
-    @Getter
-    private String menuInitBtnNextCallback;
 
     @Value("${user.bot.menuInit.button.callbackPrefix}")
     @Getter
@@ -86,9 +100,24 @@ public class UserMenuVariables {
     @Getter
     private String menuInitDistrictsBtnPrefixCallback;
 
+    @Value("${user.bot.menuInit.districts.button.selectAll.text}")
+    @Getter
+    private String menuInitDistrictBtnSelectAllText;
+    @Value("${user.bot.menuInit.districts.button.selectAll.callback}")
+    @Getter
+    private String menuInitDistrictBtnSelectAllCallback;
+
+    @Value("${user.bot.menuInit.button.districtNext.callback}")
+    @Getter
+    private String menuInitDistrictNextCallback;
+
     @Value("${user.bot.menuInit.budget.button.rangePrefix.callback}")
     @Getter
     private String menuInitBudgetBtnRangePrefixCallback;
+
+    @Value("${user.bot.menuInit.button.budgetNext.callback}")
+    @Getter
+    private String menuInitBudgetNextCallback;
 
     @Value("${user.bot.menu1.button.choice.text}")
     @Getter

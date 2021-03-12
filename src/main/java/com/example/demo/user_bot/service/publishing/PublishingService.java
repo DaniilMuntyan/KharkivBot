@@ -1,4 +1,4 @@
-package com.example.demo.user_bot.service;
+package com.example.demo.user_bot.service.publishing;
 
 import com.example.demo.common_part.constants.ProgramVariables;
 import com.example.demo.common_part.model.BuyFlat;

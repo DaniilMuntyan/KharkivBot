@@ -18,7 +18,7 @@ public enum Emoji {
     METRO(":part_alternation_mark:"),
     MONEY(":dollar:"),
     INFO(":information_source:"),
-    NEXT(":white_check_mark:"), DOWN(":point_down:");
+    NEXT(":arrow_right:"), DOWN(":point_down:"), SAD(":pensive:");
 
     private final String emojiName;
 

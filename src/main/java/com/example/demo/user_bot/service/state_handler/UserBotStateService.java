@@ -1,7 +1,8 @@
-package com.example.demo.user_bot.service;
+package com.example.demo.user_bot.service.state_handler;
 
 import com.example.demo.admin_bot.constants.MessagesVariables;
 import com.example.demo.common_part.model.User;
+import com.example.demo.user_bot.keyboards.KeyboardsRegistry;
 import com.example.demo.user_bot.service.entities.UserService;
 import com.example.demo.user_bot.utils.UserState;
 import org.apache.log4j.Logger;
@@ -10,7 +11,6 @@ import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.DeleteMessage;
-import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageText;
 import org.telegram.telegrambots.meta.api.objects.Message;
 
 import java.util.ArrayList;
@@ -23,25 +23,20 @@ public class UserBotStateService {
 
     private final UserService userService;
     private final MessagesVariables messagesVariables;
-    private final KeyboardsRegistryService keyboardsRegistryService;
-
-    // В некоторых методах возможен Exception, поэтому не всегда надо возвращаться в предыдущее состояние
-    private boolean notBack;
+    private final KeyboardsRegistry keyboardsRegistry;
 
     @Autowired
-    public UserBotStateService(UserService userService, MessagesVariables messagesVariables, KeyboardsRegistryService keyboardsRegistryService) {
+    public UserBotStateService(UserService userService, MessagesVariables messagesVariables, KeyboardsRegistry keyboardsRegistry) {
         this.userService = userService;
         this.messagesVariables = messagesVariables;
-        this.keyboardsRegistryService = keyboardsRegistryService;
+        this.keyboardsRegistry = keyboardsRegistry;
     }
 
     public List<BotApiMethod<?>> processUserInput(Message message, User user) {
         List<BotApiMethod<?>> answer = new ArrayList<>();
-        notBack = true;
 
-        // Если юзер зашел первый раз
         if (user.getBotUserState() == UserState.FIRST_INIT_CATEGORY) {
-            this.processFirstInitCategory(answer, message, user);
+            this.processCategory(answer, message, user);
         }
 
         // Если прислали любое сообщение в начальном состоянии
@@ -49,7 +44,6 @@ public class UserBotStateService {
             this.processInit(answer, message, user);
         }
 
-        user.setLastAction(new Date()); // Фиксируем последнее действие
         userService.saveUser(user); // Сохраняем измененные параметры администратора
 
         return answer;
@@ -62,25 +56,27 @@ public class UserBotStateService {
                 .build();
     }
 
+    private void processCategory(List<BotApiMethod<?>> answer, Message message, User user) {
+        SendMessage messageHi = new SendMessage(); // Приветственное сообщение
+        messageHi.setChatId(message.getChatId().toString());
+        messageHi.setText(messagesVariables.getUserFirstHi(user.getName(false)));
+
+        SendMessage messageCategory = new SendMessage(); // Сообщение с меню инициализации №1 (категории)
+        messageCategory.setChatId(message.getChatId().toString());
+        messageCategory.setText(messagesVariables.getUserInitCategoryText());
+        messageCategory.setReplyMarkup(keyboardsRegistry.getInitCategoryMenu().getKeyboard(user.getUserChoice()));
+
+        answer.addAll(List.of(messageHi, messageCategory));
+
+        user.setBotUserState(UserState.FIRST_INIT_CATEGORY); // Меняю состояние бота, теперь выбираем категорию
+    }
+
     private void processInit(List<BotApiMethod<?>> answer, Message message, User user) {
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(message.getChatId().toString());
         sendMessage.setText(messagesVariables.getUserHi(user.getName(false)));
-        sendMessage.setReplyMarkup(keyboardsRegistryService.getInitCategoryMenu().getKeyboard());
+        sendMessage.setReplyMarkup(keyboardsRegistry.getInitCategoryMenu().getKeyboard(user.getUserChoice()));
 
         answer.add(sendMessage);
-    }
-
-    private void processFirstInitCategory(List<BotApiMethod<?>> answer, Message message, User user) {
-        SendMessage messageHi = new SendMessage();
-        messageHi.setChatId(message.getChatId().toString());
-        messageHi.setText(messagesVariables.getUserFirstHi(user.getName(false)));
-
-        SendMessage chooseCategory = new SendMessage();
-        chooseCategory.setChatId(message.getChatId().toString());
-        chooseCategory.setText(messagesVariables.getUserInitCategoryText());
-        chooseCategory.setReplyMarkup(keyboardsRegistryService.getInitCategoryMenu().getKeyboard());
-
-        answer.addAll(List.of(messageHi, chooseCategory));
     }
 }

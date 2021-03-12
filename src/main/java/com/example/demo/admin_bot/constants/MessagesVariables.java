@@ -177,4 +177,10 @@ public class MessagesVariables {
         return MessageFormat.format(userInitBudgetText, Emoji.DOWN);
     }
 
+    @Value("${user.dontUnderstand.text}")
+    private String userDontUnderstandText;
+    public String getUserDontUnderstandText() {
+        return MessageFormat.format(userDontUnderstandText, Emoji.SAD);
+    }
+
 }

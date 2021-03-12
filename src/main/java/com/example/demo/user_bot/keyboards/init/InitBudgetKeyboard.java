@@ -65,7 +65,7 @@ public final class InitBudgetKeyboard {
         if (!userChoice.getBudget().isEmpty()) {
             InlineKeyboardButton buttonNext = InlineKeyboardButton.builder()
                     .text(userMenuVariables.getMenuInitBtnNextText())
-                    .callbackData(userMenuVariables.getMenuInitBtnNextCallback())
+                    .callbackData(userMenuVariables.getMenuInitBudgetNextCallback())
                     .build();
             rows.add(List.of(buttonNext));
         }

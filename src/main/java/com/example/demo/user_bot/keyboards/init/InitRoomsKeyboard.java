@@ -67,7 +67,7 @@ public final class InitRoomsKeyboard {
         if (!roomChoice.isEmpty()) {
             InlineKeyboardButton buttonNext = InlineKeyboardButton.builder()
                     .text(userMenuVariables.getMenuInitBtnNextText())
-                    .callbackData(userMenuVariables.getMenuInitBtnNextCallback())
+                    .callbackData(userMenuVariables.getMenuInitBtnRoomNextCallback())
                     .build();
             rows.add(List.of(buttonNext));
         }

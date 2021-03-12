@@ -29,10 +29,12 @@ public final class InitDistrictsKeyboard {
         String districtChoice = userChoice.getDistricts();
 
         // Callback'и состоят из префикса и идентификатора района
+        // Текст - если districtChoice имеет в себе идентификатор текущего dictrict - то SELECTED
         List<InlineKeyboardButton> districtButtons = new ArrayList<>();
         for (District district: District.values()) {
             InlineKeyboardButton button = InlineKeyboardButton.builder()
-                    .text(district.getName())
+                    .text((districtChoice.contains(district.getIdentifier()) ? Emoji.SELECTED + " ": "") +
+                            district.getName())
                     .callbackData(userMenuVariables.getMenuInitDistrictsBtnPrefixCallback() +
                             district.getIdentifier())
                     .build();
@@ -50,10 +52,17 @@ public final class InitDistrictsKeyboard {
             }
         }
 
+        // Кнопка "выбрать все"
+        InlineKeyboardButton selectAllButton = InlineKeyboardButton.builder()
+                .text(userMenuVariables.getMenuInitDistrictBtnSelectAllText())
+                .callbackData(userMenuVariables.getMenuInitDistrictBtnSelectAllCallback())
+                .build();
+        rows.add(List.of(selectAllButton));
+
         if (!userChoice.getDistricts().isEmpty()) {
             InlineKeyboardButton buttonNext = InlineKeyboardButton.builder()
                     .text(userMenuVariables.getMenuInitBtnNextText())
-                    .callbackData(userMenuVariables.getMenuInitBtnNextCallback())
+                    .callbackData(userMenuVariables.getMenuInitDistrictNextCallback())
                     .build();
             rows.add(List.of(buttonNext));
         }
