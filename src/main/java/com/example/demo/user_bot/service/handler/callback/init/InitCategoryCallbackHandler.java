@@ -3,6 +3,7 @@ package com.example.demo.user_bot.service.handler.callback.init;
 import com.example.demo.admin_bot.constants.MessagesVariables;
 import com.example.demo.common_part.constants.UserMenuVariables;
 import com.example.demo.common_part.model.User;
+import com.example.demo.user_bot.cache.UserCache;
 import com.example.demo.user_bot.keyboards.KeyboardsRegistry;
 import com.example.demo.user_bot.service.entities.UserService;
 import com.example.demo.user_bot.service.state_handler.UserBotStateService;
@@ -38,7 +39,7 @@ public final class InitCategoryCallbackHandler {
         this.keyboardsRegistry = keyboardsRegistry;
     }
 
-    public void handleCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, User user) {
+    public void handleCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache user) {
         String data = callbackQuery.getData();
 
         // Если выбрали категорию "Арендовать квартиру"
@@ -63,7 +64,7 @@ public final class InitCategoryCallbackHandler {
         }
     }
 
-    private void rentalCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, User user) {
+    private void rentalCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache user) {
         Boolean isRentFlat = user.getUserChoice().getIsRentFlat();
         if (isRentFlat == null) { // Если ничего не было выбрано - ставлю галочку возле аренды
             user.getUserChoice().setIsRentFlat(true);
@@ -75,7 +76,7 @@ public final class InitCategoryCallbackHandler {
         response.add(getEditMarkup(callbackQuery, user));
     }
 
-    private void buyCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, User user) {
+    private void buyCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache user) {
         Boolean isRentFlat = user.getUserChoice().getIsRentFlat();
         if (isRentFlat == null) { // Если ничего не было выбрано - ставлю галочку возле покупки
             user.getUserChoice().setIsRentFlat(false);
@@ -86,7 +87,7 @@ public final class InitCategoryCallbackHandler {
         response.add(getEditMarkup(callbackQuery, user));
     }
 
-    private void nextCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, User user) {
+    private void nextCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache user) {
         user.setBotUserState(UserState.FIRST_INIT_ROOMS); // Ставлю следующее состояние
 
         EditMessageText editMessageText = new EditMessageText();
@@ -99,7 +100,7 @@ public final class InitCategoryCallbackHandler {
     }
 
 
-    private EditMessageReplyMarkup getEditMarkup(CallbackQuery callbackQuery, User user) {
+    private EditMessageReplyMarkup getEditMarkup(CallbackQuery callbackQuery, UserCache user) {
         // Меняю клавиатуру в зависимости от выбора пользователя
         EditMessageReplyMarkup editKeyboard = new EditMessageReplyMarkup();
         editKeyboard.setReplyMarkup(keyboardsRegistry.getInitCategoryMenu().getKeyboard(user.getUserChoice()));

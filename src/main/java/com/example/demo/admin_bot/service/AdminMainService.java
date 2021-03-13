@@ -1,7 +1,7 @@
 package com.example.demo.admin_bot.service;
 
 import com.example.demo.admin_bot.queue.AdminBotChannelQueue;
-import com.example.demo.user_bot.queue.UserBotSendingQueue;
+import com.example.demo.user_bot.schedule.UserBotSendingQueue;
 import com.example.demo.admin_bot.botapi.AdminTelegramBot;
 import com.example.demo.admin_bot.service.handler.AdminBotCallbackHandler;
 import com.example.demo.admin_bot.service.handler.AdminBotMessageHandler;

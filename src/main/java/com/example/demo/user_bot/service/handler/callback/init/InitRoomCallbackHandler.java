@@ -4,6 +4,7 @@ import com.example.demo.admin_bot.constants.MessagesVariables;
 import com.example.demo.common_part.constants.UserMenuVariables;
 import com.example.demo.common_part.model.User;
 import com.example.demo.common_part.utils.Rooms;
+import com.example.demo.user_bot.cache.UserCache;
 import com.example.demo.user_bot.keyboards.KeyboardsRegistry;
 import com.example.demo.user_bot.service.entities.UserService;
 import com.example.demo.user_bot.utils.UserState;
@@ -36,7 +37,7 @@ public final class InitRoomCallbackHandler {
         this.keyboardsRegistry = keyboardsRegistry;
     }
 
-    public void handleCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, User user) {
+    public void handleCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache user) {
         String data = callbackQuery.getData();
 
         // Если выбрали Гостинку
@@ -83,7 +84,7 @@ public final class InitRoomCallbackHandler {
 
     }
 
-    private void room0Callback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, User user) {
+    private void room0Callback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache user) {
         // Перемненная isRoom0Checked - Выбран ли уже вариант "Гостинка"
         String roomChoice = user.getUserChoice().getRooms();
         boolean isRoom0Checked = roomChoice.contains(Rooms.GOSTINKA.getIdentifier());
@@ -96,7 +97,7 @@ public final class InitRoomCallbackHandler {
         response.add(getEditMarkup(callbackQuery, user));
     }
 
-    private void room1Callback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, User user) {
+    private void room1Callback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache user) {
         // Перемненная isRoom1Checked - Выбран ли уже вариант "1"
         String roomChoice = user.getUserChoice().getRooms();
         boolean isRoom1Checked = roomChoice.contains(Rooms.ONE.getIdentifier());
@@ -109,7 +110,7 @@ public final class InitRoomCallbackHandler {
         response.add(getEditMarkup(callbackQuery, user));
     }
 
-    private void room2Callback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, User user) {
+    private void room2Callback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache user) {
         // Перемненная isRoom2Checked - Выбран ли уже вариант "2"
         String roomChoice = user.getUserChoice().getRooms();
         boolean isRoom2Checked = roomChoice.contains(Rooms.TWO.getIdentifier());
@@ -122,7 +123,7 @@ public final class InitRoomCallbackHandler {
         response.add(getEditMarkup(callbackQuery, user));
     }
 
-    private void room3Callback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, User user) {
+    private void room3Callback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache user) {
         // Перемненная isRoom3Checked - Выбран ли уже вариант "3"
         String roomChoice = user.getUserChoice().getRooms();
         boolean isRoom3Checked = roomChoice.contains(Rooms.THREE.getIdentifier());
@@ -135,7 +136,7 @@ public final class InitRoomCallbackHandler {
         response.add(getEditMarkup(callbackQuery, user));
     }
 
-    private void room4Callback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, User user) {
+    private void room4Callback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache user) {
         // Перемненная isRoom4Checked - Выбран ли уже вариант "4"
         String roomChoice = user.getUserChoice().getRooms();
         boolean isRoom4Checked = roomChoice.contains(Rooms.FOUR.getIdentifier());
@@ -148,7 +149,7 @@ public final class InitRoomCallbackHandler {
         response.add(getEditMarkup(callbackQuery, user));
     }
 
-    private void nextCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, User user) {
+    private void nextCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache user) {
         user.setBotUserState(UserState.FIRST_INIT_DISTRICTS); // Ставлю следующее состояние
 
         EditMessageText editMessageText = new EditMessageText();
@@ -160,7 +161,7 @@ public final class InitRoomCallbackHandler {
         response.add(editMessageText);
     }
 
-    private EditMessageReplyMarkup getEditMarkup(CallbackQuery callbackQuery, User user) {
+    private EditMessageReplyMarkup getEditMarkup(CallbackQuery callbackQuery, UserCache user) {
         // Меняю клавиатуру в зависимости от выбора пользователя
         EditMessageReplyMarkup editKeyboard = new EditMessageReplyMarkup();
         editKeyboard.setReplyMarkup(keyboardsRegistry.getInitRoomsMenu().getKeyboard(user.getUserChoice()));

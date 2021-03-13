@@ -5,6 +5,7 @@ import com.example.demo.common_part.constants.UserMenuVariables;
 import com.example.demo.common_part.model.User;
 import com.example.demo.common_part.utils.District;
 import com.example.demo.common_part.utils.Rooms;
+import com.example.demo.user_bot.cache.UserCache;
 import com.example.demo.user_bot.keyboards.KeyboardsRegistry;
 import com.example.demo.user_bot.service.entities.UserService;
 import com.example.demo.user_bot.utils.UserState;
@@ -36,7 +37,7 @@ public final class InitDistrictCallbackHandler {
         this.keyboardsRegistry = keyboardsRegistry;
     }
 
-    public void handleCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, User user) {
+    public void handleCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache user) {
         String data = callbackQuery.getData();
         // Ищем, какой район выбрали
         for(District temp: District.values()) {
@@ -63,7 +64,7 @@ public final class InitDistrictCallbackHandler {
         }
     }
 
-    private void districtCallback(District district, List<BotApiMethod<?>> response, CallbackQuery callbackQuery, User user) {
+    private void districtCallback(District district, List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache user) {
         String districtChoice = user.getUserChoice().getDistricts();
         boolean isDistrictChecked = districtChoice.contains(district.getIdentifier());
 
@@ -76,7 +77,7 @@ public final class InitDistrictCallbackHandler {
         response.add(getEditMarkup(callbackQuery, user));
     }
 
-    private void selectAllCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, User user) {
+    private void selectAllCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache user) {
         String districtChoice = user.getUserChoice().getDistricts();
         boolean isAllSelected = true; // Если все районы уже выбраны
         for (District temp: District.values()) {
@@ -98,7 +99,7 @@ public final class InitDistrictCallbackHandler {
         response.add(getEditMarkup(callbackQuery, user));
     }
 
-    private void nextCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, User user) {
+    private void nextCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache user) {
         user.setBotUserState(UserState.FIRST_INIT_BUDGET); // Ставлю следующее состояние
 
         EditMessageText editMessageText = new EditMessageText();
@@ -110,7 +111,7 @@ public final class InitDistrictCallbackHandler {
         response.add(editMessageText);
     }
 
-    private EditMessageReplyMarkup getEditMarkup(CallbackQuery callbackQuery, User user) {
+    private EditMessageReplyMarkup getEditMarkup(CallbackQuery callbackQuery, UserCache user) {
         // Меняю клавиатуру в зависимости от выбора пользователя
         EditMessageReplyMarkup editKeyboard = new EditMessageReplyMarkup();
         editKeyboard.setReplyMarkup(keyboardsRegistry.getInitDistrictsKeyboard().getKeyboard(user.getUserChoice()));

@@ -6,7 +6,7 @@ import com.example.demo.common_part.model.RentFlat;
 import com.example.demo.common_part.model.User;
 import com.example.demo.common_part.repo.UserRepository;
 import com.example.demo.user_bot.keyboards.PublishFlatKeyboard;
-import com.example.demo.user_bot.queue.UserBotSendingQueue;
+import com.example.demo.user_bot.schedule.UserBotSendingQueue;
 import com.example.demo.user_bot.service.entities.BuyFlatService;
 import com.example.demo.user_bot.service.entities.RentalFlatService;
 import org.apache.log4j.Logger;

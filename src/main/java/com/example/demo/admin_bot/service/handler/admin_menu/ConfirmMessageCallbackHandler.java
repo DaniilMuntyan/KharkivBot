@@ -7,7 +7,7 @@ import com.example.demo.admin_bot.service.AdminService;
 import com.example.demo.admin_bot.service.handler.admin_menu.submenu.CommonMethods;
 import com.example.demo.common_part.model.User;
 import com.example.demo.common_part.repo.UserRepository;
-import com.example.demo.user_bot.queue.UserBotSendingQueue;
+import com.example.demo.user_bot.schedule.UserBotSendingQueue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;

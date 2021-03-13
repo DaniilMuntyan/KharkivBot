@@ -2,6 +2,7 @@ package com.example.demo.common_part.model;
 
 import com.example.demo.admin_bot.model.AdminChoice;
 import com.example.demo.admin_bot.utils.AdminState;
+import com.example.demo.user_bot.cache.UserCache;
 import com.example.demo.user_bot.model.UserChoice;
 import com.example.demo.user_bot.utils.UserState;
 import lombok.AllArgsConstructor;
@@ -69,15 +70,6 @@ public final class User {
     @Column(name="last_action")
     @CreationTimestamp
     private Date lastAction;
-
-    /*public User(Long chatId, String firstName, String lastName, String username) {
-        this.chatId = chatId;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.username = username;
-        this.adminMode = false;
-        this.botState = State.ADMIN_INIT;
-    }*/
 
     public User(Message message) {
         this.chatId = message.getChatId();

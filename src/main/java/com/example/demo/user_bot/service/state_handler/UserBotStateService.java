@@ -2,6 +2,7 @@ package com.example.demo.user_bot.service.state_handler;
 
 import com.example.demo.admin_bot.constants.MessagesVariables;
 import com.example.demo.common_part.model.User;
+import com.example.demo.user_bot.cache.UserCache;
 import com.example.demo.user_bot.keyboards.KeyboardsRegistry;
 import com.example.demo.user_bot.service.entities.UserService;
 import com.example.demo.user_bot.utils.UserState;
@@ -14,7 +15,6 @@ import org.telegram.telegrambots.meta.api.methods.updatingmessages.DeleteMessage
 import org.telegram.telegrambots.meta.api.objects.Message;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -32,7 +32,8 @@ public class UserBotStateService {
         this.keyboardsRegistry = keyboardsRegistry;
     }
 
-    public List<BotApiMethod<?>> processUserInput(Message message, User user) {
+    public List<BotApiMethod<?>> processUserInput(Message message, UserCache user) {
+        long time1 = System.currentTimeMillis();
         List<BotApiMethod<?>> answer = new ArrayList<>();
 
         if (user.getBotUserState() == UserState.FIRST_INIT_CATEGORY) {
@@ -44,8 +45,8 @@ public class UserBotStateService {
             this.processInit(answer, message, user);
         }
 
-        userService.saveUser(user); // Сохраняем измененные параметры администратора
-
+        userService.saveUserCache(user); // Сохраняем измененные параметры администратора
+        LOGGER.info("TIME processUserInput: " + (System.currentTimeMillis() - time1));
         return answer;
     }
 
@@ -56,7 +57,7 @@ public class UserBotStateService {
                 .build();
     }
 
-    private void processCategory(List<BotApiMethod<?>> answer, Message message, User user) {
+    private void processCategory(List<BotApiMethod<?>> answer, Message message, UserCache user) {
         SendMessage messageHi = new SendMessage(); // Приветственное сообщение
         messageHi.setChatId(message.getChatId().toString());
         messageHi.setText(messagesVariables.getUserFirstHi(user.getName(false)));
@@ -67,11 +68,10 @@ public class UserBotStateService {
         messageCategory.setReplyMarkup(keyboardsRegistry.getInitCategoryMenu().getKeyboard(user.getUserChoice()));
 
         answer.addAll(List.of(messageHi, messageCategory));
-
         user.setBotUserState(UserState.FIRST_INIT_CATEGORY); // Меняю состояние бота, теперь выбираем категорию
     }
 
-    private void processInit(List<BotApiMethod<?>> answer, Message message, User user) {
+    private void processInit(List<BotApiMethod<?>> answer, Message message, UserCache user) {
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(message.getChatId().toString());
         sendMessage.setText(messagesVariables.getUserHi(user.getName(false)));

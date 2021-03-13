@@ -1,12 +1,12 @@
 package com.example.demo.admin_bot.service.handler;
 
 import com.example.demo.admin_bot.model.AdminChoice;
+import com.example.demo.admin_bot.service.AdminBotStateService;
 import com.example.demo.admin_bot.utils.AdminState;
 import com.example.demo.common_part.constants.Commands;
 import com.example.demo.common_part.constants.AdminMenuVariables;
 import com.example.demo.admin_bot.service.AdminService;
 import com.example.demo.admin_bot.constants.MessagesVariables;
-import com.example.demo.common_part.service.BotStateService;
 import com.example.demo.common_part.utils.Emoji;
 import com.example.demo.common_part.model.User;
 import com.example.demo.common_part.repo.UserRepository;
@@ -29,15 +29,15 @@ public class AdminBotMessageHandler {
     private final AdminService adminService;
     private final MessagesVariables messagesVariables;
     private final AdminMenuVariables adminMenuVariables;
-    private final BotStateService botStateService;
+    private final AdminBotStateService adminBotStateService;
 
     @Autowired
-    public AdminBotMessageHandler(UserRepository userRepository, AdminService adminService, MessagesVariables messagesVariables, AdminMenuVariables adminMenuVariables, BotStateService botStateService) {
+    public AdminBotMessageHandler(UserRepository userRepository, AdminService adminService, MessagesVariables messagesVariables, AdminMenuVariables adminMenuVariables, AdminBotStateService adminBotStateService) {
         this.userRepository = userRepository;
         this.adminService = adminService;
         this.messagesVariables = messagesVariables;
         this.adminMenuVariables = adminMenuVariables;
-        this.botStateService = botStateService;
+        this.adminBotStateService = adminBotStateService;
     }
 
     public List<BotApiMethod<?>> handleMessage(Message message) {
@@ -135,7 +135,7 @@ public class AdminBotMessageHandler {
         }
 
         if (adminCommand) { // Если пришла команда от администратора - обработать, в соответствии с состоянием
-            response.addAll(botStateService.processInput(message, admin, true));
+            response.addAll(adminBotStateService.processAdminInput(message, admin));
         } else { // Если пришло любое текстовое сообщение
             if (admin.getBotAdminState() == AdminState.ADMIN_INIT) {
                 LOGGER.info("handleAdminMessage. Any text message");

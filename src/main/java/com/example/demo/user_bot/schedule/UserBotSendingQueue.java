@@ -1,11 +1,12 @@
-package com.example.demo.user_bot.queue;
+package com.example.demo.user_bot.schedule;
 
-import com.example.demo.common_part.utils.BeanUtil;
 import com.example.demo.common_part.constants.ProgramVariables;
 import com.example.demo.user_bot.botapi.RentalTelegramBot;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Async;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
@@ -17,54 +18,51 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 @Service
+@PropertySource("classpath:program.properties")
 public class UserBotSendingQueue {
     private static final Logger LOGGER = Logger.getLogger(UserBotSendingQueue.class);
-    private final ScheduledExecutorService scheduleMessages = Executors.newSingleThreadScheduledExecutor();
-    private final ScheduledExecutorService scheduleMethods = Executors.newSingleThreadScheduledExecutor();
+
+    //private final ScheduledExecutorService scheduleMessages = Executors.newSingleThreadScheduledExecutor();
+    //private final ScheduledExecutorService scheduleMethods = Executors.newSingleThreadScheduledExecutor();
     private final LinkedList<SendMessage> messagesQueue = new LinkedList<>();
     private final LinkedList<SendMessage> bulkMessagesQueue = new LinkedList<>();
     private final LinkedList<BotApiMethod<?>> apiQueue = new LinkedList<>();
     private final ProgramVariables programVariables;
+    private final RentalTelegramBot bot;
 
     @Autowired
-    public UserBotSendingQueue(ProgramVariables programVariables) {
+    public UserBotSendingQueue(ProgramVariables programVariables, @Lazy RentalTelegramBot bot) {
         this.programVariables = programVariables;
+        this.bot = bot;
     }
 
-    @Async
-    public void startQueue() {
-        final RentalTelegramBot bot = BeanUtil.getBean(RentalTelegramBot.class);
-
+    @Scheduled(fixedDelayString = "${delay.user.message}")
+    public void sendMessageLooper() {
         // Обрабатываю отправку сообщений каждые X секунд
-        Runnable sendMessageQueueLooper = () -> {
-            // Если отвечаем юзеру сообщением (первый приоритет)
-            if (this.messagesQueue.size() != 0) {
-                SendMessage newMessage = this.messagesQueue.pollFirst();
+        // Если отвечаем юзеру сообщением (первый приоритет)
+        if (this.messagesQueue.size() != 0) {
+            SendMessage newMessage = this.messagesQueue.pollFirst();
+            this.sendMessage(newMessage, bot);
+        } else { // Если происходит рассылка (второй приоритет)
+            if (this.bulkMessagesQueue.size() != 0) {
+                SendMessage newMessage = this.bulkMessagesQueue.pollFirst();
                 this.sendMessage(newMessage, bot);
-            } else { // Если происходит рассылка (второй приоритет)
-                if (this.bulkMessagesQueue.size() != 0) {
-                    SendMessage newMessage = this.bulkMessagesQueue.pollFirst();
-                    this.sendMessage(newMessage, bot);
-                }
             }
-        };
+        }
+    }
 
+    @Scheduled(fixedDelayString = "${delay.user.api}")
+    public void sendApiMethodLooper() {
         // Обрабатываю АПИ запросы каждые X секунд
-        Runnable sendMethodQueueLooper = () -> {
-            if (this.apiQueue.size() != 0) {
-                BotApiMethod<?> botApiMethod = this.apiQueue.pollFirst();
-                this.executeMethod(botApiMethod, bot);
-            }
-        };
+        if (this.apiQueue.size() != 0) {
+            BotApiMethod<?> botApiMethod = this.apiQueue.pollFirst();
+            this.executeMethod(botApiMethod, bot);
+        }
+    }
 
-        // Выполнение по расписанию
-        this.scheduleMessages.scheduleWithFixedDelay(sendMessageQueueLooper, 0, programVariables.getDelayUserMessage(), TimeUnit.MILLISECONDS);
-        this.scheduleMethods.scheduleWithFixedDelay(sendMethodQueueLooper, 0, programVariables.getDelayUserApi(), TimeUnit.MILLISECONDS);
-
-        /*long time1 = System.currentTimeMillis(), time2 = System.currentTimeMillis();
+    /*long time1 = System.currentTimeMillis(), time2 = System.currentTimeMillis();
         int c = 0;
         while(true) {
             if (!this.messagesQueue.isEmpty()) {
@@ -96,7 +94,38 @@ public class UserBotSendingQueue {
             }
         }*/
 
-    }
+
+    /*@Async
+    public void startQueue() {
+        final RentalTelegramBot bot = BeanUtil.getBean(RentalTelegramBot.class);
+
+        // Обрабатываю отправку сообщений каждые X секунд
+        Runnable sendMessageQueueLooper = () -> {
+            // Если отвечаем юзеру сообщением (первый приоритет)
+            if (this.messagesQueue.size() != 0) {
+                SendMessage newMessage = this.messagesQueue.pollFirst();
+                this.sendMessage(newMessage, bot);
+            } else { // Если происходит рассылка (второй приоритет)
+                if (this.bulkMessagesQueue.size() != 0) {
+                    SendMessage newMessage = this.bulkMessagesQueue.pollFirst();
+                    this.sendMessage(newMessage, bot);
+                }
+            }
+        };
+
+        // Обрабатываю АПИ запросы каждые X секунд
+        Runnable sendMethodQueueLooper = () -> {
+            if (this.apiQueue.size() != 0) {
+                BotApiMethod<?> botApiMethod = this.apiQueue.pollFirst();
+                this.executeMethod(botApiMethod, bot);
+            }
+        };
+
+        // Выполнение по расписанию
+        this.scheduleMessages.scheduleWithFixedDelay(sendMessageQueueLooper, 0, programVariables.getDelayUserMessage(), TimeUnit.MILLISECONDS);
+        this.scheduleMethods.scheduleWithFixedDelay(sendMethodQueueLooper, 0, programVariables.getDelayUserApi(), TimeUnit.MILLISECONDS);
+
+    }*/
 
     public void addBulkMessageToQueue(SendMessage sendMessage) {
         this.bulkMessagesQueue.add(sendMessage);

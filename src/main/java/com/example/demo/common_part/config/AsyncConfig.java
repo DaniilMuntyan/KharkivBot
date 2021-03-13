@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.task.TaskExecutor;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 
 @Configuration
 public class AsyncConfig {
@@ -21,7 +23,7 @@ public class AsyncConfig {
     }
 
     @Bean
-    public TaskExecutor getAsyncExecutor() {
+    public TaskExecutor taskExecutor() {
         ThreadPoolTaskExecutor taskExecutor = new ThreadPoolTaskExecutor();
         int corePoolSize = Integer.parseInt(programVariables.getThreadsCorePoolSize());
         int maxPoolSize = Integer.parseInt(programVariables.getThreadsMaxPoolSize());
@@ -33,5 +35,15 @@ public class AsyncConfig {
         LOGGER.info("Created TaskExecutor bean. CorePoolSize: " + corePoolSize + ". " +
                 "MaxPoolSize: " + maxPoolSize + ". " + "QueueCapacity: " + queueCapacity);
         return taskExecutor;
+    }
+
+    @Bean
+    public ThreadPoolTaskScheduler threadPoolTaskScheduler(){
+        ThreadPoolTaskScheduler threadPoolTaskScheduler
+                = new ThreadPoolTaskScheduler();
+        threadPoolTaskScheduler.setPoolSize(3);
+        threadPoolTaskScheduler.setThreadNamePrefix("ThreadPoolTaskScheduler");
+        LOGGER.info("Created ThreadPoolTaskScheduler bean. PoolSize: " + threadPoolTaskScheduler.getPoolSize());
+        return threadPoolTaskScheduler;
     }
 }

@@ -1,7 +1,7 @@
 package com.example.demo.user_bot.service;
 
 import com.example.demo.user_bot.botapi.RentalTelegramBot;
-import com.example.demo.user_bot.queue.UserBotSendingQueue;
+import com.example.demo.user_bot.schedule.UserBotSendingQueue;
 import com.example.demo.user_bot.service.handler.callback.UserBotCallbackHandler;
 import com.example.demo.user_bot.service.handler.message.UserBotMessageHandler;
 import org.apache.log4j.Logger;

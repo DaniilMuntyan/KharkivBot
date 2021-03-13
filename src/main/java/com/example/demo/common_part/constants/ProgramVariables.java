@@ -32,13 +32,13 @@ public final class ProgramVariables {
     @Getter
     private String telegramChannel;
 
-    @Value("${delay.user.message}")
+    /*@Value("${delay.user.message}")
     @Getter
     private Integer delayUserMessage;
 
     @Value("${delay.user.api}")
     @Getter
-    private Integer delayUserApi;
+    private Integer delayUserApi;*/
 
     @Value("${delay.channel.message}")
     @Getter
