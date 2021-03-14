@@ -4,6 +4,7 @@ import com.example.demo.common_part.model.User;
 import com.example.demo.common_part.repo.UserRepository;
 import com.example.demo.user_bot.cache.DataCache;
 import com.example.demo.user_bot.cache.UserCache;
+import com.example.demo.user_bot.schedule.UserBotSendingQueue;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,12 +15,14 @@ import java.util.*;
 public final class UserService {
     private static final Logger LOGGER = Logger.getLogger(UserService.class);
     private final DataCache dataCache;
+    private final UserBotSendingQueue userBotSendingQueue;
 
     private final UserRepository userRepository;
 
     @Autowired
-    public UserService(DataCache dataCache, UserRepository userRepository) {
+    public UserService(DataCache dataCache, UserBotSendingQueue userBotSendingQueue, UserRepository userRepository) {
         this.dataCache = dataCache;
+        this.userBotSendingQueue = userBotSendingQueue;
         this.userRepository = userRepository;
 
         // Добавляю всех юзеров из базы данных в HashMap
@@ -28,7 +31,7 @@ public final class UserService {
 
     private void initUsersCache() {
         List<User> allExistedUsers = this.findAllUsers();
-        Map<Long, UserCache> usersCache = this.dataCache.getUsersCache();
+        Map<Long, UserCache> usersCache = this.dataCache.getUsersCacheMap();
         for (User temp: allExistedUsers) {
             // saved ставлю true, потому что в базе он уже есть
             usersCache.put(temp.getChatId(), this.dataCache.getNewCacheFromUser(temp, true));

@@ -28,7 +28,7 @@ public enum BuyRange {
 
     BuyRange(final String range, final String identifier) {
         this.range = range + " $";
-        this.identifier = identifier;
+        this.identifier = "&!!" + identifier + "!!#";
     }
 
     public static List<String> getAllNames() {

@@ -1,12 +1,10 @@
 package com.example.demo.user_bot.service.handler.callback;
 
 import com.example.demo.common_part.constants.UserMenuVariables;
-import com.example.demo.common_part.model.User;
 import com.example.demo.user_bot.cache.UserCache;
 import com.example.demo.user_bot.service.entities.UserService;
-import com.example.demo.user_bot.service.handler.callback.init.InitCategoryCallbackHandler;
-import com.example.demo.user_bot.service.handler.callback.init.InitDistrictCallbackHandler;
-import com.example.demo.user_bot.service.handler.callback.init.InitRoomCallbackHandler;
+import com.example.demo.user_bot.service.handler.callback.init.*;
+import com.example.demo.user_bot.utils.UserState;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,14 +25,18 @@ public final class UserBotCallbackHandler {
     private final InitCategoryCallbackHandler initCategoryCallbackHandler;
     private final InitRoomCallbackHandler initRoomCallbackHandler;
     private final InitDistrictCallbackHandler initDistrictCallbackHandler;
+    private final InitBudgetCallbackHandler initBudgetCallbackHandler;
+    private final InitMenuEndHandler initMenuEndHandler;
 
     @Autowired
-    public UserBotCallbackHandler(UserService userService, UserMenuVariables userMenuVariables, InitCategoryCallbackHandler initCategoryCallbackHandler, InitRoomCallbackHandler initRoomCallbackHandler, InitDistrictCallbackHandler initDistrictCallbackHandler) {
+    public UserBotCallbackHandler(UserService userService, UserMenuVariables userMenuVariables, InitCategoryCallbackHandler initCategoryCallbackHandler, InitRoomCallbackHandler initRoomCallbackHandler, InitDistrictCallbackHandler initDistrictCallbackHandler, InitBudgetCallbackHandler initBudgetCallbackHandler, InitMenuEndHandler initMenuEndHandler) {
         this.userService = userService;
         this.userMenuVariables = userMenuVariables;
         this.initCategoryCallbackHandler = initCategoryCallbackHandler;
         this.initRoomCallbackHandler = initRoomCallbackHandler;
         this.initDistrictCallbackHandler = initDistrictCallbackHandler;
+        this.initBudgetCallbackHandler = initBudgetCallbackHandler;
+        this.initMenuEndHandler = initMenuEndHandler;
     }
 
     public List<BotApiMethod<?>> handleCallback(CallbackQuery callbackQuery) {
@@ -73,6 +75,18 @@ public final class UserBotCallbackHandler {
         // Если callback пришел от какой-то кнопки с меню районов
         if (data.startsWith(userMenuVariables.getMenuInitDistrictsBtnPrefixCallback())) {
             initDistrictCallbackHandler.handleCallback(response, callbackQuery, user.get());
+        }
+
+        // Если callback пришел от какой-то кнопки с меню бюджетов
+        if (data.startsWith(userMenuVariables.getMenuInitBudgetBtnRangePrefixCallback())) {
+            initBudgetCallbackHandler.handleCallback(response, callbackQuery, user.get());
+        }
+
+        // Если в initBudgetCallbackHandler изменили состояние на FIRST_INIT_END
+        if (user.get().getBotUserState() == UserState.FIRST_INIT_END) {
+            long time2 = System.currentTimeMillis();
+            initMenuEndHandler.handleInitMenuEnd(response, user.get());
+            LOGGER.info("Time handleInitMenuEnd: " + (System.currentTimeMillis() - time2));
         }
 
         userService.saveUserCache(user.get()); // Сохраняю все изменения юзера

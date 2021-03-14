@@ -13,7 +13,7 @@ public enum RentalRange {
 
     RentalRange(final String range, final String identifier) {
         this.range = range + " грн";
-        this.identifier = identifier;
+        this.identifier = "&!!" + identifier + "!!#";
     }
 
     public String getIdentifier() {

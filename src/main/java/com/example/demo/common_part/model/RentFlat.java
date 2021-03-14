@@ -5,9 +5,11 @@ import com.example.demo.common_part.utils.District;
 import com.example.demo.common_part.utils.Emoji;
 import com.example.demo.common_part.utils.RentalRange;
 import com.example.demo.common_part.utils.Rooms;
+import com.example.demo.user_bot.model.UserChoice;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Builder
 @NoArgsConstructor
@@ -80,6 +82,11 @@ public final class RentFlat {
     @Column(name="info")
     @Getter
     private String info;
+
+    /*@ManyToMany(mappedBy = "user_choice_rental")
+    @Getter
+    private Set<UserChoice> userChoices;*/
+
 
     public String getMarkdownMessage() {
         return (Emoji.RECORD + ((telegraph != null) ?

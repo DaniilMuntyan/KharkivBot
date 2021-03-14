@@ -30,7 +30,7 @@ public final class UserCacheSaver {
     @Scheduled(fixedDelayString = "${delay.user.saveToDb}")
     private void saveCache() {
         HashSet<User> newUsers = (HashSet<User>) dataCache.getNewUsersSet();
-        HashMap<Long, UserCache> cache = (HashMap<Long, UserCache>) dataCache.getUsersCache();
+        HashMap<Long, UserCache> cache = (HashMap<Long, UserCache>) dataCache.getUsersCacheMap();
 
         System.out.println(cache);
 
@@ -50,7 +50,7 @@ public final class UserCacheSaver {
         for (Map.Entry<Long, UserCache> entry : cache.entrySet()) {
             Long chatId = entry.getKey();
             UserCache userCache = entry.getValue();
-            if (!entry.getValue().getSaved()) { // Еще не были сохранены
+            if (!userCache.getSaved()) { // Еще не были сохранены
                 Optional<User> user = userService.findByChatId(chatId);
                 if (user.isPresent()) {
                     this.changeUser(user.get(), userCache);

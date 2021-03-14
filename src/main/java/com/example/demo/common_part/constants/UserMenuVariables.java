@@ -86,6 +86,12 @@ public class UserMenuVariables {
     @Getter
     private String menuInitBtnRoomNextCallback;
 
+    @Value("${user.bot.menuInit.budget.button.selectAll.text}")
+    private String menuInitBudgetSelectAllText;
+    public String getMenuInitBudgetSelectAllText() {
+        return MessageFormat.format(menuInitBudgetSelectAllText, Emoji.BOX_WITH_CHECK);
+    }
+
     @Value("${user.bot.menuInit.button.next.text}")
     private String menuInitBtnNextText;
     public String getMenuInitBtnNextText() {
@@ -101,8 +107,10 @@ public class UserMenuVariables {
     private String menuInitDistrictsBtnPrefixCallback;
 
     @Value("${user.bot.menuInit.districts.button.selectAll.text}")
-    @Getter
     private String menuInitDistrictBtnSelectAllText;
+    public String getMenuInitDistrictBtnSelectAllText() {
+        return MessageFormat.format(menuInitDistrictBtnSelectAllText, Emoji.BOX_WITH_CHECK);
+    }
     @Value("${user.bot.menuInit.districts.button.selectAll.callback}")
     @Getter
     private String menuInitDistrictBtnSelectAllCallback;
@@ -114,6 +122,10 @@ public class UserMenuVariables {
     @Value("${user.bot.menuInit.budget.button.rangePrefix.callback}")
     @Getter
     private String menuInitBudgetBtnRangePrefixCallback;
+
+    @Value("${user.bot.menuInit.budget.button.selectAll.callback}")
+    @Getter
+    private String menuInitBudgetBtnSelectAllCallback;
 
     @Value("${user.bot.menuInit.button.budgetNext.callback}")
     @Getter

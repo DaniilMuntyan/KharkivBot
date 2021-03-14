@@ -1,5 +1,6 @@
 package com.example.demo.user_bot.model;
 
+import com.example.demo.common_part.model.RentFlat;
 import com.example.demo.common_part.utils.BuyRange;
 import com.example.demo.common_part.utils.District;
 import com.example.demo.common_part.utils.RentalRange;
@@ -9,6 +10,7 @@ import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.TypeDefs;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Builder
 @NoArgsConstructor
@@ -45,24 +47,16 @@ public final class UserChoice {
     @Setter
     private String budget;
 
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name="user_choice_rental",
+            joinColumns = @JoinColumn(name = "user_choice_id"),
+            inverseJoinColumns = @JoinColumn(name = "flat_id"))
+    @Getter
+    private Set<RentFlat> userChoicesRent;
+
+
     public String getRooms() {
         return rooms != null ? rooms : "";
-    }
-
-    public void addRoom(Rooms newRoom) {
-        if (this.rooms != null) {
-            rooms += newRoom.getIdentifier() + " ";
-        } else {
-            rooms = newRoom.getIdentifier() + " ";
-        }
-    }
-
-    public void addDistrict(District newDistrict) {
-        if (this.districts != null) {
-            districts += newDistrict.getIdentifier() + " ";
-        } else {
-            districts = newDistrict.getIdentifier() + " ";
-        }
     }
 
     public String getDistricts() {
@@ -72,25 +66,6 @@ public final class UserChoice {
     public String getBudget() {
         return budget != null ? budget : "";
     }
-    /*public Enum<?>[] getBudget() {
-        if (this.budget != null) {
-            Enum<?>[] budgetEnums;
-            if (isRentFlat) { // Если пользователь хочет арендовать квартиру
-                budgetEnums = new RentalRange[this.budget.length()];
-                for (int i = 0; i < this.budget.length(); ++i) {
-                    budgetEnums[i] = RentalRange.valueOf(this.budget.charAt(i) + "");
-                }
-            } else { // Если пользователь хочет купить квартиру
-                budgetEnums = new BuyRange[this.budget.length()];
-                for (int i = 0; i < budget.length(); ++i) {
-                    budgetEnums[i] = BuyRange.valueOf(this.budget.charAt(i) + "");
-                }
-            }
-            return budgetEnums;
-        } else {
-            return null;
-        }
-    }*/
 
     public void addBudget(Enum<?> enumRange) {
         if (this.budget != null) {

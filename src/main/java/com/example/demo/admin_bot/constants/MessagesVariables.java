@@ -177,10 +177,22 @@ public class MessagesVariables {
         return MessageFormat.format(userInitBudgetText, Emoji.DOWN);
     }
 
+    @Value("${user.init.end.text}")
+    private String userInitEndText;
+    public String getUserInitEndText() {
+        return MessageFormat.format(userInitEndText, Emoji.OK, Emoji.WINK);
+    }
+
     @Value("${user.dontUnderstand.text}")
     private String userDontUnderstandText;
     public String getUserDontUnderstandText() {
         return MessageFormat.format(userDontUnderstandText, Emoji.SAD);
+    }
+
+    @Value("${user.antiSpam.text}")
+    private String userAntiSpamText;
+    public String getUserAntiSpamText() {
+        return MessageFormat.format(userAntiSpamText, Emoji.WARNING);
     }
 
 }

@@ -5,6 +5,8 @@ import com.example.demo.common_part.utils.BuyRange;
 import com.example.demo.common_part.utils.Emoji;
 import com.example.demo.common_part.utils.RentalRange;
 import com.example.demo.user_bot.model.UserChoice;
+import com.example.demo.user_bot.service.handler.callback.init.InitBudgetCallbackHandler;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
@@ -14,6 +16,8 @@ import java.util.List;
 
 @Component
 public final class InitBudgetKeyboard {
+    private static final Logger LOGGER = Logger.getLogger(InitBudgetKeyboard.class);
+
     private final UserMenuVariables userMenuVariables;
 
     public InitBudgetKeyboard(UserMenuVariables userMenuVariables) {
@@ -28,6 +32,7 @@ public final class InitBudgetKeyboard {
 
         List<InlineKeyboardButton> budgetButtons = new ArrayList<>();
 
+        LOGGER.info("BudgetChoice: " + budgetChoice + "\n" + budgetChoice.contains(RentalRange.UAH_6000_8000.getIdentifier()));
         if (userChoice.getIsRentFlat()) { // Если пользователь ищет арендовать квартиру
             for (RentalRange rentalRange: RentalRange.values()) {
                 // Callback состоит из префикса и идентификатора бюджета
@@ -61,6 +66,13 @@ public final class InitBudgetKeyboard {
                 rows.add(List.of(budgetButtons.get(i - 1)));
             }
         }
+
+        // Кнопка "выбрать все"
+        InlineKeyboardButton selectAllButton = InlineKeyboardButton.builder()
+                .text(userMenuVariables.getMenuInitBudgetSelectAllText())
+                .callbackData(userMenuVariables.getMenuInitBudgetBtnSelectAllCallback())
+                .build();
+        rows.add(List.of(selectAllButton));
 
         if (!userChoice.getBudget().isEmpty()) {
             InlineKeyboardButton buttonNext = InlineKeyboardButton.builder()

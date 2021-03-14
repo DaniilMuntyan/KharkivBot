@@ -17,7 +17,7 @@ public enum District {
 
     District(final String name, final String identifier) {
         this.name = name;
-        this.identifier = "&!!" + identifier + "!!&";
+        this.identifier = "&!!" + identifier + "!!#";
     }
 
     public String getIdentifier() {

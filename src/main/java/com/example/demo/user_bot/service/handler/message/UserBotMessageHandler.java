@@ -12,6 +12,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
+import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
 
 import java.util.ArrayList;
@@ -55,9 +56,20 @@ public final class UserBotMessageHandler {
             time1 = System.currentTimeMillis();
             response.addAll(handleUserMessage(message, newUserCache));
         } else {
-            user.get().setLastAction(new Date()); // Фиксируем последнее действие
-            time1 = System.currentTimeMillis();
-            response.addAll(handleUserMessage(message, user.get()));
+            LOGGER.info("Time from last message: " + (time1 - user.get().lastMessage()));
+            long timeFromLastMsg = time1 - user.get().lastMessage();
+            if (timeFromLastMsg < 1000) { // Если сообщения идут слишком часто
+                if (!user.get().getSpam()) { // Если пользователь не был в спаме - отправляю в спам
+                    response.add(this.antiSpam(user.get()));
+                    user.get().setSpam(true); // Отправляю в спам
+                }
+                // Если пользователь уже в спаме - ничего не делаем (ждем пока сделает паузу)
+            } else {
+                user.get().setSpam(false); // Убираю со спама
+                user.get().setLastAction(new Date()); // Фиксируем последнее действие
+                response.addAll(handleUserMessage(message, user.get()));
+            }
+            user.get().setLastMessage(time1); // Запоминаем время последнего сообщения
         }
         LOGGER.info("Time handleUserMessage: " + (System.currentTimeMillis() - time1));
 
@@ -71,9 +83,9 @@ public final class UserBotMessageHandler {
 
         // Порядок важен!
 
-        if (text.equals(Commands.START) && user.getBotUserState() != UserState.FIRST_INIT) {
+        /*if (text.equals(Commands.START) && user.getBotUserState() != UserState.FIRST_INIT) {
             user.setBotUserState(UserState.INIT);
-        }
+        }*/
 
         // Пользователь первый раз зашел в бота (/start)
         if (text.equals(Commands.START) && user.getBotUserState() == UserState.FIRST_INIT) {
@@ -81,5 +93,12 @@ public final class UserBotMessageHandler {
         }
 
         return userBotStateService.processUserInput(message, user);
+    }
+
+    private SendMessage antiSpam(UserCache userCache) {
+        SendMessage antiSpam = new SendMessage();
+        antiSpam.setChatId(userCache.getChatId().toString());
+        antiSpam.setText(messagesVariables.getUserAntiSpamText());
+        return antiSpam;
     }
 }
