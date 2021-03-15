@@ -1,5 +1,6 @@
 package com.example.demo.user_bot.cache;
 
+import com.example.demo.common_part.model.RentFlat;
 import com.example.demo.user_bot.model.UserChoice;
 import com.example.demo.user_bot.service.state_handler.UserBotStateService;
 import com.example.demo.user_bot.utils.UserState;
@@ -8,6 +9,7 @@ import lombok.Data;
 import lombok.Getter;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Builder
@@ -24,6 +26,7 @@ public final class UserCache { // Что храним в кэше
     private long lastMessage; // Когда было последнее сообщение - для антиспама
     private boolean saved; // Позывает, сохранен ли уже кэш в базе данных
     private boolean spam; // Показывает, пользователь в спаме или нет
+    private List<RentFlat> sentRentFlats; // Хранит уже отправленные пользователю квартиры под аренду
 
     public boolean getSaved() {
         return this.saved;
@@ -35,6 +38,10 @@ public final class UserCache { // Что храним в кэше
 
     public boolean getSpam() {
         return this.spam;
+    }
+
+    public void addSentRentFlat(RentFlat rentFlat) {
+        sentRentFlats.add(rentFlat);
     }
 
     public String getName(boolean withUsername) {

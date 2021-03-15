@@ -88,20 +88,8 @@ public final class RentFlat {
     private Set<UserChoice> userChoices;*/
 
 
-    public String getMarkdownMessage() {
-        return (Emoji.RECORD + ((telegraph != null) ?
-                (" [№ " + id.toString() + "](" + telegraph + ")" + "\n") : (" № " + id.toString() + "\n"))) +
-                ((rooms != null) ? (Emoji.ROOMS + " " + rooms + "к\n") : "") +
-                ((square != null && square != 0.0) ? (Emoji.SQUARE + " " + square + "м²\n") : "") +
-                ((floor != null && allFloors != null) ? (Emoji.FLOOR + " Этаж: " + floor + "/" + allFloors + "\n") : "") +
-                ((metro != null && !metro.isEmpty()) ? (Emoji.METRO + " " + metro + "\n") : "") +
-                ((address != null && !address.isEmpty()) ? (Emoji.ADDRESS + " " + address + "\n") : "") +
-                ((money != null && !money.isEmpty()) ? (Emoji.MONEY + " " + money + "\n") : "") +
-                ((info != null && !info.isEmpty()) ? (Emoji.INFO + " " + info + "\n") : "");
-    }
-
     public String getHtmlMessage() {
-        return (Emoji.RECORD  + ((telegraph != null) ? " <a href=\"№ " + htmlEncode(telegraph) + "\">" + id.toString() + "</a>" : " № " + id.toString())) + "\n" +
+        return (Emoji.RECORD  + ((telegraph != null) ? " <a href=\"" + htmlEncode(telegraph) + "\">№ " + id.toString() + "</a>" : " № " + id.toString())) + "\n" +
                 ((rooms != null) ? (Emoji.ROOMS + " " + rooms + (rooms != Rooms.GOSTINKA ? "к" : "") + "\n") : "") +
                 (((square != null && square != 0.0) ? (Emoji.SQUARE + " " + square + "м²\n") : "")) +
                 (((floor != null && allFloors != null) ? (Emoji.FLOOR + " Этаж: " + floor + "/" + allFloors + "\n") : "")) +
@@ -141,5 +129,9 @@ public final class RentFlat {
         this.rooms = adminChoice.getRooms();
         this.square = adminChoice.getSquare();
         this.telegraph = adminChoice.getTelegraph();
+    }
+
+    public String getHtmlMapLink() {
+        return htmlEncode(mapLink);
     }
 }

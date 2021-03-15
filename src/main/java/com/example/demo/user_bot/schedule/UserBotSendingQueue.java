@@ -131,6 +131,10 @@ public class UserBotSendingQueue {
         this.bulkMessagesQueue.add(sendMessage);
     }
 
+    public void addAllBulkMessageToQueue(List<SendMessage> sendMessage) {
+        this.bulkMessagesQueue.addAll(sendMessage);
+    }
+
     public void addMessageToQueue(SendMessage partialBotApiMethod) {
         this.messagesQueue.add(partialBotApiMethod);
     }

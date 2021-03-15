@@ -9,34 +9,38 @@ import com.example.demo.user_bot.keyboards.PublishFlatKeyboard;
 import com.example.demo.user_bot.schedule.UserBotSendingQueue;
 import com.example.demo.user_bot.service.entities.BuyFlatService;
 import com.example.demo.user_bot.service.entities.RentalFlatService;
+import com.example.demo.user_bot.service.entities.UserService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public final class PublishingService {
     private static final Logger LOGGER = Logger.getLogger(PublishingService.class);
-    private final UserRepository userRepository;
     private final RentalFlatService rentalFlatService;
     private final BuyFlatService buyFlatService;
     private final ProgramVariables programVariables;
+    private final UserService userService;
     private final UserBotSendingQueue userBotSendingQueue;
 
     @Autowired
-    public PublishingService(UserRepository userRepository, RentalFlatService rentalFlatService, BuyFlatService buyFlatService, ProgramVariables programVariables, UserBotSendingQueue userBotSendingQueue) {
-        this.userRepository = userRepository;
+    public PublishingService(RentalFlatService rentalFlatService, BuyFlatService buyFlatService, ProgramVariables programVariables, UserService userService, UserBotSendingQueue userBotSendingQueue) {
         this.rentalFlatService = rentalFlatService;
         this.buyFlatService = buyFlatService;
         this.programVariables = programVariables;
+        this.userService = userService;
         this.userBotSendingQueue = userBotSendingQueue;
     }
 
     public String publish(User admin, List<BotApiMethod<?>> response) {
-        List<User> allUsers = userRepository.findAll();
+        List<User> allUsers = userService.findAllUsers();
         String result;
 
         PublishFlatKeyboard publishFlatKeyboard = new PublishFlatKeyboard(admin.getAdminChoice());

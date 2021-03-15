@@ -56,6 +56,10 @@ public final class UserBotMessageHandler {
             time1 = System.currentTimeMillis();
             response.addAll(handleUserMessage(message, newUserCache));
         } else {
+            // Если написали во время подбора квартир - игнор
+            if (user.get().getBotUserState() == UserState.FLATS_MASSAGING) {
+                return response;
+            }
             LOGGER.info("Time from last message: " + (time1 - user.get().lastMessage()));
             long timeFromLastMsg = time1 - user.get().lastMessage();
             if (timeFromLastMsg < 1000) { // Если сообщения идут слишком часто

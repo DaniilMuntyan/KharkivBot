@@ -54,7 +54,6 @@ public final class UserChoice {
     @Getter
     private Set<RentFlat> userChoicesRent;
 
-
     public String getRooms() {
         return rooms != null ? rooms : "";
     }

@@ -27,9 +27,10 @@ public final class UserBotCallbackHandler {
     private final InitDistrictCallbackHandler initDistrictCallbackHandler;
     private final InitBudgetCallbackHandler initBudgetCallbackHandler;
     private final InitMenuEndHandler initMenuEndHandler;
+    private final SeeOthersCallbackHandler seeOthersCallbackHandler;
 
     @Autowired
-    public UserBotCallbackHandler(UserService userService, UserMenuVariables userMenuVariables, InitCategoryCallbackHandler initCategoryCallbackHandler, InitRoomCallbackHandler initRoomCallbackHandler, InitDistrictCallbackHandler initDistrictCallbackHandler, InitBudgetCallbackHandler initBudgetCallbackHandler, InitMenuEndHandler initMenuEndHandler) {
+    public UserBotCallbackHandler(UserService userService, UserMenuVariables userMenuVariables, InitCategoryCallbackHandler initCategoryCallbackHandler, InitRoomCallbackHandler initRoomCallbackHandler, InitDistrictCallbackHandler initDistrictCallbackHandler, InitBudgetCallbackHandler initBudgetCallbackHandler, InitMenuEndHandler initMenuEndHandler, SeeOthersCallbackHandler seeOthersCallbackHandler) {
         this.userService = userService;
         this.userMenuVariables = userMenuVariables;
         this.initCategoryCallbackHandler = initCategoryCallbackHandler;
@@ -37,6 +38,7 @@ public final class UserBotCallbackHandler {
         this.initDistrictCallbackHandler = initDistrictCallbackHandler;
         this.initBudgetCallbackHandler = initBudgetCallbackHandler;
         this.initMenuEndHandler = initMenuEndHandler;
+        this.seeOthersCallbackHandler = seeOthersCallbackHandler;
     }
 
     public List<BotApiMethod<?>> handleCallback(CallbackQuery callbackQuery) {
@@ -49,9 +51,12 @@ public final class UserBotCallbackHandler {
 
         String data = callbackQuery.getData();
 
+        LOGGER.info(data);
+
         // Если ткнули в неактуальное меню или ткнули в неактуальное меню
         boolean forbidden = user.isEmpty() || (user.get().getUserChoice().getMenuMessageId() != null &&
-                !user.get().getUserChoice().getMenuMessageId().equals(callbackQuery.getMessage().getMessageId()));
+                !user.get().getUserChoice().getMenuMessageId().equals(callbackQuery.getMessage().getMessageId()) &&
+                user.get().getBotUserState() != UserState.SENT_NOT_ALL); // И не идет процесс подбора квартир (не все квартиры прислали)
 
         if (forbidden) { // Возвращаем пустой список АПИ методов
             return response;
@@ -87,6 +92,13 @@ public final class UserBotCallbackHandler {
             long time2 = System.currentTimeMillis();
             initMenuEndHandler.handleInitMenuEnd(response, user.get());
             LOGGER.info("Time handleInitMenuEnd: " + (System.currentTimeMillis() - time2));
+        }
+
+        // Если нажали на какую-то кнопку из меню "Показать еще" для квартир
+        if (data.startsWith(userMenuVariables.getUserBotNotAllBtnCallbackPrefix())) {
+            long time2 = System.currentTimeMillis();
+            seeOthersCallbackHandler.handleCallback(response, callbackQuery, user.get());
+            LOGGER.info("Time seeOthersCallbackHandler.handleCallback: " + (System.currentTimeMillis() - time2));
         }
 
         userService.saveUserCache(user.get()); // Сохраняю все изменения юзера

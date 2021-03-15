@@ -303,4 +303,38 @@ public class UserMenuVariables {
         return MessageFormat.format(menu32BtnBackText, Emoji.BACK);
     }
 
+    @Value("${user.bot.notAll.button.seeOthers.text}")
+    private String userNotAllBtnSeeOthersText;
+    public String getUserNotAllBtnSeeOthersText() {
+        return MessageFormat.format(userNotAllBtnSeeOthersText, Emoji.EYES);
+    }
+    @Value("${user.bot.notAll.button.seeOthers.callback}")
+    @Getter
+    private String userNotAllBtnSeeOthersCallback;
+
+    @Value("${user.bot.notAll.button.enough.text}")
+    private String userNotAllBtnEnoughText;
+    public String getUserNotAllBtnEnoughText() {
+        return MessageFormat.format(userNotAllBtnEnoughText, Emoji.OK);
+    }
+    @Value("${user.bot.notAll.button.enough.callback}")
+    @Getter
+    private String userBotNotAllBtnEnoughCallback;
+
+    @Value("${user.bot.notAll.button.callbackPrefix}")
+    @Getter
+    private String userBotNotAllBtnCallbackPrefix;
+
+    @Value("${user.bot.flatMessage.button.map.text}")
+    private String userBotFlatMsgMapText;
+    public String getUserBotFlatMsgMapText() {
+        return MessageFormat.format(userBotFlatMsgMapText, Emoji.EARTH);
+    }
+
+    @Value("${user.bot.flatMessage.button.contact.text}")
+    private String userBotFlatMsgContactText;
+    public String getUserBotFlatMsgContactText() {
+        return MessageFormat.format(userBotFlatMsgContactText, Emoji.CONTACT);
+    }
+
 }

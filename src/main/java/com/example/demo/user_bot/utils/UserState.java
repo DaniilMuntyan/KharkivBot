@@ -9,7 +9,9 @@ public enum UserState {
     FIRST_INIT_ROOMS, // Первый раз, выбирает кол-во комнат
     FIRST_INIT_DISTRICTS, // Первый раз, выбирает районы
     FIRST_INIT_BUDGET, // Первый раз, выбирает сумму
-    FIRST_INIT_END; // Конец меню инициализации
+    FIRST_INIT_END, // Конец меню инициализации
+    FLATS_MASSAGING, // Состояние, в котором мы шлем пользователю подходящие квартиры
+    SENT_NOT_ALL; // Состояние после того, как отправили юзеру первые N квартир и сообщение "Показать еще"
 
     public static List<UserState> getFirstInit() {
         return List.of(FIRST_INIT, FIRST_INIT_CATEGORY, FIRST_INIT_ROOMS, FIRST_INIT_DISTRICTS, FIRST_INIT_BUDGET);

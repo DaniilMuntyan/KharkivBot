@@ -53,23 +53,14 @@ public final class UserCacheSaver {
             if (!userCache.getSaved()) { // Еще не были сохранены
                 Optional<User> user = userService.findByChatId(chatId);
                 if (user.isPresent()) {
-                    this.changeUser(user.get(), userCache);
+                    this.dataCache.updateUser(user.get());
                     userService.saveUser(user.get());
                     userCache.setSaved(true); // Пометили как сохраненный кэш
+                    //LOGGER.info("UserCache saved: " + (user.get().getUserChoice().getUserChoicesRent() != null));
                     c++;
                 }
             }
         }
         LOGGER.info("TIME update all changed users (" + c + "): " + (System.currentTimeMillis() - time1));
-    }
-
-    private void changeUser(User user, UserCache userCache) {
-        user.setFirstName(userCache.getFirstName());
-        user.setLastName(userCache.getLastName());
-        user.setUsername(userCache.getUsername());
-        user.setUserChoice(userCache.getUserChoice());
-        user.setBotUserState(userCache.getBotUserState());
-        user.setPhone(userCache.getPhone());
-        user.setLastAction(userCache.getLastAction());
     }
 }

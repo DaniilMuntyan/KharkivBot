@@ -195,4 +195,28 @@ public class MessagesVariables {
         return MessageFormat.format(userAntiSpamText, Emoji.WARNING);
     }
 
+    @Value("${user.sentAllFlats.text}")
+    private String userSentAllFlats;
+    public String getUserSentAllFlats() {
+        return MessageFormat.format(userSentAllFlats, Emoji.UP);
+    }
+
+    @Value("${user.sentNoFlats.text}")
+    private String userSentNoFlatsText;
+    public String getUserSentNoFlatsText() {
+        return MessageFormat.format(userSentNoFlatsText, Emoji.EYES);
+    }
+
+    @Value("${user.sentNotAllFlats.text}")
+    private String userSentNotAllFLatsText;
+    public String getUserSentNotAllFLatsText(String size) {
+        return MessageFormat.format(userSentNotAllFLatsText, Emoji.POINT_UP, size, Emoji.ARROW_DOWN);
+    }
+
+    @Value("${user.enough.text}")
+    private String userEnoughText;
+    public String getUserEnoughText() {
+        return MessageFormat.format(userEnoughText, Emoji.UP);
+    }
+
 }

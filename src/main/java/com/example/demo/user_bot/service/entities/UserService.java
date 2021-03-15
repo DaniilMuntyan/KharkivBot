@@ -48,7 +48,7 @@ public final class UserService {
     }
 
     public UserCache saveNewUser(User user) {
-        dataCache.newUser(user);
+        dataCache.newUser(this.userRepository.save(user));
         return dataCache.getUserCache(user);
     }
 

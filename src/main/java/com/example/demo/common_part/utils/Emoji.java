@@ -19,8 +19,8 @@ public enum Emoji {
     MONEY(":dollar:"),
     INFO(":information_source:"),
     NEXT(":arrow_right:"), DOWN(":point_down:"), SAD(":pensive:"), WINK(":wink:"),
-    OK(":ok_hand:"),
-    BOX_WITH_CHECK(":ballot_box_with_check:");
+    OK(":ok_hand:"), BOX_WITH_CHECK(":ballot_box_with_check:"), UP(":arrow_up:"),
+    EYES(":eyes:"), POINT_UP(":point_up:"), ARROW_DOWN(":arrow_down:");
 
     private final String emojiName;
 

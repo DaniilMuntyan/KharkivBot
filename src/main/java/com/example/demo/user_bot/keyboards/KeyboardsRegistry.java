@@ -24,14 +24,17 @@ public final class KeyboardsRegistry {
     private final InitBudgetKeyboard initBudgetKeyboard;
     @Getter
     private final Menu1Keyboard menu1;
+    @Getter
+    private final NotAllRentFlatsKeyboard notAllRentFlatsKeyboard;
 
     @Autowired
-    public KeyboardsRegistry(UserMenuVariables userMenuVariables, InitRoomsKeyboard initRoomsMenu, InitCategoryKeyboard initCategoryMenu, InitDistrictsKeyboard initDistrictsKeyboard, InitBudgetKeyboard initBudgetKeyboard, Menu1Keyboard menu1) {
+    public KeyboardsRegistry(UserMenuVariables userMenuVariables, InitRoomsKeyboard initRoomsMenu, InitCategoryKeyboard initCategoryMenu, InitDistrictsKeyboard initDistrictsKeyboard, InitBudgetKeyboard initBudgetKeyboard, Menu1Keyboard menu1, NotAllRentFlatsKeyboard notAllRentFlatsKeyboard) {
         this.userMenuVariables = userMenuVariables;
         this.initRoomsMenu = initRoomsMenu;
         this.initCategoryMenu = initCategoryMenu;
         this.initDistrictsKeyboard = initDistrictsKeyboard;
         this.initBudgetKeyboard = initBudgetKeyboard;
         this.menu1 = menu1;
+        this.notAllRentFlatsKeyboard = notAllRentFlatsKeyboard;
     }
 }
