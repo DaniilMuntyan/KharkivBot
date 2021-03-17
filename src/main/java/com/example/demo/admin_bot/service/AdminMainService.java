@@ -1,6 +1,5 @@
 package com.example.demo.admin_bot.service;
 
-import com.example.demo.admin_bot.queue.AdminBotChannelQueue;
 import com.example.demo.user_bot.schedule.UserBotSendingQueue;
 import com.example.demo.admin_bot.botapi.AdminTelegramBot;
 import com.example.demo.admin_bot.service.handler.AdminBotCallbackHandler;
@@ -22,14 +21,12 @@ public class AdminMainService {
     private final AdminBotMessageHandler adminBotMessageHandler;
     private final AdminBotCallbackHandler adminBotCallbackHandler;
     private final UserBotSendingQueue userBotSendingQueue;
-    private final AdminBotChannelQueue adminBotChannelQueue;
 
     @Autowired
-    public AdminMainService(AdminBotMessageHandler adminBotMessageHandler, AdminBotCallbackHandler adminBotCallbackHandler, UserBotSendingQueue userBotSendingQueue, AdminBotChannelQueue adminBotChannelQueue) {
+    public AdminMainService(AdminBotMessageHandler adminBotMessageHandler, AdminBotCallbackHandler adminBotCallbackHandler, UserBotSendingQueue userBotSendingQueue) {
         this.adminBotMessageHandler = adminBotMessageHandler;
         this.adminBotCallbackHandler = adminBotCallbackHandler;
         this.userBotSendingQueue = userBotSendingQueue;
-        this.adminBotChannelQueue = adminBotChannelQueue;
     }
 
     @Async

@@ -44,6 +44,10 @@ public final class ProgramVariables {
     @Getter
     private Integer delayChannelMessage;
 
+    @Value("${delay.user.spam}")
+    @Getter
+    private Integer delayUserSpam;
+
     @Value("${user.bot.numberOfFlats.perChat}")
     @Getter
     private Integer flatsNumberPerChat;

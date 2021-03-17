@@ -1,7 +1,9 @@
 package com.example.demo.user_bot.service.handler.message;
 
 import com.example.demo.admin_bot.constants.MessagesVariables;
+import com.example.demo.common_part.constants.ProgramVariables;
 import com.example.demo.common_part.model.User;
+import com.example.demo.user_bot.cache.DataCache;
 import com.example.demo.user_bot.cache.UserCache;
 import com.example.demo.user_bot.service.entities.UserService;
 import com.example.demo.user_bot.service.state_handler.UserBotStateService;
@@ -26,12 +28,17 @@ public final class UserBotMessageHandler {
     private final MessagesVariables messagesVariables;
     private final UserService userService;
     private final UserBotStateService userBotStateService;
+    private final ProgramVariables programVariables;
+
+    private final DataCache dataCache;
 
     @Autowired
-    public UserBotMessageHandler(MessagesVariables messagesVariables, UserService userService, UserBotStateService userBotStateService) {
+    public UserBotMessageHandler(MessagesVariables messagesVariables, UserService userService, UserBotStateService userBotStateService, ProgramVariables programVariables, DataCache dataCache) {
         this.messagesVariables = messagesVariables;
         this.userService = userService;
         this.userBotStateService = userBotStateService;
+        this.programVariables = programVariables;
+        this.dataCache = dataCache;
     }
 
     public List<BotApiMethod<?>> handleMessage(Message message) {
@@ -61,7 +68,7 @@ public final class UserBotMessageHandler {
             }
             LOGGER.info("Time from last message: " + (time1 - user.get().lastMessage()));
             long timeFromLastMsg = time1 - user.get().lastMessage();
-            if (timeFromLastMsg < 1000) { // Если сообщения идут слишком часто
+            if (timeFromLastMsg < programVariables.getDelayUserSpam()) { // Если сообщения идут слишком часто
                 if (!user.get().getSpam()) { // Если пользователь не был в спаме - отправляю в спам
                     response.add(this.antiSpam(user.get()));
                     user.get().setSpam(true); // Отправляю в спам
@@ -80,9 +87,9 @@ public final class UserBotMessageHandler {
     }
 
     private List<BotApiMethod<?>> handleUserMessage(Message message, UserCache user) {
-        Long chatId = message.getChatId();
         String text = message.getText().trim();
-        String username = message.getFrom().getUserName(); // Обновляю каждый раз, когда получаю новое сообщение
+
+        this.refreshUserName(message); // Обновляю каждый раз, когда получаю новое сообщение
 
         // Порядок важен!
 
@@ -96,6 +103,13 @@ public final class UserBotMessageHandler {
         }
 
         return userBotStateService.processUserInput(message, user);
+    }
+
+    private void refreshUserName(Message message) {
+        String username = message.getFrom().getUserName();
+        String firstName = message.getFrom().getFirstName();
+        String lastName = message.getFrom().getLastName();
+        this.dataCache.refreshUserName(message.getChatId(), username, firstName, lastName); // Обновляю имена пользователя
     }
 
     private SendMessage antiSpam(UserCache userCache) {

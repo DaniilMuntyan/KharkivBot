@@ -27,11 +27,6 @@ public final class UserService {
     }
 
     public void saveUser(User user) {
-        LOGGER.info("\nСОХРАНЯЕМ");
-        for (RentFlat temp: user.getUserChoice().getUserChoicesRent()) {
-            LOGGER.info("UserChoice temp: " + temp.getId() + "\n" + temp.getHtmlMessage() + "\n");
-        }
-        LOGGER.info("\n");
         userRepository.save(user);
     }
 

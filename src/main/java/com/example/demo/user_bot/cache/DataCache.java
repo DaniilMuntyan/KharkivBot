@@ -42,6 +42,13 @@ public final class DataCache {
         this.newBuyFlatsSet = new HashSet<>(); // Новых незарегистрированных квартир под продажу пока нет
     }
 
+    public void refreshUserName(Long chatId, String userName, String firstName, String lastName) {
+        this.usersCacheMap.get(chatId).setUsername(userName);
+        this.usersCacheMap.get(chatId).setFirstName(firstName);
+        this.usersCacheMap.get(chatId).setLastName(lastName);
+        this.markNotSaved(chatId); // Записываю на сохранение в базу
+    }
+
     public void newUser(User user) { // Добавление юзера с последующим сохранением в базе
         newUsersSet.add(user);
         usersCacheMap.put(user.getChatId(), new UserCache(user, false));
