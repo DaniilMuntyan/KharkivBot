@@ -1,5 +1,6 @@
 package com.example.demo.user_bot.model;
 
+import com.example.demo.common_part.model.BuyFlat;
 import com.example.demo.common_part.model.RentFlat;
 import com.example.demo.common_part.utils.BuyRange;
 import com.example.demo.common_part.utils.District;
@@ -10,6 +11,7 @@ import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.TypeDefs;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Builder
@@ -52,7 +54,35 @@ public final class UserChoice {
             joinColumns = @JoinColumn(name = "user_choice_id"),
             inverseJoinColumns = @JoinColumn(name = "flat_id"))
     @Getter
-    private Set<RentFlat> userChoicesRent;
+    @Setter
+    private Set<RentFlat> userChoicesRent; // Выбор пользователя по квартирам под аренду
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name="user_choice_buy",
+            joinColumns = @JoinColumn(name = "user_choice_id"),
+            inverseJoinColumns = @JoinColumn(name = "flat_id"))
+    @Getter
+    @Setter
+    private Set<BuyFlat> userChoicesBuy; // Выбор пользователя по квартирам под покупку
+
+    /*@Override
+    public boolean equals(Object obj) {
+        return this.getId().equals(((UserChoice) obj).getId());
+    }
+*/
+    public void addRentChoice(RentFlat rentFlat) {
+        if (this.userChoicesRent == null) {
+            this.userChoicesRent = new HashSet<>();
+        }
+        this.userChoicesRent.add(rentFlat);
+    }
+
+    public void addBuyChoice(BuyFlat buyFlat) {
+        if (this.userChoicesBuy == null) {
+            this.userChoicesBuy = new HashSet<>();
+        }
+        this.userChoicesBuy.add(buyFlat);
+    }
 
     public String getRooms() {
         return rooms != null ? rooms : "";

@@ -1,6 +1,7 @@
 package com.example.demo.user_bot.service.publishing;
 
 import com.example.demo.common_part.constants.UserMenuVariables;
+import com.example.demo.common_part.model.BuyFlat;
 import com.example.demo.common_part.model.RentFlat;
 import com.example.demo.user_bot.service.handler.callback.SeeOthersCallbackHandler;
 import org.apache.log4j.Logger;
@@ -45,6 +46,33 @@ public final class FlatMessageService {
             rows.add(List.of(buttonContact));
         }
 
+        if (rows.size() == 0) {
+            return null;
+        }
+
+        inlineKeyboardMarkup.setKeyboard(rows);
+        return inlineKeyboardMarkup;
+    }
+    private InlineKeyboardMarkup getNewFlatKeyboard(BuyFlat buyFlat) {
+        InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
+
+        List<List<InlineKeyboardButton>> rows = new ArrayList<>();
+
+        if (buyFlat.getMapLink() != null) {
+            InlineKeyboardButton buttonMap = InlineKeyboardButton.builder()
+                    .text(userMenuVariables.getUserBotFlatMsgMapText())
+                    .url(buyFlat.getHtmlMapLink())
+                    .build();
+            rows.add(List.of(buttonMap));
+        }
+
+        if (buyFlat.getContact() != null) {
+            InlineKeyboardButton buttonContact = InlineKeyboardButton.builder()
+                    .text(userMenuVariables.getUserBotFlatMsgContactText())
+                    .url(buyFlat.getContact())
+                    .build();
+            rows.add(List.of(buttonContact));
+        }
 
         if (rows.size() == 0) {
             return null;
@@ -54,7 +82,7 @@ public final class FlatMessageService {
         return inlineKeyboardMarkup;
     }
 
-    public SendMessage getMessageFromRentFlat(String chatId, RentFlat rentFlat) {
+    public SendMessage getMessageFromFlat(String chatId, RentFlat rentFlat) {
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(chatId);
         sendMessage.enableHtml(true);
@@ -63,8 +91,17 @@ public final class FlatMessageService {
         if (keyboard != null) {
             sendMessage.setReplyMarkup(keyboard);
         }
-        LOGGER.info(rentFlat.getHtmlMessage());
-        LOGGER.info(sendMessage);
+        return sendMessage;
+    }
+    public SendMessage getMessageFromFlat(String chatId, BuyFlat buyFlat) {
+        SendMessage sendMessage = new SendMessage();
+        sendMessage.setChatId(chatId);
+        sendMessage.enableHtml(true);
+        sendMessage.setText(buyFlat.getHtmlMessage());
+        InlineKeyboardMarkup keyboard = this.getNewFlatKeyboard(buyFlat);
+        if (keyboard != null) {
+            sendMessage.setReplyMarkup(keyboard);
+        }
         return sendMessage;
     }
 }

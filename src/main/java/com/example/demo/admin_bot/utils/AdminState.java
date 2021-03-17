@@ -18,17 +18,11 @@ public enum AdminState {
     ADMIN_SUBMENU_MAP, // Состояние бота после нажатия на кнопку подпункта "На карте"
     ADMIN_SUBMENU_CONTACT, // Состояние бота после нажатия на кнопку подпункта "Контакт"
     ADMIN_SUBMENU_PUBLISHING, // Состояние бота после нажатия на кнопку подпункта "Опубликовать"
-
-    /*USER_INIT; // Начальное состояние бота, после /start
-
-    public static AdminState[] getAdminStates() {
-        return new AdminState[] {ADMIN_INIT, ADMIN_EXIT, ADMIN_ADD_BUY_FLAT, ADMIN_ADD_RENT_FLAT, ADMIN_WRITE_MESSAGE,
-                ADMIN_WAIT_MESSAGE, ADMIN_SUBMENU_SQUARE, ADMIN_SUBMENU_FLOOR, ADMIN_SUBMENU_ALL_FLOORS,
-                ADMIN_SUBMENU_METRO, ADMIN_SUBMENU_ADDRESS, ADMIN_SUBMENU_PRICE, ADMIN_SUBMENU_PHOTO,
-                ADMIN_SUBMENU_INFO, ADMIN_SUBMENU_MAP, ADMIN_SUBMENU_CONTACT, ADMIN_SUBMENU_PUBLISHING};
-    }
-
-    public static AdminState[] getUserStates() {
-        return new AdminState[] {USER_INIT};
-    }*/
+    ADMIN_DELETE_RENT_FLAT, // Состояние бота после нажатия "Удалить квартиру (аренда)"
+    ADMIN_DELETE_BUY_FLAT, // Состояние бота после нажатия "Удалить квартиру (покупка)"
+    ADMIN_DELETE_CATEGORY, // Состояние бота после /delete. Меню выбора категории для удаления квартиры
+    ADMIN_DELETE_WAIT_RENT_ID, // Состояние бота - ждем пока админ введет ID-шник квартиры на удаление (аренда)
+    ADMIN_DELETE_WAIT_BUY_ID, // Состояние бота - ждем пока админ введет ID-шник квартиры на удаление (продажа)
+    ADMIN_DELETE_RENT_CONFIRM, // Состояние бота - ждем подтверждения удаления (сообщение с квартирой и инлайн кнопками)
+    ADMIN_DELETE_BUY_CONFIRM, // Состояние бота - ждем подтверждения удаления (сообщение с квартирой и инлайн кнопками)
 }

@@ -1,13 +1,22 @@
 package com.example.demo.admin_bot.service;
 
+import com.example.demo.admin_bot.botapi.AdminTelegramBot;
+import com.example.demo.admin_bot.cache.AdminCache;
 import com.example.demo.admin_bot.constants.MessagesVariables;
 import com.example.demo.admin_bot.keyboards.NewFlatMenu;
+import com.example.demo.admin_bot.keyboards.delete.ConfirmKeyboard;
+import com.example.demo.admin_bot.keyboards.delete.EnterIdKeyboard;
 import com.example.demo.admin_bot.keyboards.submenu.BulkMessageConfirmKeyboard;
 import com.example.demo.admin_bot.model.AdminChoice;
 import com.example.demo.admin_bot.utils.AdminState;
 import com.example.demo.common_part.constants.AdminMenuVariables;
+import com.example.demo.common_part.model.BuyFlat;
+import com.example.demo.common_part.model.RentFlat;
 import com.example.demo.common_part.model.User;
+import com.example.demo.common_part.utils.BeanUtil;
 import com.example.demo.common_part.utils.Emoji;
+import com.example.demo.user_bot.service.entities.BuyFlatService;
+import com.example.demo.user_bot.service.entities.RentalFlatService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,11 +26,13 @@ import org.telegram.telegrambots.meta.api.methods.updatingmessages.DeleteMessage
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageText;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardRemove;
+import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AdminBotStateService {
@@ -31,19 +42,27 @@ public class AdminBotStateService {
     private final AdminMenuVariables adminMenuVariables;
     private final MessagesVariables messagesVariables;
 
+    private final RentalFlatService rentalFlatService;
+    private final BuyFlatService buyFlatService;
+
+    private final AdminCache adminCache;
+
     // В некоторых методах возможен Exception, поэтому не всегда надо возвращаться в предыдущее состояние
-    private boolean notBack;
+    private boolean notBackToAdminMenu;
 
     @Autowired
-    public AdminBotStateService(AdminService adminService, AdminMenuVariables adminMenuVariables, MessagesVariables messagesVariables) {
+    public AdminBotStateService(AdminService adminService, AdminMenuVariables adminMenuVariables, MessagesVariables messagesVariables, RentalFlatService rentalFlatService, BuyFlatService buyFlatService, AdminCache adminCache) {
         this.adminService = adminService;
         this.adminMenuVariables = adminMenuVariables;
         this.messagesVariables = messagesVariables;
+        this.rentalFlatService = rentalFlatService;
+        this.buyFlatService = buyFlatService;
+        this.adminCache = adminCache;
     }
 
     public List<BotApiMethod<?>> processAdminInput(Message message, User admin) {
         List<BotApiMethod<?>> answer = new ArrayList<>();
-        notBack = true;
+        notBackToAdminMenu = true;
 
         // Если прислали /start - удалить текущее меню и прислать сообщение
         if (admin.getBotAdminState() == AdminState.ADMIN_INIT) {
@@ -63,6 +82,26 @@ public class AdminBotStateService {
         // Если нажали на кнопку "Добавить квартиру (аренда)"
         if (admin.getBotAdminState() == AdminState.ADMIN_ADD_RENT_FLAT) {
             processAddRentFlat(answer, message, admin);
+        }
+
+        // После команды "Удалить квартиру (аренда)"
+        if (admin.getBotAdminState() == AdminState.ADMIN_DELETE_RENT_FLAT) {
+            processDeleteRent(answer, admin);
+        }
+
+        // После команды "Удалить квартиру (продажа)"
+        if (admin.getBotAdminState() == AdminState.ADMIN_DELETE_BUY_FLAT) {
+            processDeleteBuy(answer, admin);
+        }
+
+        // Ввели айдишник квартиры (аренда)
+        if (admin.getBotAdminState() == AdminState.ADMIN_DELETE_WAIT_RENT_ID) {
+            processRentId(answer, message, admin);
+        }
+
+        // Ввели айдишник квартиры (продажа)
+        if (admin.getBotAdminState() == AdminState.ADMIN_DELETE_WAIT_BUY_ID) {
+            processBuyId(answer, message, admin);
         }
 
         // Порядок обработки ADMIN_WRITE_MESSAGE и ADMIN_WAIT_MESSAGE - важен.
@@ -128,9 +167,10 @@ public class AdminBotStateService {
         }
 
         // Возвращаемся
-        if(admin.getAdminChoice().getIsRentFlat() != null && !notBack) {
+        if (admin.getAdminChoice().getIsRentFlat() != null && !notBackToAdminMenu) {
             admin.setBotAdminState(admin.getAdminChoice().getIsRentFlat() ? AdminState.ADMIN_ADD_RENT_FLAT : AdminState.ADMIN_ADD_BUY_FLAT);
         }
+
 
         adminService.saveAdmin(admin); // Сохраняем измененные параметры администратора
 
@@ -152,7 +192,7 @@ public class AdminBotStateService {
         editMessageText.setReplyMarkup(newFlatMenu.getKeyboard());
         editMessageText.setText(admin.getAdminChoice().getIsRentFlat() ?
                 adminMenuVariables.getAdminAddRentFlatText() : adminMenuVariables.getAdminAddBuyFlatText());
-        this.notBack = false; // Поменяли клавиатуру - значит можем вернуться в предыдущее состояние поубликации квартиры
+        this.notBackToAdminMenu = false; // Поменяли клавиатуру - значит можем вернуться в предыдущее состояние поубликации квартиры
         return editMessageText;
     }
 
@@ -227,7 +267,6 @@ public class AdminBotStateService {
             admin.getAdminChoice().setAllFloors(allFloor);
             answer.add(getEditKeyboard(message.getChatId(), admin.getAdminChoice().getMenuMessageId(), admin));
         } catch (NumberFormatException ex) {
-            LOGGER.error("ALL FLOORS ERROR");
             LOGGER.error(ex);
         }
     }
@@ -335,7 +374,6 @@ public class AdminBotStateService {
             deleteMessage.setMessageId(admin.getAdminChoice().getMenuMessageId());
             deleteMessage.setChatId(message.getChatId().toString());
             admin.getAdminChoice().setMenuMessageId(null); // Удалили меню
-
             answer.add(deleteMessage);
         }
 
@@ -347,9 +385,136 @@ public class AdminBotStateService {
         textResponse.setReplyMarkup(ReplyKeyboardRemove.builder().removeKeyboard(true).build());
         textResponse.setText(MessageFormat.format(messagesVariables.getAdminBye(), Emoji.HI));
         answer.add(textResponse);
-
-        //adminService.setAdminChoice(admin, new AdminChoice());
     }
 
+    private void processDeleteRent(List<BotApiMethod<?>> answer, User admin) {
+        EnterIdKeyboard enterIdKeyboard = new EnterIdKeyboard();
 
+        SendMessage sendMessage = new SendMessage();
+        sendMessage.setChatId(admin.getChatId().toString());
+        sendMessage.setText(messagesVariables.getAdminDeleteEnterRentId());
+        sendMessage.setReplyMarkup(enterIdKeyboard.getKeyboard());
+        //answer.add(sendMessage);
+
+        AdminTelegramBot bot = BeanUtil.getBean(AdminTelegramBot.class);
+        try {
+            Message menu = bot.execute(sendMessage);
+            admin.getAdminChoice().setMenuMessageId(menu.getMessageId()); // Запоминаю айди меню
+        } catch (TelegramApiException e) {
+            LOGGER.error(e);
+            e.printStackTrace();
+        }
+
+        admin.setBotAdminState(AdminState.ADMIN_DELETE_WAIT_RENT_ID); // Ждем айдишник квартиры для аренды
+        adminService.saveAdmin(admin);
+    }
+
+    private void processDeleteBuy(List<BotApiMethod<?>> answer, User admin) {
+        EnterIdKeyboard enterIdKeyboard = new EnterIdKeyboard();
+
+        SendMessage sendMessage = new SendMessage();
+        sendMessage.setChatId(admin.getChatId().toString());
+        sendMessage.setText(messagesVariables.getAdminDeleteEnterBuyId());
+        sendMessage.setReplyMarkup(enterIdKeyboard.getKeyboard());
+        //answer.add(sendMessage);
+
+        AdminTelegramBot bot = BeanUtil.getBean(AdminTelegramBot.class);
+        try {
+            Message menu = bot.execute(sendMessage);
+            admin.getAdminChoice().setMenuMessageId(menu.getMessageId());
+        } catch (TelegramApiException e) {
+            LOGGER.error(e);
+            e.printStackTrace();
+        }
+
+        admin.setBotAdminState(AdminState.ADMIN_DELETE_WAIT_BUY_ID); // Ждем айдишник квартиры для продажи
+        adminService.saveAdmin(admin);
+    }
+
+    private void processRentId(List<BotApiMethod<?>> answer, Message message, User admin) {
+        String rentId = message.getText().trim();
+        try {
+            Long flatId = Long.valueOf(rentId);
+            Optional<RentFlat> rentFlat = this.rentalFlatService.findById(flatId);
+            if (rentFlat.isPresent()) { // Если удаляемая квартира существует
+                ConfirmKeyboard confirmKeyboard = new ConfirmKeyboard();
+
+                // Устанавливаю новый adminChoice - это rentFlat (для удаления)
+                adminService.setAdminChoice(admin,
+                        adminService.getAdminChoiceFromFlat(rentFlat.get(), admin.getAdminChoice().getMenuMessageId()));
+
+                adminCache.addFlatToDelete(admin.getChatId(), flatId); // Сохраняю айдишник квартиры на удаление в кэше
+
+                EditMessageText editMessageText = new EditMessageText(); // Сообщение с найденной квартирой
+                editMessageText.setChatId(admin.getChatId().toString());
+                editMessageText.setMessageId(admin.getAdminChoice().getMenuMessageId()); // Изменяю меню
+                editMessageText.setReplyMarkup(confirmKeyboard.getKeyboard());
+                editMessageText.enableHtml(true);
+                editMessageText.setDisableWebPagePreview(true); // Не показывать превью телеграфа для удобства
+                editMessageText.setText(admin.getAdminChoice().getHtmlMessage()); // Показываю adminChoice (что именно мы удаляем)
+
+                answer.add(editMessageText);
+
+                LOGGER.info("ADMIN FLAT ID: " + admin.getAdminChoice().getFlatId());
+
+                admin.setBotAdminState(AdminState.ADMIN_DELETE_RENT_CONFIRM); // Ждем подтверждения
+            } else {
+                EditMessageText editMessageText = new EditMessageText(); // Такого ID не существует
+                editMessageText.setChatId(admin.getChatId().toString());
+                editMessageText.setMessageId(admin.getAdminChoice().getMenuMessageId());
+                editMessageText.setText(messagesVariables.getAdminDeleteWrongId());
+
+                answer.add(editMessageText);
+
+                admin.getAdminChoice().setMenuMessageId(null); // Удалил меню
+                admin.setBotAdminState(AdminState.ADMIN_INIT); // Возвращаемся в исходное состояние
+            }
+            adminService.saveAdmin(admin); // Сохраняю измененное состояние
+        } catch (NumberFormatException ex) {
+            LOGGER.error(ex);
+            // Ничего не делаем (ждем пока введет правильно)
+        }
+    }
+    private void processBuyId(List<BotApiMethod<?>> answer, Message message, User admin) {
+        String buyId = message.getText().trim();
+        try {
+            Long flatId = Long.valueOf(buyId);
+            Optional<BuyFlat> buyFlat = this.buyFlatService.findById(flatId);
+            if (buyFlat.isPresent()) { // Если удаляемая квартира существует
+                ConfirmKeyboard confirmKeyboard = new ConfirmKeyboard();
+
+                // Устанавливаю новый adminChoice - это buyFlat (для удаления)
+                adminService.setAdminChoice(admin, adminService.getAdminChoiceFromFlat(buyFlat.get(),
+                        admin.getAdminChoice().getMenuMessageId()));
+
+                adminCache.addFlatToDelete(admin.getChatId(), flatId); // Сохраняю айдишник квартиры на удаление в кэше
+
+                EditMessageText editMessageText = new EditMessageText(); // Сообщение с найденной квартирой
+                editMessageText.setChatId(admin.getChatId().toString());
+                editMessageText.setMessageId(admin.getAdminChoice().getMenuMessageId()); // Изменяю меню
+                editMessageText.setReplyMarkup(confirmKeyboard.getKeyboard());
+                editMessageText.enableHtml(true);
+                editMessageText.setDisableWebPagePreview(true); // Не показывать превью телеграфа для удобства
+                editMessageText.setText(admin.getAdminChoice().getHtmlMessage()); // Показываю adminChoice (что именно мы удаляем)
+
+                answer.add(editMessageText);
+
+                admin.setBotAdminState(AdminState.ADMIN_DELETE_BUY_CONFIRM); // Ждем подтверждения
+            } else {
+                EditMessageText editMessageText = new EditMessageText(); // Такого ID не существует
+                editMessageText.setChatId(admin.getChatId().toString());
+                editMessageText.setMessageId(admin.getAdminChoice().getMenuMessageId());
+                editMessageText.setText(messagesVariables.getAdminDeleteWrongId());
+
+                answer.add(editMessageText);
+
+                admin.getAdminChoice().setMenuMessageId(null); // Удалил меню
+                admin.setBotAdminState(AdminState.ADMIN_INIT); // Возвращаемся в исходное состояние
+            }
+            adminService.saveAdmin(admin); // Сохраняю измененное состояние
+        } catch (NumberFormatException ex) {
+            LOGGER.error(ex);
+            // Ничего не делаем (ждем пока введет правильно)
+        }
+    }
 }

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.ThreadLocalRandom;
 
 @Service
@@ -44,19 +45,30 @@ public final class RentalFlatService {
             rentFlatRepository.save(rentFlat);
         }*/
 
-        // Добавляю все квартиры под аренду из базы данных в HashMap
-        this.initRentFlatsCache();
+        /*// Добавляю все квартиры под аренду из базы данных в HashMap
+        this.initRentFlatsCache();*/
 
     }
-    private void initRentFlatsCache() {
+    /*private void initRentFlatsCache() {
         List<RentFlat> allExistedRentFlats = this.rentFlatRepository.findAll();
         Map<Long, RentFlat> rentFlatsCache = this.dataCache.getRentFlatsCacheMap();
         for (RentFlat temp: allExistedRentFlats) {
             rentFlatsCache.put(temp.getId(), temp);
         }
         LOGGER.info("RentFlatsCache has " + rentFlatsCache.size() + " flats");
+    }*/
+
+    public void deleteRentFlat(Long flatId) {
+        this.rentFlatRepository.deleteById(flatId);
     }
 
+    public Optional<RentFlat> findById(Long id) {
+        return this.rentFlatRepository.findById(id);
+    }
+
+    public List<RentFlat> findAllRentFlats() {
+        return this.rentFlatRepository.findAll();
+    }
 
     public RentFlat save(RentFlat rentFlat) {
         return this.rentFlatRepository.save(rentFlat);

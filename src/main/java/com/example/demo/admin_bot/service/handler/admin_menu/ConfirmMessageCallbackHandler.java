@@ -45,10 +45,10 @@ public class ConfirmMessageCallbackHandler {
         // Если подтвердили рассылку сообщения
         if(data.equals(adminMenuVariables.getAdminBtnCallbackConfirmMessageYes())) {
             List<User> allUsers = userRepository.findAll();
-            SendMessage sendMessage = new SendMessage();
-            sendMessage.setText(callbackQuery.getMessage().getText());
-            sendMessage.setEntities(callbackQuery.getMessage().getEntities());
             for (User user: allUsers) {
+                SendMessage sendMessage = new SendMessage();
+                sendMessage.setText(callbackQuery.getMessage().getText());
+                sendMessage.setEntities(callbackQuery.getMessage().getEntities());
                 sendMessage.setChatId(user.getChatId().toString());
                 userBotSendingQueue.addBulkMessageToQueue(sendMessage);
                 //queryService.execute(sendMessage, admin);

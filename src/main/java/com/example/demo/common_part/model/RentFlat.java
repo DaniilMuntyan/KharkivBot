@@ -131,6 +131,11 @@ public final class RentFlat {
         this.telegraph = adminChoice.getTelegraph();
     }
 
+    /*@Override
+    public boolean equals(Object obj) {
+        return this.getId().equals(((RentFlat) obj).getId());
+    }*/
+
     public String getHtmlMapLink() {
         return htmlEncode(mapLink);
     }

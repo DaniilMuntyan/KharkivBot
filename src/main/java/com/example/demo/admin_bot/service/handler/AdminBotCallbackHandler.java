@@ -1,5 +1,6 @@
 package com.example.demo.admin_bot.service.handler;
 
+import com.example.demo.admin_bot.service.handler.delete.DeleteCallbackHandler;
 import com.example.demo.common_part.constants.AdminMenuVariables;
 import com.example.demo.admin_bot.constants.MessagesVariables;
 import com.example.demo.admin_bot.service.AdminService;
@@ -37,8 +38,10 @@ public final class AdminBotCallbackHandler {
     private final ConfirmMessageCallbackHandler confirmMessageCallbackHandler;
     private final ConfirmPublishCallbackHandler confirmPublishCallbackHandler;
 
+    private final DeleteCallbackHandler deleteCallbackHandler;
+
     @Autowired
-    public AdminBotCallbackHandler(AdminService adminService, UserRepository userRepository, MessagesVariables messagesVariables, AdminMenuVariables adminMenuVariables, AdminMenuCallbackHandler adminMenuCallbackHandler, RoomsCallbackHandler roomsCallbackHandler, DistrictCallbackHandler districtCallbackHandler, CancelSubmenuHandler cancelSubmenuHandler, MoneyRangeCallbackHandler moneyRangeCallbackHandler, ContactCallbackHandler contactCallbackHandler, ConfirmMessageCallbackHandler confirmMessageCallbackHandler, ConfirmPublishCallbackHandler confirmPublishCallbackHandler) {
+    public AdminBotCallbackHandler(AdminService adminService, UserRepository userRepository, MessagesVariables messagesVariables, AdminMenuVariables adminMenuVariables, AdminMenuCallbackHandler adminMenuCallbackHandler, RoomsCallbackHandler roomsCallbackHandler, DistrictCallbackHandler districtCallbackHandler, CancelSubmenuHandler cancelSubmenuHandler, MoneyRangeCallbackHandler moneyRangeCallbackHandler, ContactCallbackHandler contactCallbackHandler, ConfirmMessageCallbackHandler confirmMessageCallbackHandler, ConfirmPublishCallbackHandler confirmPublishCallbackHandler, DeleteCallbackHandler deleteCallbackHandler) {
         this.adminService = adminService;
         this.userRepository = userRepository;
         this.messagesVariables = messagesVariables;
@@ -51,6 +54,7 @@ public final class AdminBotCallbackHandler {
         this.contactCallbackHandler = contactCallbackHandler;
         this.confirmMessageCallbackHandler = confirmMessageCallbackHandler;
         this.confirmPublishCallbackHandler = confirmPublishCallbackHandler;
+        this.deleteCallbackHandler = deleteCallbackHandler;
     }
 
     // Обработка callback'а
@@ -132,6 +136,11 @@ public final class AdminBotCallbackHandler {
         // Кнопки подтверждения публикации квартиры
         if(callbackQuery.getData().startsWith(adminMenuVariables.getAdminBtnCallbackPublishPrefix())) {
             response.addAll(confirmPublishCallbackHandler.handlePublishConfirm(callbackQuery, admin));
+        }
+
+        // Кнопки из меню удаления
+        if (callbackQuery.getData().startsWith(adminMenuVariables.getDeleteBtnCallbackPrefix())) {
+            response.addAll(deleteCallbackHandler.handleDeleteCallback(callbackQuery, admin));
         }
 
         return response;

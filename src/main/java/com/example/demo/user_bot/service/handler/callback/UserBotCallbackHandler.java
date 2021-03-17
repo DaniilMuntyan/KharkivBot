@@ -8,6 +8,7 @@ import com.example.demo.user_bot.utils.UserState;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.telegram.telegrambots.meta.api.methods.AnswerCallbackQuery;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
 
@@ -51,16 +52,17 @@ public final class UserBotCallbackHandler {
 
         String data = callbackQuery.getData();
 
-        LOGGER.info(data);
-
         // Если ткнули в неактуальное меню или ткнули в неактуальное меню
         boolean forbidden = user.isEmpty() || (user.get().getUserChoice().getMenuMessageId() != null &&
                 !user.get().getUserChoice().getMenuMessageId().equals(callbackQuery.getMessage().getMessageId()) &&
-                user.get().getBotUserState() != UserState.SENT_NOT_ALL); // И не идет процесс подбора квартир (не все квартиры прислали)
+                user.get().getBotUserState() != UserState.SENT_NOT_ALL && user.get().getBotUserState() != UserState.FLATS_MASSAGING); // И не идет процесс подбора квартир (не все квартиры прислали)
 
         if (forbidden) { // Возвращаем пустой список АПИ методов
             return response;
         }
+
+        // Если не получили Forbidden - отвечаем на callback, чтобы ушел кружек загрузки
+        response.add(0, this.getAnswerCallback(callbackQuery));
 
         // Если нажали - запоминаем айди меню (в одно время может работать только одно)
         if (user.get().getUserChoice().getMenuMessageId() == null) {
@@ -104,5 +106,12 @@ public final class UserBotCallbackHandler {
         userService.saveUserCache(user.get()); // Сохраняю все изменения юзера
         LOGGER.info("Time handleCallback: " + (System.currentTimeMillis() - time1));
         return response;
+    }
+
+    private AnswerCallbackQuery getAnswerCallback(CallbackQuery callbackQuery) {
+        AnswerCallbackQuery answerCallbackQuery = new AnswerCallbackQuery();
+        answerCallbackQuery.setCallbackQueryId(callbackQuery.getId());
+        answerCallbackQuery.setShowAlert(false);
+        return answerCallbackQuery;
     }
 }

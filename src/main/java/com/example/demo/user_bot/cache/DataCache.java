@@ -1,5 +1,6 @@
 package com.example.demo.user_bot.cache;
 
+import com.example.demo.common_part.model.BuyFlat;
 import com.example.demo.common_part.model.RentFlat;
 import com.example.demo.common_part.model.User;
 import org.apache.log4j.Logger;
@@ -13,50 +14,117 @@ public final class DataCache {
 
     // Необходимые для кэша параметры
     // Ключ - chatId, значение - объект UserCache
-    private final Map<Long, UserCache> usersCacheMap = new HashMap<>();
+    private Map<Long, UserCache> usersCacheMap;
     // Set добавленных пользователей
-    private final Set<User> newUsersSet = new HashSet<>();
+    private Set<User> newUsersSet;
     // HashMap квартир под аренду
-    private final Map<Long, RentFlat> rentFlatsCacheMap = new HashMap<>();
+    private Map<Long, RentFlat> rentFlatsCacheMap;
+    // HashMap квартир на продажу
+    private Map<Long, BuyFlat> buyFlatsCacheMap;
     // HashMap квартир под аренду, которые еще не были отправлены пользователю, для которого они подходят
-    private final Map<Long, ArrayList<RentFlat>> notSentRentFlatsMap = new HashMap<>();
-    // Set добавленных квартир под аренду
-    private final Set<RentFlat> newRentFlatsSet = new HashSet<>();
+    private Map<Long, ArrayList<RentFlat>> notSentRentFlatsMap;
+    // HashMap квартир под продажу, которые еще не были отправлены пользователю, для которого они подходят
+    private Map<Long, ArrayList<BuyFlat>> notSentBuyFlatsMap;
+    // Set только добавленных квартир под аренду
+    private Set<RentFlat> newRentFlatsSet;
+    // Set только добавленных квартир под продажу
+    private Set<BuyFlat> newBuyFlatsSet;
 
-    public void newUser(User user) {
-        newUsersSet.add(user);
-        usersCacheMap.put(user.getChatId(), this.getNewCacheFromUser(user, false));
+    public DataCache() {
+        LOGGER.info("DataCache is creating...");
+        this.usersCacheMap = new HashMap<>(); // Загрузка из базы будет в InitCache
+        this.rentFlatsCacheMap = new HashMap<>(); // Загрузка из базы будет в InitCache
+        this.buyFlatsCacheMap = new HashMap<>(); // Загрузка из базы будет в InitCache
+        this.newUsersSet = new HashSet<>(); // Новых незарегистрированных пользователей пока нет
+        this.notSentRentFlatsMap = new HashMap<>(); // HashMap с неотправленными квартирами пока пуст
+        this.notSentBuyFlatsMap = new HashMap<>(); // HashMap с неотправленными квартирами пока пуст
+        this.newRentFlatsSet = new HashSet<>(); // Новых незарегистрированных квартир под аренду пока нет
+        this.newBuyFlatsSet = new HashSet<>(); // Новых незарегистрированных квартир под продажу пока нет
     }
 
-    public void newRentFlat(com.example.demo.common_part.model.RentFlat rentFlat) {
+    public void newUser(User user) { // Добавление юзера с последующим сохранением в базе
+        newUsersSet.add(user);
+        usersCacheMap.put(user.getChatId(), new UserCache(user, false));
+    }
+    public void addUser(User user) { // Добавление юзера без дополнительного сохранения в базе
+        usersCacheMap.put(user.getChatId(), new UserCache(user, false));
+    }
+
+    public void removeRentFlat(Long flatId) {
+        RentFlat rentFlat = this.rentFlatsCacheMap.get(flatId);
+        this.newRentFlatsSet.remove(rentFlat);
+        this.rentFlatsCacheMap.remove(flatId);
+        this.notSentRentFlatsMap.remove(flatId);
+    }
+    public void removeBuyFlat(Long flatId) {
+        BuyFlat buyFlat = this.buyFlatsCacheMap.get(flatId);
+        this.newBuyFlatsSet.remove(buyFlat);
+        this.buyFlatsCacheMap.remove(flatId);
+        this.notSentBuyFlatsMap.remove(flatId);
+    }
+
+    public void newBuyFlat(BuyFlat buyFlat) {
+        newBuyFlatsSet.add(buyFlat);
+    }
+    public void newRentFlat(RentFlat rentFlat) {
         newRentFlatsSet.add(rentFlat);
     }
 
+    public void removeUser(User user) {
+        this.usersCacheMap.remove(user.getChatId());
+        this.newUsersSet.remove(user);
+    }
+
     public void saveUser(User user) {
-        usersCacheMap.put(user.getChatId(), this.getNewCacheFromUser(user, false));
+        usersCacheMap.put(user.getChatId(), new UserCache(user, false));
     }
 
     public void saveUser(UserCache userCache) {
         usersCacheMap.put(userCache.getChatId(), userCache);
     }
 
+    public void markNotSaved(Long chatId) { // Чтобы сразу сохранили в БД по расписанию
+        this.usersCacheMap.get(chatId).setSaved(false);
+    }
+
     public Optional<UserCache> findUserByChatId(Long chatId) {
         return Optional.ofNullable(this.usersCacheMap.getOrDefault(chatId, null));
     }
 
-    public void setNotSentRentFlats(ArrayList<RentFlat> notSentRentFlats, UserCache user) {
-        this.notSentRentFlatsMap.put(user.getChatId(), notSentRentFlats);
+    public void setUserChoiceRentFlats(Set<RentFlat> userChoiceFlats, UserCache user) {
+        user.getUserChoice().setUserChoicesRent(userChoiceFlats);
     }
 
-    public void addNotSentFlat(UserCache user, RentFlat rentFlat) {
+    public void setUserChoiceBuyFlats(Set<BuyFlat> userChoiceFlats, UserCache user) {
+        user.getUserChoice().setUserChoicesBuy(userChoiceFlats);
+    }
+
+    public void setUsersCacheMap(Map<Long, UserCache> usersCacheMap) {
+        this.usersCacheMap = usersCacheMap;
+    }
+
+    public void setRentFlatsCacheMap(Map<Long, RentFlat> rentFlatsCacheMap) {
+        this.rentFlatsCacheMap = rentFlatsCacheMap;
+    }
+    public void setBuyFlatsCacheMap(Map<Long, BuyFlat> buyFlatsCacheMap) {
+        this.buyFlatsCacheMap = buyFlatsCacheMap;
+    }
+
+    public void setNotSentRentFlats(List<RentFlat> notSentRentFlats, UserCache user) {
+        this.notSentRentFlatsMap.put(user.getChatId(), (ArrayList<RentFlat>) notSentRentFlats);
+    }
+    public void setNotSentBuyFlats(List<BuyFlat> notSentBuyFlats, UserCache user) {
+        this.notSentBuyFlatsMap.put(user.getChatId(), (ArrayList<BuyFlat>) notSentBuyFlats);
+    }
+
+    /*public void addNotSentFlat(UserCache user, RentFlat rentFlat) {
         ArrayList<RentFlat> userRentList = this.notSentRentFlatsMap.get(user.getChatId());
         if (userRentList == null) {
             userRentList = new ArrayList<>();
         }
         userRentList.add(rentFlat);
         this.notSentRentFlatsMap.put(user.getChatId(), userRentList);
-        LOGGER.info("NEW notSentFlat. size: " + this.notSentRentFlatsMap.get(user.getChatId()));
-    }
+    }*/
 
     public void removeNotSentFlat(UserCache user, RentFlat rentFlat) {
         ArrayList<RentFlat> userRentList = this.notSentRentFlatsMap.get(user.getChatId());
@@ -66,24 +134,13 @@ public final class DataCache {
         userRentList.remove(rentFlat);
         this.notSentRentFlatsMap.put(user.getChatId(), userRentList);
     }
-
-    public UserCache getUserCache(User user) {
-        return usersCacheMap.get(user.getChatId());
-    }
-
-    public UserCache getNewCacheFromUser (User user, boolean saved) {
-        return UserCache.builder()
-                .chatId(user.getChatId())
-                .botUserState(user.getBotUserState())
-                .firstName(user.getFirstName())
-                .lastName(user.getLastName())
-                .username(user.getUsername())
-                .userChoice(user.getUserChoice())
-                .phone(user.getPhone())
-                .lastAction(user.getLastAction())
-                .lastMessage(System.currentTimeMillis())
-                .saved(saved)
-                .build();
+    public void removeNotSentFlat(UserCache user, BuyFlat buyFlat) {
+        ArrayList<BuyFlat> userBuyList = this.notSentBuyFlatsMap.get(user.getChatId());
+        if (userBuyList == null) {
+            userBuyList = new ArrayList<>();
+        }
+        userBuyList.remove(buyFlat);
+        this.notSentBuyFlatsMap.put(user.getChatId(), userBuyList);
     }
 
     public void updateUser(User user) {
@@ -97,6 +154,12 @@ public final class DataCache {
         user.setLastAction(userCache.getLastAction());
     }
 
+
+    public UserCache getUserCache(User user) {
+        return usersCacheMap.get(user.getChatId());
+    }
+
+
     public Map<Long, UserCache> getUsersCacheMap() {
         return usersCacheMap;
     }
@@ -105,11 +168,20 @@ public final class DataCache {
         return rentFlatsCacheMap;
     }
 
+    public Map<Long, BuyFlat> getBuyFlatsCacheMap() {
+        return buyFlatsCacheMap;
+    }
+
     public Map<Long, ArrayList<RentFlat>> getNotSentRentFlatsMap() {
         return notSentRentFlatsMap;
+    }
+
+    public Map<Long, ArrayList<BuyFlat>> getNotSentBuyFlatsMap() {
+        return notSentBuyFlatsMap;
     }
 
     public Set<User> getNewUsersSet() {
         return newUsersSet;
     }
+
 }

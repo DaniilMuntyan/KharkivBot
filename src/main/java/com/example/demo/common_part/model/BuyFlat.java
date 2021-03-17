@@ -125,4 +125,13 @@ public final class BuyFlat {
         this.square = adminChoice.getSquare();
         this.telegraph = adminChoice.getTelegraph();
     }
+
+    /*@Override
+    public boolean equals(Object obj) {
+        return this.getId().equals(((BuyFlat) obj).getId());
+    }
+*/
+    public String getHtmlMapLink() {
+        return htmlEncode(mapLink);
+    }
 }

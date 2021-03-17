@@ -9,17 +9,22 @@ import com.example.demo.admin_bot.model.AdminChoice;
 import com.example.demo.common_part.model.User;
 import com.example.demo.common_part.repo.UserRepository;
 import com.example.demo.user_bot.service.publishing.PublishingService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
+import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
+import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageReplyMarkup;
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageText;
 import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardRemove;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public final class ConfirmPublishCallbackHandler {
+    private static final Logger LOGGER = Logger.getLogger(ConfirmPublishCallbackHandler.class);
     private final AdminMenuVariables adminMenuVariables;
     private final AdminService adminService;
     private final CommonMethods commonMethods;
@@ -51,11 +56,19 @@ public final class ConfirmPublishCallbackHandler {
             String result = publishingService.publish(admin, response);
 
             if (!result.equals("ERROR")) {
-                EditMessageText editMessageText = new EditMessageText();
-                editMessageText.setMessageId(messageId);
-                editMessageText.setChatId(chatId.toString());
-                editMessageText.setText(messagesVariables.getAdminConfirmPublishSuccess(result));
-                response.add(editMessageText);
+                EditMessageText addedFlat = new EditMessageText(); // Для отображения добавленной квартиры - админу
+                addedFlat.setChatId(admin.getChatId().toString());
+                addedFlat.setMessageId(messageId);
+                addedFlat.enableHtml(true);
+                addedFlat.setText(admin.getAdminChoice().getHtmlMessage());
+                addedFlat.setReplyMarkup(null);
+                response.add(addedFlat);
+
+                SendMessage sendMessage = new SendMessage();
+                sendMessage.setChatId(chatId.toString());
+                sendMessage.setText(messagesVariables.getAdminConfirmPublishSuccess(result));
+                sendMessage.setReplyMarkup(adminService.getMainMenu());
+                response.add(sendMessage);
 
                 // Возвращаем состояние в исходное
                 admin.setBotAdminState(AdminState.ADMIN_INIT);

@@ -32,7 +32,6 @@ public final class InitBudgetKeyboard {
 
         List<InlineKeyboardButton> budgetButtons = new ArrayList<>();
 
-        LOGGER.info("BudgetChoice: " + budgetChoice + "\n" + budgetChoice.contains(RentalRange.UAH_6000_8000.getIdentifier()));
         if (userChoice.getIsRentFlat()) { // Если пользователь ищет арендовать квартиру
             for (RentalRange rentalRange: RentalRange.values()) {
                 // Callback состоит из префикса и идентификатора бюджета

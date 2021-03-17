@@ -15,13 +15,25 @@ public class AdminMenuVariables {
     @Value("${admin.bot.button.addRentFlat.text}")
     private String addRentFlat;
     public String getAddRentFlatBtnText() {
-        return MessageFormat.format(addRentFlat, Emoji.MAIN_MENU);
+        return MessageFormat.format(addRentFlat, Emoji.PLUS);
+    }
+
+    @Value("${admin.bot.button.deleteRentFlat}")
+    private String deleteRentFlat;
+    public String getDeleteRentFlat() {
+        return MessageFormat.format(deleteRentFlat, Emoji.MINUS);
     }
 
     @Value("${admin.bot.button.addBuyFlat.text}")
     private String addBuyFlat;
     public String getAddBuyFlatBtnText() {
-        return MessageFormat.format(addBuyFlat, Emoji.MAIN_MENU);
+        return MessageFormat.format(addBuyFlat, Emoji.PLUS);
+    }
+
+    @Value("${admin.bot.button.deleteBuyFlat}")
+    private String deleteBuyFlat;
+    public String getDeleteBuyFlat() {
+        return MessageFormat.format(deleteBuyFlat, Emoji.MINUS);
     }
 
     @Value("${admin.bot.button.bulkMessage.text}")
@@ -298,4 +310,41 @@ public class AdminMenuVariables {
     public String getNewFlatBtnContact() {
         return MessageFormat.format(newFlatBtnContact, Emoji.CONTACT);
     }
+
+    @Value("${admin.bot.delete.button.text.rental}")
+    @Getter
+    private String deleteBtnTextRental;
+    @Value("${admin.bot.delete.button.callback.rental}")
+    @Getter
+    private String deleteBtnCallbackRental;
+
+    @Value("${admin.bot.delete.button.text.buy}")
+    @Getter
+    private String deleteBtnTextBuy;
+    @Value("${admin.bot.delete.button.callback.buy}")
+    @Getter
+    private String deleteBtnCallbackBuy;
+
+    @Value("${admin.bot.delete.button.text.cancel}")
+    private String deleteBtnTextCancel;
+    public String getDeleteBtnTextCancel() {
+        return MessageFormat.format(deleteBtnTextCancel, Emoji.CANCEL);
+    }
+    @Value("${admin.bot.delete.button.callback.cancel}")
+    @Getter
+    private String deleteBtnCallbackCancel;
+
+    @Value("${admin.bot.delete.button.text.confirm}")
+    private String deleteBtnTextConfirm;
+    public String getDeleteBtnTextConfirm() {
+        return MessageFormat.format(deleteBtnTextConfirm, Emoji.WARNING);
+    }
+    @Value("${admin.bot.delete.button.callback.confirm}")
+    @Getter
+    private String deleteBtnCallbackConfirm;
+
+    @Value("${admin.bot.delete.button.callback.prefix}")
+    @Getter
+    private String deleteBtnCallbackPrefix;
+
 }

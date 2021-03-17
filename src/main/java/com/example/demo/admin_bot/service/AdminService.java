@@ -1,38 +1,38 @@
 package com.example.demo.admin_bot.service;
 
-import com.example.demo.common_part.constants.AdminMenuVariables;
-import com.example.demo.common_part.constants.Commands;
+import com.example.demo.admin_bot.keyboards.MainMenuKeyboard;
+import com.example.demo.admin_bot.utils.AdminCommands;
 import com.example.demo.admin_bot.keyboards.NewFlatMenu;
 import com.example.demo.common_part.constants.ProgramVariables;
 import com.example.demo.admin_bot.model.AdminChoice;
+import com.example.demo.common_part.model.BuyFlat;
+import com.example.demo.common_part.model.RentFlat;
 import com.example.demo.common_part.model.User;
 import com.example.demo.common_part.repo.UserRepository;
+import com.example.demo.user_bot.cache.DataCache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.AnswerCallbackQuery;
 import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
-import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardButton;
-import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class AdminService {
     private final ProgramVariables programVariables;
-    private final AdminMenuVariables adminMenuVariables;
     private final UserRepository userRepository;
     private final AdminChoiceService adminChoiceService;
 
-    private ReplyKeyboardMarkup mainMenu;
+    private final DataCache dataCache;
+
+    private final MainMenuKeyboard mainMenuKeyboard;
 
     @Autowired
-    public AdminService(ProgramVariables programVariables, AdminMenuVariables adminMenuVariables, AdminChoiceService adminChoiceService, UserRepository userRepository) {
+    public AdminService(ProgramVariables programVariables, AdminChoiceService adminChoiceService, UserRepository userRepository, DataCache dataCache, MainMenuKeyboard mainMenuKeyboard) {
         this.programVariables = programVariables;
-        this.adminMenuVariables = adminMenuVariables;
         this.adminChoiceService = adminChoiceService;
         this.userRepository = userRepository;
+        this.dataCache = dataCache;
+        this.mainMenuKeyboard = mainMenuKeyboard;
     }
 
     public boolean isAdmin(User user) {
@@ -41,37 +41,8 @@ public class AdminService {
 
     public boolean isEnterAdminCommand(String text) {
         String[] arrayString = text.trim().split(" ");
-        return arrayString.length == 2 && arrayString[0].equals(Commands.ADMIN) &&
+        return arrayString.length == 2 && arrayString[0].equals(AdminCommands.ADMIN) &&
                 arrayString[1].equals(programVariables.getAdminPassword());
-    }
-
-    public ReplyKeyboardMarkup getMainMenu() {
-        if (mainMenu != null) {
-            return mainMenu;
-        }
-
-        ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup();
-        replyKeyboardMarkup.setResizeKeyboard(true);
-        replyKeyboardMarkup.setOneTimeKeyboard(true);
-
-        List<KeyboardRow> keyboard = new ArrayList<>();
-
-        KeyboardRow row1 = new KeyboardRow();
-        row1.add(new KeyboardButton(adminMenuVariables.getAddRentFlatBtnText()));
-        KeyboardRow row2 = new KeyboardRow();
-        row2.add(new KeyboardButton(adminMenuVariables.getAddBuyFlatBtnText()));
-        KeyboardRow row3 = new KeyboardRow();
-        row3.add(new KeyboardButton(adminMenuVariables.getBulkMessageText()));
-
-
-        keyboard.add(row1);
-        keyboard.add(row2);
-        keyboard.add(row3);
-
-        replyKeyboardMarkup.setKeyboard(keyboard);
-        this.mainMenu = replyKeyboardMarkup;
-
-        return this.mainMenu;
     }
 
     public AnswerCallbackQuery getAnswerCallback(CallbackQuery callbackQuery) {
@@ -79,6 +50,10 @@ public class AdminService {
         answerCallbackQuery.setCallbackQueryId(callbackQuery.getId());
         answerCallbackQuery.setShowAlert(false);
         return answerCallbackQuery;
+    }
+
+    public ReplyKeyboardMarkup getMainMenu() {
+        return this.mainMenuKeyboard.getMainMenu();
     }
 
     public NewFlatMenu getAddBuyFlatMenu() {
@@ -97,13 +72,57 @@ public class AdminService {
         return adminChoiceService.saveChoice(adminChoice);
     }
 
-    public User saveAdmin(User admin) {
-        return userRepository.save(admin);
+    public void saveAdmin(User admin) {
+        dataCache.saveUser(admin); // Сохраняю админа в кэше юзеров, чтобы потом кэш не перезаписал его в базе
+        userRepository.save(admin);
     }
 
     public void saveAdminState(User admin) {
         userRepository.editAdminState(admin.getId(), admin.getBotAdminState().ordinal());
+        dataCache.saveUser(admin); // Сохраняю админа в кэше (чтобы запись по расписанию не перезаписала изменения)
     }
+    
+    public AdminChoice getAdminChoiceFromFlat(RentFlat rentFlat, Integer menuMessageId) {
+        AdminChoice adminChoice = new AdminChoice();
+        adminChoice.setIsRentFlat(true);
+        adminChoice.setAddress(rentFlat.getAddress());
+        adminChoice.setFlatId(rentFlat.getId());
+        adminChoice.setAllFloors(rentFlat.getAllFloors());
+        adminChoice.setContact(rentFlat.getContact());
+        adminChoice.setFloor(rentFlat.getFloor());
+        adminChoice.setDistrict(rentFlat.getDistrict());
+        adminChoice.setMapLink(rentFlat.getMapLink());
+        adminChoice.setInfo(rentFlat.getInfo());
+        adminChoice.setMetro(rentFlat.getMetro());
+        adminChoice.setMoney(rentFlat.getMoney());
+        adminChoice.setMoneyRange(rentFlat.getRange().toString());
+        adminChoice.setRooms(rentFlat.getRooms());
+        adminChoice.setSquare(rentFlat.getSquare());
+        adminChoice.setTelegraph(rentFlat.getTelegraph());
+        adminChoice.setMenuMessageId(menuMessageId);
+        return adminChoice;
+    }
+    public AdminChoice getAdminChoiceFromFlat(BuyFlat buyFlat, Integer menuMessageId) {
+        AdminChoice adminChoice = new AdminChoice();
+        adminChoice.setIsRentFlat(false);
+        adminChoice.setAddress(buyFlat.getAddress());
+        adminChoice.setFlatId(buyFlat.getId());
+        adminChoice.setAllFloors(buyFlat.getAllFloors());
+        adminChoice.setContact(buyFlat.getContact());
+        adminChoice.setFloor(buyFlat.getFloor());
+        adminChoice.setDistrict(buyFlat.getDistrict());
+        adminChoice.setMapLink(buyFlat.getMapLink());
+        adminChoice.setInfo(buyFlat.getInfo());
+        adminChoice.setMetro(buyFlat.getMetro());
+        adminChoice.setMoney(buyFlat.getMoney());
+        adminChoice.setMoneyRange(buyFlat.getRange().toString());
+        adminChoice.setRooms(buyFlat.getRooms());
+        adminChoice.setSquare(buyFlat.getSquare());
+        adminChoice.setTelegraph(buyFlat.getTelegraph());
+        adminChoice.setMenuMessageId(menuMessageId);
+        return adminChoice;
+    }
+
 
     // Чтобы установить новый adminChoice для админа - сохранить новый и удалить предыдущий.
     // Чтобы не хранился в базе

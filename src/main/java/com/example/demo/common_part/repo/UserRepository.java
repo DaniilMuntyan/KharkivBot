@@ -23,4 +23,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Modifying
     @Query(value = "UPDATE \"user\" SET admin_state = ?2 WHERE user_id = ?1", nativeQuery = true)
     void editAdminState(long adminId, int state);
+
 }

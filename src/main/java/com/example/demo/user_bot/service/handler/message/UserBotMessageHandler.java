@@ -1,12 +1,11 @@
 package com.example.demo.user_bot.service.handler.message;
 
 import com.example.demo.admin_bot.constants.MessagesVariables;
-import com.example.demo.admin_bot.service.AdminBotStateService;
-import com.example.demo.common_part.constants.Commands;
 import com.example.demo.common_part.model.User;
 import com.example.demo.user_bot.cache.UserCache;
 import com.example.demo.user_bot.service.entities.UserService;
 import com.example.demo.user_bot.service.state_handler.UserBotStateService;
+import com.example.demo.user_bot.utils.UserCommands;
 import com.example.demo.user_bot.utils.UserState;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -92,7 +91,7 @@ public final class UserBotMessageHandler {
         }*/
 
         // Пользователь первый раз зашел в бота (/start)
-        if (text.equals(Commands.START) && user.getBotUserState() == UserState.FIRST_INIT) {
+        if (text.equals(UserCommands.START) && user.getBotUserState() == UserState.FIRST_INIT) {
             user.setBotUserState(UserState.FIRST_INIT_CATEGORY);
         }
 

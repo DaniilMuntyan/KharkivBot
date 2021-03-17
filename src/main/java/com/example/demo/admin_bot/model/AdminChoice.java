@@ -101,12 +101,23 @@ public final class AdminChoice {
     @Setter
     private String info;
 
+    @Transient
+    @Getter
+    @Setter
+    private Long flatId; // ID, которое получила добавленная квартира
+
+    /*@Override
+    public boolean equals(Object obj) {
+        return this.getId().equals(((AdminChoice) obj).getId());
+    }*/
+
     public AdminChoice(boolean isRentFlat) {
         this.isRentFlat = isRentFlat;
     }
 
     public String getHtmlMessage() { // Вынести в сервис
-        return ((telegraph != null) ? Emoji.RECORD + " <a href=\"" + prepareHtml(telegraph) + "\">№ XXXXXX</a>": "№ XXXXXX") + "\n" +
+        return ((telegraph != null) ? Emoji.RECORD + " <a href=\"" + prepareHtml(telegraph) + "\">№ " +
+                (flatId != null ? flatId : "XXXXXX") + "</a>": Emoji.RECORD + " № " + (flatId != null ? flatId : "XXXXXX")) + "\n" + // Если уже есть айди добавленной квартиры - пишем его, если нет - XXXXXX
                 ((rooms != null) ? (Emoji.ROOMS + " " + rooms + (rooms != Rooms.GOSTINKA ? "к" : "") + "\n") : "") +
                 (((square != null && square != 0.0) ? (Emoji.SQUARE + " " + square + "м²\n") : "")) +
                 (((floor != null && allFloors != null) ? (Emoji.FLOOR + " Этаж: " + floor + "/" + allFloors + "\n") : "")) +

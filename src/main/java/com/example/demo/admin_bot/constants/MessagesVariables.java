@@ -138,7 +138,48 @@ public class MessagesVariables {
     @Value("${admin.menu.confirmPublish.success}")
     private String adminConfirmPublishSuccess;
     public String getAdminConfirmPublishSuccess(String flatNumber) {
-        return MessageFormat.format(adminConfirmPublishSuccess, Emoji.SUCCESS, flatNumber);
+        return MessageFormat.format(adminConfirmPublishSuccess, Emoji.SUCCESS, flatNumber, Emoji.UP);
+    }
+
+    @Value("${admin.menu.delete.category}")
+    private String adminDeleteCategory;
+    public String getAdminDeleteCategory() {
+        return MessageFormat.format(adminDeleteCategory, Emoji.ARROW_DOWN);
+    }
+
+    @Value("${admin.menu.delete.enterRentId}")
+    private String adminDeleteEnterRentId;
+    public String getAdminDeleteEnterRentId() {
+        return MessageFormat.format(adminDeleteEnterRentId, Emoji.ARROW_DOWN);
+    }
+    @Value("${admin.menu.delete.enterBuyId}")
+    private String adminDeleteEnterBuyId;
+    public String getAdminDeleteEnterBuyId() {
+        return MessageFormat.format(adminDeleteEnterBuyId, Emoji.ARROW_DOWN);
+    }
+
+    @Value("${admin.menu.delete.success}")
+    private String adminDeleteSuccess;
+    public String getAdminDeleteSuccess(String flatId) {
+        return MessageFormat.format(adminDeleteSuccess, Emoji.BOX_WITH_CHECK, flatId);
+    }
+
+    @Value("${admin.menu.delete.canceled}")
+    private String adminDeleteCanceled;
+    public String getAdminDeleteCanceled() {
+        return MessageFormat.format(adminDeleteCanceled, Emoji.NO);
+    }
+
+    @Value("${admin.menu.delete.wrongId}")
+    private String adminDeleteWrongId;
+    public String getAdminDeleteWrongId() {
+        return MessageFormat.format(adminDeleteWrongId, Emoji.SAD);
+    }
+
+    @Value("${admin.foundNewFlat.text}")
+    private String adminFoundNewFlat;
+    public String getAdminFoundNewFlat() {
+        return MessageFormat.format(adminFoundNewFlat, Emoji.SMILE);
     }
 
     @Value("${user.hi}")
@@ -216,7 +257,7 @@ public class MessagesVariables {
     @Value("${user.enough.text}")
     private String userEnoughText;
     public String getUserEnoughText() {
-        return MessageFormat.format(userEnoughText, Emoji.UP);
+        return MessageFormat.format(userEnoughText, Emoji.OK, Emoji.SMILE);
     }
 
 }

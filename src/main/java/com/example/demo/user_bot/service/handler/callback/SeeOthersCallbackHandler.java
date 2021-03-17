@@ -54,51 +54,11 @@ public final class SeeOthersCallbackHandler {
             response.add(this.deleteApiMethod(callbackQuery.getMessage())); // Удаляю сообщение "Показать еще"
             if (user.getUserChoice().getIsRentFlat()) {
                 this.sendFoundFlatsService.sendNotSentRentFlats(user);
-                /*Map<Long, ArrayList<RentFlat>> notSentRentFlats = dataCache.getNotSentRentFlatsMap();
-                List<RentFlat> userNotSentRentFlats = notSentRentFlats.get(user.getChatId());
-                LOGGER.info("userNotSentRentFlats: " + userNotSentRentFlats);
-                if (userNotSentRentFlats == null) { // Если список еще не был создан ранее - создаем
-                    userNotSentRentFlats = new ArrayList<>();
-                }
-                user.setBotUserState(UserState.FLATS_MASSAGING); // Посылаем сообщения с квартирами
-                LOGGER.info("notSentRentFlats.size() " + userNotSentRentFlats.size());
-
-                if (userNotSentRentFlats.size() <= programVariables.getFlatsNumberPerChat()) { // Если нашлось квартир меньше, чем за один раз можно отправить
-                    for (RentFlat temp : userNotSentRentFlats) { // Отправляю все
-                        SendMessage sendMessage = this.flatMessageService.getMessageFromRentFlat(user.getChatId().toString(), temp);
-                        userBotSendingQueue.addBulkMessageToQueue(sendMessage);
-                    }
-                    userNotSentRentFlats.clear(); // Чищу со списка - т.к. уже отправили неотправленные квартиры
-                    user.setBotUserState(UserState.INIT); // Отправили все нужные квартиры
-                } else { // Если нашли больше квартир, чем можем отправить за раз - отправляем фиксированное число
-                    int c = 0;
-                    int notSent = 0; // Количество не отправленных квартир
-                    // Вспомогательный лист, чтобы не возникал java.util.ConcurrentModificationException
-                    List<RentFlat> listOfSentFlats = new ArrayList<>();
-                    for (RentFlat temp : userNotSentRentFlats) {
-                        if (c <= programVariables.getFlatsNumberPerChat()) { // Отправляю первые N
-                            SendMessage sendMessage = this.flatMessageService.getMessageFromRentFlat(user.getChatId().toString(), temp);
-                            userBotSendingQueue.addBulkMessageToQueue(sendMessage);
-                            listOfSentFlats.add(temp); // Добавляю в список отправленных квартир
-                        } else {
-                            notSent++;
-                        }
-                        c++;
-                    }
-                    // Удаляю со списка неотправленных квартир для текущего пользователя
-                    // все отправленные квартиры
-                    for (RentFlat temp: listOfSentFlats) {
-                        dataCache.removeNotSentFlat(user, temp);
-                    }
-                    SendMessage sentNotAll = new SendMessage();
-                    sentNotAll.setChatId(user.getChatId().toString());
-                    sentNotAll.setText(messagesVariables.getUserSentNotAllFLatsText(notSent + ""));
-                    sentNotAll.setReplyMarkup(keyboardsRegistry.getNotAllRentFlatsKeyboard().getKeyboard());
-                    userBotSendingQueue.addBulkMessageToQueue(sentNotAll);
-                    LOGGER.info("addBulkMessageToQueue !");
-                    user.setBotUserState(UserState.SENT_NOT_ALL); // Меняю состояние
-                }*/
+            } else {
+                this.sendFoundFlatsService.sendNotSentBuyFlats(user);
             }
+            this.dataCache.markNotSaved(user.getChatId()); // Помечаю юзера несохраненным - чтобы обновить в базе
+            //this.dataCache.saveUser(user); // Сохраняю изменения юзера
         }
         // Если нажали "Достаточно", убираем кнопки и меняем текст сообщения
         if (callbackQuery.getData().equals(userMenuVariables.getUserBotNotAllBtnEnoughCallback())) {

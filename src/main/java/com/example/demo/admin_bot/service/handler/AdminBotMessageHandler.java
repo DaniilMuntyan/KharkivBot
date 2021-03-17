@@ -3,13 +3,14 @@ package com.example.demo.admin_bot.service.handler;
 import com.example.demo.admin_bot.model.AdminChoice;
 import com.example.demo.admin_bot.service.AdminBotStateService;
 import com.example.demo.admin_bot.utils.AdminState;
-import com.example.demo.common_part.constants.Commands;
+import com.example.demo.admin_bot.utils.AdminCommands;
 import com.example.demo.common_part.constants.AdminMenuVariables;
 import com.example.demo.admin_bot.service.AdminService;
 import com.example.demo.admin_bot.constants.MessagesVariables;
 import com.example.demo.common_part.utils.Emoji;
 import com.example.demo.common_part.model.User;
 import com.example.demo.common_part.repo.UserRepository;
+import com.example.demo.user_bot.cache.DataCache;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,13 +32,16 @@ public class AdminBotMessageHandler {
     private final AdminMenuVariables adminMenuVariables;
     private final AdminBotStateService adminBotStateService;
 
+    private final DataCache dataCache;
+
     @Autowired
-    public AdminBotMessageHandler(UserRepository userRepository, AdminService adminService, MessagesVariables messagesVariables, AdminMenuVariables adminMenuVariables, AdminBotStateService adminBotStateService) {
+    public AdminBotMessageHandler(UserRepository userRepository, AdminService adminService, MessagesVariables messagesVariables, AdminMenuVariables adminMenuVariables, AdminBotStateService adminBotStateService, DataCache dataCache) {
         this.userRepository = userRepository;
         this.adminService = adminService;
         this.messagesVariables = messagesVariables;
         this.adminMenuVariables = adminMenuVariables;
         this.adminBotStateService = adminBotStateService;
+        this.dataCache = dataCache;
     }
 
     public List<BotApiMethod<?>> handleMessage(Message message) {
@@ -73,6 +77,7 @@ public class AdminBotMessageHandler {
                     newUser.setAdminChoice(new AdminChoice());
                     newUser.setBotAdminState(AdminState.ADMIN_INIT);
                     newUser = userRepository.save(newUser);
+                    dataCache.addUser(newUser); // Добавляю в кэш нового юзера
                     LOGGER.info("New admin: " + newUser.getName(true));
                 }
                 response.add(helloAdmin(textResponse));
@@ -101,7 +106,6 @@ public class AdminBotMessageHandler {
                 return response; // Возвращаем пустой
             }
             adminCommand = true;
-            LOGGER.info("handleAdminMessage. AddRentFlatButton");
             admin.setBotAdminState(AdminState.ADMIN_ADD_RENT_FLAT);
         }
         if (text.equals(adminMenuVariables.getAddBuyFlatBtnText())) { // Если выбрали "опубликовать квартиру для покупки"
@@ -110,8 +114,23 @@ public class AdminBotMessageHandler {
                 return response; // Возвращаем пустой
             }
             adminCommand = true;
-            LOGGER.info("handleAdminMessage. AddBuyFlatButton");
             admin.setBotAdminState(AdminState.ADMIN_ADD_BUY_FLAT);
+        }
+        if (text.equals(adminMenuVariables.getDeleteRentFlat())) { // Если выбрали "Удалить квартиру (аренда)"
+            if (admin.getAdminChoice().getMenuMessageId() != null) {
+                response.add(deleteApiMethod(message));
+                return response;
+            }
+            adminCommand = true;
+            admin.setBotAdminState(AdminState.ADMIN_DELETE_RENT_FLAT);
+        }
+        if (text.equals(adminMenuVariables.getDeleteBuyFlat())) { // Если выбрали "Удалить квартиру (продажа)"
+            if (admin.getAdminChoice().getMenuMessageId() != null) {
+                response.add(deleteApiMethod(message));
+                return response;
+            }
+            adminCommand = true;
+            admin.setBotAdminState(AdminState.ADMIN_DELETE_BUY_FLAT);
         }
         if(text.equals(adminMenuVariables.getBulkMessageText())) { // Если выбрали "Написать сообщение"
             if(admin.getAdminChoice().getMenuMessageId() != null) {
@@ -119,16 +138,23 @@ public class AdminBotMessageHandler {
                 return response;
             }
             adminCommand = true;
-            LOGGER.info("handleAdminMessage. BulkMessage");
             admin.setBotAdminState(AdminState.ADMIN_WRITE_MESSAGE);
         }
-        if (text.equals(Commands.START)) {
+        if (text.equals(AdminCommands.START)) {
             adminCommand = true;
             admin.setBotAdminState(AdminState.ADMIN_INIT);
         }
-        if (text.equals(Commands.EXIT)) {
+        if (text.equals(AdminCommands.EXIT)) {
             adminCommand = true;
             admin.setBotAdminState(AdminState.ADMIN_EXIT);
+        }
+        if (text.equals(AdminCommands.DELETE)) {
+            adminCommand = true;
+            admin.setBotAdminState(AdminState.ADMIN_DELETE_CATEGORY);
+        }
+        if (admin.getBotAdminState() == AdminState.ADMIN_DELETE_WAIT_RENT_ID ||
+                admin.getBotAdminState() == AdminState.ADMIN_DELETE_WAIT_BUY_ID) { // Если ждем ID
+            adminCommand = true;
         }
         if (checkMenuBotState(admin.getBotAdminState())) {
             adminCommand = true;

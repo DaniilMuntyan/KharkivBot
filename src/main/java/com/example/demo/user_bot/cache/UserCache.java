@@ -1,6 +1,7 @@
 package com.example.demo.user_bot.cache;
 
 import com.example.demo.common_part.model.RentFlat;
+import com.example.demo.common_part.model.User;
 import com.example.demo.user_bot.model.UserChoice;
 import com.example.demo.user_bot.service.state_handler.UserBotStateService;
 import com.example.demo.user_bot.utils.UserState;
@@ -8,13 +9,12 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 @Data
-@Builder
-public final class UserCache { // Что храним в кэше
-
+public final class UserCache { // Что храним в кэше юзера
     private Long chatId;
     private String firstName;
     private String lastName;
@@ -27,6 +27,20 @@ public final class UserCache { // Что храним в кэше
     private boolean saved; // Позывает, сохранен ли уже кэш в базе данных
     private boolean spam; // Показывает, пользователь в спаме или нет
     private List<RentFlat> sentRentFlats; // Хранит уже отправленные пользователю квартиры под аренду
+
+    public UserCache(User user, boolean saved) {
+        this.chatId = user.getChatId();
+        this.firstName = user.getFirstName();
+        this.lastName = user.getLastName();
+        this.username = user.getUsername();
+        this.botUserState = user.getBotUserState();
+        this.phone = user.getPhone();
+        this.userChoice = user.getUserChoice();
+        this.lastAction = user.getLastAction();
+        this.saved = saved;
+        this.spam = false;
+        this.sentRentFlats = new ArrayList<>();
+    }
 
     public boolean getSaved() {
         return this.saved;
