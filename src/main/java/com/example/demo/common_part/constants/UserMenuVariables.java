@@ -4,7 +4,6 @@ import com.example.demo.common_part.utils.Emoji;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.context.annotation.PropertySources;
 import org.springframework.stereotype.Component;
 
 import java.text.MessageFormat;
@@ -176,18 +175,22 @@ public class UserMenuVariables {
     @Getter
     private String menu2BtnBackCallback;
 
-    @Value("${user.bot.menu2.button.save.text}")
-    private String menu2BtnSaveText;
-    public String getMenu2BtnSaveText() {
-        return MessageFormat.format(menu2BtnSaveText, Emoji.SAVE);
+    @Value("${user.bot.menu2.button.search.text}")
+    private String menu2BtnSearchText;
+    public String getMenu2BtnSearchText() {
+        return MessageFormat.format(menu2BtnSearchText, Emoji.SEARCH);
     }
     @Value("${user.bot.menu2.button.save.callback}")
     @Getter
     private String menu2BtnSaveCallback;
 
-    @Value("${user.bot.menu3.button.notMailing.text}")
+    @Value("${user.bot.menu3.button.stopMailing.text}")
     @Getter
-    private String menu3BtnNotMailingText;
+    private String menu3BtnStopMailingText;
+
+    @Value("${user.bot.menu3.button.startMailing.text}")
+    @Getter
+    private String menu3BtnStartMailingText;
 
     @Value("${user.bot.menu3.button.enterPhone.text}")
     @Getter
@@ -274,9 +277,27 @@ public class UserMenuVariables {
     @Getter
     private String menu23BtnBackCallback;
 
+    @Value("${user.bot.menu2.3.button.selectAll.text}")
+    private String menu23BtnSelectAllText;
+    public String getMenu23BtnSelectAllText() {
+        return MessageFormat.format(menu23BtnSelectAllText, Emoji.BOX_WITH_CHECK);
+    }
+    @Value("${user.bot.menu2.3.button.selectAll.callback}")
+    @Getter
+    private String menu23BtnSelectAllCallback;
+
     @Value("${user.bot.menu2.3.button.districtPrefix.callback}")
     @Getter
     private String menu23BtnDistrictPrefixCallback;
+
+    @Value("${user.bot.menu2.4.budget.button.selectAll.text}")
+    private String menu24BtnBudgetSelectAllText;
+    public String getMenu24BtnBudgetSelectAllText() {
+        return MessageFormat.format(menu24BtnBudgetSelectAllText, Emoji.BOX_WITH_CHECK);
+    }
+    @Value("${user.bot.menu2.4.budget.button.selectAll.callback}")
+    @Getter
+    private String menu24BtnBudgetSelectAllCallback;
 
     @Value("${user.bot.menu2.4.button.back.text}")
     private String menu24BtnBackText;

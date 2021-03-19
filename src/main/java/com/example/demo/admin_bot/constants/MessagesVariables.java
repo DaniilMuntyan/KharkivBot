@@ -179,19 +179,19 @@ public class MessagesVariables {
     @Value("${admin.foundNewFlat.text}")
     private String adminFoundNewFlat;
     public String getAdminFoundNewFlat() {
-        return MessageFormat.format(adminFoundNewFlat, Emoji.SMILE);
+        return MessageFormat.format(adminFoundNewFlat, Emoji.WAVE, Emoji.SMILE);
     }
 
     @Value("${user.hi}")
     private String userHi;
     public String getUserHi(String name) {
-        return MessageFormat.format(userHi, Emoji.HI, name);
+        return MessageFormat.format(userHi, Emoji.WAVE, name);
     }
 
     @Value("${user.firstHi}")
     private String userFirstHi;
     public String getUserFirstHi(String name) {
-        return MessageFormat.format(userFirstHi, Emoji.HI, name);
+        return MessageFormat.format(userFirstHi, Emoji.WAVE, name, Emoji.SPEED);
     }
 
     @Value("${user.init.category.text}")
@@ -233,7 +233,7 @@ public class MessagesVariables {
     @Value("${user.antiSpam.text}")
     private String userAntiSpamText;
     public String getUserAntiSpamText() {
-        return MessageFormat.format(userAntiSpamText, Emoji.WARNING);
+        return MessageFormat.format(userAntiSpamText, Emoji.WARNING, Emoji.SAD);
     }
 
     @Value("${user.sentAllFlats.text}")
@@ -258,6 +258,67 @@ public class MessagesVariables {
     private String userEnoughText;
     public String getUserEnoughText() {
         return MessageFormat.format(userEnoughText, Emoji.OK, Emoji.SMILE);
+    }
+
+    @Value("${user.menu1.text}")
+    private String userMenu1Text;
+    public String getUserMenu1Text() {
+        return MessageFormat.format(userMenu1Text, Emoji.CLIPBOARD, Emoji.RAISED_HANDS, Emoji.ORANGE_DIAMOND);
+    }
+
+    @Value("${user.menu2.text}")
+    private String userMenu2Text;
+    public String getUserMenu2Text() {
+        return MessageFormat.format(userMenu2Text, Emoji.CLIPBOARD, Emoji.RAISED_HANDS,
+                Emoji.POINT_RIGHT, Emoji.SMILE);
+    }
+
+    @Value("${user.menu2.1.text}")
+    private String userMenu21Text;
+    public String getUserMenu21Text() {
+        return MessageFormat.format(userMenu21Text, Emoji.POINT_RIGHT);
+    }
+
+    @Value("${user.menu2.2.text}")
+    private String userMenu22Text;
+    public String getUserMenu22Text() {
+        return MessageFormat.format(userMenu22Text, Emoji.POINT_RIGHT);
+    }
+
+    @Value("${user.menu2.3.text}")
+    private String userMenu23Text;
+    public String getUserMenu23Text() {
+        return MessageFormat.format(userMenu23Text, Emoji.POINT_RIGHT);
+    }
+
+    @Value("${user.menu2.4.text}")
+    private String userMenu24Text;
+    public String getUserMenu24Text() {
+        return MessageFormat.format(userMenu24Text, Emoji.POINT_RIGHT);
+    }
+
+    @Value("${user.menu3.text}")
+    private String userMenu3Text;
+    public String getUserMenu3Text() {
+        return MessageFormat.format(userMenu3Text, Emoji.CLIPBOARD, Emoji.RAISED_HANDS, Emoji.ORANGE_DIAMOND);
+    }
+
+    @Value("${user.menu3.1.stopMailing.text}")
+    private String userMenu31StopMailingText;
+    public String getUserMenu31StopMailingText() {
+        return MessageFormat.format(userMenu31StopMailingText, Emoji.OK, Emoji.SMILE);
+    }
+
+    @Value("${user.menu3.1.startMailing.text}")
+    private String userMenu31StartMailingText;
+    public String getUserMenu31StartMailingText() {
+        return MessageFormat.format(userMenu31StartMailingText, Emoji.STARS_EYES);
+    }
+
+    @Value("${user.menu3.2.text}")
+    private String userMenu32Text;
+    public String getUserMenu32Text() {
+        return MessageFormat.format(userMenu32Text, Emoji.TELEPHONE);
     }
 
 }

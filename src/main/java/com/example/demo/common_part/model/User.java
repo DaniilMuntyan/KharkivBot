@@ -63,6 +63,9 @@ public final class User {
     @JoinColumn(name = "user_choice", referencedColumnName = "choice_id")
     private UserChoice userChoice;
 
+    @Column(name="wants_updates")
+    private Boolean wantsUpdates;
+
     @Column(name="created_at")
     @CreationTimestamp
     private Date createdAt;
@@ -79,6 +82,7 @@ public final class User {
         this.adminMode = false;
         this.botUserState = UserState.FIRST_INIT; // Пользователь новый => сначала выбирает параметры поиска
         this.userChoice = new UserChoice();
+        this.wantsUpdates = true;
     }
 
     public String getName(boolean withUsername) {

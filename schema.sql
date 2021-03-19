@@ -47,6 +47,7 @@ create table "user"(
                        phone varchar(20),
                        admin_choice INTEGER REFERENCES "admin_choice"(choice_id),
                        user_choice INTEGER REFERENCES "user_choice"(choice_id),
+                       wants_updates boolean,
                        created_at timestamp with time zone not null default now(),
                        last_action timestamp with time zone,
                        primary key(user_id)

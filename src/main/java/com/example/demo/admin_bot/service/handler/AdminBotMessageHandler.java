@@ -148,10 +148,6 @@ public class AdminBotMessageHandler {
             adminCommand = true;
             admin.setBotAdminState(AdminState.ADMIN_EXIT);
         }
-        if (text.equals(AdminCommands.DELETE)) {
-            adminCommand = true;
-            admin.setBotAdminState(AdminState.ADMIN_DELETE_CATEGORY);
-        }
         if (admin.getBotAdminState() == AdminState.ADMIN_DELETE_WAIT_RENT_ID ||
                 admin.getBotAdminState() == AdminState.ADMIN_DELETE_WAIT_BUY_ID) { // Если ждем ID
             adminCommand = true;
@@ -168,7 +164,7 @@ public class AdminBotMessageHandler {
                 SendMessage textResponse = new SendMessage();
                 textResponse.setChatId(chatId.toString());
                 textResponse.setReplyMarkup(adminService.getMainMenu());
-                textResponse.setText(MessageFormat.format(messagesVariables.getAdminHi(), Emoji.HI, admin.getName(false)));
+                textResponse.setText(MessageFormat.format(messagesVariables.getAdminHi(), Emoji.WAVE, admin.getName(false)));
                 response.add(textResponse);
             }
         }

@@ -3,9 +3,7 @@ package com.example.demo.user_bot.cache;
 import com.example.demo.common_part.model.RentFlat;
 import com.example.demo.common_part.model.User;
 import com.example.demo.user_bot.model.UserChoice;
-import com.example.demo.user_bot.service.state_handler.UserBotStateService;
 import com.example.demo.user_bot.utils.UserState;
-import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
 
@@ -26,6 +24,7 @@ public final class UserCache { // Что храним в кэше юзера
     private long lastMessage; // Когда было последнее сообщение - для антиспама
     private boolean saved; // Позывает, сохранен ли уже кэш в базе данных
     private boolean spam; // Показывает, пользователь в спаме или нет
+    private boolean wantsUpdates; // Хочет ли пользователь получать уведомления
     private List<RentFlat> sentRentFlats; // Хранит уже отправленные пользователю квартиры под аренду
 
     public UserCache(User user, boolean saved) {
@@ -38,10 +37,14 @@ public final class UserCache { // Что храним в кэше юзера
         this.userChoice = user.getUserChoice();
         this.lastAction = user.getLastAction();
         this.saved = saved;
+        this.wantsUpdates = user.getWantsUpdates();
         this.spam = false;
         this.sentRentFlats = new ArrayList<>();
     }
 
+    public boolean getIsWantsUpdates() {
+        return this.wantsUpdates;
+    }
     public boolean getSaved() {
         return this.saved;
     }

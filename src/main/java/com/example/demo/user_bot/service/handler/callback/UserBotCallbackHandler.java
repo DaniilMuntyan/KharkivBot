@@ -28,10 +28,10 @@ public final class UserBotCallbackHandler {
     private final InitDistrictCallbackHandler initDistrictCallbackHandler;
     private final InitBudgetCallbackHandler initBudgetCallbackHandler;
     private final InitMenuEndHandler initMenuEndHandler;
-    private final SeeOthersCallbackHandler seeOthersCallbackHandler;
+    private final SeeOthersOrEnoughCallbackHandler seeOthersOrEnoughCallbackHandler;
 
     @Autowired
-    public UserBotCallbackHandler(UserService userService, UserMenuVariables userMenuVariables, InitCategoryCallbackHandler initCategoryCallbackHandler, InitRoomCallbackHandler initRoomCallbackHandler, InitDistrictCallbackHandler initDistrictCallbackHandler, InitBudgetCallbackHandler initBudgetCallbackHandler, InitMenuEndHandler initMenuEndHandler, SeeOthersCallbackHandler seeOthersCallbackHandler) {
+    public UserBotCallbackHandler(UserService userService, UserMenuVariables userMenuVariables, InitCategoryCallbackHandler initCategoryCallbackHandler, InitRoomCallbackHandler initRoomCallbackHandler, InitDistrictCallbackHandler initDistrictCallbackHandler, InitBudgetCallbackHandler initBudgetCallbackHandler, InitMenuEndHandler initMenuEndHandler, SeeOthersOrEnoughCallbackHandler seeOthersOrEnoughCallbackHandler) {
         this.userService = userService;
         this.userMenuVariables = userMenuVariables;
         this.initCategoryCallbackHandler = initCategoryCallbackHandler;
@@ -39,7 +39,7 @@ public final class UserBotCallbackHandler {
         this.initDistrictCallbackHandler = initDistrictCallbackHandler;
         this.initBudgetCallbackHandler = initBudgetCallbackHandler;
         this.initMenuEndHandler = initMenuEndHandler;
-        this.seeOthersCallbackHandler = seeOthersCallbackHandler;
+        this.seeOthersOrEnoughCallbackHandler = seeOthersOrEnoughCallbackHandler;
     }
 
     public List<BotApiMethod<?>> handleCallback(CallbackQuery callbackQuery) {
@@ -99,7 +99,7 @@ public final class UserBotCallbackHandler {
         // Если нажали на какую-то кнопку из меню "Показать еще" для квартир
         if (data.startsWith(userMenuVariables.getUserBotNotAllBtnCallbackPrefix())) {
             long time2 = System.currentTimeMillis();
-            seeOthersCallbackHandler.handleCallback(response, callbackQuery, user.get());
+            seeOthersOrEnoughCallbackHandler.handleCallback(response, callbackQuery, user.get());
             LOGGER.info("Time seeOthersCallbackHandler.handleCallback: " + (System.currentTimeMillis() - time2));
         }
 

@@ -11,13 +11,13 @@ public enum UserState {
     FIRST_INIT_BUDGET, // Первый раз, выбирает сумму
     FIRST_INIT_END, // Конец меню инициализации
     FLATS_MASSAGING, // Состояние, в котором мы шлем пользователю подходящие квартиры
-    SENT_NOT_ALL; // Состояние после того, как отправили юзеру первые N квартир и сообщение "Показать еще"
-
-    public static List<UserState> getFirstInit() {
-        return List.of(FIRST_INIT, FIRST_INIT_CATEGORY, FIRST_INIT_ROOMS, FIRST_INIT_DISTRICTS, FIRST_INIT_BUDGET);
-    }
-
-    public static List<UserState> getNotFirst() {
-        return List.of(INIT);
-    }
+    SENT_NOT_ALL, // Состояние после того, как отправили юзеру первые N квартир и сообщение "Показать еще"
+    MENU1, // Главное меню (мои предпочтения и настройки)
+    MENU2, // Меню "Мои предпочтения"
+    MENU21, // Меню выбор категории
+    MENU22, // Меню выбор количества комнат
+    MENU23, // Меню выбор районов
+    MENU24, // Меню выбор бюджета
+    MENU3, // Меню "Настройки"
+    MENU32, // Меню отправить номер
 }

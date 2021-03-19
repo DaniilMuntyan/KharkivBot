@@ -41,6 +41,7 @@ public final class InitCache {
         for (BuyFlat temp: allExistedBuyFlats) {
             buyFlatsCache.put(temp.getId(), temp);
         }
+        LOGGER.info("ALL BuyFlats FROM DATABASE TO CACHE");
         return buyFlatsCache;
     }
     Map<Long, RentFlat> initRentFlatsCache() {
@@ -49,6 +50,7 @@ public final class InitCache {
         for (RentFlat temp: allExistedRentFlats) {
             rentFlatsCache.put(temp.getId(), temp);
         }
+        LOGGER.info("ALL RentFlats FROM DATABASE TO CACHE");
         return rentFlatsCache;
     }
 
@@ -59,6 +61,7 @@ public final class InitCache {
             // saved ставлю true, потому что в базе он уже есть
             usersCache.put(temp.getChatId(), new UserCache(temp, true));
         }
+        LOGGER.info("ALL Users FROM DATABASE TO CACHE");
         return usersCache;
     }
 }

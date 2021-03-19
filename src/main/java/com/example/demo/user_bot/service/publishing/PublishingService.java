@@ -6,7 +6,7 @@ import com.example.demo.common_part.model.BuyFlat;
 import com.example.demo.common_part.model.RentFlat;
 import com.example.demo.common_part.model.User;
 import com.example.demo.user_bot.cache.DataCache;
-import com.example.demo.user_bot.keyboards.PublishFlatKeyboard;
+import com.example.demo.user_bot.keyboards.PublishedFlatKeyboard;
 import com.example.demo.user_bot.schedule.UserBotSendingQueue;
 import com.example.demo.user_bot.service.entities.BuyFlatService;
 import com.example.demo.user_bot.service.entities.RentalFlatService;
@@ -46,11 +46,11 @@ public final class PublishingService {
         List<User> allUsers = userService.findAllUsers();
         String result;
 
-        PublishFlatKeyboard publishFlatKeyboard = new PublishFlatKeyboard(admin.getAdminChoice());
+        PublishedFlatKeyboard publishedFlatKeyboard = new PublishedFlatKeyboard(admin.getAdminChoice());
 
         SendMessage sendMessage = new SendMessage();
         sendMessage.enableHtml(true);
-        sendMessage.setReplyMarkup(publishFlatKeyboard.getKeyboard());
+        sendMessage.setReplyMarkup(publishedFlatKeyboard.getKeyboard());
         String foundNewFlatForYou = messagesVariables.getAdminFoundNewFlat() + "\n";
         String withoutNewFlatForYou = "."; // Квартира без надписи "Нашел новую квартиру для тебя"
         if (admin.getAdminChoice().getIsRentFlat()) {

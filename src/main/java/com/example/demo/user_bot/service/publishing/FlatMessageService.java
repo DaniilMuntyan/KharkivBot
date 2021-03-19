@@ -3,7 +3,6 @@ package com.example.demo.user_bot.service.publishing;
 import com.example.demo.common_part.constants.UserMenuVariables;
 import com.example.demo.common_part.model.BuyFlat;
 import com.example.demo.common_part.model.RentFlat;
-import com.example.demo.user_bot.service.handler.callback.SeeOthersCallbackHandler;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

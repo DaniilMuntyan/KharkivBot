@@ -140,7 +140,7 @@ public class AdminMenuCallbackHandler {
         // Посылаю сообщение
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(callbackQuery.getMessage().getChatId().toString());
-        sendMessage.setText(MessageFormat.format(messagesVariables.getAdminHi(), Emoji.HI, admin.getName(false)));
+        sendMessage.setText(MessageFormat.format(messagesVariables.getAdminHi(), Emoji.WAVE, admin.getName(false)));
         sendMessage.setReplyMarkup(adminService.getMainMenu());
         response.add(sendMessage);
     }

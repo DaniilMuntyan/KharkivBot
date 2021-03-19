@@ -34,8 +34,7 @@ public final class InitRoomsKeyboard {
         String roomChoice = userChoice.getRooms();
 
         InlineKeyboardButton buttonZero = InlineKeyboardButton.builder()
-                .text((roomChoice.contains(Rooms.GOSTINKA.getIdentifier()) ? Emoji.SELECTED + " ": "") +
-                        userMenuVariables.getMenuInitRoomsBtnRoom0Text())
+                .text((roomChoice.contains(Rooms.GOSTINKA.getIdentifier()) ? Emoji.SELECTED + " ": "") + userMenuVariables.getMenuInitRoomsBtnRoom0Text())
                 .callbackData(userMenuVariables.getMenuInitRoomsBtnRoom0Callback())
                 .build();
         InlineKeyboardButton buttonOne = InlineKeyboardButton.builder()

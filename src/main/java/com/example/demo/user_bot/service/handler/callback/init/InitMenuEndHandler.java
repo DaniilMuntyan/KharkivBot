@@ -5,7 +5,8 @@ import com.example.demo.common_part.model.BuyFlat;
 import com.example.demo.common_part.model.RentFlat;
 import com.example.demo.user_bot.cache.DataCache;
 import com.example.demo.user_bot.cache.UserCache;
-import com.example.demo.user_bot.model.UserChoice;
+import com.example.demo.user_bot.keyboards.KeyboardsRegistry;
+import com.example.demo.user_bot.service.publishing.FindFlatsService;
 import com.example.demo.user_bot.service.entities.UserService;
 import com.example.demo.user_bot.service.publishing.SendFoundFlatsService;
 import com.example.demo.user_bot.utils.UserState;
@@ -24,13 +25,17 @@ public final class InitMenuEndHandler {
     private final MessagesVariables messagesVariables;
     private final SendFoundFlatsService sendFoundFlatsService;
     private final UserService userService;
+    private final KeyboardsRegistry keyboardsRegistry;
+    private final FindFlatsService findFlatsService;
 
     @Autowired
-    public InitMenuEndHandler(DataCache dataCache, MessagesVariables messagesVariables, SendFoundFlatsService sendFoundFlatsService, UserService userService) {
+    public InitMenuEndHandler(DataCache dataCache, MessagesVariables messagesVariables, SendFoundFlatsService sendFoundFlatsService, UserService userService, KeyboardsRegistry keyboardsRegistry, FindFlatsService findFlatsService) {
         this.dataCache = dataCache;
         this.messagesVariables = messagesVariables;
         this.sendFoundFlatsService = sendFoundFlatsService;
         this.userService = userService;
+        this.keyboardsRegistry = keyboardsRegistry;
+        this.findFlatsService = findFlatsService;
     }
 
     public void handleInitMenuEnd(List<BotApiMethod<?>> response, UserCache user) {
@@ -44,7 +49,12 @@ public final class InitMenuEndHandler {
     }
 
     private void processRentFlats(UserCache user, List<BotApiMethod<?>> response) {
-        UserChoice userChoice = user.getUserChoice();
+        List<RentFlat> notSentRentFlats = new ArrayList<>(); // Список неотправленных юзеру квартир
+        Set<RentFlat> userChoiceFlats = new HashSet<>(); // Сэт квартир под выбор пользователя
+
+        this.findFlatsService.findRentFlatsForUser(user, notSentRentFlats, userChoiceFlats); // Заполняю списки
+
+        /*UserChoice userChoice = user.getUserChoice();
 
         Map<Long, RentFlat> rentFlatsCacheMap = dataCache.getRentFlatsCacheMap(); // Достаю все квартиры под аренду из кэша
 
@@ -64,15 +74,17 @@ public final class InitMenuEndHandler {
                 }
                 notSentRentFlats.add(rentFlat); // Пополняю список неотправленных юзеру квартир
             }
-        }
+        }*/
 
         // Устанавливаю список неотправленных квартир юзеру
         this.dataCache.setNotSentRentFlats(notSentRentFlats, user);
         // Устанавливаю только что заполненный, новый сэт квартир под выбор пользователя, так как теперь он полностью другой
         this.dataCache.setUserChoiceRentFlats(userChoiceFlats, user);
 
+        //user.setBotUserState(UserState.FLATS_MASSAGING); // Состояние - шлём квартиры
+
         if (notSentRentFlats.size() == 0) { // Если не нашлось квартир
-            response.add(this.flatsNotFoundMessage(user.getChatId().toString()));
+            response.add(this.flatsNotFoundMessage(user));
         } else { // Если подходящие квартиры есть
             sendFoundFlatsService.sendNotSentRentFlats(user);
         }
@@ -80,7 +92,11 @@ public final class InitMenuEndHandler {
         this.dataCache.saveUser(user); // Сохраняю изменения юзера
     }
     private void processBuyFlats(UserCache user, List<BotApiMethod<?>> response) {
-        UserChoice userChoice = user.getUserChoice();
+        List<BuyFlat> notSentBuyFlats = new ArrayList<>(); // Список неотправленных юзеру квартир
+        Set<BuyFlat> userChoiceFlats = new HashSet<>(); // Сэт квартир под выбор пользователя
+
+        this.findFlatsService.findBuyFlatsForUser(user, notSentBuyFlats, userChoiceFlats); // Заполняю списки
+        /*UserChoice userChoice = user.getUserChoice();
         Map<Long, BuyFlat> buyFlatsCacheMap = dataCache.getBuyFlatsCacheMap(); // Достаю все квартиры под продажу из кэша
 
         List<BuyFlat> notSentBuyFlats = new ArrayList<>(); // Список неотправленных юзеру квартир
@@ -95,11 +111,11 @@ public final class InitMenuEndHandler {
             if (this.userService.checkFlatWithUserChoice(buyFlat, userChoice)) { // Если параметры совпали
                 userChoiceFlats.add(buyFlat); // Добавляю квартиру к выбору пользователя
                 if (user.getSaved()) { // У юзера изменилось поле UserChoice и его нужно будет сохранить в базу
-                    user.setSaved(false);
+                    this.dataCache.markNotSaved(user.getChatId());
                 }
                 notSentBuyFlats.add(buyFlat); // Пополняю список неотправленных юзеру квартир
             }
-        }
+        }*/
 
         // Устанавливаю список неотправленных квартир юзеру
         this.dataCache.setNotSentBuyFlats(notSentBuyFlats, user);
@@ -107,7 +123,7 @@ public final class InitMenuEndHandler {
         this.dataCache.setUserChoiceBuyFlats(userChoiceFlats, user);
 
         if (userChoiceFlats.size() == 0) { // Если не нашлось квартир
-            response.add(this.flatsNotFoundMessage(user.getChatId().toString()));
+            response.add(this.flatsNotFoundMessage(user));
         } else { // Если подходящие квартиры есть
             sendFoundFlatsService.sendNotSentBuyFlats(user);
         }
@@ -115,18 +131,15 @@ public final class InitMenuEndHandler {
         this.dataCache.saveUser(user); // Сохраняю изменения юзера
     }
 
-    private SendMessage flatsNotFoundMessage(String chatId) {
+    private SendMessage flatsNotFoundMessage(UserCache user) {
         SendMessage sendMessage = new SendMessage();
-        sendMessage.setChatId(chatId);
+        sendMessage.setChatId(user.getChatId().toString());
         sendMessage.setText(messagesVariables.getUserSentNoFlatsText());
+        sendMessage.setReplyMarkup(keyboardsRegistry.getMenu1().getKeyboard()); // Меню 1
+
+        user.setBotUserState(UserState.MENU1); // Перешли в главное меню
+        this.dataCache.markNotSaved(user.getChatId()); // Сохраняю в базу измененное состояние
+
         return sendMessage;
     }
-
-    /*private void sendSentNotAllMessage(String chatId, int notSent) {
-        SendMessage sentNotAll = new SendMessage();
-        sentNotAll.setChatId(chatId);
-        sentNotAll.setText(messagesVariables.getUserSentNotAllFLatsText(notSent + ""));
-        sentNotAll.setReplyMarkup(keyboardsRegistry.getNotAllRentFlatsKeyboard().getKeyboard());
-        userBotSendingQueue.addBulkMessageToQueue(sentNotAll);
-    }*/
 }

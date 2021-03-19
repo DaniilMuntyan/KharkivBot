@@ -38,9 +38,7 @@ public final class SendFoundFlatsService {
         this.keyboardsRegistry = keyboardsRegistry;
     }
 
-    public void sendNotSentRentFlats(UserCache user) {
-        LOGGER.info("user getUserChoicesRent " + user.getUserChoice().getUserChoicesRent());
-
+    public void sendNotSentRentFlats(UserCache user) { // Отправка найденных квартир юзеру
         List<RentFlat> notSentRentFlats = dataCache.getNotSentRentFlatsMap().get(user.getChatId());
         if (notSentRentFlats == null) { // Если список еще не был создан ранее - создаем
             notSentRentFlats = new ArrayList<>();
@@ -48,18 +46,18 @@ public final class SendFoundFlatsService {
 
         user.setBotUserState(UserState.FLATS_MASSAGING); // Состояние - шлём квартиры
 
-        if (notSentRentFlats.size() <= programVariables.getFlatsNumberPerChat()) { // Если неотправленных квартир меньше, чем за один раз можно отправить
+        if (notSentRentFlats.size() < programVariables.getFlatsNumberPerChat()) { // Если неотправленных квартир меньше, чем за один раз можно отправить
             this.sendAllNotSentRent(notSentRentFlats, user); // Отправляю все
-            user.setBotUserState(UserState.INIT); // Отправили все нужные квартиры
-        } else { // Если неотправленных больше квартир, чем можем отправить за раз - отправляем фиксированное число
-            this.sendNotAllNotSentRent(notSentRentFlats, user);
+            user.setBotUserState(UserState.MENU1); // Отправили все нужные квартиры - переходим в главное меню
+        } else { // Если неотправленных квартир больше, чем можем отправить за раз - отправляем фиксированное число
+            this.sendNotAllNotSentRent(notSentRentFlats, user); // Отправить не все квартиры (фиксированное число)
             user.setBotUserState(UserState.SENT_NOT_ALL); // Меняю состояние - отправили не все квартиры
         }
 
         // Устанавливаю список неотправленных квартир юзеру
         this.dataCache.setNotSentRentFlats(notSentRentFlats, user);
     }
-    public void sendNotSentBuyFlats(UserCache user) {
+    public void sendNotSentBuyFlats(UserCache user) { // Отправка найденных квартир юзеру
         List<BuyFlat> notSentBuyFlats = dataCache.getNotSentBuyFlatsMap().get(user.getChatId());
         if (notSentBuyFlats == null) { // Если список еще не был создан ранее - создаем
             notSentBuyFlats = new ArrayList<>();
@@ -67,11 +65,11 @@ public final class SendFoundFlatsService {
 
         user.setBotUserState(UserState.FLATS_MASSAGING); // Состояние - шлём квартиры
 
-        if (notSentBuyFlats.size() <= programVariables.getFlatsNumberPerChat()) { // Если неотправленных квартир меньше, чем за один раз можно отправить
+        if (notSentBuyFlats.size() < programVariables.getFlatsNumberPerChat()) { // Если неотправленных квартир меньше, чем за один раз можно отправить
             this.sendAllNotSentBuy(notSentBuyFlats, user); // Отправляю все
-            user.setBotUserState(UserState.INIT); // Отправили все нужные квартиры
-        } else { // Если неотправленных больше квартир, чем можем отправить за раз - отправляем фиксированное число
-            this.sendNotAllNotSentBuy(notSentBuyFlats, user);
+            user.setBotUserState(UserState.MENU1); // Отправили все нужные квартиры - переходим в главное меню
+        } else { // Если неотправленных квартир больше, чем можем отправить за раз - отправляем фиксированное число
+            this.sendNotAllNotSentBuy(notSentBuyFlats, user); // Отправить не все (факсированное число)
             user.setBotUserState(UserState.SENT_NOT_ALL); // Меняю состояние - отправили не все квартиры
         }
 
@@ -84,7 +82,7 @@ public final class SendFoundFlatsService {
             SendMessage sendMessage = this.flatMessageService.getMessageFromFlat(user.getChatId().toString(), temp);
             userBotSendingQueue.addMessageToQueue(sendMessage);
         }
-        this.sentAllMessage(user.getChatId().toString()); // Закончили подбор
+        this.sentAllMessage(user.getChatId().toString()); // Отправляю сообщение "Вот все что мне удалось найти"
         userNotSentRentFlats.clear(); // Чищу со списка - т.к. уже отправили неотправленные квартиры
     }
     private void sendAllNotSentBuy(List<BuyFlat> userNotSentBuyFlats, UserCache user) {
@@ -92,7 +90,7 @@ public final class SendFoundFlatsService {
             SendMessage sendMessage = this.flatMessageService.getMessageFromFlat(user.getChatId().toString(), temp);
             userBotSendingQueue.addMessageToQueue(sendMessage);
         }
-        this.sentAllMessage(user.getChatId().toString()); // Закончили подбор
+        this.sentAllMessage(user.getChatId().toString()); // Отправляю сообщение "Вот все что мне удалось найти"
         userNotSentBuyFlats.clear(); // Чищу со списка - т.к. уже отправили неотправленные квартиры
     }
 
@@ -102,7 +100,7 @@ public final class SendFoundFlatsService {
         // Вспомогательный лист, чтобы не возникал java.util.ConcurrentModificationException
         List<RentFlat> listOfSentFlats = new ArrayList<>();
         for (RentFlat temp : userNotSentRentFlats) {
-            if (c <= programVariables.getFlatsNumberPerChat()) { // Отправляю первые N
+            if (c < programVariables.getFlatsNumberPerChat()) { // Отправляю первые N
                 SendMessage sendMessage = this.flatMessageService.getMessageFromFlat(user.getChatId().toString(), temp);
                 userBotSendingQueue.addMessageToQueue(sendMessage);
                 listOfSentFlats.add(temp); // Добавляю в список отправленных квартир
@@ -123,7 +121,7 @@ public final class SendFoundFlatsService {
         // Вспомогательный лист, чтобы не возникал java.util.ConcurrentModificationException
         List<BuyFlat> listOfSentFlats = new ArrayList<>();
         for (BuyFlat temp : userNotSentBuyFlats) {
-            if (c <= programVariables.getFlatsNumberPerChat()) { // Отправляю первые N
+            if (c < programVariables.getFlatsNumberPerChat()) { // Отправляю первые N
                 SendMessage sendMessage = this.flatMessageService.getMessageFromFlat(user.getChatId().toString(), temp);
                 userBotSendingQueue.addMessageToQueue(sendMessage);
                 listOfSentFlats.add(temp); // Добавляю в список отправленных квартир
@@ -151,6 +149,7 @@ public final class SendFoundFlatsService {
         SendMessage sentAll = new SendMessage();
         sentAll.setChatId(chatId);
         sentAll.setText(messagesVariables.getUserSentAllFlats());
+        sentAll.setReplyMarkup(keyboardsRegistry.getMenu1().getKeyboard());
         userBotSendingQueue.addMessageToQueue(sentAll);
     }
 }

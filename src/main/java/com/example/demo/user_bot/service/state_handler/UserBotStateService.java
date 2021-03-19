@@ -1,10 +1,10 @@
 package com.example.demo.user_bot.service.state_handler;
 
 import com.example.demo.admin_bot.constants.MessagesVariables;
-import com.example.demo.common_part.model.User;
 import com.example.demo.user_bot.cache.UserCache;
 import com.example.demo.user_bot.keyboards.KeyboardsRegistry;
 import com.example.demo.user_bot.service.entities.UserService;
+import com.example.demo.user_bot.service.handler.message.MessageHandlerRegistry;
 import com.example.demo.user_bot.utils.UserState;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,25 +24,47 @@ public class UserBotStateService {
     private final UserService userService;
     private final MessagesVariables messagesVariables;
     private final KeyboardsRegistry keyboardsRegistry;
+    private final MessageHandlerRegistry messageHandlerRegistry;
 
     @Autowired
-    public UserBotStateService(UserService userService, MessagesVariables messagesVariables, KeyboardsRegistry keyboardsRegistry) {
+    public UserBotStateService(UserService userService, MessagesVariables messagesVariables, KeyboardsRegistry keyboardsRegistry, MessageHandlerRegistry messageHandlerRegistry) {
         this.userService = userService;
         this.messagesVariables = messagesVariables;
         this.keyboardsRegistry = keyboardsRegistry;
+        this.messageHandlerRegistry = messageHandlerRegistry;
     }
 
     public List<BotApiMethod<?>> processUserInput(Message message, UserCache user) {
         long time1 = System.currentTimeMillis();
         List<BotApiMethod<?>> answer = new ArrayList<>();
 
-        if (user.getBotUserState() == UserState.FIRST_INIT_CATEGORY) {
-            this.processCategory(answer, message, user);
-        }
+        // Порядок важен! Так как внутри методов меняется состояние юзера,
+        // то возвращаясь сюда - можем зайти в следующий по порядку if
 
-        // Если прислали любое сообщение в начальном состоянии
-        if (user.getBotUserState() == UserState.INIT) {
-            this.processInit(answer, message, user);
+        LOGGER.info(message.getText() + " " + user.getBotUserState().toString());
+        switch(user.getBotUserState()) {
+            case MENU1: // Если пришло сообщение в состоянии Menu1 (скорее всего нажали кнопку)
+                answer.addAll(this.messageHandlerRegistry.getMenu1MessageHandler().handleMessage(message, user));
+                break;
+            case MENU2: // Если пришло сообщение в состоянии Menu2 (скорее всего нажали кнопку)
+            case MENU21: // Любое подменю с пункта "Мои предпочтения"
+            case MENU22: // Любое подменю с пункта "Мои предпочтения"
+            case MENU23: // Любое подменю с пункта "Мои предпочтения"
+            case MENU24: // Любое подменю с пункта "Мои предпочтения"
+                answer.addAll(this.messageHandlerRegistry.getMenu2MessageHandler().handleMessage(message, user));
+                break;
+            case MENU3: // Меню "Настройки"
+                answer.addAll(this.messageHandlerRegistry.getMenu3MessageHandler().handleMessage(message, user));
+                break;
+            case MENU32: // Меню "Указать номер телефона"
+                answer.addAll(this.messageHandlerRegistry.getMenu32MessageHandler().handleMessage(message, user));
+                break;
+            case FIRST_INIT_CATEGORY: // Меню инициализации, выбрать категорию
+                this.processCategory(answer, message, user);
+                break;
+            case INIT: // Если прислали любое сообщение в начальном состоянии
+                this.processInit(answer, message, user); // TODO: рассмотреть
+                break;
         }
 
         userService.saveUserCache(user); // Сохраняем измененные параметры администратора

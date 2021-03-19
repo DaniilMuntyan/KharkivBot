@@ -65,11 +65,6 @@ public final class UserChoice {
     @Setter
     private Set<BuyFlat> userChoicesBuy; // Выбор пользователя по квартирам под покупку
 
-    /*@Override
-    public boolean equals(Object obj) {
-        return this.getId().equals(((UserChoice) obj).getId());
-    }
-*/
     public void addRentChoice(RentFlat rentFlat) {
         if (this.userChoicesRent == null) {
             this.userChoicesRent = new HashSet<>();

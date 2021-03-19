@@ -30,14 +30,17 @@ public final class UserBotMessageHandler {
     private final UserBotStateService userBotStateService;
     private final ProgramVariables programVariables;
 
+    private final MessageHandlerRegistry messageHandlerRegistry;
+
     private final DataCache dataCache;
 
     @Autowired
-    public UserBotMessageHandler(MessagesVariables messagesVariables, UserService userService, UserBotStateService userBotStateService, ProgramVariables programVariables, DataCache dataCache) {
+    public UserBotMessageHandler(MessagesVariables messagesVariables, UserService userService, UserBotStateService userBotStateService, ProgramVariables programVariables, MessageHandlerRegistry messageHandlerRegistry, DataCache dataCache) {
         this.messagesVariables = messagesVariables;
         this.userService = userService;
         this.userBotStateService = userBotStateService;
         this.programVariables = programVariables;
+        this.messageHandlerRegistry = messageHandlerRegistry;
         this.dataCache = dataCache;
     }
 
@@ -87,17 +90,18 @@ public final class UserBotMessageHandler {
     }
 
     private List<BotApiMethod<?>> handleUserMessage(Message message, UserCache user) {
-        String text = message.getText().trim();
+        String text = message.getText().trim(); // TODO: Exception, если прислали свой номер (контакт)
 
         this.refreshUserName(message); // Обновляю каждый раз, когда получаю новое сообщение
 
-        // Порядок важен!
+        // Порядок важен! Так как в обработчиках может поменяться состояние юзера
+        // и запрос может войти в следующие по порядку if-ы
 
         /*if (text.equals(Commands.START) && user.getBotUserState() != UserState.FIRST_INIT) {
             user.setBotUserState(UserState.INIT);
         }*/
 
-        // Пользователь первый раз зашел в бота (/start)
+        // Пользователь первый раз зашел в бота (/start) - меню инициализации
         if (text.equals(UserCommands.START) && user.getBotUserState() == UserState.FIRST_INIT) {
             user.setBotUserState(UserState.FIRST_INIT_CATEGORY);
         }

@@ -208,7 +208,7 @@ public class AdminBotStateService {
         SendMessage textResponse = new SendMessage();
         textResponse.setChatId(message.getChatId().toString());
         textResponse.setReplyMarkup(adminService.getMainMenu());
-        textResponse.setText(MessageFormat.format(messagesVariables.getAdminHi(), Emoji.HI, admin.getName(false)));
+        textResponse.setText(MessageFormat.format(messagesVariables.getAdminHi(), Emoji.WAVE, admin.getName(false)));
         answer.add(textResponse);
 
         adminService.setAdminChoice(admin, new AdminChoice());
@@ -383,7 +383,7 @@ public class AdminBotStateService {
         SendMessage textResponse = new SendMessage();
         textResponse.setChatId(message.getChatId().toString());
         textResponse.setReplyMarkup(ReplyKeyboardRemove.builder().removeKeyboard(true).build());
-        textResponse.setText(MessageFormat.format(messagesVariables.getAdminBye(), Emoji.HI));
+        textResponse.setText(MessageFormat.format(messagesVariables.getAdminBye(), Emoji.WAVE));
         answer.add(textResponse);
     }
 

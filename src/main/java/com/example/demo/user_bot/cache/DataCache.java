@@ -159,6 +159,7 @@ public final class DataCache {
         user.setUserChoice(userCache.getUserChoice());
         user.setPhone(userCache.getPhone());
         user.setLastAction(userCache.getLastAction());
+        user.setWantsUpdates(userCache.getIsWantsUpdates());
     }
 
 
