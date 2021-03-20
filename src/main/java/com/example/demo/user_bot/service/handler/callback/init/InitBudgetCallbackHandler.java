@@ -2,12 +2,14 @@ package com.example.demo.user_bot.service.handler.callback.init;
 
 import com.example.demo.admin_bot.constants.MessagesVariables;
 import com.example.demo.common_part.constants.UserMenuVariables;
-import com.example.demo.common_part.utils.BuyRange;
-import com.example.demo.common_part.utils.District;
-import com.example.demo.common_part.utils.RentalRange;
+import com.example.demo.common_part.utils.money_range.Budget;
+import com.example.demo.common_part.utils.money_range.BuyRange;
+import com.example.demo.common_part.utils.money_range.RentalRange;
+import com.example.demo.user_bot.cache.DataCache;
 import com.example.demo.user_bot.cache.UserCache;
 import com.example.demo.user_bot.keyboards.KeyboardsRegistry;
 import com.example.demo.user_bot.service.entities.UserService;
+import com.example.demo.user_bot.service.handler.callback.ChangeBudgetChoiceService;
 import com.example.demo.user_bot.utils.UserState;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,40 +26,35 @@ public final class InitBudgetCallbackHandler {
     private static final Logger LOGGER = Logger.getLogger(InitBudgetCallbackHandler.class);
 
     private final UserMenuVariables userMenuVariables;
-    private final UserService userService;
     private final MessagesVariables messagesVariables;
+
+    private final DataCache dataCache;
+
+    private final ChangeBudgetChoiceService changeBudgetChoiceService;
 
     private final KeyboardsRegistry keyboardsRegistry;
 
     @Autowired
-    public InitBudgetCallbackHandler(UserMenuVariables userMenuVariables, UserService userService, MessagesVariables messagesVariables, KeyboardsRegistry keyboardsRegistry) {
+    public InitBudgetCallbackHandler(UserMenuVariables userMenuVariables, MessagesVariables messagesVariables, DataCache dataCache, ChangeBudgetChoiceService changeBudgetChoiceService, KeyboardsRegistry keyboardsRegistry) {
         this.userMenuVariables = userMenuVariables;
-        this.userService = userService;
         this.messagesVariables = messagesVariables;
+        this.dataCache = dataCache;
+        this.changeBudgetChoiceService = changeBudgetChoiceService;
         this.keyboardsRegistry = keyboardsRegistry;
     }
 
     public void handleCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache user) {
         String data = callbackQuery.getData();
-        if (user.getUserChoice().getIsRentFlat()) { // Если выбираем бюджет для аренды квартиры
-            // Ищем, какой бюджет выбрали
-            for (RentalRange temp: RentalRange.values()) {
-                if (data.equals(userMenuVariables.getMenuInitBudgetBtnRangePrefixCallback() + temp.getIdentifier())) {
-                    long time1 = System.currentTimeMillis();
-                    budgetCallback(temp, response, callbackQuery, user);
-                    LOGGER.info("TIME budgetCallback: " + (System.currentTimeMillis() - time1));
-                    break;
-                }
-            }
-        } else { // Если выбираем бюджет для покупки квартиры
-            // Ищем, какой бюджет выбрали
-            for (BuyRange temp: BuyRange.values()) {
-                if (data.equals(userMenuVariables.getMenuInitBudgetBtnRangePrefixCallback() + temp.getIdentifier())) {
-                    long time1 = System.currentTimeMillis();
-                    budgetCallback(temp, response, callbackQuery, user);
-                    LOGGER.info("TIME budgetCallback: " + (System.currentTimeMillis() - time1));
-                    break;
-                }
+
+        Budget[] allBudgets = user.getUserChoice().getIsRentFlat() ? RentalRange.values() : BuyRange.values();
+
+        // Ищу какой бюджет выбрали
+        for (Budget temp: allBudgets) {
+            if (data.equals(userMenuVariables.getMenuInitBudgetBtnRangePrefixCallback() + temp.getIdentifier())) {
+                long time1 = System.currentTimeMillis();
+                budgetCallback(temp, response, callbackQuery, user);
+                LOGGER.info("TIME budgetCallback: " + (System.currentTimeMillis() - time1));
+                break;
             }
         }
 
@@ -76,70 +73,40 @@ public final class InitBudgetCallbackHandler {
         }
     }
 
-    private void budgetCallback(RentalRange range, List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache user) {
-        String budgetChoice = user.getUserChoice().getBudget();
-        boolean isBudgetChecked = budgetChoice.contains(range.getIdentifier());
-
-        if (isBudgetChecked) { // Если бюджет был выбран - снимаем галочку
-            user.getUserChoice().setBudget(budgetChoice.replace(range.getIdentifier(), ""));
-        } else { // Если нет - добавляем выбор
-            user.getUserChoice().setBudget(budgetChoice + range.getIdentifier());
+    private void budgetCallback(Budget range, List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache user) {
+        try {
+            this.changeBudgetChoiceService.getNewBudgetChoice(range, user); // Меняю бюджет пользователя
+        } catch (Exception exception) {
+            LOGGER.error(exception);
+            exception.printStackTrace();
         }
-
-        response.add(getEditMarkup(callbackQuery, user));
-    }
-    private void budgetCallback(BuyRange range, List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache user) {
-        String budgetChoice = user.getUserChoice().getBudget();
-        boolean isBudgetChecked = budgetChoice.contains(range.getIdentifier());
-
-        if (isBudgetChecked) { // Если бюджет был выбран - снимаем галочку
-            user.getUserChoice().setBudget(budgetChoice.replace(range.getIdentifier(), ""));
-        } else { // Если нет - добавляем выбор
-            user.getUserChoice().setBudget(budgetChoice + range.getIdentifier());
-        }
-
         response.add(getEditMarkup(callbackQuery, user));
     }
 
     private void selectAllCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache user) {
         String budgetChoice = user.getUserChoice().getBudget();
         boolean isAllSelected = true; // Если все районы уже выбраны
-        if (user.getUserChoice().getIsRentFlat()) {
-            for (RentalRange temp: RentalRange.values()) { // Проверяю, были ли выбраны все варианты
-                if (!budgetChoice.contains(temp.getIdentifier())) {
-                    isAllSelected = false;
-                    break;
-                }
-            }
 
-            if (isAllSelected) { // Если все варианты были выбраны - снимаю галочку со всех
-                user.getUserChoice().setBudget(""); // Снимаем выбор со всех
-            } else { // Если нет - выбираю все варианты
-                StringBuilder allRentalRangeChoice = new StringBuilder();
-                for (RentalRange temp: RentalRange.values()) {
-                    allRentalRangeChoice.append(temp.getIdentifier());
-                }
-                user.getUserChoice().setBudget(allRentalRangeChoice.toString());
-            }
-        } else {
-            for (BuyRange temp: BuyRange.values()) { // Проверяю, были ли выбраны все варианты
-                if (!budgetChoice.contains(temp.getIdentifier())) {
-                    isAllSelected = false;
-                    break;
-                }
-            }
+        Budget[] allBudgets = user.getUserChoice().getIsRentFlat() ? RentalRange.values() : BuyRange.values();
 
-            if (isAllSelected) { // Если все варианты были выбраны - снимаю галочку со всех
-                user.getUserChoice().setBudget(""); // Снимаем выбор со всех
-            } else { // Если нет - выбираю все варианты
-                StringBuilder allBuyRangeChoice = new StringBuilder();
-                for (BuyRange temp: BuyRange.values()) {
-                    allBuyRangeChoice.append(temp.getIdentifier());
-                }
-                user.getUserChoice().setBudget(allBuyRangeChoice.toString());
+        for (Budget temp: allBudgets) { // Проверяю, были ли выбраны все варианты
+            if (!budgetChoice.contains(temp.getIdentifier())) {
+                isAllSelected = false;
+                break;
             }
         }
 
+        if (isAllSelected) { // Если все варианты были выбраны - снимаю галочку со всех
+            user.getUserChoice().setBudget(""); // Снимаем выбор со всех
+        } else { // Если нет - выбираю все варианты
+            StringBuilder allRangeChoice = new StringBuilder();
+            for (Budget temp: allBudgets) {
+                allRangeChoice.append(temp.getIdentifier());
+            }
+            user.getUserChoice().setBudget(allRangeChoice.toString());
+        }
+
+        this.dataCache.saveUserCache(user);
         response.add(getEditMarkup(callbackQuery, user));
     }
 

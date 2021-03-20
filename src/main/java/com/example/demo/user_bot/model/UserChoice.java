@@ -2,13 +2,7 @@ package com.example.demo.user_bot.model;
 
 import com.example.demo.common_part.model.BuyFlat;
 import com.example.demo.common_part.model.RentFlat;
-import com.example.demo.common_part.utils.BuyRange;
-import com.example.demo.common_part.utils.District;
-import com.example.demo.common_part.utils.RentalRange;
-import com.example.demo.common_part.utils.Rooms;
 import lombok.*;
-import org.hibernate.annotations.TypeDef;
-import org.hibernate.annotations.TypeDefs;
 
 import javax.persistence.*;
 import java.util.HashSet;

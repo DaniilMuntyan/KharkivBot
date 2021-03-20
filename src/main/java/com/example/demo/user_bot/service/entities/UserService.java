@@ -1,5 +1,6 @@
 package com.example.demo.user_bot.service.entities;
 
+import com.example.demo.admin_bot.model.AdminChoice;
 import com.example.demo.common_part.model.BuyFlat;
 import com.example.demo.common_part.model.RentFlat;
 import com.example.demo.common_part.model.User;
@@ -28,6 +29,17 @@ public final class UserService {
 
     public void saveUser(User user) {
         userRepository.save(user);
+    }
+    public void saveUser(UserCache user) { // Сохраняю кэш в базу (когда юзера в базе нет, а в памяти есть)
+        userRepository.save(User.builder()
+                .chatId(user.getChatId())
+                .adminMode(false)
+                .botUserState(user.getBotUserState())
+                .firstName(user.getFirstName()).lastName(user.getLastName()).username(user.getUsername())
+                .lastAction(user.getLastAction())
+                .phone(user.getPhone())
+                .wantsUpdates(user.getIsWantsUpdates())
+                .build());
     }
 
     public void saveUserCache(UserCache userCache) {

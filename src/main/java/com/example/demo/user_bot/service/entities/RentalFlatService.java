@@ -2,19 +2,13 @@ package com.example.demo.user_bot.service.entities;
 
 import com.example.demo.common_part.model.RentFlat;
 import com.example.demo.common_part.repo.RentFlatRepository;
-import com.example.demo.common_part.utils.District;
-import com.example.demo.common_part.utils.RentalRange;
-import com.example.demo.common_part.utils.Rooms;
 import com.example.demo.user_bot.cache.DataCache;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
-import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
 
 @Service
 public final class RentalFlatService {

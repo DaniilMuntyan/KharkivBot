@@ -68,7 +68,6 @@ public final class Menu3MessageHandler {
 
             user.setBotUserState(UserState.MENU1);
             this.dataCache.saveUserCache(user);
-            //dataCache.markNotSaved(chatId);
         }
 
         if (text.equals(userMenuVariables.getMenu3BtnStartMailingText())) { // Нажали "Присылать обновления"
@@ -84,7 +83,6 @@ public final class Menu3MessageHandler {
 
             user.setBotUserState(UserState.MENU1);
             this.dataCache.saveUserCache(user);
-            //dataCache.markNotSaved(chatId);
         }
 
         if (text.equals(userMenuVariables.getMenu3BtnEnterPhoneText())) { // Нажали "Указать номер телефона"
@@ -100,7 +98,6 @@ public final class Menu3MessageHandler {
 
             user.setBotUserState(UserState.MENU32);
             this.dataCache.saveUserCache(user);
-            //dataCache.markNotSaved(chatId);
         }
 
         if (text.equals(userMenuVariables.getMenu3BtnBackText())) { // Нажали "назад"
@@ -123,11 +120,6 @@ public final class Menu3MessageHandler {
                 !user.getUserChoice().getMenuMessageId().equals(message.getMessageId());
         if (newMenuMessageId) { // Если открыли новое меню (выбрали другой подпункт меню "Мои предпочтения")
             response.add(this.deleteApiMethod(user.getChatId(), user.getUserChoice().getMenuMessageId()));
-
-            // TODO: закомментил setMenuMessageId
-            /*user.getUserChoice().setMenuMessageId(message.getMessageId());
-            this.dataCache.saveUserCache(user);*/
-            //this.dataCache.markNotSaved(user.getChatId());
         }
     }
 

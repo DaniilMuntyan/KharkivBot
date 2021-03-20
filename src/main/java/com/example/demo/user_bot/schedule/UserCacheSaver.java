@@ -13,6 +13,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 @Service
 @PropertySource("classpath:program.properties")
@@ -33,13 +34,13 @@ public final class UserCacheSaver {
     @Scheduled(fixedDelayString = "${delay.user.saveToDb}")
     private void saveCache() {
         HashSet<User> newUsers = (HashSet<User>) dataCache.getNewUsersSet();
-        HashMap<Long, UserCache> usersCacheMap = (HashMap<Long, UserCache>) dataCache.getUsersCacheMap();
+        ConcurrentHashMap<Long, UserCache> usersCacheMap = (ConcurrentHashMap<Long, UserCache>) dataCache.getUsersCacheMap();
 
-        this.printMemory(); // Печатаю объем занятой мной памяти
+        // TODO: this.printMemory(); // Печатаю объем занятой мной памяти
         //System.out.println(usersCacheMap);
 
-        long time1 = System.currentTimeMillis();
         int c = 0;
+        long time1 = System.currentTimeMillis();
         // Сначала сохраняю всех новых пользователей
         for (User temp: newUsers) {
             userService.saveUser(temp);
@@ -47,14 +48,13 @@ public final class UserCacheSaver {
             c++;
         }
         LOGGER.info("TIME save all new users (" + c + "): " + (System.currentTimeMillis() - time1));
-
-        time1 = System.currentTimeMillis();
         c = 0;
+        time1 = System.currentTimeMillis();
         // Теперь изменяю данные всех юзеров из кэша, которые еще не были сохранены в базу
         for (Map.Entry<Long, UserCache> entry : usersCacheMap.entrySet()) {
             Long chatId = entry.getKey();
             UserCache userCache = entry.getValue();
-            if (!userCache.getSaved()) { // Еще не были сохранены
+            if (!userCache.getSaved()) { // Еще не был сохранен
                 Optional<User> user = userService.findByChatId(chatId);
                 if (user.isPresent()) { // Если есть в базе - обновляем
                     this.dataCache.updateUser(user.get());
@@ -62,6 +62,9 @@ public final class UserCacheSaver {
                     userService.saveUser(user.get());
                     userCache.setSaved(true); // Пометили как сохраненный кэш
                     c++;
+                } else { // Нет в базе, но есть в кэше => сохраняю в базу
+                    userService.saveUser(userCache);
+                    LOGGER.info("");
                 }
             }
             try {

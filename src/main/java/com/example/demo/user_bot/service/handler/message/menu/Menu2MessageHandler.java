@@ -74,7 +74,6 @@ public final class Menu2MessageHandler {
 
             user.setBotUserState(UserState.MENU21); // Переходим в состояние Menu21
             this.dataCache.saveUserCache(user);
-            //dataCache.markNotSaved(chatId);
         }
 
         if (text.equals(userMenuVariables.getMenu2BtnRoomsText())) { // Нажали "изменить кол-во комнат"
@@ -90,7 +89,6 @@ public final class Menu2MessageHandler {
 
             user.setBotUserState(UserState.MENU22); // Переходим в состояние Menu22
             this.dataCache.saveUserCache(user);
-            //dataCache.markNotSaved(chatId);
         }
 
         if (text.equals(userMenuVariables.getMenu2BtnDistrictsText())) { // Нажали "выбрать районы"
@@ -106,7 +104,6 @@ public final class Menu2MessageHandler {
 
             user.setBotUserState(UserState.MENU23); // Переходим в состояние Menu23
             this.dataCache.saveUserCache(user);
-            //dataCache.markNotSaved(chatId);
         }
 
         if (text.equals(userMenuVariables.getMenu2BtnBudgetText())) { // Нажали "изменить бюджет"
@@ -122,7 +119,6 @@ public final class Menu2MessageHandler {
 
             user.setBotUserState(UserState.MENU24); // Переходим в состояние Menu24
             this.dataCache.saveUserCache(user);
-            //dataCache.markNotSaved(chatId);
         }
 
         if (text.equals(userMenuVariables.getMenu2BtnBackText())) { // Нажали "назад"
@@ -193,7 +189,6 @@ public final class Menu2MessageHandler {
             response.add(this.deleteApiMethod(message));
             user.getUserChoice().setMenuMessageId(message.getMessageId());
             this.dataCache.saveUserCache(user);
-            //this.dataCache.markNotSaved(user.getChatId());
         }
     }
 
@@ -204,8 +199,7 @@ public final class Menu2MessageHandler {
         sendMessage.setReplyMarkup(keyboardsRegistry.getMenu1().getKeyboard()); // Меню 1
 
         user.setBotUserState(UserState.MENU1); // Перешли в главное меню
-        this.dataCache.saveUserCache(user);
-        //this.dataCache.markNotSaved(user.getChatId()); // Сохраняю в базу измененное состояние
+        this.dataCache.saveUserCache(user); // Сохраняю в базу измененное состояние
 
         return sendMessage;
     }
@@ -214,12 +208,6 @@ public final class Menu2MessageHandler {
         return DeleteMessage.builder()
                 .chatId(message.getChatId().toString())
                 .messageId(message.getMessageId())
-                .build();
-    }
-    private DeleteMessage deleteApiMethod(Long chatId, Integer messageId) {
-        return DeleteMessage.builder()
-                .chatId(chatId.toString())
-                .messageId(messageId)
                 .build();
     }
 }

@@ -37,7 +37,6 @@ public final class Menu1MessageHandler {
 
     public List<BotApiMethod<?>> handleMessage(Message message, UserCache user) {
         String text = message.hasText() ? message.getText(): "";
-        Long chatId = message.getChatId();
 
         boolean dontUnderstand = true; // Не понимаю пользователя (пришло левое сообщение)
 
@@ -54,7 +53,6 @@ public final class Menu1MessageHandler {
             LOGGER.info("To menu 2");
             user.setBotUserState(UserState.MENU2); // Перешли в меню изменения параметров
             this.dataCache.saveUserCache(user);
-            //dataCache.markNotSaved(chatId); // Чтобы потом сохранить в базу
         }
 
         if (text.equals(userMenuVariables.getMenu1BtnSettingsText())) { // Нажали "Настройки"
@@ -67,7 +65,6 @@ public final class Menu1MessageHandler {
             LOGGER.info("To menu 3");
             user.setBotUserState(UserState.MENU3); // Перешли в меню настройки
             this.dataCache.saveUserCache(user);
-            //dataCache.markNotSaved(chatId);
         }
 
         if (dontUnderstand) { // Не понимаю юзера

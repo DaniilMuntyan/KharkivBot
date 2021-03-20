@@ -1,11 +1,10 @@
 package com.example.demo.common_part.model;
 
 import com.example.demo.admin_bot.model.AdminChoice;
-import com.example.demo.common_part.utils.BuyRange;
+import com.example.demo.common_part.utils.money_range.BuyRange;
 import com.example.demo.common_part.utils.District;
 import com.example.demo.common_part.utils.Emoji;
 import com.example.demo.common_part.utils.Rooms;
-import com.example.demo.user_bot.utils.*;
 import lombok.*;
 
 import javax.persistence.*;

@@ -1,9 +1,9 @@
 package com.example.demo.user_bot.keyboards.menu;
 
 import com.example.demo.common_part.constants.UserMenuVariables;
-import com.example.demo.common_part.utils.BuyRange;
+import com.example.demo.common_part.utils.money_range.BuyRange;
 import com.example.demo.common_part.utils.Emoji;
-import com.example.demo.common_part.utils.RentalRange;
+import com.example.demo.common_part.utils.money_range.RentalRange;
 import com.example.demo.user_bot.model.UserChoice;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;

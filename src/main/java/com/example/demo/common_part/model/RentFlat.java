@@ -3,13 +3,11 @@ package com.example.demo.common_part.model;
 import com.example.demo.admin_bot.model.AdminChoice;
 import com.example.demo.common_part.utils.District;
 import com.example.demo.common_part.utils.Emoji;
-import com.example.demo.common_part.utils.RentalRange;
+import com.example.demo.common_part.utils.money_range.RentalRange;
 import com.example.demo.common_part.utils.Rooms;
-import com.example.demo.user_bot.model.UserChoice;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Builder
 @NoArgsConstructor

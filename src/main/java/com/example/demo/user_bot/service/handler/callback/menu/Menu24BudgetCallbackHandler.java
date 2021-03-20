@@ -1,11 +1,13 @@
 package com.example.demo.user_bot.service.handler.callback.menu;
 
 import com.example.demo.common_part.constants.UserMenuVariables;
-import com.example.demo.common_part.utils.BuyRange;
-import com.example.demo.common_part.utils.RentalRange;
+import com.example.demo.common_part.utils.money_range.Budget;
+import com.example.demo.common_part.utils.money_range.BuyRange;
+import com.example.demo.common_part.utils.money_range.RentalRange;
 import com.example.demo.user_bot.cache.DataCache;
 import com.example.demo.user_bot.cache.UserCache;
 import com.example.demo.user_bot.keyboards.KeyboardsRegistry;
+import com.example.demo.user_bot.service.handler.callback.ChangeBudgetChoiceService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,11 +27,14 @@ public final class Menu24BudgetCallbackHandler {
 
     private final KeyboardsRegistry keyboardsRegistry;
 
+    private final ChangeBudgetChoiceService changeBudgetChoiceService;
+
     @Autowired
-    public Menu24BudgetCallbackHandler(UserMenuVariables userMenuVariables, DataCache dataCache, KeyboardsRegistry keyboardsRegistry) {
+    public Menu24BudgetCallbackHandler(UserMenuVariables userMenuVariables, DataCache dataCache, KeyboardsRegistry keyboardsRegistry, ChangeBudgetChoiceService changeBudgetChoiceService) {
         this.userMenuVariables = userMenuVariables;
         this.dataCache = dataCache;
         this.keyboardsRegistry = keyboardsRegistry;
+        this.changeBudgetChoiceService = changeBudgetChoiceService;
     }
 
     public void handleCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache user) {
@@ -65,7 +70,16 @@ public final class Menu24BudgetCallbackHandler {
         }
     }
 
-    private void budgetCallback(RentalRange range, List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache user) {
+    private void budgetCallback(Budget range, List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache user) {
+        try {
+            this.changeBudgetChoiceService.getNewBudgetChoice(range, user); // Меняю бюджет пользователя
+        } catch (Exception exception) {
+            LOGGER.error(exception);
+            exception.printStackTrace();
+        }
+        response.add(getEditMarkup(callbackQuery, user));
+    }
+    /*private void budgetCallback(RentalRange range, List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache user) {
         String budgetChoice = user.getUserChoice().getBudget();
         boolean isBudgetChecked = budgetChoice.contains(range.getIdentifier());
 
@@ -92,7 +106,7 @@ public final class Menu24BudgetCallbackHandler {
         this.dataCache.saveUserCache(user);
         //this.dataCache.markNotSaved(user.getChatId());
         response.add(getEditMarkup(callbackQuery, user));
-    }
+    }*/
 
     private void selectAllCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache user) {
         LOGGER.info("IN SELECT ALL CALLBACK");

@@ -2,8 +2,8 @@ package com.example.demo.admin_bot.keyboards.submenu;
 
 import com.example.demo.common_part.constants.AdminMenuVariables;
 import com.example.demo.common_part.utils.BeanUtil;
-import com.example.demo.common_part.utils.BuyRange;
-import com.example.demo.common_part.utils.RentalRange;
+import com.example.demo.common_part.utils.money_range.BuyRange;
+import com.example.demo.common_part.utils.money_range.RentalRange;
 import lombok.Getter;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;

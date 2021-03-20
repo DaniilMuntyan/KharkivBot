@@ -1,11 +1,10 @@
 package com.example.demo.user_bot.keyboards.init;
 
 import com.example.demo.common_part.constants.UserMenuVariables;
-import com.example.demo.common_part.utils.BuyRange;
+import com.example.demo.common_part.utils.money_range.BuyRange;
 import com.example.demo.common_part.utils.Emoji;
-import com.example.demo.common_part.utils.RentalRange;
+import com.example.demo.common_part.utils.money_range.RentalRange;
 import com.example.demo.user_bot.model.UserChoice;
-import com.example.demo.user_bot.service.handler.callback.init.InitBudgetCallbackHandler;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
@@ -34,7 +33,6 @@ public final class InitBudgetKeyboard {
 
         if (userChoice.getIsRentFlat()) { // Если пользователь ищет арендовать квартиру
             for (RentalRange rentalRange: RentalRange.values()) {
-                // Callback состоит из префикса и идентификатора бюджета
                 InlineKeyboardButton button = InlineKeyboardButton.builder()
                         .text((budgetChoice.contains(rentalRange.getIdentifier()) ? Emoji.SELECTED + " " : "") +
                                 rentalRange.toString())

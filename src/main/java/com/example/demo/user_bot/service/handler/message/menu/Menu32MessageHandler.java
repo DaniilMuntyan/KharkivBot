@@ -47,7 +47,6 @@ public final class Menu32MessageHandler {
 
     public List<BotApiMethod<?>> handleMessage(Message message, UserCache user) {
         String text = message.hasText() ? message.getText(): "MESSAGE HAS NO TEXT!";
-        Long chatId = message.getChatId();
 
         List<BotApiMethod<?>> response = new ArrayList<>();
 
@@ -73,7 +72,6 @@ public final class Menu32MessageHandler {
 
         user.setBotUserState(UserState.MENU3); // Возвращаемся обратно в меню "Настройки"
         this.dataCache.saveUserCache(user);
-        //dataCache.markNotSaved(chatId); // Чтобы потом сохранить в базу
 
         return response;
     }

@@ -2,6 +2,7 @@ package com.example.demo.user_bot.cache;
 
 import com.example.demo.common_part.model.RentFlat;
 import com.example.demo.common_part.model.User;
+import com.example.demo.common_part.utils.money_range.Budget;
 import com.example.demo.user_bot.model.UserChoice;
 import com.example.demo.user_bot.utils.UserState;
 import lombok.Data;
@@ -59,6 +60,28 @@ public final class UserCache { // Что храним в кэше юзера
 
     public void addSentRentFlat(RentFlat rentFlat) {
         //sentRentFlats.add(rentFlat);
+    }
+
+    public void addBudget(Budget range) throws Exception {
+        String budget = range.getIdentifier();
+        String userBudget = this.userChoice.getBudget();
+        if (!userBudget.contains(budget)) { // Если такого бюджета еще нет у юзера
+            this.userChoice.setBudget(userBudget + budget); // Добавляю новый бюджет
+        } else { // Если уже существует такой бюджет - исключение
+            throw new Exception("Attempt to add existed budget!\nUser budget choice: " +
+                    this.getUserChoice().getBudget() + "\nRange we tried to add: " + range.getIdentifier());
+        }
+    }
+
+    public void removeBudget(Budget range) throws Exception {
+        String budget = range.getIdentifier();
+        String userBudget = this.userChoice.getBudget();
+        if (userBudget.contains(budget)) { // Если такой бюджет есть у юзера - удаляю
+            this.userChoice.setBudget(userBudget.replace(budget, ""));
+        } else { // Если такого бюджета нет у юзера - исключение
+            throw new Exception("Attempt to remove not existed budget!\nUser budget choice: " +
+                    this.getUserChoice().getBudget() + "\nRange we tried to remove: " + range.getIdentifier());
+        }
     }
 
     public String getName(boolean withUsername) {

@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 @Component
 public final class InitCache {
@@ -37,7 +38,7 @@ public final class InitCache {
 
     Map<Long, BuyFlat> initBuyFlatsCache() {
         List<BuyFlat> allExistedBuyFlats = this.buyFlatService.findAllBuyFlats();
-        Map<Long, BuyFlat> buyFlatsCache = new HashMap<>();
+        Map<Long, BuyFlat> buyFlatsCache = new ConcurrentHashMap<>();
         for (BuyFlat temp: allExistedBuyFlats) {
             buyFlatsCache.put(temp.getId(), temp);
         }
@@ -46,7 +47,7 @@ public final class InitCache {
     }
     Map<Long, RentFlat> initRentFlatsCache() {
         List<RentFlat> allExistedRentFlats = this.rentalFlatService.findAllRentFlats();
-        Map<Long, RentFlat> rentFlatsCache = new HashMap<>();
+        Map<Long, RentFlat> rentFlatsCache = new ConcurrentHashMap<>();
         for (RentFlat temp: allExistedRentFlats) {
             rentFlatsCache.put(temp.getId(), temp);
         }
@@ -56,11 +57,10 @@ public final class InitCache {
 
     Map<Long, UserCache> initUsersCache() {
         List<User> allExistedUsers = userService.findAllUsers();
-        Map<Long, UserCache> usersCache = new HashMap<>();
+        Map<Long, UserCache> usersCache = new ConcurrentHashMap<>();
         for (User temp: allExistedUsers) {
             // saved ставлю true, потому что в базе он уже есть
             usersCache.put(temp.getChatId(), new UserCache(temp, true));
-
         }
         LOGGER.info("ALL Users FROM DATABASE TO CACHE");
         return usersCache;
