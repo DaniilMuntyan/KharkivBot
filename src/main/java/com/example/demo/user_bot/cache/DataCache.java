@@ -82,15 +82,32 @@ public final class DataCache {
         this.newUsersSet.remove(user);
     }
 
-    public void saveUser(User user) {
+    public void setMenuMsgId(String chatIdString, Integer menuMessageId) {
+        try {
+            Long chatId = Long.valueOf(chatIdString);
+            this.usersCacheMap.get(chatId).getUserChoice().setMenuMessageId(menuMessageId);
+            this.markNotSaved(chatId);
+        } catch (NumberFormatException ex) {
+            LOGGER.error(ex);
+            ex.printStackTrace();
+        }
+    }
+
+    public void saveUserCache(User user) {
         usersCacheMap.put(user.getChatId(), new UserCache(user, false));
     }
 
-    public void saveUser(UserCache userCache) {
+    public void saveUserCache(UserCache userCache) {
+        if (!usersCacheMap.get(userCache.getChatId()).equals(userCache)) {
+            LOGGER.info("ПРЕДЫДУЩИЙ КЭШ НЕ РАВЕН ДОБАВЛЯЕМОМУ:");
+            LOGGER.info("PREVIOUS: " + usersCacheMap.get(userCache.getChatId()));
+            LOGGER.info("ADDED: " + userCache);
+        }
         usersCacheMap.put(userCache.getChatId(), userCache);
+        this.markNotSaved(userCache.getChatId());
     }
 
-    public void markNotSaved(Long chatId) { // Чтобы сразу сохранили в БД по расписанию
+    private void markNotSaved(Long chatId) { // Чтобы сразу сохранили в БД по расписанию
         this.usersCacheMap.get(chatId).setSaved(false);
     }
 
@@ -123,15 +140,6 @@ public final class DataCache {
     public void setNotSentBuyFlats(List<BuyFlat> notSentBuyFlats, UserCache user) {
         this.notSentBuyFlatsMap.put(user.getChatId(), (ArrayList<BuyFlat>) notSentBuyFlats);
     }
-
-    /*public void addNotSentFlat(UserCache user, RentFlat rentFlat) {
-        ArrayList<RentFlat> userRentList = this.notSentRentFlatsMap.get(user.getChatId());
-        if (userRentList == null) {
-            userRentList = new ArrayList<>();
-        }
-        userRentList.add(rentFlat);
-        this.notSentRentFlatsMap.put(user.getChatId(), userRentList);
-    }*/
 
     public void removeNotSentFlat(UserCache user, RentFlat rentFlat) {
         ArrayList<RentFlat> userRentList = this.notSentRentFlatsMap.get(user.getChatId());

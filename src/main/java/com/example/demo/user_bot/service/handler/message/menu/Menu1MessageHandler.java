@@ -36,7 +36,7 @@ public final class Menu1MessageHandler {
     }
 
     public List<BotApiMethod<?>> handleMessage(Message message, UserCache user) {
-        String text = message.getText();
+        String text = message.hasText() ? message.getText(): "";
         Long chatId = message.getChatId();
 
         boolean dontUnderstand = true; // Не понимаю пользователя (пришло левое сообщение)
@@ -53,7 +53,8 @@ public final class Menu1MessageHandler {
             response.add(menu2);
             LOGGER.info("To menu 2");
             user.setBotUserState(UserState.MENU2); // Перешли в меню изменения параметров
-            dataCache.markNotSaved(chatId); // Чтобы потом сохранить в базу
+            this.dataCache.saveUserCache(user);
+            //dataCache.markNotSaved(chatId); // Чтобы потом сохранить в базу
         }
 
         if (text.equals(userMenuVariables.getMenu1BtnSettingsText())) { // Нажали "Настройки"
@@ -65,18 +66,12 @@ public final class Menu1MessageHandler {
             response.add(menu3);
             LOGGER.info("To menu 3");
             user.setBotUserState(UserState.MENU3); // Перешли в меню настройки
-            dataCache.markNotSaved(chatId);
+            this.dataCache.saveUserCache(user);
+            //dataCache.markNotSaved(chatId);
         }
 
         if (dontUnderstand) { // Не понимаю юзера
             response.add(this.backToMenu1.dontUnderstand(user));
-            /*SendMessage sendMessage = new SendMessage();
-            sendMessage.setText(messagesVariables.getUserDontUnderstandText());
-            sendMessage.setReplyMarkup(keyboardsRegistry.getMenu1().getKeyboard());
-            response.add(sendMessage);
-
-            user.setBotUserState(UserState.MENU1); // Перешли в главное меню
-            dataCache.markNotSaved(chatId); // Чтобы потом сохранить в базу*/
         }
 
         return response;

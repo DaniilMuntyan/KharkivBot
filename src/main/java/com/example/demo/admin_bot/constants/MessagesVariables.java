@@ -191,7 +191,7 @@ public class MessagesVariables {
     @Value("${user.firstHi}")
     private String userFirstHi;
     public String getUserFirstHi(String name) {
-        return MessageFormat.format(userFirstHi, Emoji.WAVE, name, Emoji.SPEED);
+        return MessageFormat.format(userFirstHi, Emoji.WAVE, name, Emoji.SPEED, Emoji.ARROW_DOWN);
     }
 
     @Value("${user.init.category.text}")
@@ -319,6 +319,19 @@ public class MessagesVariables {
     private String userMenu32Text;
     public String getUserMenu32Text() {
         return MessageFormat.format(userMenu32Text, Emoji.TELEPHONE);
+    }
+
+    @Value("${user.menu3.2.acceptPhone.text}")
+    private String userMenu32AcceptPhoneText;
+    public String getUserMenu32AcceptPhoneText() {
+        return MessageFormat.format(userMenu32AcceptPhoneText, Emoji.LIKE, Emoji.RAISED_HANDS, Emoji.ORANGE_DIAMOND,
+                Emoji.ANGEL, Emoji.WINK);
+    }
+
+    @Value("${user.menu3.2.wrongPhone.text}")
+    private String userMenu32WrongPhoneText;
+    public String getUserMenu32WrongPhoneText() {
+        return MessageFormat.format(userMenu32WrongPhoneText, Emoji.GREY_EXCLAMATION);
     }
 
 }

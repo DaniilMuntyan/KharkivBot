@@ -2,6 +2,8 @@ package com.example.demo.user_bot.schedule;
 
 import com.example.demo.common_part.constants.ProgramVariables;
 import com.example.demo.user_bot.botapi.RentalTelegramBot;
+import com.example.demo.user_bot.cache.DataCache;
+import com.example.demo.user_bot.utils.MenuSendMessage;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
@@ -11,13 +13,12 @@ import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
+import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
 
 @Service
 @PropertySource("classpath:program.properties")
@@ -28,11 +29,13 @@ public class UserBotSendingQueue {
     private final LinkedList<SendMessage> bulkMessagesQueue = new LinkedList<>();
     private final LinkedList<BotApiMethod<?>> apiQueue = new LinkedList<>();
     private final ProgramVariables programVariables;
+    private final DataCache dataCache;
     private final RentalTelegramBot bot;
 
     @Autowired
-    public UserBotSendingQueue(ProgramVariables programVariables, @Lazy RentalTelegramBot bot) {
+    public UserBotSendingQueue(ProgramVariables programVariables, DataCache dataCache, @Lazy RentalTelegramBot bot) {
         this.programVariables = programVariables;
+        this.dataCache = dataCache;
         this.bot = bot;
     }
 
@@ -118,13 +121,19 @@ public class UserBotSendingQueue {
 
     private void sendMessage(SendMessage message, TelegramLongPollingBot bot) {
         try {
-            bot.execute(message);
-            LOGGER.info("SENT MESSAGE");
+            Message newMenuMessage = bot.execute(message);
+            if (message instanceof MenuSendMessage) { // Если отправляем новое меню
+                // Устанавливаю новое значение menuMessageId для пользователя, если нужно
+                if (((MenuSendMessage) message).isChangeMenuMessageId()) {
+                    this.dataCache.setMenuMsgId(message.getChatId(), newMenuMessage.getMessageId());
+                    LOGGER.info("УСТАНАВЛИВАЮ МЕНЮ: " + newMenuMessage.getMessageId());
+                }
+            }
         } catch (TelegramApiRequestException e) {
             LOGGER.error(e);
             if (e.getErrorCode().equals(429)) {
                 this.messagesQueue.addFirst(message);
-                LOGGER.info("ADDED TO QUEUE!");
+                LOGGER.info("ADDED TO QUEUE: " + message.getChatId());
                 try {
                     Thread.sleep(5000);
                 } catch (InterruptedException interruptedException) {

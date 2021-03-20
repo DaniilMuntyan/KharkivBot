@@ -4,6 +4,7 @@ import com.example.demo.common_part.constants.UserMenuVariables;
 import com.example.demo.user_bot.cache.UserCache;
 import com.example.demo.user_bot.service.entities.UserService;
 import com.example.demo.user_bot.service.handler.callback.init.*;
+import com.example.demo.user_bot.service.handler.callback.menu.Menu21CategoryCallbackHandler;
 import com.example.demo.user_bot.utils.UserState;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,9 @@ public final class UserBotCallbackHandler {
     private final UserService userService;
     private final UserMenuVariables userMenuVariables;
 
+    private final InitCallbackHandler initCallbackHandler;
+    private final Menu2CallbackHandler menu2CallbackHandler;
+
     private final InitCategoryCallbackHandler initCategoryCallbackHandler;
     private final InitRoomCallbackHandler initRoomCallbackHandler;
     private final InitDistrictCallbackHandler initDistrictCallbackHandler;
@@ -30,16 +34,21 @@ public final class UserBotCallbackHandler {
     private final InitMenuEndHandler initMenuEndHandler;
     private final SeeOthersOrEnoughCallbackHandler seeOthersOrEnoughCallbackHandler;
 
+    private final Menu21CategoryCallbackHandler menu21CategoryCallbackHandler;
+
     @Autowired
-    public UserBotCallbackHandler(UserService userService, UserMenuVariables userMenuVariables, InitCategoryCallbackHandler initCategoryCallbackHandler, InitRoomCallbackHandler initRoomCallbackHandler, InitDistrictCallbackHandler initDistrictCallbackHandler, InitBudgetCallbackHandler initBudgetCallbackHandler, InitMenuEndHandler initMenuEndHandler, SeeOthersOrEnoughCallbackHandler seeOthersOrEnoughCallbackHandler) {
+    public UserBotCallbackHandler(UserService userService, UserMenuVariables userMenuVariables, InitCallbackHandler initCallbackHandler, Menu2CallbackHandler menu2CallbackHandler, InitCategoryCallbackHandler initCategoryCallbackHandler, InitRoomCallbackHandler initRoomCallbackHandler, InitDistrictCallbackHandler initDistrictCallbackHandler, InitBudgetCallbackHandler initBudgetCallbackHandler, InitMenuEndHandler initMenuEndHandler, SeeOthersOrEnoughCallbackHandler seeOthersOrEnoughCallbackHandler, Menu21CategoryCallbackHandler menu21CategoryCallbackHandler) {
         this.userService = userService;
         this.userMenuVariables = userMenuVariables;
+        this.initCallbackHandler = initCallbackHandler;
+        this.menu2CallbackHandler = menu2CallbackHandler;
         this.initCategoryCallbackHandler = initCategoryCallbackHandler;
         this.initRoomCallbackHandler = initRoomCallbackHandler;
         this.initDistrictCallbackHandler = initDistrictCallbackHandler;
         this.initBudgetCallbackHandler = initBudgetCallbackHandler;
         this.initMenuEndHandler = initMenuEndHandler;
         this.seeOthersOrEnoughCallbackHandler = seeOthersOrEnoughCallbackHandler;
+        this.menu21CategoryCallbackHandler = menu21CategoryCallbackHandler;
     }
 
     public List<BotApiMethod<?>> handleCallback(CallbackQuery callbackQuery) {
@@ -52,10 +61,23 @@ public final class UserBotCallbackHandler {
 
         String data = callbackQuery.getData();
 
-        // Если ткнули в неактуальное меню или ткнули в неактуальное меню
+        boolean forbidden = user.isEmpty();
+
+        LOGGER.info("CALLBACK DATA: " + data + ". FORBIDDEN: " + forbidden);
+
+        if (forbidden) { // Возвращаем пустой список АПИ методов
+            return response;
+        }
+
+        // Если не получили Forbidden - отвечаем на callback, чтобы ушел кружек загрузки
+        response.add(0, this.getAnswerCallback(callbackQuery));
+
+        /*// Если ткнули в неактуальное меню инициализации
         boolean forbidden = user.isEmpty() || (user.get().getUserChoice().getMenuMessageId() != null &&
                 !user.get().getUserChoice().getMenuMessageId().equals(callbackQuery.getMessage().getMessageId()) &&
                 user.get().getBotUserState() != UserState.SENT_NOT_ALL && user.get().getBotUserState() != UserState.FLATS_MASSAGING); // И не идет процесс подбора квартир (не все квартиры прислали)
+
+        LOGGER.info("CALLBACK DATA: " + data + ". FORBIDDEN: " + forbidden);
 
         if (forbidden) { // Возвращаем пустой список АПИ методов
             return response;
@@ -67,24 +89,29 @@ public final class UserBotCallbackHandler {
         // Если нажали - запоминаем айди меню (в одно время может работать только одно)
         if (user.get().getUserChoice().getMenuMessageId() == null) {
             user.get().getUserChoice().setMenuMessageId(callbackQuery.getMessage().getMessageId());
+        }*/
+
+        // Если нажали на какую-то кнопку с меню инициализации
+        if (data.startsWith(userMenuVariables.getMenuInitBtnCallbackPrefix())) {
+            this.initCallbackHandler.handleCallback(response, callbackQuery, user.get());
         }
 
-        // Если callback пришел от какой-то кнопки с меню категории
+        /*// Если callback пришел от какой-то кнопки с меню инициализации категории
         if (data.startsWith(userMenuVariables.getMenuInitBtnCategoryCallbackPrefix())) {
             initCategoryCallbackHandler.handleCallback(response, callbackQuery, user.get());
         }
 
-        // Если callback пришел от какой-то кнопки с меню комнат
+        // Если callback пришел от какой-то кнопки с меню инициализации комнат
         if (data.startsWith(userMenuVariables.getMenuInitRoomsBtnCallbackPrefix())) {
             initRoomCallbackHandler.handleCallback(response, callbackQuery, user.get());
         }
 
-        // Если callback пришел от какой-то кнопки с меню районов
+        // Если callback пришел от какой-то кнопки с меню инициализации районов
         if (data.startsWith(userMenuVariables.getMenuInitDistrictsBtnPrefixCallback())) {
             initDistrictCallbackHandler.handleCallback(response, callbackQuery, user.get());
         }
 
-        // Если callback пришел от какой-то кнопки с меню бюджетов
+        // Если callback пришел от какой-то кнопки с меню инициализации бюджетов
         if (data.startsWith(userMenuVariables.getMenuInitBudgetBtnRangePrefixCallback())) {
             initBudgetCallbackHandler.handleCallback(response, callbackQuery, user.get());
         }
@@ -94,13 +121,22 @@ public final class UserBotCallbackHandler {
             long time2 = System.currentTimeMillis();
             initMenuEndHandler.handleInitMenuEnd(response, user.get());
             LOGGER.info("Time handleInitMenuEnd: " + (System.currentTimeMillis() - time2));
-        }
+        }*/
 
-        // Если нажали на какую-то кнопку из меню "Показать еще" для квартир
-        if (data.startsWith(userMenuVariables.getUserBotNotAllBtnCallbackPrefix())) {
+        boolean seeOthers = data.startsWith(userMenuVariables.getUserBotNotAllBtnCallbackPrefix()) &&
+                user.get().getBotUserState() == UserState.SENT_NOT_ALL;
+        // Если нажали на какую-то кнопку из меню "Показать еще" для квартир в состоянии SENT_NOT_ALL
+        if (seeOthers) {
             long time2 = System.currentTimeMillis();
             seeOthersOrEnoughCallbackHandler.handleCallback(response, callbackQuery, user.get());
             LOGGER.info("Time seeOthersCallbackHandler.handleCallback: " + (System.currentTimeMillis() - time2));
+        }
+
+        // Если нажали на какую-то кнопку из подпунктов меню "Мои предпочтения"
+        if (data.startsWith(userMenuVariables.getUserMyMenuCallbackPrefix())) {
+            long time2 = System.currentTimeMillis();
+            menu2CallbackHandler.handleCallback(response, callbackQuery, user.get());
+            LOGGER.info("Time menu2CallbackHandler.handleCallback: " + (System.currentTimeMillis() - time2));
         }
 
         userService.saveUserCache(user.get()); // Сохраняю все изменения юзера

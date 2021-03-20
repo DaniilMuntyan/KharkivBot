@@ -9,12 +9,14 @@ import com.example.demo.user_bot.cache.UserCache;
 import com.example.demo.user_bot.keyboards.KeyboardsRegistry;
 import com.example.demo.user_bot.service.publishing.FindFlatsService;
 import com.example.demo.user_bot.service.publishing.SendFoundFlatsService;
+import com.example.demo.user_bot.utils.MenuSendMessage;
 import com.example.demo.user_bot.utils.UserState;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
+import org.telegram.telegrambots.meta.api.methods.updatingmessages.DeleteMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
 
 import java.util.ArrayList;
@@ -24,6 +26,7 @@ import java.util.Set;
 
 @Service
 public final class Menu2MessageHandler {
+    public static final MenuSendMessage MENU_21_MESSAGE = new MenuSendMessage();
     private static final Logger LOGGER = Logger.getLogger(Menu2MessageHandler.class);
 
     private final UserMenuVariables userMenuVariables;
@@ -60,81 +63,85 @@ public final class Menu2MessageHandler {
 
         if (text.equals(userMenuVariables.getMenu2BtnCategoryText())) { // Нажали "изменить категорию"
             dontUnderstand = false;
-            SendMessage menu21Message = new SendMessage();
+            MenuSendMessage menu21Message = new MenuSendMessage();
             menu21Message.setChatId(chatId.toString());
             menu21Message.setReplyMarkup(keyboardsRegistry.getMenu21().getKeyboard(user.getUserChoice()));
             menu21Message.setText(messagesVariables.getUserMenu21Text());
+            menu21Message.setChangeMenuMessageId(true); // Меняю айди текущего меню для юзера, как только его получу
             response.add(menu21Message);
 
-            user.setBotUserState(UserState.MENU21); // Переходим в состояние Menu2
-            dataCache.markNotSaved(chatId);
+            this.checkMenuForDelete(user, message, response); // Проверяю и удаляю прошлое меню, если оно еще открыто
+
+            user.setBotUserState(UserState.MENU21); // Переходим в состояние Menu21
+            this.dataCache.saveUserCache(user);
+            //dataCache.markNotSaved(chatId);
         }
 
         if (text.equals(userMenuVariables.getMenu2BtnRoomsText())) { // Нажали "изменить кол-во комнат"
             dontUnderstand = false;
-            SendMessage menu22Message = new SendMessage();
+            MenuSendMessage menu22Message = new MenuSendMessage();
             menu22Message.setChatId(chatId.toString());
             menu22Message.setReplyMarkup(keyboardsRegistry.getMenu22().getKeyboard(user.getUserChoice()));
             menu22Message.setText(messagesVariables.getUserMenu22Text());
+            menu22Message.setChangeMenuMessageId(true); // Меняю айди текущего меню для юзера, как только его получу
             response.add(menu22Message);
 
+            this.checkMenuForDelete(user, message, response); // Проверяю и удаляю прошлое меню, если оно еще открыто
+
             user.setBotUserState(UserState.MENU22); // Переходим в состояние Menu22
-            dataCache.markNotSaved(chatId);
+            this.dataCache.saveUserCache(user);
+            //dataCache.markNotSaved(chatId);
         }
 
         if (text.equals(userMenuVariables.getMenu2BtnDistrictsText())) { // Нажали "выбрать районы"
             dontUnderstand = false;
-            SendMessage menu23Message = new SendMessage();
+            MenuSendMessage menu23Message = new MenuSendMessage();
             menu23Message.setChatId(chatId.toString());
             menu23Message.setReplyMarkup(keyboardsRegistry.getMenu23().getKeyboard(user.getUserChoice()));
             menu23Message.setText(messagesVariables.getUserMenu23Text());
+            menu23Message.setChangeMenuMessageId(true); // Меняю айди текущего меню для юзера, как только его получу
             response.add(menu23Message);
 
+            this.checkMenuForDelete(user, message, response); // Проверяю и удаляю прошлое меню, если оно еще открыто
+
             user.setBotUserState(UserState.MENU23); // Переходим в состояние Menu23
-            dataCache.markNotSaved(chatId);
+            this.dataCache.saveUserCache(user);
+            //dataCache.markNotSaved(chatId);
         }
 
         if (text.equals(userMenuVariables.getMenu2BtnBudgetText())) { // Нажали "изменить бюджет"
             dontUnderstand = false;
-            SendMessage menu24Message = new SendMessage();
+            MenuSendMessage menu24Message = new MenuSendMessage();
             menu24Message.setChatId(chatId.toString());
             menu24Message.setReplyMarkup(keyboardsRegistry.getMenu24().getKeyboard(user.getUserChoice()));
             menu24Message.setText(messagesVariables.getUserMenu24Text());
+            menu24Message.setChangeMenuMessageId(true); // Меняю айди текущего меню для юзера, как только его получу
             response.add(menu24Message);
 
+            this.checkMenuForDelete(user, message, response); // Проверяю и удаляю прошлое меню, если оно еще открыто
+
             user.setBotUserState(UserState.MENU24); // Переходим в состояние Menu24
-            dataCache.markNotSaved(chatId);
+            this.dataCache.saveUserCache(user);
+            //dataCache.markNotSaved(chatId);
         }
 
         if (text.equals(userMenuVariables.getMenu2BtnBackText())) { // Нажали "назад"
             dontUnderstand = false;
-            response.add(this.backToMenu1.back(user));
-            /*SendMessage sendMessage = new SendMessage();
-            sendMessage.setChatId(chatId.toString());
-            sendMessage.enableMarkdown(true);
-            sendMessage.setText(messagesVariables.getUserMenu1Text());
-            sendMessage.setReplyMarkup(keyboardsRegistry.getMenu1().getKeyboard());
-            response.add(sendMessage);
 
-            user.setBotUserState(UserState.MENU1); // Возвращаемся обратно
-            dataCache.markNotSaved(chatId); // Чтобы потом сохранить в базу*/
+            this.checkMenuForDelete(user, message, response); // Проверяю и удаляю прошлое меню, если оно еще открыто
+
+            response.add(this.backToMenu1.back(user));
         }
 
         if (text.equals(userMenuVariables.getMenu2BtnSearchText())) { // Нажали "Обновить"
             dontUnderstand = false;
+            this.checkMenuForDelete(user, message, response); // Проверяю и удаляю прошлое меню, если оно еще открыто
             this.sendFoundFlats(user, response); // Ищу и отправляю подходящие квартиры
         }
 
         if (dontUnderstand) { // Не понимаю юзера
+            this.checkMenuForDelete(user, message, response); // Проверяю и удаляю прошлое меню, если оно еще открыто
             response.add(this.backToMenu1.dontUnderstand(user));
-            /*SendMessage sendMessage = new SendMessage();
-            sendMessage.setChatId(chatId.toString());
-            sendMessage.setText(messagesVariables.getUserDontUnderstandText());
-            sendMessage.setReplyMarkup(keyboardsRegistry.getMenu1().getKeyboard());
-            response.add(sendMessage);
-
-            user.setBotUserState(UserState.MENU1); // Перешли в главное меню
-            dataCache.markNotSaved(chatId); // Чтобы потом сохранить в базу*/
         }
 
         return response;
@@ -176,7 +183,18 @@ public final class Menu2MessageHandler {
             }
         }
 
-        this.dataCache.saveUser(user); // Сохраняю изменения юзера
+        this.dataCache.saveUserCache(user); // Сохраняю изменения юзера
+    }
+
+    private void checkMenuForDelete(UserCache user, Message message, List<BotApiMethod<?>> response) {
+        boolean newMenuMessageId = user.getUserChoice().getMenuMessageId() != null &&
+                !user.getUserChoice().getMenuMessageId().equals(message.getMessageId());
+        if (newMenuMessageId) { // Если открыли новое меню (выбрали другой подпункт меню "Мои предпочтения")
+            response.add(this.deleteApiMethod(message));
+            user.getUserChoice().setMenuMessageId(message.getMessageId());
+            this.dataCache.saveUserCache(user);
+            //this.dataCache.markNotSaved(user.getChatId());
+        }
     }
 
     private SendMessage flatsNotFoundMessage(UserCache user) {
@@ -186,8 +204,22 @@ public final class Menu2MessageHandler {
         sendMessage.setReplyMarkup(keyboardsRegistry.getMenu1().getKeyboard()); // Меню 1
 
         user.setBotUserState(UserState.MENU1); // Перешли в главное меню
-        this.dataCache.markNotSaved(user.getChatId()); // Сохраняю в базу измененное состояние
+        this.dataCache.saveUserCache(user);
+        //this.dataCache.markNotSaved(user.getChatId()); // Сохраняю в базу измененное состояние
 
         return sendMessage;
+    }
+
+    private DeleteMessage deleteApiMethod(Message message) {
+        return DeleteMessage.builder()
+                .chatId(message.getChatId().toString())
+                .messageId(message.getMessageId())
+                .build();
+    }
+    private DeleteMessage deleteApiMethod(Long chatId, Integer messageId) {
+        return DeleteMessage.builder()
+                .chatId(chatId.toString())
+                .messageId(messageId)
+                .build();
     }
 }

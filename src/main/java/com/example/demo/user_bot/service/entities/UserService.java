@@ -31,7 +31,7 @@ public final class UserService {
     }
 
     public void saveUserCache(UserCache userCache) {
-        dataCache.saveUser(userCache);
+        dataCache.saveUserCache(userCache);
     }
 
     public UserCache saveNewUser(User user) {

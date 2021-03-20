@@ -49,6 +49,7 @@ public final class SendFoundFlatsService {
         if (notSentRentFlats.size() < programVariables.getFlatsNumberPerChat()) { // Если неотправленных квартир меньше, чем за один раз можно отправить
             this.sendAllNotSentRent(notSentRentFlats, user); // Отправляю все
             user.setBotUserState(UserState.MENU1); // Отправили все нужные квартиры - переходим в главное меню
+            user.getUserChoice().setMenuMessageId(null); // Удаляю меню
         } else { // Если неотправленных квартир больше, чем можем отправить за раз - отправляем фиксированное число
             this.sendNotAllNotSentRent(notSentRentFlats, user); // Отправить не все квартиры (фиксированное число)
             user.setBotUserState(UserState.SENT_NOT_ALL); // Меняю состояние - отправили не все квартиры
@@ -68,6 +69,7 @@ public final class SendFoundFlatsService {
         if (notSentBuyFlats.size() < programVariables.getFlatsNumberPerChat()) { // Если неотправленных квартир меньше, чем за один раз можно отправить
             this.sendAllNotSentBuy(notSentBuyFlats, user); // Отправляю все
             user.setBotUserState(UserState.MENU1); // Отправили все нужные квартиры - переходим в главное меню
+            user.getUserChoice().setMenuMessageId(null); // Удаляю меню
         } else { // Если неотправленных квартир больше, чем можем отправить за раз - отправляем фиксированное число
             this.sendNotAllNotSentBuy(notSentBuyFlats, user); // Отправить не все (факсированное число)
             user.setBotUserState(UserState.SENT_NOT_ALL); // Меняю состояние - отправили не все квартиры

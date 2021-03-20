@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
+import org.telegram.telegrambots.meta.api.methods.updatingmessages.DeleteMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
 
 import java.util.ArrayList;
@@ -66,7 +67,8 @@ public final class Menu3MessageHandler {
             response.add(stopUpdates);
 
             user.setBotUserState(UserState.MENU1);
-            dataCache.markNotSaved(chatId);
+            this.dataCache.saveUserCache(user);
+            //dataCache.markNotSaved(chatId);
         }
 
         if (text.equals(userMenuVariables.getMenu3BtnStartMailingText())) { // Нажали "Присылать обновления"
@@ -81,11 +83,14 @@ public final class Menu3MessageHandler {
             response.add(startUpdates);
 
             user.setBotUserState(UserState.MENU1);
-            dataCache.markNotSaved(chatId);
+            this.dataCache.saveUserCache(user);
+            //dataCache.markNotSaved(chatId);
         }
 
         if (text.equals(userMenuVariables.getMenu3BtnEnterPhoneText())) { // Нажали "Указать номер телефона"
             dontUnderstand = false;
+
+            this.checkMenuForDelete(user, message, response); // Проверяю и удаляю прошлое меню, если оно еще открыто
 
             SendMessage menu32 = new SendMessage(); // Переход в меню 3.2
             menu32.setChatId(chatId.toString());
@@ -94,26 +99,48 @@ public final class Menu3MessageHandler {
             response.add(menu32);
 
             user.setBotUserState(UserState.MENU32);
-            dataCache.markNotSaved(chatId);
+            this.dataCache.saveUserCache(user);
+            //dataCache.markNotSaved(chatId);
         }
 
         if (text.equals(userMenuVariables.getMenu3BtnBackText())) { // Нажали "назад"
             dontUnderstand = false;
+
+            this.checkMenuForDelete(user, message, response); // Проверяю и удаляю прошлое меню, если оно еще открыто
             response.add(this.backToMenu1.back(user));
         }
 
         if (dontUnderstand) { // Не понимаю юзера
+            this.checkMenuForDelete(user, message, response); // Проверяю и удаляю прошлое меню, если оно еще открыто
             response.add(this.backToMenu1.dontUnderstand(user));
-            /*SendMessage sendMessage = new SendMessage();
-            sendMessage.setChatId(chatId.toString());
-            sendMessage.setText(messagesVariables.getUserDontUnderstandText());
-            sendMessage.setReplyMarkup(keyboardsRegistry.getMenu1().getKeyboard());
-            response.add(sendMessage);
-
-            user.setBotUserState(UserState.MENU1); // Перешли в главное меню
-            dataCache.markNotSaved(chatId); // Чтобы потом сохранить в базу*/
         }
 
         return response;
+    }
+
+    private void checkMenuForDelete(UserCache user, Message message, List<BotApiMethod<?>> response) {
+        boolean newMenuMessageId = user.getUserChoice().getMenuMessageId() != null &&
+                !user.getUserChoice().getMenuMessageId().equals(message.getMessageId());
+        if (newMenuMessageId) { // Если открыли новое меню (выбрали другой подпункт меню "Мои предпочтения")
+            response.add(this.deleteApiMethod(user.getChatId(), user.getUserChoice().getMenuMessageId()));
+
+            // TODO: закомментил setMenuMessageId
+            /*user.getUserChoice().setMenuMessageId(message.getMessageId());
+            this.dataCache.saveUserCache(user);*/
+            //this.dataCache.markNotSaved(user.getChatId());
+        }
+    }
+
+    private DeleteMessage deleteApiMethod(Message message) {
+        return DeleteMessage.builder()
+                .chatId(message.getChatId().toString())
+                .messageId(message.getMessageId())
+                .build();
+    }
+    private DeleteMessage deleteApiMethod(Long chatId, Integer messageId) {
+        return DeleteMessage.builder()
+                .chatId(chatId.toString())
+                .messageId(messageId)
+                .build();
     }
 }

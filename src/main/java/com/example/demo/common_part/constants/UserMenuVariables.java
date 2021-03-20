@@ -225,6 +225,10 @@ public class UserMenuVariables {
     @Getter
     private String menu21BtnBackCallback;
 
+    @Value("${user.bot.menu2.1.button.callbackPrefix}")
+    @Getter
+    private String menu21BtnCallbackPrefix;
+
     @Value("${user.bot.menu2.2.button.room1.text}")
     private String menu22BtnRoom1Text;
     public String getMenu22BtnRoom1Text() {
@@ -268,6 +272,10 @@ public class UserMenuVariables {
     @Getter
     private String menu22BtnRoom0Callback;
 
+    @Value("${user.bot.menu2.2.button.callbackPrefix}")
+    @Getter
+    private String menu22BtnCallbackPrefix;
+
     @Value("${user.bot.menu2.3.button.back.text}")
     private String menu23BtnBackText;
     public String getMenu23BtnBackText() {
@@ -288,7 +296,7 @@ public class UserMenuVariables {
 
     @Value("${user.bot.menu2.3.button.districtPrefix.callback}")
     @Getter
-    private String menu23BtnDistrictPrefixCallback;
+    private String menu23BtnDistrictCallbackPrefix;
 
     @Value("${user.bot.menu2.4.budget.button.selectAll.text}")
     private String menu24BtnBudgetSelectAllText;
@@ -304,13 +312,10 @@ public class UserMenuVariables {
     public String getMenu24BtnBackText() {
         return MessageFormat.format(menu24BtnBackText, Emoji.BACK);
     }
-    @Value("${user.bot.menu2.4.button.back.callback}")
-    @Getter
-    private String menu24BtnBackCallback;
 
     @Value("${user.bot.menu2.4.button.rangePrefix.callback}")
     @Getter
-    private String menu24BtnRangePrefixCallback;
+    private String menu24BtnRangeCallbackPrefix;
 
     @Value("${user.bot.menu3.2.button.sendMyPhone.text}")
     private String menu32BtnSendMyPhoneText;
@@ -326,8 +331,8 @@ public class UserMenuVariables {
 
     @Value("${user.bot.notAll.button.seeOthers.text}")
     private String userNotAllBtnSeeOthersText;
-    public String getUserNotAllBtnSeeOthersText() {
-        return MessageFormat.format(userNotAllBtnSeeOthersText, Emoji.EYES);
+    public String getUserNotAllBtnSeeOthersText(String userFlatsNumberForOnce) {
+        return MessageFormat.format(userNotAllBtnSeeOthersText, Emoji.EYES, userFlatsNumberForOnce);
     }
     @Value("${user.bot.notAll.button.seeOthers.callback}")
     @Getter
@@ -341,6 +346,10 @@ public class UserMenuVariables {
     @Value("${user.bot.notAll.button.enough.callback}")
     @Getter
     private String userBotNotAllBtnEnoughCallback;
+
+    @Value("${user.bot.button.myMenu.callbackPrefix}")
+    @Getter
+    private String userMyMenuCallbackPrefix;
 
     @Value("${user.bot.notAll.button.callbackPrefix}")
     @Getter

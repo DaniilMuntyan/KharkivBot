@@ -34,7 +34,7 @@ public final class Menu23Keyboard {
             InlineKeyboardButton button = InlineKeyboardButton.builder()
                     .text((districtChoice.contains(district.getIdentifier()) ? Emoji.SELECTED + " ": "") +
                             district.getName())
-                    .callbackData(userMenuVariables.getMenu23BtnDistrictPrefixCallback() +
+                    .callbackData(userMenuVariables.getMenu23BtnDistrictCallbackPrefix() +
                             district.getIdentifier())
                     .build();
             districtButtons.add(button);

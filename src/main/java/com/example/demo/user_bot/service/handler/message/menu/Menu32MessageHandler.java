@@ -7,10 +7,13 @@ import com.example.demo.user_bot.cache.UserCache;
 import com.example.demo.user_bot.keyboards.KeyboardsRegistry;
 import com.example.demo.user_bot.service.publishing.FindFlatsService;
 import com.example.demo.user_bot.service.publishing.SendFoundFlatsService;
+import com.example.demo.user_bot.utils.UserState;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
+import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
+import org.telegram.telegrambots.meta.api.objects.Contact;
 import org.telegram.telegrambots.meta.api.objects.Message;
 
 import java.util.ArrayList;
@@ -43,28 +46,63 @@ public final class Menu32MessageHandler {
     }
 
     public List<BotApiMethod<?>> handleMessage(Message message, UserCache user) {
-        String text = message.getText();
+        String text = message.hasText() ? message.getText(): "MESSAGE HAS NO TEXT!";
         Long chatId = message.getChatId();
-
-        boolean dontUnderstand = true; // Не понимаю пользователя (пришло левое сообщение)
 
         List<BotApiMethod<?>> response = new ArrayList<>();
 
         LOGGER.info(text);
 
-        // TODO: обработать контакт - сохранить в базу как дополнительно указанный номер телефона
+        if (message.hasContact()) { // Прислали свой контакт. Кнопка "Отправить мой контакт"
+            Contact contact = message.getContact();
+            user.setPhone(contact.getPhoneNumber()); // Сохраняю телефон пользователя
+
+            response.add(this.getAcceptPhoneMessage(user));
+        } else { // Прислали вручную
+            if (checkPhoneText(text)) { // Если номер корректный
+                user.setPhone(text); // Сохраняю телефон пользователя
+                response.add(this.getAcceptPhoneMessage(user)); // Отправляю сообщение, что принял номер телефона
+            } else { // Неверно указан номер
+                response.add(this.getWrongPhoneMessage(user));
+            }
+        }
 
         if (text.equals(userMenuVariables.getMenu3BtnBackText())) { // Нажали "назад"
-            dontUnderstand = false;
             response.add(this.backToMenu3.back(user));
         }
 
-        if (dontUnderstand) { // Не понимаю юзера
-            response.add(this.backToMenu3.dontUnderstand(user));
-        }
+        user.setBotUserState(UserState.MENU3); // Возвращаемся обратно в меню "Настройки"
+        this.dataCache.saveUserCache(user);
+        //dataCache.markNotSaved(chatId); // Чтобы потом сохранить в базу
 
         return response;
     }
 
+    private SendMessage getWrongPhoneMessage(UserCache user) {
+        SendMessage wrongPhone = new SendMessage();
+        wrongPhone.setChatId(user.getChatId().toString());
+        wrongPhone.setText(messagesVariables.getUserMenu32WrongPhoneText());
+        wrongPhone.setReplyMarkup(keyboardsRegistry.getMenu3().getKeyboard(user));
+        return wrongPhone;
+    }
 
+    private SendMessage getAcceptPhoneMessage(UserCache user) {
+        SendMessage acceptPhone = new SendMessage();
+        acceptPhone.setChatId(user.getChatId().toString());
+        acceptPhone.enableMarkdown(true);
+        acceptPhone.setText(messagesVariables.getUserMenu32AcceptPhoneText());
+        acceptPhone.setReplyMarkup(keyboardsRegistry.getMenu3().getKeyboard(user));
+        return acceptPhone;
+    }
+
+    private boolean checkPhoneText(String text) {
+        for (int i = 0; i < text.length(); ++i) {
+            char temp = text.charAt(i);
+            // Если ничего из этого - ошибка либо не номер телефона
+            if (!Character.isDigit(temp) && temp != '+' && temp != '-' && temp != ' ') {
+                return false;
+            }
+        }
+        return true;
+    }
 }

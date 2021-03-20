@@ -61,12 +61,16 @@ public final class AdminBotCallbackHandler {
     public List<BotApiMethod<?>> handleCallback(CallbackQuery callback) {
         Long chatId = callback.getMessage().getChatId();
 
+        long time1 = System.currentTimeMillis();
         Optional<User> user = userRepository.findByChatId(chatId);
+        LOGGER.info("TIME findByChatId: " + (System.currentTimeMillis() - time1));
 
         List<BotApiMethod<?>> response = new ArrayList<>();
 
         if(user.isPresent() && adminService.isAdmin(user.get())) { // Если админ
+            time1 = System.currentTimeMillis();
             response.addAll(handleAdminCallback(callback, user.get()));
+            LOGGER.info("TIME handleAdminCallback: " + (System.currentTimeMillis() - time1));
         }
 
         return response;

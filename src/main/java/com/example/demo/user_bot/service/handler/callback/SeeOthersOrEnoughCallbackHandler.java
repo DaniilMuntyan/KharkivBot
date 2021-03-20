@@ -55,21 +55,29 @@ public final class SeeOthersOrEnoughCallbackHandler {
             } else {
                 this.sendFoundFlatsService.sendNotSentBuyFlats(user);
             }
-            this.dataCache.markNotSaved(user.getChatId()); // Помечаю юзера несохраненным - чтобы обновить в базе
-            //this.dataCache.saveUser(user); // Сохраняю изменения юзера
+            //this.dataCache.markNotSaved(user.getChatId()); // Помечаю юзера несохраненным - чтобы обновить в базе
+            this.dataCache.saveUserCache(user); // Сохраняю изменения юзера
         }
+
         // Если нажали "Достаточно", убираем кнопки и меняем текст сообщения
         if (callbackQuery.getData().equals(userMenuVariables.getUserBotNotAllBtnEnoughCallback())) {
             response.add(this.deleteApiMethod(callbackQuery.getMessage())); // Удаляю сообщение "Показать еще"
-            SendMessage sendMessage = new SendMessage();
-            sendMessage.setChatId(user.getChatId().toString());
-            sendMessage.setText(messagesVariables.getUserEnoughText());
-            sendMessage.setReplyMarkup(keyboardsRegistry.getMenu1().getKeyboard());
+
+            SendMessage okEnough = new SendMessage(); // Сообщение-ответ на кнопку "Достаточно"
+            okEnough.setChatId(user.getChatId().toString());
+            okEnough.setText(messagesVariables.getUserEnoughText());
+
+            SendMessage menu1 = new SendMessage(); // Сообщение меню "Мои предпочтения"
+            menu1.setChatId(user.getChatId().toString());
+            menu1.setText(messagesVariables.getUserMenu1Text());
+            menu1.setReplyMarkup(keyboardsRegistry.getMenu1().getKeyboard());
 
             user.setBotUserState(UserState.MENU1); // Перешли в главное меню
-            this.dataCache.markNotSaved(user.getChatId());
+            //this.dataCache.markNotSaved(user.getChatId());
+            this.dataCache.saveUserCache(user);
 
-            response.add(sendMessage);
+            response.add(okEnough);
+            response.add(menu1);
         }
     }
 

@@ -24,7 +24,8 @@ public enum Emoji {
     SMILE(":blush:"), PLUS(":heavy_plus_sign:"), MINUS(":heavy_minus_sign:"),
     SPEED(":runner:"), SEARCH(":mag:"),
     CLIPBOARD(":clipboard:"), TELEPHONE(":telephone:"), RAISED_HANDS(":raised_hands:"),
-    ORANGE_DIAMOND(":small_orange_diamond:"), STARS_EYES(":star_struck:");
+    ORANGE_DIAMOND(":small_orange_diamond:"), STARS_EYES(":star_struck:"), LIKE("\uD83D\uDC4D"),
+    ANGEL(":innocent:"), GREY_EXCLAMATION(":grey_exclamation:");
 
     private final String emojiName;
 

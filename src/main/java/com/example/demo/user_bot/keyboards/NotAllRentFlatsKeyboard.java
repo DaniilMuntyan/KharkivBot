@@ -1,9 +1,7 @@
 package com.example.demo.user_bot.keyboards;
 
+import com.example.demo.common_part.constants.ProgramVariables;
 import com.example.demo.common_part.constants.UserMenuVariables;
-import com.example.demo.common_part.utils.Emoji;
-import com.example.demo.common_part.utils.Rooms;
-import com.example.demo.user_bot.model.UserChoice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
@@ -15,10 +13,12 @@ import java.util.List;
 @Component
 public final class NotAllRentFlatsKeyboard {
     private final UserMenuVariables userMenuVariables;
+    private final ProgramVariables programVariables;
 
     @Autowired
-    public NotAllRentFlatsKeyboard(UserMenuVariables userMenuVariables) {
+    public NotAllRentFlatsKeyboard(UserMenuVariables userMenuVariables, ProgramVariables programVariables) {
         this.userMenuVariables = userMenuVariables;
+        this.programVariables = programVariables;
     }
 
     // Клавиатура сообщения после рассылки N квартир ("Показать еще")
@@ -26,7 +26,7 @@ public final class NotAllRentFlatsKeyboard {
         InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
 
         InlineKeyboardButton buttonSeeOthers = InlineKeyboardButton.builder()
-                .text(userMenuVariables.getUserNotAllBtnSeeOthersText())
+                .text(userMenuVariables.getUserNotAllBtnSeeOthersText(programVariables.getFlatsNumberPerChat().toString()))
                 .callbackData(userMenuVariables.getUserNotAllBtnSeeOthersCallback())
                 .build();
 

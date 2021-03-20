@@ -36,7 +36,8 @@ public final class FindFlatsService {
             if (this.userService.checkFlatWithUserChoice(rentFlat, userChoice)) { // Если параметры совпали
                 userChoiceFlats.add(rentFlat); // Добавляю квартиру к выбору пользователя
                 if (user.getSaved()) { // У юзера изменилось поле UserChoice и его нужно будет сохранить в базу
-                    this.dataCache.markNotSaved(user.getChatId());
+                    this.dataCache.saveUserCache(user); // TODO: проверить, можно ли использовать markNotSaved вместо saveUserCache
+                    //this.dataCache.markNotSaved(user.getChatId());
                 }
                 notSentRentFlats.add(rentFlat); // Пополняю список неотправленных юзеру квартир
             }
@@ -53,7 +54,8 @@ public final class FindFlatsService {
             if (this.userService.checkFlatWithUserChoice(buyFlat, userChoice)) { // Если параметры совпали
                 userChoiceFlats.add(buyFlat); // Добавляю квартиру к выбору пользователя
                 if (user.getSaved()) { // У юзера изменилось поле UserChoice и его нужно будет сохранить в базу
-                    this.dataCache.markNotSaved(user.getChatId());
+                    this.dataCache.saveUserCache(user);
+                    //this.dataCache.markNotSaved(user.getChatId());
                 }
                 notSentBuyFlats.add(buyFlat); // Пополняю список неотправленных юзеру квартир
             }

@@ -60,6 +60,7 @@ public final class InitCache {
         for (User temp: allExistedUsers) {
             // saved ставлю true, потому что в базе он уже есть
             usersCache.put(temp.getChatId(), new UserCache(temp, true));
+
         }
         LOGGER.info("ALL Users FROM DATABASE TO CACHE");
         return usersCache;

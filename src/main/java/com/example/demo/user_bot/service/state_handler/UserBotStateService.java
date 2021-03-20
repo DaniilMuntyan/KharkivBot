@@ -5,6 +5,8 @@ import com.example.demo.user_bot.cache.UserCache;
 import com.example.demo.user_bot.keyboards.KeyboardsRegistry;
 import com.example.demo.user_bot.service.entities.UserService;
 import com.example.demo.user_bot.service.handler.message.MessageHandlerRegistry;
+import com.example.demo.user_bot.utils.MenuSendMessage;
+import com.example.demo.user_bot.utils.UserCommands;
 import com.example.demo.user_bot.utils.UserState;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +43,14 @@ public class UserBotStateService {
         // Порядок важен! Так как внутри методов меняется состояние юзера,
         // то возвращаясь сюда - можем зайти в следующий по порядку if
 
-        LOGGER.info(message.getText() + " " + user.getBotUserState().toString());
+        if (message.hasText()) {
+            LOGGER.info(message.getText() + " " + user.getBotUserState().toString());
+        }
+
+        if (user.getUserChoice().getMenuMessageId() != null) { // Если было открыто меню - удаляю
+            answer.add(this.deleteApiMethod(user.getChatId(), user.getUserChoice().getMenuMessageId()));
+        }
+
         switch(user.getBotUserState()) {
             case MENU1: // Если пришло сообщение в состоянии Menu1 (скорее всего нажали кнопку)
                 answer.addAll(this.messageHandlerRegistry.getMenu1MessageHandler().handleMessage(message, user));
@@ -53,10 +62,10 @@ public class UserBotStateService {
             case MENU24: // Любое подменю с пункта "Мои предпочтения"
                 answer.addAll(this.messageHandlerRegistry.getMenu2MessageHandler().handleMessage(message, user));
                 break;
-            case MENU3: // Меню "Настройки"
+            case MENU3: // Кнопка из меню "Настройки"
                 answer.addAll(this.messageHandlerRegistry.getMenu3MessageHandler().handleMessage(message, user));
                 break;
-            case MENU32: // Меню "Указать номер телефона"
+            case MENU32: // Кнопка из меню "Указать номер телефона"
                 answer.addAll(this.messageHandlerRegistry.getMenu32MessageHandler().handleMessage(message, user));
                 break;
             case FIRST_INIT_CATEGORY: // Меню инициализации, выбрать категорию
@@ -78,16 +87,29 @@ public class UserBotStateService {
                 .messageId(message.getMessageId())
                 .build();
     }
+    private DeleteMessage deleteApiMethod(Long chatId, Integer messageId) {
+        return DeleteMessage.builder()
+                .chatId(chatId.toString())
+                .messageId(messageId)
+                .build();
+    }
 
     private void processCategory(List<BotApiMethod<?>> answer, Message message, UserCache user) {
+        // Если прислали не /start в состоянии FIRST_INIT_CATEGORY
+        if (message.hasText() && !message.getText().equals(UserCommands.START)) {
+            answer.add(this.deleteApiMethod(message));
+            return;
+        }
+
         SendMessage messageHi = new SendMessage(); // Приветственное сообщение
         messageHi.setChatId(message.getChatId().toString());
         messageHi.setText(messagesVariables.getUserFirstHi(user.getName(false)));
 
-        SendMessage messageCategory = new SendMessage(); // Сообщение с меню инициализации №1 (категории)
+        MenuSendMessage messageCategory = new MenuSendMessage(); // Сообщение с меню инициализации №1 (категории)
         messageCategory.setChatId(message.getChatId().toString());
         messageCategory.setText(messagesVariables.getUserInitCategoryText());
         messageCategory.setReplyMarkup(keyboardsRegistry.getInitCategoryMenu().getKeyboard(user.getUserChoice()));
+        messageCategory.setChangeMenuMessageId(true);
 
         answer.addAll(List.of(messageHi, messageCategory));
         user.setBotUserState(UserState.FIRST_INIT_CATEGORY); // Меняю состояние бота, теперь выбираем категорию

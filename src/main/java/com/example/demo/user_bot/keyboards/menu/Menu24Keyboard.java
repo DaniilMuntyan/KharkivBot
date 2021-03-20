@@ -4,7 +4,6 @@ import com.example.demo.common_part.constants.UserMenuVariables;
 import com.example.demo.common_part.utils.BuyRange;
 import com.example.demo.common_part.utils.Emoji;
 import com.example.demo.common_part.utils.RentalRange;
-import com.example.demo.user_bot.keyboards.init.InitBudgetKeyboard;
 import com.example.demo.user_bot.model.UserChoice;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
@@ -38,7 +37,7 @@ public final class Menu24Keyboard {
                 InlineKeyboardButton button = InlineKeyboardButton.builder()
                         .text((budgetChoice.contains(rentalRange.getIdentifier()) ? Emoji.SELECTED + " " : "") +
                                 rentalRange.toString())
-                        .callbackData(userMenuVariables.getMenu24BtnRangePrefixCallback() +
+                        .callbackData(userMenuVariables.getMenu24BtnRangeCallbackPrefix() +
                                 rentalRange.getIdentifier())
                         .build();
                 budgetButtons.add(button);
@@ -48,7 +47,7 @@ public final class Menu24Keyboard {
                 InlineKeyboardButton button = InlineKeyboardButton.builder()
                         .text((budgetChoice.contains(buyRange.getIdentifier()) ? Emoji.SELECTED + " " : "") +
                                 buyRange.toString())
-                        .callbackData(userMenuVariables.getMenu24BtnRangePrefixCallback() +
+                        .callbackData(userMenuVariables.getMenu24BtnRangeCallbackPrefix() +
                                 buyRange.getIdentifier())
                         .build();
                 budgetButtons.add(button);

@@ -64,7 +64,7 @@ public final class PublishingService {
                 if (this.userService.checkFlatWithUserChoice(rentFlat, user.getUserChoice())) { // Предпочтения совпали
                     user.getUserChoice().addRentChoice(rentFlat); // Добавляю в предпочтения юзера
                     this.dataCache.newRentFlat(rentFlat); // Сохраняю квартиру в кэш
-                    this.dataCache.saveUser(user); // Сохраняю в кэш изменения UserChoice
+                    this.dataCache.saveUserCache(user); // Сохраняю в кэш изменения UserChoice
 
                     userBotSendingQueue.addBulkMessageToQueue(SendMessage.builder()
                             .text(sendMessage.getText())
@@ -85,8 +85,8 @@ public final class PublishingService {
                 if (this.userService.checkFlatWithUserChoice(buyFlat, user.getUserChoice())) {
                     user.getUserChoice().addBuyChoice(buyFlat); // Добавляю в предпочтения юзера
                     this.dataCache.newBuyFlat(buyFlat); // Сохраняю квартиру в кэш
-                    this.dataCache.saveUser(user); // Сохраняю в кэш изменения UserChoice
-                    this.dataCache.markNotSaved(user.getChatId()); // Сохранить изменения в базу
+                    this.dataCache.saveUserCache(user); // Сохраняю в кэш изменения UserChoice
+                    //this.dataCache.markNotSaved(user.getChatId()); // Сохранить изменения в базу
 
                     userBotSendingQueue.addBulkMessageToQueue(SendMessage.builder()
                             .text(sendMessage.getText())

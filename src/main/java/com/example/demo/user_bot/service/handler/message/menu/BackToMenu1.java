@@ -31,7 +31,8 @@ public final class BackToMenu1 {
         sendMessage.setReplyMarkup(keyboardsRegistry.getMenu1().getKeyboard());
 
         user.setBotUserState(UserState.MENU1); // Возвращаемся обратно
-        dataCache.markNotSaved(user.getChatId()); // Чтобы потом сохранить в базу
+        this.dataCache.saveUserCache(user);
+        //dataCache.markNotSaved(user.getChatId()); // Чтобы потом сохранить в базу
 
         return sendMessage;
     }
@@ -44,7 +45,8 @@ public final class BackToMenu1 {
         sendMessage.setReplyMarkup(keyboardsRegistry.getMenu1().getKeyboard());
 
         user.setBotUserState(UserState.MENU1); // Перешли в главное меню
-        dataCache.markNotSaved(user.getChatId()); // Чтобы потом сохранить в базу
+        this.dataCache.saveUserCache(user);
+        //dataCache.markNotSaved(user.getChatId()); // Чтобы потом сохранить в базу
 
         return sendMessage;
     }

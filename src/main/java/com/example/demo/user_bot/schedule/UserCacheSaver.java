@@ -1,7 +1,6 @@
 package com.example.demo.user_bot.schedule;
 
 
-import com.example.demo.common_part.model.RentFlat;
 import com.example.demo.common_part.model.User;
 import com.example.demo.user_bot.cache.DataCache;
 import com.example.demo.user_bot.cache.UserCache;
@@ -36,7 +35,8 @@ public final class UserCacheSaver {
         HashSet<User> newUsers = (HashSet<User>) dataCache.getNewUsersSet();
         HashMap<Long, UserCache> usersCacheMap = (HashMap<Long, UserCache>) dataCache.getUsersCacheMap();
 
-        System.out.println(usersCacheMap);
+        this.printMemory(); // Печатаю объем занятой мной памяти
+        //System.out.println(usersCacheMap);
 
         long time1 = System.currentTimeMillis();
         int c = 0;
@@ -61,11 +61,35 @@ public final class UserCacheSaver {
                     userChoiceService.saveUserChoice(userCache.getUserChoice());
                     userService.saveUser(user.get());
                     userCache.setSaved(true); // Пометили как сохраненный кэш
-                    //LOGGER.info("UserCache saved: " + (user.get().getUserChoice().getUserChoicesRent() != null));
                     c++;
                 }
             }
+            try {
+                LOGGER.info("ID " + userCache.getChatId() + ". ChoiceRentSize: " +
+                        userCache.getUserChoice().getUserChoicesRent().size() + ". ChoiceBuySize: " +
+                        userCache.getUserChoice().getUserChoicesBuy().size());
+            } catch (Exception ignored) {}
         }
         LOGGER.info("TIME update all changed users (" + c + "): " + (System.currentTimeMillis() - time1));
+        LOGGER.info("ALL RENT FLATS CACHE SIZE: " + this.dataCache.getRentFlatsCacheMap().size());
+        LOGGER.info("ALL BUY FLATS CACHE SIZE: " + this.dataCache.getBuyFlatsCacheMap().size());
+    }
+
+    private void printMemory() {
+        final long megabyte = 1024L * 1024L;
+        // Считаю память несколько раз - чтобы исключить случайность
+        long[] memory = {Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory(),
+                Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory(),
+                Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()};
+        StringBuilder mem = new StringBuilder();
+        for (long l : memory) {
+            mem.append(l).append(" B (").append(l / megabyte).append(" MB);  ");
+        }
+        long totalMemory = Runtime.getRuntime().totalMemory(), freeMemory = Runtime.getRuntime().freeMemory(),
+                maxMemory = Runtime.getRuntime().maxMemory();
+        LOGGER.info("TOTAL MEMORY: " + totalMemory + " B (" + (totalMemory / megabyte) + " MB); " +
+                "FREE MEMORY: " + freeMemory + " B (" + (freeMemory / megabyte) + " MB); " +
+                "MAX MEMORY: " + maxMemory + " B (" + (maxMemory / megabyte) + " MB);");
+        LOGGER.info("USED MEMORY: " + mem.toString());
     }
 }

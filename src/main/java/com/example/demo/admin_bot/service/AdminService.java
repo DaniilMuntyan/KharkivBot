@@ -73,13 +73,13 @@ public class AdminService {
     }
 
     public void saveAdmin(User admin) {
-        dataCache.saveUser(admin); // Сохраняю админа в кэше юзеров, чтобы потом кэш не перезаписал его в базе
+        dataCache.saveUserCache(admin); // Сохраняю админа в кэше юзеров, чтобы потом кэш не перезаписал его в базе
         userRepository.save(admin);
     }
 
     public void saveAdminState(User admin) {
         userRepository.editAdminState(admin.getId(), admin.getBotAdminState().ordinal());
-        dataCache.saveUser(admin); // Сохраняю админа в кэше (чтобы запись по расписанию не перезаписала изменения)
+        dataCache.saveUserCache(admin); // Сохраняю админа в кэше (чтобы запись по расписанию не перезаписала изменения)
     }
     
     public AdminChoice getAdminChoiceFromFlat(RentFlat rentFlat, Integer menuMessageId) {

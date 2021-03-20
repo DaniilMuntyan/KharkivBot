@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 @Service
@@ -26,37 +27,25 @@ public final class RentalFlatService {
         this.rentFlatRepository = rentFlatRepository;
         this.dataCache = dataCache;
 
-        /*for (int i = 0; i < 48; ++i) {
+        /*for (int i = 0; i < 5000; ++i) {
             RentFlat rentFlat = RentFlat.builder()
                     .address("Проспект Гагарина, ул. Москалёвская 5")
                     .contact("https://t.me/daniil_muntyan")
-                    //.floor((short) ThreadLocalRandom.current().nextInt(1, 12))
                     .floor((short) i)
-                    .allFloors((short) 16)
+                    .allFloors((short) (i + 5))
                     .district(District.KLOCHKOVSKOY)
-                    .info("Новострой!")
-                    .rentalRange(RentalRange.UAH_6000_8000)
+                    .info("Новострой! Без собак!")
+                    .rentalRange(RentalRange.UAH_10000_12000)
                     .metro("м. Холодная гора")
                     .money("4600 грн + интернет")
                     .telegraph("https://telegra.ph/83544-Sdayotsya-1-komnatnaya-kvartira-Saltovka-03-13")
-                    .rooms(Rooms.TWO)
+                    .rooms(Rooms.THREE)
+                    .mapLink("https://www.google.com/maps/search/?api=1&query=%D1%83%D0%BB.+%D0%9C%D0%B8%D1%80%D0%BE%D0%BD%D0%BE%D1%81%D0%B8%D1%86%D0%BA%D0%B0%D1%8F%2C+88%2C+%D0%A5%D0%B0%D1%80%D1%8C%D0%BA%D0%BE%D0%B2")
                     .square(45.5f)
                     .build();
             rentFlatRepository.save(rentFlat);
         }*/
-
-        /*// Добавляю все квартиры под аренду из базы данных в HashMap
-        this.initRentFlatsCache();*/
-
     }
-    /*private void initRentFlatsCache() {
-        List<RentFlat> allExistedRentFlats = this.rentFlatRepository.findAll();
-        Map<Long, RentFlat> rentFlatsCache = this.dataCache.getRentFlatsCacheMap();
-        for (RentFlat temp: allExistedRentFlats) {
-            rentFlatsCache.put(temp.getId(), temp);
-        }
-        LOGGER.info("RentFlatsCache has " + rentFlatsCache.size() + " flats");
-    }*/
 
     public void deleteRentFlat(Long flatId) {
         this.rentFlatRepository.deleteById(flatId);
