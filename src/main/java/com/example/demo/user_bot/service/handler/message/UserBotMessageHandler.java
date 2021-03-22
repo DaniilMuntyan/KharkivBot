@@ -103,7 +103,7 @@ public final class UserBotMessageHandler {
 
         List<BotApiMethod<?>> answer = new ArrayList<>();
 
-        answer.add(userService.getMyState(true, user)); // Отсылаю текущее состояние бота
+        //answer.add(userService.getMyState(true, user)); // Отсылаю текущее состояние бота
 
         // Если прислали сообщение в состоянии SENT_NOT_ALL
         if (user.getBotUserState() == UserState.SENT_NOT_ALL) {
@@ -147,7 +147,7 @@ public final class UserBotMessageHandler {
             answer.addAll(userBotStateService.processUserInput(message, user));
         }
 
-        answer.add(userService.getMyState(false, user)); // Отсылаю текущее состояние бота
+        //answer.add(userService.getMyState(false, user)); // Отсылаю текущее состояние бота
 
         return answer;
     }

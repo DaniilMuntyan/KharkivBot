@@ -1,13 +1,16 @@
 package com.example.demo.user_bot.schedule;
 
 import com.example.demo.common_part.constants.ProgramVariables;
+import com.example.demo.common_part.utils.BeanUtil;
 import com.example.demo.user_bot.botapi.RentalTelegramBot;
 import com.example.demo.user_bot.cache.DataCache;
 import com.example.demo.user_bot.utils.MenuSendMessage;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.task.TaskExecutor;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
@@ -32,14 +35,70 @@ public class UserBotSendingQueue {
     private final DataCache dataCache;
     private final RentalTelegramBot bot;
 
+    private final TaskExecutor taskExecutor;
+
     @Autowired
-    public UserBotSendingQueue(ProgramVariables programVariables, DataCache dataCache, @Lazy RentalTelegramBot bot) {
+    public UserBotSendingQueue(ProgramVariables programVariables, DataCache dataCache, @Lazy RentalTelegramBot bot, @Qualifier("TaskExecutor") TaskExecutor taskExecutor) {
         this.programVariables = programVariables;
         this.dataCache = dataCache;
         this.bot = bot;
+        this.taskExecutor = taskExecutor;
+        this.loop(); // Запускаю в другом потоке - для очередей
     }
 
-    @Scheduled(fixedDelayString = "${delay.user.message}")
+    @SuppressWarnings("InfiniteLoopStatement")
+    public void loop() {
+        Runnable sendMessageQueueLooper = () -> {
+            LOGGER.info("INFINITE");
+            long time1 = System.currentTimeMillis(), time2 = System.currentTimeMillis();
+            int c = 0;
+            try {
+                while (true) {
+                    if (!this.messagesQueue.isEmpty()) {
+                        if (c == 0) {
+                            time1 = System.currentTimeMillis();
+                        }
+                        time2 = System.currentTimeMillis();
+
+                        // Если прошло больше одной секунды - обнуляем счетчик
+                        if (time2 - time1 > 1000) {
+                            c = 0;
+                        }
+
+                        // Если за меньшее время, чем 1 секунда,
+                        // набралось N сообщений - засыпаем, пока не начнется следующая секунда
+                        if (c > programVariables.getMaxMsgPerSecond() && (time1 - time2 < 1000)) {
+                            try {
+                                Thread.sleep(1000 - (time1 - time2));
+                                c = 0;
+                            } catch (InterruptedException e) {
+                                LOGGER.error(e);
+                                e.printStackTrace();
+                            }
+                        } else {
+                            if (this.messagesQueue.size() != 0) { // Если есть личные сообщения - отправляю их (первый приоритет)
+                                SendMessage newMessage = this.messagesQueue.pollFirst();
+                                this.sendMessage(newMessage, bot);
+                            } else { // Если происходит рассылка (второй приоритет)
+                                if (this.bulkMessagesQueue.size() != 0) {
+                                    SendMessage newMessage = this.bulkMessagesQueue.pollFirst();
+                                    this.sendMessage(newMessage, bot);
+                                }
+                            }
+                            c++;
+                        }
+                    }
+                }
+            } catch (Exception ex) {
+                LOGGER.error(ex);
+                ex.printStackTrace();
+                this.loop(); // Опять пытаюсь запустить цикл
+            }
+        };
+        this.taskExecutor.execute(sendMessageQueueLooper); // Запускаю цикл в другом потоке
+    }
+
+    /*@Scheduled(fixedDelayString = "${delay.user.message}")
     public void sendMessageLooper() {
         // Обрабатываю отправку сообщений каждые X секунд
         // Если отвечаем юзеру сообщением (первый приоритет)
@@ -52,7 +111,7 @@ public class UserBotSendingQueue {
                 this.sendMessage(newMessage, bot);
             }
         }
-    }
+    }*/
 
     @Scheduled(fixedDelayString = "${delay.user.api}")
     public void sendApiMethodLooper() {

@@ -54,9 +54,9 @@ public final class ConfirmPublishCallbackHandler {
         if(data.equals(adminMenuVariables.getAdminBtnCallbackSubmenuConfirmYes())) {
             // Передаю параметром response - для публикации в канал
             // Если была ошибка при отправлении - вернется "ERROR", если нет - айдишник квартиры
-            String result = publishingService.publish(admin, response);
+            String hashTagWithFlatId = publishingService.publish(admin, response);
 
-            if (!result.equals("ERROR")) {
+            if (!hashTagWithFlatId.equals("ERROR")) {
                 EditMessageText addedFlat = new EditMessageText(); // Для отображения добавленной квартиры - админу
                 addedFlat.setChatId(admin.getChatId().toString());
                 addedFlat.setMessageId(messageId);
@@ -67,7 +67,7 @@ public final class ConfirmPublishCallbackHandler {
 
                 SendMessage sendMessage = new SendMessage();
                 sendMessage.setChatId(chatId.toString());
-                sendMessage.setText(messagesVariables.getAdminConfirmPublishSuccess(result));
+                sendMessage.setText(messagesVariables.getAdminConfirmPublishSuccess(hashTagWithFlatId));
                 sendMessage.setReplyMarkup(adminService.getMainMenu());
                 response.add(sendMessage);
 

@@ -40,6 +40,10 @@ public final class ProgramVariables {
     @Getter
     private Integer delayUserApi;*/
 
+    @Value("${user.maxMsgPerSecond}")
+    @Getter
+    private Integer maxMsgPerSecond;
+
     @Value("${delay.channel.message}")
     @Getter
     private Integer delayChannelMessage;

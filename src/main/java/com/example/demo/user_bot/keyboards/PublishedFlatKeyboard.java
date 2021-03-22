@@ -49,7 +49,7 @@ public final class PublishedFlatKeyboard {
             rows.add(List.of(buttonContact));
         }
 
-        // В зависимости от того, для какой квартиры callback (аренда/продажа)
+        // В зависимости от того, для какой квартиры callback (аренда/продажа) - кнопка хочу посмотреть
         String callbackData = flat instanceof RentFlat ?
                 userMenuVariables.getUserBotFlatMsgSeeRentCallbackPrefix() + ((RentFlat) flat).getId() :
                 userMenuVariables.getUserBotFlatMsgSeeBuyCallbackPrefix() + ((BuyFlat) flat).getId() ;

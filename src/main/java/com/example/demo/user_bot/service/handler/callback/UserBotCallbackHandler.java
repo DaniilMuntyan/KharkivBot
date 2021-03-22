@@ -76,7 +76,7 @@ public final class UserBotCallbackHandler {
             return response;
         }
 
-        response.add(userService.getMyState(true, user.get())); // Отсылаю текущее состояние бота
+        //response.add(userService.getMyState(true, user.get())); // Отсылаю текущее состояние бота
 
         // Если не получили Forbidden - отвечаем на callback, чтобы ушел кружек загрузки
         response.add(0, this.getAnswerCallback(callbackQuery));
@@ -165,7 +165,7 @@ public final class UserBotCallbackHandler {
         userService.saveUserCache(user.get()); // Сохраняю все изменения юзера
         LOGGER.info("Time handleCallback: " + (System.currentTimeMillis() - time1));
 
-        response.add(userService.getMyState(false, user.get())); // Отсылаю текущее состояние бота
+        //response.add(userService.getMyState(false, user.get())); // Отсылаю текущее состояние бота
 
         return response;
     }

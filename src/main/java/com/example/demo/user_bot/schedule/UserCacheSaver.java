@@ -31,13 +31,22 @@ public final class UserCacheSaver {
         this.userChoiceService = userChoiceService;
     }
 
+    private String f() {
+        String s = "";
+        for (int i = 0; i < 300; ++i) {
+            s += "-";
+        }
+        return s;
+    }
+
     @Scheduled(fixedDelayString = "${delay.user.saveToDb}")
     private void saveCache() {
         HashSet<User> newUsers = (HashSet<User>) dataCache.getNewUsersSet();
         ConcurrentHashMap<Long, UserCache> usersCacheMap = (ConcurrentHashMap<Long, UserCache>) dataCache.getUsersCacheMap();
 
-        // TODO: this.printMemory(); // Печатаю объем занятой мной памяти
-        //System.out.println(usersCacheMap);
+        System.out.println("\n" + f());
+        this.printMemory(); // Печатаю объем занятой мной памяти
+        System.out.println(f() + "\n");
 
         int c = 0;
         long time1 = System.currentTimeMillis();
@@ -58,7 +67,7 @@ public final class UserCacheSaver {
                 Optional<User> user = userService.findByChatId(chatId);
                 if (user.isPresent()) { // Если есть в базе - обновляем
                     this.dataCache.updateUser(user.get());
-                    userChoiceService.saveUserChoice(userCache.getUserChoice());
+                    // TODO: закомментил userChoiceService.saveUserChoice(userCache.getUserChoice());
                     userService.saveUser(user.get());
                     userCache.setSaved(true); // Пометили как сохраненный кэш
                     c++;

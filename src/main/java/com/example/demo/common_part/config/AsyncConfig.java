@@ -22,7 +22,7 @@ public class AsyncConfig {
         this.programVariables = programVariables;
     }
 
-    @Bean
+    @Bean(name="TaskExecutor")
     public TaskExecutor taskExecutor() {
         ThreadPoolTaskExecutor taskExecutor = new ThreadPoolTaskExecutor();
         int corePoolSize = Integer.parseInt(programVariables.getThreadsCorePoolSize());
@@ -37,7 +37,7 @@ public class AsyncConfig {
         return taskExecutor;
     }
 
-    @Bean
+    @Bean(name="ThreadPoolTaskScheduler")
     public ThreadPoolTaskScheduler threadPoolTaskScheduler(){
         ThreadPoolTaskScheduler threadPoolTaskScheduler
                 = new ThreadPoolTaskScheduler();

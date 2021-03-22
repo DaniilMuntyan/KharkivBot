@@ -43,21 +43,23 @@ public final class UserChoice {
     @Setter
     private String budget;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    /*@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name="user_choice_rental",
             joinColumns = @JoinColumn(name = "user_choice_id"),
-            inverseJoinColumns = @JoinColumn(name = "flat_id"))
+            inverseJoinColumns = @JoinColumn(name = "flat_id"))*/
+    @Transient
     @Getter
     @Setter
-    private Set<RentFlat> userChoicesRent; // Выбор пользователя по квартирам под аренду
+    private Set<RentFlat> userChoicesRent = new HashSet<>(); // Выбор пользователя по квартирам под аренду
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+   /*@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name="user_choice_buy",
             joinColumns = @JoinColumn(name = "user_choice_id"),
-            inverseJoinColumns = @JoinColumn(name = "flat_id"))
+            inverseJoinColumns = @JoinColumn(name = "flat_id"))*/
+    @Transient
     @Getter
     @Setter
-    private Set<BuyFlat> userChoicesBuy; // Выбор пользователя по квартирам под покупку
+    private Set<BuyFlat> userChoicesBuy = new HashSet<>(); // Выбор пользователя по квартирам под покупку
 
     public void addRentChoice(RentFlat rentFlat) {
         if (this.userChoicesRent == null) {

@@ -201,6 +201,13 @@ public class MessagesVariables {
     @Getter
     private String adminBotHashtagBuy;
 
+    @Value("${admin.bot.hashTag.text}")
+    private String adminBotHashTag;
+    public String getAdminBotHashTag(String flatId, boolean isRentFlat) {
+        return MessageFormat.format(adminBotHashTag, "#" + flatId,
+                isRentFlat ? this.adminBotHashtagRent : this.adminBotHashtagBuy);
+    }
+
     @Value("${user.hi}")
     private String userHi;
     public String getUserHi(String name) {

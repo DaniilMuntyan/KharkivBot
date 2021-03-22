@@ -29,83 +29,78 @@ public final class PublishingService {
     private final UserService userService;
     private final UserBotSendingQueue userBotSendingQueue;
     private final MessagesVariables messagesVariables;
+    private final FlatMessageService flatMessageService;
 
     private final DataCache dataCache;
 
     @Autowired
-    public PublishingService(RentalFlatService rentalFlatService, BuyFlatService buyFlatService, ProgramVariables programVariables, UserService userService, UserBotSendingQueue userBotSendingQueue, MessagesVariables messagesVariables, DataCache dataCache) {
+    public PublishingService(RentalFlatService rentalFlatService, BuyFlatService buyFlatService, ProgramVariables programVariables, UserService userService, UserBotSendingQueue userBotSendingQueue, MessagesVariables messagesVariables, FlatMessageService flatMessageService, DataCache dataCache) {
         this.rentalFlatService = rentalFlatService;
         this.buyFlatService = buyFlatService;
         this.programVariables = programVariables;
         this.userService = userService;
         this.userBotSendingQueue = userBotSendingQueue;
         this.messagesVariables = messagesVariables;
+        this.flatMessageService = flatMessageService;
         this.dataCache = dataCache;
     }
 
+    // Публикую только что добавленную админом квартиру соответствующим пользователям
     public String publish(UserCache admin, List<BotApiMethod<?>> response) {
         List<User> allUsers = userService.findAllUsers();
         String result;
 
-        SendMessage sendMessage = new SendMessage();
-        sendMessage.enableHtml(true);
+        SendMessage msgToChannel = new SendMessage();
         String foundNewFlatForYou = messagesVariables.getAdminFoundNewFlat() + "\n";
         String withoutNewFlatForYou = "."; // Квартира без надписи "Нашел новую квартиру для тебя"
         if (admin.getAdminChoice().getIsRentFlat()) {
-            RentFlat rentFlat = rentalFlatService.save(new RentFlat(admin.getAdminChoice()));
-            PublishedFlatKeyboard publishedFlatKeyboard = new PublishedFlatKeyboard(admin.getAdminChoice(), rentFlat);
+            RentFlat rentFlat = rentalFlatService.save(new RentFlat(admin.getAdminChoice())); // Сохраняю квартиру в БД
             admin.getAdminChoice().setFlatId(rentFlat.getId()); // Когда уже есть айди добавленной квартиры
-            sendMessage.setText(foundNewFlatForYou + rentFlat.getHtmlMessage());
-            sendMessage.setReplyMarkup(publishedFlatKeyboard.getKeyboard()); // Установаливаю клавиатуру для это квартиры под аренду
-            withoutNewFlatForYou = rentFlat.getHtmlMessage(); // Без "Нашел новую квартиру для тебя"
-            result = rentFlat.getId().toString();
+            result = messagesVariables.getAdminBotHashTag(rentFlat.getId().toString(), true); // Хэштег 12345_аренда
             // Отправляю только тем пользователям, у которых соответствующие предпочтения
             for (User user: allUsers) {
                 if (user.getWantsUpdates() && this.userService.checkFlatWithUserChoice(rentFlat, user.getUserChoice())) { // Предпочтения совпали
-                    user.getUserChoice().addRentChoice(rentFlat); // Добавляю в предпочтения юзера
-                    this.dataCache.newRentFlat(rentFlat); // Сохраняю квартиру в кэш
+                    //TODO закомментил addRentChoice user.getUserChoice().addRentChoice(rentFlat); // Добавляю в предпочтения юзера
+                    this.dataCache.newFlat(rentFlat); // Сохраняю квартиру в кэш
                     this.dataCache.saveUserCache(user); // Сохраняю в кэш изменения UserChoice
 
-                    userBotSendingQueue.addBulkMessageToQueue(SendMessage.builder()
-                            .text(sendMessage.getText())
-                            .chatId(user.getChatId().toString())
-                            .parseMode(sendMessage.getParseMode())
-                            .build());
+                    userBotSendingQueue.addBulkMessageToQueue(this.flatMessageService
+                            .getMessageFromFlat(user.getChatId().toString(), rentFlat, foundNewFlatForYou, true));
                 }
             }
+            // Формирую сообщение в канал
+            msgToChannel = this.flatMessageService
+                    .getMessageFromFlat(programVariables.getTelegramChannel(), rentFlat, false);
         } else {
-            BuyFlat buyFlat = buyFlatService.save(new BuyFlat(admin.getAdminChoice()));
+            BuyFlat buyFlat = buyFlatService.save(new BuyFlat(admin.getAdminChoice())); // Сохраняю квартиру в БД
             PublishedFlatKeyboard publishedFlatKeyboard = new PublishedFlatKeyboard(admin.getAdminChoice(), buyFlat);
             admin.getAdminChoice().setFlatId(buyFlat.getId()); // Если уже есть айди добавленной квартиры
-            sendMessage.setText(foundNewFlatForYou + buyFlat.getHtmlMessage());
-            sendMessage.setReplyMarkup(publishedFlatKeyboard.getKeyboard());
             withoutNewFlatForYou = buyFlat.getHtmlMessage(); // Без "Нашел новую квартиру для тебя"
-            result = buyFlat.getId().toString();
-
+            result = messagesVariables.getAdminBotHashTag(buyFlat.getId().toString(), false); // Хэштег 12345_продажа;
             // Отправляю только тем пользователям, у которых соответствующие предпочтения
             for (User user: allUsers) {
                 if (user.getWantsUpdates() && this.userService.checkFlatWithUserChoice(buyFlat, user.getUserChoice())) {
-                    user.getUserChoice().addBuyChoice(buyFlat); // Добавляю в предпочтения юзера
-                    this.dataCache.newBuyFlat(buyFlat); // Сохраняю квартиру в кэш
+                    //TODO закомментил addBuyChoice user.getUserChoice().addBuyChoice(buyFlat); // Добавляю в предпочтения юзера
+                    this.dataCache.newFlat(buyFlat); // Сохраняю квартиру в кэш
                     this.dataCache.saveUserCache(user); // Сохраняю в кэш изменения UserChoice
-                    //this.dataCache.markNotSaved(user.getChatId()); // Сохранить изменения в базу
 
-                    userBotSendingQueue.addBulkMessageToQueue(SendMessage.builder()
-                            .text(sendMessage.getText())
-                            .chatId(user.getChatId().toString())
-                            .parseMode(sendMessage.getParseMode())
-                            .build());
+                    userBotSendingQueue.addBulkMessageToQueue(this.flatMessageService
+                            .getMessageFromFlat(user.getChatId().toString(), buyFlat, foundNewFlatForYou, true));
                 }
             }
+            // Формирую сообщение в канал
+            msgToChannel = this.flatMessageService
+                    .getMessageFromFlat(programVariables.getTelegramChannel(), buyFlat, false);
         }
 
         // Публикую в канал, если квартира под аренду и если нет ошибки
         if (admin.getAdminChoice().getIsRentFlat() && !result.equals("ERROR")) {
-            response.add(SendMessage.builder()
+            response.add(msgToChannel);
+            /*response.add(SendMessage.builder()
                     .chatId(programVariables.getTelegramChannel())
                     .text(withoutNewFlatForYou)
                     .parseMode(sendMessage.getParseMode())
-                    .build());
+                    .build());*/
         }
 
         return result;

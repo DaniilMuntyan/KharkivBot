@@ -24,7 +24,7 @@ public final class RentalFlatService {
         this.rentFlatRepository = rentFlatRepository;
         this.dataCache = dataCache;
 
-        /*for (int i = 0; i < 6000; ++i) {
+        /*for (int i = 0; i < 10000; ++i) {
             RentFlat rentFlat = RentFlat.builder()
                     .address("Проспект Гагарина, ул. Москалёвская 5")
                     .contact("https://t.me/daniil_muntyan")

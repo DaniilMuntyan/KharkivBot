@@ -47,7 +47,7 @@ public final class SendFoundFlatsService {
 
         user.setBotUserState(UserState.FLATS_MASSAGING); // Состояние - шлём квартиры
 
-        if (notSentRentFlats.size() < programVariables.getFlatsNumberPerChat()) { // Если неотправленных квартир меньше, чем за один раз можно отправить
+        if (notSentRentFlats.size() <= programVariables.getFlatsNumberPerChat()) { // Если неотправленных квартир меньше, чем за один раз можно отправить
             this.sendAllNotSentRent(notSentRentFlats, user); // Отправляю все
             user.setBotUserState(UserState.MENU1); // Отправили все нужные квартиры - переходим в главное меню
             user.getUserChoice().setMenuMessageId(null); // Удаляю меню
@@ -67,7 +67,7 @@ public final class SendFoundFlatsService {
 
         user.setBotUserState(UserState.FLATS_MASSAGING); // Состояние - шлём квартиры
 
-        if (notSentBuyFlats.size() < programVariables.getFlatsNumberPerChat()) { // Если неотправленных квартир меньше, чем за один раз можно отправить
+        if (notSentBuyFlats.size() <= programVariables.getFlatsNumberPerChat()) { // Если неотправленных квартир меньше, чем за один раз можно отправить
             this.sendAllNotSentBuy(notSentBuyFlats, user); // Отправляю все
             user.setBotUserState(UserState.MENU1); // Отправили все нужные квартиры - переходим в главное меню
             user.getUserChoice().setMenuMessageId(null); // Удаляю меню
@@ -82,7 +82,8 @@ public final class SendFoundFlatsService {
 
     private void sendAllNotSentRent(List<RentFlat> userNotSentRentFlats, UserCache user) {
         for (RentFlat temp : userNotSentRentFlats) { // Отправляю все
-            SendMessage sendMessage = this.flatMessageService.getMessageFromFlat(user.getChatId().toString(), temp);
+            SendMessage sendMessage = this.flatMessageService
+                    .getMessageFromFlat(user.getChatId().toString(), temp, true);
             userBotSendingQueue.addMessageToQueue(sendMessage);
         }
         this.sentAllMessage(user.getChatId().toString()); // Отправляю сообщение "Вот все что мне удалось найти"
@@ -90,7 +91,8 @@ public final class SendFoundFlatsService {
     }
     private void sendAllNotSentBuy(List<BuyFlat> userNotSentBuyFlats, UserCache user) {
         for (BuyFlat temp : userNotSentBuyFlats) { // Отправляю все
-            SendMessage sendMessage = this.flatMessageService.getMessageFromFlat(user.getChatId().toString(), temp);
+            SendMessage sendMessage = this.flatMessageService
+                    .getMessageFromFlat(user.getChatId().toString(), temp, true);
             userBotSendingQueue.addMessageToQueue(sendMessage);
         }
         this.sentAllMessage(user.getChatId().toString()); // Отправляю сообщение "Вот все что мне удалось найти"
@@ -104,7 +106,8 @@ public final class SendFoundFlatsService {
         List<RentFlat> listOfSentFlats = new ArrayList<>();
         for (RentFlat temp : userNotSentRentFlats) {
             if (c < programVariables.getFlatsNumberPerChat()) { // Отправляю первые N
-                SendMessage sendMessage = this.flatMessageService.getMessageFromFlat(user.getChatId().toString(), temp);
+                SendMessage sendMessage = this.flatMessageService
+                        .getMessageFromFlat(user.getChatId().toString(), temp, true);
                 userBotSendingQueue.addMessageToQueue(sendMessage);
                 listOfSentFlats.add(temp); // Добавляю в список отправленных квартир
             } else {
@@ -125,7 +128,8 @@ public final class SendFoundFlatsService {
         List<BuyFlat> listOfSentFlats = new ArrayList<>();
         for (BuyFlat temp : userNotSentBuyFlats) {
             if (c < programVariables.getFlatsNumberPerChat()) { // Отправляю первые N
-                SendMessage sendMessage = this.flatMessageService.getMessageFromFlat(user.getChatId().toString(), temp);
+                SendMessage sendMessage = this.flatMessageService
+                        .getMessageFromFlat(user.getChatId().toString(), temp, true);
                 userBotSendingQueue.addMessageToQueue(sendMessage);
                 listOfSentFlats.add(temp); // Добавляю в список отправленных квартир
             } else {

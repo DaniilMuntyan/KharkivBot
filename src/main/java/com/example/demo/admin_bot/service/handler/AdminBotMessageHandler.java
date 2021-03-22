@@ -78,7 +78,7 @@ public class AdminBotMessageHandler {
                     this.dataCache.saveUserCache(admin);
                     //admin = userRepository.save(admin);
                     //LOGGER.info("Admin entered: " + admin.getName(true));
-                } else { // Если админа нет в базе, он первый раз заходит в режим админа
+                } else { // Если админа нет в кэше, он первый раз заходит в режим админа
                     User newUser = new User(message);
                     newUser.setAdminMode(true);
                     newUser.setAdminChoice(new AdminChoice());

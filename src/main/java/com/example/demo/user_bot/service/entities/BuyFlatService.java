@@ -19,7 +19,7 @@ public final class BuyFlatService {
     public BuyFlatService(BuyFLatRepository buyFLatRepository) {
         this.buyFLatRepository = buyFLatRepository;
 
-        /*for (int i = 0; i < 5000; ++i) {
+        /*for (int i = 0; i < 10000; ++i) {
             BuyFlat buyFlat = BuyFlat.builder()
                     .address("Проспект Гагарина, ул. Москалёвская 5")
                     .contact("https://t.me/daniil_muntyan")

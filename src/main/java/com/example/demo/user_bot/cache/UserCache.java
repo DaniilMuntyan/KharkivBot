@@ -43,13 +43,13 @@ public final class UserCache { // Что храним в кэше юзера
         this.botUserState = user.getBotUserState();
         this.botAdminState = user.getBotAdminState();
         this.phone = user.getPhone();
+        this.adminChoice = user.getAdminChoice();
         this.userChoice = user.getUserChoice();
         this.lastAction = user.getLastAction();
         this.saved = saved;
         this.isAdmin = user.isAdminMode();
         this.wantsUpdates = user.getWantsUpdates();
         this.spam = false;
-        this.adminChoice = user.getAdminChoice();
         //this.sentRentFlats = new ArrayList<>();
     }
 
