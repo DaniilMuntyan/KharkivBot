@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -24,4 +25,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Query(value = "UPDATE \"user\" SET admin_state = ?2 WHERE user_id = ?1", nativeQuery = true)
     void editAdminState(long adminId, int state);
 
+    @Query("SELECT u FROM User u WHERE u.adminMode=true")
+    List<User> findAllAdmins();
 }

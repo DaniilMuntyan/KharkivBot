@@ -52,22 +52,22 @@ public final class Menu32MessageHandler {
 
         LOGGER.info(text);
 
-        if (message.hasContact()) { // Прислали свой контакт. Кнопка "Отправить мой контакт"
-            Contact contact = message.getContact();
-            user.setPhone(contact.getPhoneNumber()); // Сохраняю телефон пользователя
-
-            response.add(this.getAcceptPhoneMessage(user));
-        } else { // Прислали вручную
-            if (checkPhoneText(text)) { // Если номер корректный
-                user.setPhone(text); // Сохраняю телефон пользователя
-                response.add(this.getAcceptPhoneMessage(user)); // Отправляю сообщение, что принял номер телефона
-            } else { // Неверно указан номер
-                response.add(this.getWrongPhoneMessage(user));
-            }
-        }
-
-        if (text.equals(userMenuVariables.getMenu3BtnBackText())) { // Нажали "назад"
+        if (message.hasText() && text.equals(userMenuVariables.getMenu3BtnBackText())) { // Нажали "назад"
             response.add(this.backToMenu3.back(user));
+        } else { // Если не нажали "назад" - то есть прислали номер
+            if (message.hasContact()) { // Прислали свой контакт. Кнопка "Отправить мой контакт"
+                Contact contact = message.getContact();
+                user.setPhone(contact.getPhoneNumber()); // Сохраняю телефон пользователя
+
+                response.add(this.getAcceptPhoneMessage(user));
+            } else { // Прислали вручную
+                if (checkPhoneText(text)) { // Если номер корректный
+                    user.setPhone(text); // Сохраняю телефон пользователя
+                    response.add(this.getAcceptPhoneMessage(user)); // Отправляю сообщение, что принял номер телефона
+                } else { // Неверно указан номер
+                    response.add(this.getWrongPhoneMessage(user));
+                }
+            }
         }
 
         user.setBotUserState(UserState.MENU3); // Возвращаемся обратно в меню "Настройки"

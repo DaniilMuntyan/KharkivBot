@@ -4,6 +4,7 @@ import com.example.demo.admin_bot.keyboards.delete.EnterIdKeyboard;
 import com.example.demo.common_part.constants.AdminMenuVariables;
 import com.example.demo.admin_bot.keyboards.NewFlatMenu;
 import com.example.demo.common_part.model.User;
+import com.example.demo.user_bot.cache.UserCache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageText;
@@ -17,7 +18,7 @@ public final class CommonMethods {
         this.adminMenuVariables = adminMenuVariables;
     }
 
-    public EditMessageText getEditNewFlatKeyboard(Long chatId, Integer messageId, User admin) {
+    public EditMessageText getEditNewFlatKeyboard(Long chatId, Integer messageId, UserCache admin) {
         NewFlatMenu newFlatMenu = new NewFlatMenu(admin.getAdminChoice());
         EditMessageText editMessageText = new EditMessageText();
         editMessageText.setMessageId(messageId);

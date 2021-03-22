@@ -8,6 +8,7 @@ import com.example.demo.user_bot.cache.DataCache;
 import com.example.demo.user_bot.cache.UserCache;
 import com.example.demo.user_bot.keyboards.KeyboardsRegistry;
 import com.example.demo.user_bot.schedule.UserBotSendingQueue;
+import com.example.demo.user_bot.utils.MenuSendMessage;
 import com.example.demo.user_bot.utils.UserState;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -140,10 +141,11 @@ public final class SendFoundFlatsService {
     }
 
     private void sentNotAllMessage(String chatId, int notSent) {
-        SendMessage sentNotAll = new SendMessage();
+        MenuSendMessage sentNotAll = new MenuSendMessage();
         sentNotAll.setChatId(chatId);
         sentNotAll.setText(messagesVariables.getUserSentNotAllFLatsText(notSent + ""));
         sentNotAll.setReplyMarkup(keyboardsRegistry.getNotAllRentFlatsKeyboard().getKeyboard());
+        sentNotAll.setChangeMenuMessageId(true); // Сохраняю айдишник меню
         userBotSendingQueue.addMessageToQueue(sentNotAll);
     }
 

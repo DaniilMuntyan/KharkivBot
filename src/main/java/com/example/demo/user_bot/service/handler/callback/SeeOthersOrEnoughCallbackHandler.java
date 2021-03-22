@@ -9,6 +9,7 @@ import com.example.demo.user_bot.keyboards.KeyboardsRegistry;
 import com.example.demo.user_bot.schedule.UserBotSendingQueue;
 import com.example.demo.user_bot.service.publishing.FlatMessageService;
 import com.example.demo.user_bot.service.publishing.SendFoundFlatsService;
+import com.example.demo.user_bot.service.publishing.ShowOrEnoughService;
 import com.example.demo.user_bot.utils.UserState;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,6 @@ import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.DeleteMessage;
-import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageText;
 import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
 import org.telegram.telegrambots.meta.api.objects.Message;
 
@@ -34,9 +34,10 @@ public final class SeeOthersOrEnoughCallbackHandler {
     private final KeyboardsRegistry keyboardsRegistry;
     private final FlatMessageService flatMessageService;
     private final SendFoundFlatsService sendFoundFlatsService;
+    private final ShowOrEnoughService showOrEnoughService;
 
     @Autowired
-    public SeeOthersOrEnoughCallbackHandler(DataCache dataCache, ProgramVariables programVariables, UserBotSendingQueue userBotSendingQueue, UserMenuVariables userMenuVariables, MessagesVariables messagesVariables, KeyboardsRegistry keyboardsRegistry, FlatMessageService flatMessageService, SendFoundFlatsService sendFoundFlatsService) {
+    public SeeOthersOrEnoughCallbackHandler(DataCache dataCache, ProgramVariables programVariables, UserBotSendingQueue userBotSendingQueue, UserMenuVariables userMenuVariables, MessagesVariables messagesVariables, KeyboardsRegistry keyboardsRegistry, FlatMessageService flatMessageService, SendFoundFlatsService sendFoundFlatsService, ShowOrEnoughService showOrEnoughService) {
         this.dataCache = dataCache;
         this.programVariables = programVariables;
         this.userBotSendingQueue = userBotSendingQueue;
@@ -45,46 +46,18 @@ public final class SeeOthersOrEnoughCallbackHandler {
         this.keyboardsRegistry = keyboardsRegistry;
         this.flatMessageService = flatMessageService;
         this.sendFoundFlatsService = sendFoundFlatsService;
+        this.showOrEnoughService = showOrEnoughService;
     }
 
     public void handleCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache user) {
-        if (callbackQuery.getData().equals(userMenuVariables.getUserNotAllBtnSeeOthersCallback())) { // Нажали "Показать еще"
-            response.add(this.deleteApiMethod(callbackQuery.getMessage())); // Удаляю сообщение "Показать еще"
-            if (user.getUserChoice().getIsRentFlat()) {
-                this.sendFoundFlatsService.sendNotSentRentFlats(user);
-            } else {
-                this.sendFoundFlatsService.sendNotSentBuyFlats(user);
-            }
-            //this.dataCache.markNotSaved(user.getChatId()); // Помечаю юзера несохраненным - чтобы обновить в базе
-            this.dataCache.saveUserCache(user); // Сохраняю изменения юзера
+        // Нажали "Показать еще"
+        if (callbackQuery.getData().equals(userMenuVariables.getUserNotAllBtnSeeOthersCallback())) {
+            this.showOrEnoughService.more(response, callbackQuery, user);
         }
 
         // Если нажали "Достаточно", убираем кнопки и меняем текст сообщения
         if (callbackQuery.getData().equals(userMenuVariables.getUserBotNotAllBtnEnoughCallback())) {
-            response.add(this.deleteApiMethod(callbackQuery.getMessage())); // Удаляю сообщение "Показать еще"
-
-            SendMessage okEnough = new SendMessage(); // Сообщение-ответ на кнопку "Достаточно"
-            okEnough.setChatId(user.getChatId().toString());
-            okEnough.setText(messagesVariables.getUserEnoughText());
-
-            SendMessage menu1 = new SendMessage(); // Сообщение меню "Мои предпочтения"
-            menu1.setChatId(user.getChatId().toString());
-            menu1.setText(messagesVariables.getUserMenu1Text());
-            menu1.setReplyMarkup(keyboardsRegistry.getMenu1().getKeyboard());
-
-            user.setBotUserState(UserState.MENU1); // Перешли в главное меню
-            //this.dataCache.markNotSaved(user.getChatId());
-            this.dataCache.saveUserCache(user);
-
-            response.add(okEnough);
-            response.add(menu1);
+            this.showOrEnoughService.enough(response, callbackQuery.getMessage().getMessageId(), user);
         }
-    }
-
-    private DeleteMessage deleteApiMethod(Message message) {
-        return DeleteMessage.builder()
-                .chatId(message.getChatId().toString())
-                .messageId(message.getMessageId())
-                .build();
     }
 }

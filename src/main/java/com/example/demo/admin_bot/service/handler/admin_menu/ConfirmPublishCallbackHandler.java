@@ -8,6 +8,7 @@ import com.example.demo.admin_bot.service.handler.admin_menu.submenu.CommonMetho
 import com.example.demo.admin_bot.model.AdminChoice;
 import com.example.demo.common_part.model.User;
 import com.example.demo.common_part.repo.UserRepository;
+import com.example.demo.user_bot.cache.UserCache;
 import com.example.demo.user_bot.service.publishing.PublishingService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +44,7 @@ public final class ConfirmPublishCallbackHandler {
         this.publishingService = publishingService;
     }
 
-    public List<BotApiMethod<?>> handlePublishConfirm(CallbackQuery callbackQuery, User admin) {
+    public List<BotApiMethod<?>> handlePublishConfirm(CallbackQuery callbackQuery, UserCache admin) {
         String data = callbackQuery.getData();
         Long chatId = callbackQuery.getMessage().getChatId();
         Integer messageId = callbackQuery.getMessage().getMessageId();
@@ -72,7 +73,8 @@ public final class ConfirmPublishCallbackHandler {
 
                 // Возвращаем состояние в исходное
                 admin.setBotAdminState(AdminState.ADMIN_INIT);
-                adminService.setAdminChoice(admin, new AdminChoice()); // Обновляем выбор
+                adminService.clearAdminChoice(admin);
+                // TODO: закомментил adminService.setAdminChoice(admin, new AdminChoice()); // Обновляем выбор
             }
         } else { // Если отменяем публикацию
             response.add(commonMethods.getEditNewFlatKeyboard(chatId, messageId, admin));

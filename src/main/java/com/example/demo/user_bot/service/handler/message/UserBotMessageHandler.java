@@ -7,6 +7,7 @@ import com.example.demo.user_bot.cache.DataCache;
 import com.example.demo.user_bot.cache.UserCache;
 import com.example.demo.user_bot.service.entities.UserService;
 import com.example.demo.user_bot.service.handler.message.menu.BackToMenu1;
+import com.example.demo.user_bot.service.publishing.ShowOrEnoughService;
 import com.example.demo.user_bot.service.state_handler.UserBotStateService;
 import com.example.demo.user_bot.utils.UserCommands;
 import com.example.demo.user_bot.utils.UserState;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.DeleteMessage;
+import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
 import org.telegram.telegrambots.meta.api.objects.Message;
 
 import java.util.ArrayList;
@@ -31,17 +33,19 @@ public final class UserBotMessageHandler {
     private final UserService userService;
     private final UserBotStateService userBotStateService;
     private final ProgramVariables programVariables;
+    private final ShowOrEnoughService showOrEnoughService;
 
     private final BackToMenu1 backToMenu1;
 
     private final DataCache dataCache;
 
     @Autowired
-    public UserBotMessageHandler(MessagesVariables messagesVariables, UserService userService, UserBotStateService userBotStateService, ProgramVariables programVariables, BackToMenu1 backToMenu1, DataCache dataCache) {
+    public UserBotMessageHandler(MessagesVariables messagesVariables, UserService userService, UserBotStateService userBotStateService, ProgramVariables programVariables, ShowOrEnoughService showOrEnoughService, BackToMenu1 backToMenu1, DataCache dataCache) {
         this.messagesVariables = messagesVariables;
         this.userService = userService;
         this.userBotStateService = userBotStateService;
         this.programVariables = programVariables;
+        this.showOrEnoughService = showOrEnoughService;
         this.backToMenu1 = backToMenu1;
         this.dataCache = dataCache;
     }
@@ -99,43 +103,52 @@ public final class UserBotMessageHandler {
 
         List<BotApiMethod<?>> answer = new ArrayList<>();
 
-        if (hasText) { // Если прислали текст
-            String text = message.getText().trim();
+        answer.add(userService.getMyState(true, user)); // Отсылаю текущее состояние бота
 
-            // Порядок важен! Так как в обработчиках может поменяться состояние юзера
-            // и запрос может войти в следующие по порядку if-ы
+        // Если прислали сообщение в состоянии SENT_NOT_ALL
+        if (user.getBotUserState() == UserState.SENT_NOT_ALL) {
+            this.showOrEnoughService.enough(answer, user.getUserChoice().getMenuMessageId(), user); // Логика такая же, если б нажали "Достаточно"
+        } else { // Если не "Назад"
+            if (hasText) { // Если прислали текст
+                String text = message.getText().trim();
 
-            // Пользователь первый раз зашел в бота (/start) - меню инициализации
-            if (text.equals(UserCommands.START) && user.getBotUserState() == UserState.FIRST_INIT) {
-                user.setBotUserState(UserState.FIRST_INIT_CATEGORY);
-                this.dataCache.saveUserCache(user);
-                //this.dataCache.markNotSaved(user.getChatId());
-            } else {
-                boolean initMenu = UserState.getFirstStates().contains(user.getBotUserState());
-                // Если пользователь прислал /start во время меню инициализации
-                if (text.equals(UserCommands.START) && initMenu) {
-                    user.setBotUserState(UserState.FIRST_INIT_CATEGORY); // Снова показываю категорию
-                    if (user.getUserChoice().getMenuMessageId() != null) { // Если меню есть - удаляю его, чтобы создать новое
-                        answer.add(this.deleteApiMethod(user.getChatId(), user.getUserChoice().getMenuMessageId()));
-                    }
-                    user.getUserChoice().setMenuMessageId(null); // Удаляю прошлое меню
+                // Порядок важен! Так как в обработчиках может поменяться состояние юзера
+                // и запрос может войти в следующие по порядку if-ы
+
+                // Пользователь первый раз зашел в бота (/start) - меню инициализации
+                if (text.equals(UserCommands.START) && user.getBotUserState() == UserState.FIRST_INIT) {
+                    user.setBotUserState(UserState.FIRST_INIT_CATEGORY);
                     this.dataCache.saveUserCache(user);
                     //this.dataCache.markNotSaved(user.getChatId());
                 } else {
-                    if (text.equals(UserCommands.START)) { // Если пользователь прислал /start
-                        if (user.getUserChoice().getMenuMessageId() != null) { // Если меню есть - удаляю его
+                    boolean initMenu = UserState.getFirstStates().contains(user.getBotUserState());
+                    // Если пользователь прислал /start во время меню инициализации
+                    if (text.equals(UserCommands.START) && initMenu) {
+                        user.setBotUserState(UserState.FIRST_INIT_CATEGORY); // Снова показываю категорию
+                        if (user.getUserChoice().getMenuMessageId() != null) { // Если меню есть - удаляю его, чтобы создать новое
                             answer.add(this.deleteApiMethod(user.getChatId(), user.getUserChoice().getMenuMessageId()));
                         }
-                        return List.of(this.backToMenu1.back(user)); // Возвращаемся в главное меню
-                    }
-                    if (initMenu) { // Если пользователь прислал "левое" сообщение во время меню инициализации
-                        return List.of(this.deleteApiMethod(user.getChatId(), message.getMessageId())); // Удаляю левое сообщение
+                        user.getUserChoice().setMenuMessageId(null); // Удаляю прошлое меню
+                        this.dataCache.saveUserCache(user);
+                        //this.dataCache.markNotSaved(user.getChatId());
+                    } else {
+                        if (text.equals(UserCommands.START)) { // Если пользователь прислал /start в любом другом состоянии
+                            if (user.getUserChoice().getMenuMessageId() != null) { // Если меню есть - удаляю его
+                                answer.add(this.deleteApiMethod(user.getChatId(), user.getUserChoice().getMenuMessageId()));
+                            }
+                            return List.of(this.backToMenu1.back(user)); // Возвращаемся в главное меню
+                        }
+                        if (initMenu) { // Если пользователь прислал "левое" сообщение во время меню инициализации
+                            return List.of(this.deleteApiMethod(user.getChatId(), message.getMessageId())); // Удаляю левое сообщение
+                        }
                     }
                 }
             }
+            answer.addAll(userBotStateService.processUserInput(message, user));
         }
 
-        answer.addAll(userBotStateService.processUserInput(message, user));
+        answer.add(userService.getMyState(false, user)); // Отсылаю текущее состояние бота
+
         return answer;
     }
 

@@ -2,6 +2,9 @@ package com.example.demo.user_bot.service.entities;
 
 import com.example.demo.common_part.model.RentFlat;
 import com.example.demo.common_part.repo.RentFlatRepository;
+import com.example.demo.common_part.utils.District;
+import com.example.demo.common_part.utils.Rooms;
+import com.example.demo.common_part.utils.money_range.RentalRange;
 import com.example.demo.user_bot.cache.DataCache;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +24,7 @@ public final class RentalFlatService {
         this.rentFlatRepository = rentFlatRepository;
         this.dataCache = dataCache;
 
-        /*for (int i = 0; i < 5000; ++i) {
+        /*for (int i = 0; i < 6000; ++i) {
             RentFlat rentFlat = RentFlat.builder()
                     .address("Проспект Гагарина, ул. Москалёвская 5")
                     .contact("https://t.me/daniil_muntyan")

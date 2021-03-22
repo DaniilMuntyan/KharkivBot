@@ -47,7 +47,7 @@ public final class UserCacheSaver {
             newUsers.remove(temp); // Удалил с множества новых пользователей, потому что он уже в базе
             c++;
         }
-        LOGGER.info("TIME save all new users (" + c + "): " + (System.currentTimeMillis() - time1));
+        //LOGGER.info("TIME save all new users (" + c + "): " + (System.currentTimeMillis() - time1));
         c = 0;
         time1 = System.currentTimeMillis();
         // Теперь изменяю данные всех юзеров из кэша, которые еще не были сохранены в базу
@@ -64,18 +64,18 @@ public final class UserCacheSaver {
                     c++;
                 } else { // Нет в базе, но есть в кэше => сохраняю в базу
                     userService.saveUser(userCache);
-                    LOGGER.info("");
+                    //LOGGER.info("");
                 }
             }
             try {
-                LOGGER.info("ID " + userCache.getChatId() + ". ChoiceRentSize: " +
+                /*LOGGER.info("ID " + userCache.getChatId() + ". ChoiceRentSize: " +
                         userCache.getUserChoice().getUserChoicesRent().size() + ". ChoiceBuySize: " +
-                        userCache.getUserChoice().getUserChoicesBuy().size());
+                        userCache.getUserChoice().getUserChoicesBuy().size());*/
             } catch (Exception ignored) {}
         }
-        LOGGER.info("TIME update all changed users (" + c + "): " + (System.currentTimeMillis() - time1));
-        LOGGER.info("ALL RENT FLATS CACHE SIZE: " + this.dataCache.getRentFlatsCacheMap().size());
-        LOGGER.info("ALL BUY FLATS CACHE SIZE: " + this.dataCache.getBuyFlatsCacheMap().size());
+        //LOGGER.info("TIME update all changed users (" + c + "): " + (System.currentTimeMillis() - time1));
+        //LOGGER.info("ALL RENT FLATS CACHE SIZE: " + this.dataCache.getRentFlatsCacheMap().size());
+        //LOGGER.info("ALL BUY FLATS CACHE SIZE: " + this.dataCache.getBuyFlatsCacheMap().size());
     }
 
     private void printMemory() {

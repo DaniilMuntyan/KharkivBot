@@ -6,15 +6,19 @@ import com.example.demo.admin_bot.keyboards.NewFlatMenu;
 import com.example.demo.common_part.constants.ProgramVariables;
 import com.example.demo.admin_bot.model.AdminChoice;
 import com.example.demo.common_part.model.BuyFlat;
+import com.example.demo.common_part.model.Flat;
 import com.example.demo.common_part.model.RentFlat;
 import com.example.demo.common_part.model.User;
 import com.example.demo.common_part.repo.UserRepository;
 import com.example.demo.user_bot.cache.DataCache;
+import com.example.demo.user_bot.cache.UserCache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.AnswerCallbackQuery;
 import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
+
+import java.util.List;
 
 @Service
 public class AdminService {
@@ -35,8 +39,8 @@ public class AdminService {
         this.mainMenuKeyboard = mainMenuKeyboard;
     }
 
-    public boolean isAdmin(User user) {
-        return user.isAdminMode();
+    public boolean isAdmin(UserCache user) {
+        return user.isAdmin();
     }
 
     public boolean isEnterAdminCommand(String text) {
@@ -56,12 +60,14 @@ public class AdminService {
         return this.mainMenuKeyboard.getMainMenu();
     }
 
+    public NewFlatMenu getAddRentFlatMenu() {
+        return new NewFlatMenu(true);
+    }
     public NewFlatMenu getAddBuyFlatMenu() {
         return new NewFlatMenu(false);
     }
-
-    public NewFlatMenu getAddRentFlatMenu() {
-        return new NewFlatMenu(true);
+    public NewFlatMenu getAddFlatMenu(AdminChoice adminChoice) {
+        return new NewFlatMenu(adminChoice);
     }
 
     public AdminChoice saveChoice(NewFlatMenu newFlatMenu) {
@@ -77,9 +83,12 @@ public class AdminService {
         userRepository.save(admin);
     }
 
-    public void saveAdminState(User admin) {
-        userRepository.editAdminState(admin.getId(), admin.getBotAdminState().ordinal());
-        dataCache.saveUserCache(admin); // Сохраняю админа в кэше (чтобы запись по расписанию не перезаписала изменения)
+    public void saveAdminState(UserCache admin) {
+        dataCache.saveUserCache(admin); // Сохраняю админа в кэше
+    }
+
+    public List<User> findAllAdmins() {
+        return this.userRepository.findAllAdmins();
     }
     
     public AdminChoice getAdminChoiceFromFlat(RentFlat rentFlat, Integer menuMessageId) {
@@ -123,16 +132,26 @@ public class AdminService {
         return adminChoice;
     }
 
-
-    // Чтобы установить новый adminChoice для админа - сохранить новый и удалить предыдущий.
-    // Чтобы не хранился в базе
-    public void setAdminChoice(User admin, AdminChoice newAdminChoice) {
-        AdminChoice prevAdminChoice = admin.getAdminChoice();
+    public void setAdminChoice(UserCache admin, AdminChoice newAdminChoice) {
+        // TODO: не удаляю adminChoice
+        admin.setAdminChoice(newAdminChoice);
+        this.dataCache.saveUserCache(admin);
+        /*AdminChoice prevAdminChoice = admin.getAdminChoice();
         this.adminChoiceService.saveChoice(newAdminChoice);
         admin.setAdminChoice(newAdminChoice);
-        this.saveAdmin(admin);
+        this.dataCache.saveUserCache(admin);
         if (admin.getAdminChoice() != null) {
             this.adminChoiceService.deleteChoice(prevAdminChoice);
-        }
+        }*/
+    }
+
+    public void setAdminChoiceFromFlat(UserCache admin, Flat flat) {
+        admin.getAdminChoice().setAllFromFlat(flat); // Устанавливаю все поля квартиры Flat в AdminChoice
+        this.dataCache.saveUserCache(admin);
+    }
+
+    // Почистить выбор админа (начали заново)
+    public void clearAdminChoice(UserCache admin) {
+        admin.getAdminChoice().clear(); // Все атрибуты null
     }
 }

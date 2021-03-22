@@ -7,6 +7,7 @@ import com.example.demo.admin_bot.utils.AdminState;
 import com.example.demo.common_part.constants.AdminMenuVariables;
 import com.example.demo.common_part.model.User;
 import com.example.demo.user_bot.cache.DataCache;
+import com.example.demo.user_bot.cache.UserCache;
 import com.example.demo.user_bot.service.entities.BuyFlatService;
 import com.example.demo.user_bot.service.entities.RentalFlatService;
 import org.apache.log4j.Logger;
@@ -45,7 +46,7 @@ public final class DeleteCallbackHandler {
         this.dataCache = dataCache;
     }
 
-    public List<BotApiMethod<?>> handleDeleteCallback(CallbackQuery callbackQuery, User admin) {
+    public List<BotApiMethod<?>> handleDeleteCallback(CallbackQuery callbackQuery, UserCache admin) {
         String data = callbackQuery.getData();
         Long chatId = callbackQuery.getMessage().getChatId();
         Integer messageId = callbackQuery.getMessage().getMessageId();
@@ -53,7 +54,6 @@ public final class DeleteCallbackHandler {
 
         if (data.equals(adminMenuVariables.getDeleteBtnCallbackConfirm())) { // Подтвердили удаление
             Long flatId = this.adminCache.getFlatIdToDelete(chatId);
-            LOGGER.info("FLAT ID IN CALLBACK: " + flatId);
             if (admin.getAdminChoice().getIsRentFlat()) { // Если удаляем квартиру под аренду
                 this.dataCache.removeRentFlat(flatId); // Удаляю с хэша все связи с текущей квартирой
                 this.rentalFlatService.deleteRentFlat(flatId); // Удаляю квартиру в базе
@@ -63,20 +63,23 @@ public final class DeleteCallbackHandler {
             }
 
             this.adminCache.removeFlatToDelete(chatId); // Убираю из кэша админа эту квартиру (уже удаленную)
+            admin.getAdminChoice().clear(); // Почистил выбор админа
 
             admin.setBotAdminState(AdminState.ADMIN_INIT); // В изначальное состояние
-            admin.getAdminChoice().setMenuMessageId(null); // Удалил меню
+            admin.getAdminChoice().clear(); // Почистил выбор админа
+            //admin.getAdminChoice().setMenuMessageId(null); // Удалил меню
 
             response.addAll(getSuccess(chatId, messageId, flatId));
         }
 
         if (data.equals(adminMenuVariables.getDeleteBtnCallbackCancel())) { // Нажали "Отмена"
             admin.setBotAdminState(AdminState.ADMIN_INIT); // В изначальное состояние
-            admin.getAdminChoice().setMenuMessageId(null); // Удалил меню
-            response.add(this.getEditCancel(chatId, messageId, admin)); // Меняю на сообщение об отмене удаления
+            admin.getAdminChoice().clear(); // Почистил выбор админа
+            response.add(this.getEditCancel(chatId, messageId)); // Меняю на сообщение об отмене удаления
         }
 
-        adminService.saveAdmin(admin); // Сохраняю измененное состояние админа
+        this.dataCache.saveUserCache(admin); // Сохраняю измененное состояние админа
+        //adminService.saveAdmin(admin); // Сохраняю измененное состояние админа
 
         return response;
     }
@@ -97,7 +100,7 @@ public final class DeleteCallbackHandler {
         return response;
     }
 
-    private EditMessageText getEditCancel(Long chatId, Integer messageId, User admin) {
+    private EditMessageText getEditCancel(Long chatId, Integer messageId) {
         EditMessageText editMessageText = new EditMessageText();
         editMessageText.setMessageId(messageId);
         editMessageText.setChatId(chatId.toString());

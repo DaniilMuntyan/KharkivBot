@@ -32,7 +32,6 @@ public final class BackToMenu3 {
 
         user.setBotUserState(UserState.MENU3); // Возвращаемся обратно
         this.dataCache.saveUserCache(user);
-        //dataCache.markNotSaved(user.getChatId()); // Чтобы потом сохранить в базу
 
         return sendMessage;
     }

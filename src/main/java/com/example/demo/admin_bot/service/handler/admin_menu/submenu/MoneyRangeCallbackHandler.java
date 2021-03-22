@@ -5,6 +5,7 @@ import com.example.demo.admin_bot.service.AdminService;
 import com.example.demo.common_part.model.User;
 import com.example.demo.common_part.utils.money_range.BuyRange;
 import com.example.demo.common_part.utils.money_range.RentalRange;
+import com.example.demo.user_bot.cache.UserCache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
@@ -23,7 +24,7 @@ public final class MoneyRangeCallbackHandler {
         this.commonMethods = commonMethods;
     }
 
-    public BotApiMethod<?> handleMoneyRangeCallback(CallbackQuery callbackQuery, User admin) {
+    public BotApiMethod<?> handleMoneyRangeCallback(CallbackQuery callbackQuery, UserCache admin) {
         String data = callbackQuery.getData();
         Long chatId = callbackQuery.getMessage().getChatId();
         Integer messageId = callbackQuery.getMessage().getMessageId();

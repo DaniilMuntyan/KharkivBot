@@ -3,7 +3,10 @@ package com.example.demo.user_bot.cache;
 import com.example.demo.common_part.model.BuyFlat;
 import com.example.demo.common_part.model.RentFlat;
 import com.example.demo.common_part.model.User;
+import com.example.demo.user_bot.service.entities.UserService;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
@@ -60,6 +63,16 @@ public final class DataCache {
         usersCacheMap.put(user.getChatId(), new UserCache(user, false));
     }
 
+    public List<UserCache> findAllAdmins() {
+        List<UserCache> answer = new ArrayList<>();
+        for (Map.Entry<Long, UserCache> entry : this.usersCacheMap.entrySet()) {
+            if (entry.getValue().isAdmin()) {
+                answer.add(entry.getValue());
+            }
+        }
+        return answer;
+    }
+
     public void setMenuMsgId(String chatIdString, Integer menuMessageId) {
         try {
             Long chatId = Long.valueOf(chatIdString);
@@ -112,6 +125,7 @@ public final class DataCache {
         user.setLastName(userCache.getLastName());
         user.setUsername(userCache.getUsername());
         user.setUserChoice(userCache.getUserChoice());
+        user.setAdminChoice(userCache.getAdminChoice());
         user.setPhone(userCache.getPhone());
         user.setLastAction(userCache.getLastAction());
         user.setWantsUpdates(userCache.getIsWantsUpdates());

@@ -8,6 +8,7 @@ import com.example.demo.admin_bot.service.AdminService;
 import com.example.demo.common_part.utils.Emoji;
 import com.example.demo.admin_bot.model.AdminChoice;
 import com.example.demo.common_part.model.User;
+import com.example.demo.user_bot.cache.UserCache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
@@ -34,7 +35,7 @@ public class AdminMenuCallbackHandler {
         this.messagesVariables = messagesVariables;
     }
 
-    public List<BotApiMethod<?>> handleAdminMenuCallback(CallbackQuery callbackQuery, User admin) {
+    public List<BotApiMethod<?>> handleAdminMenuCallback(CallbackQuery callbackQuery, UserCache admin) {
         List<BotApiMethod<?>> response = new ArrayList<>();
 
         // Получаем айди сообщения с главным меню, если он отличается от сохраненного.
@@ -130,10 +131,10 @@ public class AdminMenuCallbackHandler {
                 .build();
     }
 
-    private void cancelCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, User admin) {
+    private void cancelCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache admin) {
         admin.setBotAdminState(AdminState.ADMIN_INIT);
-        adminService.setAdminChoice(admin, new AdminChoice());
-        //adminService.saveAdmin(admin);
+        adminService.clearAdminChoice(admin);
+        // TODO: закомментил adminService.setAdminChoice(admin, new AdminChoice());
 
         // Удаляю меню
         response.add(deleteApiMethod(callbackQuery.getMessage()));
@@ -145,19 +146,19 @@ public class AdminMenuCallbackHandler {
         response.add(sendMessage);
     }
 
-    private void roomsCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, User admin) {
+    private void roomsCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache admin) {
         EditMessageText editMessageText = new EditMessageText();
 
         RoomsKeyboard roomsKeyboard = new RoomsKeyboard();
 
-        editMessageText.setChatId(callbackQuery.getMessage().getChatId().toString());
+        editMessageText.setChatId(admin.getChatId().toString());
         editMessageText.setMessageId(callbackQuery.getMessage().getMessageId());
         editMessageText.setText(messagesVariables.getRoomsMessageText());
         editMessageText.setReplyMarkup(roomsKeyboard.getKeyboard());
         response.add(editMessageText);
     }
 
-    private void squareCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, User admin) {
+    private void squareCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache admin) {
         EditMessageText editMessageText = new EditMessageText();
 
         SquareKeyboard squareKeyboard = new SquareKeyboard();
@@ -172,7 +173,7 @@ public class AdminMenuCallbackHandler {
         adminService.saveAdminState(admin);
     }
 
-    private void floorCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, User admin) {
+    private void floorCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache admin) {
         EditMessageText editMessageText = new EditMessageText();
 
         FloorKeyboard floorKeyboard = new FloorKeyboard();
@@ -187,7 +188,7 @@ public class AdminMenuCallbackHandler {
         adminService.saveAdminState(admin);
     }
 
-    private void allFloorCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, User admin) {
+    private void allFloorCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache admin) {
         EditMessageText editMessageText = new EditMessageText();
 
         AllFloorsKeyboard allFloorsKeyboard = new AllFloorsKeyboard();
@@ -202,7 +203,7 @@ public class AdminMenuCallbackHandler {
         adminService.saveAdminState(admin);
     }
 
-    private void metroCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, User admin) {
+    private void metroCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache admin) {
         EditMessageText editMessageText = new EditMessageText();
 
         MetroKeyboard metroKeyboard = new MetroKeyboard();
@@ -217,7 +218,7 @@ public class AdminMenuCallbackHandler {
         adminService.saveAdminState(admin);
     }
 
-    private void addressCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, User admin) {
+    private void addressCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache admin) {
         EditMessageText editMessageText = new EditMessageText();
 
         AddressKeyboard addressKeyboard = new AddressKeyboard();
@@ -232,7 +233,7 @@ public class AdminMenuCallbackHandler {
         adminService.saveAdminState(admin);
     }
 
-    private void districtCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, User admin) {
+    private void districtCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache admin) {
         EditMessageText editMessageText = new EditMessageText();
 
         DistrictKeyboard districtKeyboard = new DistrictKeyboard();
@@ -244,7 +245,7 @@ public class AdminMenuCallbackHandler {
         response.add(editMessageText);
     }
 
-    private void priceCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, User admin) {
+    private void priceCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache admin) {
         EditMessageText editMessageText = new EditMessageText();
 
         PriceKeyboard priceKeyboard = new PriceKeyboard();
@@ -259,7 +260,7 @@ public class AdminMenuCallbackHandler {
         adminService.saveAdminState(admin);
     }
 
-    private void moneyRangeCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, User admin) {
+    private void moneyRangeCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache admin) {
         EditMessageText editMessageText = new EditMessageText();
 
         // В зависимости от значения переменной isRentFlat - получаем клавиатуру
@@ -272,7 +273,7 @@ public class AdminMenuCallbackHandler {
         response.add(editMessageText);
     }
 
-    private void photoCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, User admin) {
+    private void photoCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache admin) {
         EditMessageText editMessageText = new EditMessageText();
 
         PhotoKeyboard photoKeyboard = new PhotoKeyboard();
@@ -287,7 +288,7 @@ public class AdminMenuCallbackHandler {
         adminService.saveAdminState(admin);
     }
 
-    private void infoCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, User admin) {
+    private void infoCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache admin) {
         EditMessageText editMessageText = new EditMessageText();
 
         InfoKeyboard infoKeyboard = new InfoKeyboard();
@@ -302,7 +303,7 @@ public class AdminMenuCallbackHandler {
         adminService.saveAdminState(admin);
     }
 
-    private void mapCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, User admin) {
+    private void mapCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache admin) {
         EditMessageText editMessageText = new EditMessageText();
 
         MapKeyboard mapKeyboard = new MapKeyboard();
@@ -317,7 +318,7 @@ public class AdminMenuCallbackHandler {
         adminService.saveAdminState(admin);
     }
 
-    private void contactCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, User admin) {
+    private void contactCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache admin) {
         EditMessageText editMessageText = new EditMessageText();
 
         ContactKeyboard contactKeyboard = new ContactKeyboard();
@@ -332,7 +333,7 @@ public class AdminMenuCallbackHandler {
         adminService.saveAdminState(admin);
     }
 
-    private void publishCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, User admin) {
+    private void publishCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache admin) {
         EditMessageText editMessageText = new EditMessageText();
 
         PublishKeyboard publishKeyboard = new PublishKeyboard();

@@ -121,7 +121,9 @@ public class UserBotSendingQueue {
 
     private void sendMessage(SendMessage message, TelegramLongPollingBot bot) {
         try {
+            long time1 = System.currentTimeMillis();
             Message newMenuMessage = bot.execute(message);
+            LOGGER.info("TIME execute user SendMessage: " + (System.currentTimeMillis() - time1));
             if (message instanceof MenuSendMessage) { // Если отправляем новое меню
                 // Устанавливаю новое значение menuMessageId для пользователя, если нужно
                 if (((MenuSendMessage) message).isChangeMenuMessageId()) {
@@ -149,7 +151,10 @@ public class UserBotSendingQueue {
 
     private void executeMethod(BotApiMethod<?> method, TelegramLongPollingBot bot) {
         try {
+            long time1 = System.currentTimeMillis();
             bot.execute(method);
+            LOGGER.info("TIME execute user method " + method.getMethod().toString() + ": " +
+                    (System.currentTimeMillis() - time1));
         } catch (TelegramApiRequestException e) {
             LOGGER.error(e);
             if (e.getErrorCode().equals(429)) {

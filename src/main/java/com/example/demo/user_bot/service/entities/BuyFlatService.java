@@ -2,6 +2,9 @@ package com.example.demo.user_bot.service.entities;
 
 import com.example.demo.common_part.model.BuyFlat;
 import com.example.demo.common_part.repo.BuyFLatRepository;
+import com.example.demo.common_part.utils.District;
+import com.example.demo.common_part.utils.Rooms;
+import com.example.demo.common_part.utils.money_range.BuyRange;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

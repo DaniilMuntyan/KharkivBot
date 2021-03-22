@@ -19,7 +19,8 @@ public enum UserState {
     MENU23, // Меню выбор районов
     MENU24, // Меню выбор бюджета
     MENU3, // Меню "Настройки"
-    MENU32; // Меню отправить номер
+    MENU32, // Меню отправить номер
+    CONFIRMING_SEEING; // Меню подтверждения записи на просмотр
 
     public static List<UserState> getFirstStates() {
         return List.of(FIRST_INIT, FIRST_INIT_CATEGORY, FIRST_INIT_ROOMS, FIRST_INIT_DISTRICTS,

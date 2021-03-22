@@ -11,6 +11,7 @@ import com.example.demo.user_bot.model.UserChoice;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 
 import java.util.*;
 
@@ -40,6 +41,17 @@ public final class UserService {
                 .phone(user.getPhone())
                 .wantsUpdates(user.getIsWantsUpdates())
                 .build());
+    }
+
+    public SendMessage getMyState(boolean first, UserCache user) {
+        SendMessage sendMessage = new SendMessage();
+        sendMessage.setChatId(user.getChatId().toString());
+        if (first) {
+            sendMessage.setText("До обработки: " + user.getBotUserState().toString());
+        } else {
+            sendMessage.setText("После обработки: " + user.getBotUserState().toString());
+        }
+        return sendMessage;
     }
 
     public void saveUserCache(UserCache userCache) {

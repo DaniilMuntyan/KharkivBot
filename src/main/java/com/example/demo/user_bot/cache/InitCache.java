@@ -10,7 +10,6 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -19,17 +18,17 @@ import java.util.concurrent.ConcurrentHashMap;
 public final class InitCache {
     private static final Logger LOGGER = Logger.getLogger(InitCache.class);
 
-    private final DataCache dataCache;
     private final UserService userService;
     private final RentalFlatService rentalFlatService;
     private final BuyFlatService buyFlatService;
+    private final DataCache dataCache;
 
     @Autowired
-    public InitCache(DataCache dataCache, UserService userService, RentalFlatService rentalFlatService, BuyFlatService buyFlatService) {
-        this.dataCache = dataCache;
+    public InitCache(UserService userService, RentalFlatService rentalFlatService, BuyFlatService buyFlatService, DataCache dataCache) {
         this.userService = userService;
         this.rentalFlatService = rentalFlatService;
         this.buyFlatService = buyFlatService;
+        this.dataCache = dataCache;
 
         this.dataCache.setUsersCacheMap(this.initUsersCache()); // Загружаю юзеров из базы в кэш
         this.dataCache.setRentFlatsCacheMap(this.initRentFlatsCache()); // Квартиру под аренду из базы в кэш
@@ -37,7 +36,7 @@ public final class InitCache {
     }
 
     Map<Long, BuyFlat> initBuyFlatsCache() {
-        List<BuyFlat> allExistedBuyFlats = this.buyFlatService.findAllBuyFlats();
+        List<BuyFlat> allExistedBuyFlats = buyFlatService.findAllBuyFlats();
         Map<Long, BuyFlat> buyFlatsCache = new ConcurrentHashMap<>();
         for (BuyFlat temp: allExistedBuyFlats) {
             buyFlatsCache.put(temp.getId(), temp);
@@ -46,7 +45,7 @@ public final class InitCache {
         return buyFlatsCache;
     }
     Map<Long, RentFlat> initRentFlatsCache() {
-        List<RentFlat> allExistedRentFlats = this.rentalFlatService.findAllRentFlats();
+        List<RentFlat> allExistedRentFlats = rentalFlatService.findAllRentFlats();
         Map<Long, RentFlat> rentFlatsCache = new ConcurrentHashMap<>();
         for (RentFlat temp: allExistedRentFlats) {
             rentFlatsCache.put(temp.getId(), temp);

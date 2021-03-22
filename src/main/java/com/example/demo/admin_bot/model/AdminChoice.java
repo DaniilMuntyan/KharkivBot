@@ -1,5 +1,8 @@
 package com.example.demo.admin_bot.model;
 
+import com.example.demo.common_part.model.BuyFlat;
+import com.example.demo.common_part.model.Flat;
+import com.example.demo.common_part.model.RentFlat;
 import com.example.demo.common_part.utils.District;
 import com.example.demo.common_part.utils.Emoji;
 import com.example.demo.common_part.utils.Rooms;
@@ -106,11 +109,6 @@ public final class AdminChoice {
     @Setter
     private Long flatId; // ID, которое получила добавленная квартира
 
-    /*@Override
-    public boolean equals(Object obj) {
-        return this.getId().equals(((AdminChoice) obj).getId());
-    }*/
-
     public AdminChoice(boolean isRentFlat) {
         this.isRentFlat = isRentFlat;
     }
@@ -129,6 +127,45 @@ public final class AdminChoice {
                 ((moneyRange != null) ? "Бюджет: " + moneyRange + "\n" : "") +
                 ((mapLink != null) ? "На карте: " + "<a href=\"" + prepareHtml(mapLink) + "\">ссылка</a>\n" : "") +
                 ((contact != null) ? "Контакт для связи: @" + contact.substring(contact.lastIndexOf('/') + 1) : "");
+    }
+
+    public void setAllFromFlat(Flat flat) {
+        this.isRentFlat = flat instanceof RentFlat;
+        this.address = flat.getAddress();
+        this.flatId = flat.getId();
+        this.allFloors = flat.getAllFloors();
+        this.contact = flat.getContact();
+        this.floor = flat.getFloor();
+        this.district = flat.getDistrict();
+        this.mapLink = flat.getMapLink();
+        this.info = flat.getInfo();
+        this.metro = flat.getMetro();
+        this.money = flat.getMoney();
+        this.moneyRange = flat.getRange().toString();
+        this.rooms = flat.getRooms();
+        this.square = flat.getSquare();
+        this.telegraph = flat.getTelegraph();
+        // this.menuMessageId не меняется
+    }
+
+    public AdminChoice clear() {
+        this.menuMessageId = null;
+        this.isRentFlat = null;
+        this.district = null;
+        this.metro = null;
+        this.address = null;
+        this.rooms = null;
+        this.square = null;
+        this.floor = null;
+        this.allFloors = null;
+        this.money = null;
+        this.moneyRange = null;
+        this.mapLink = null;
+        this.contact = null;
+        this.telegraph = null;
+        this.info = null;
+        this.flatId = null;
+        return this;
     }
 
     private String prepareHtml(String url) { // Вынести в сервис

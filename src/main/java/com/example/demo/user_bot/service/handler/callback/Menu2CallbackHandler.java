@@ -42,13 +42,6 @@ public final class Menu2CallbackHandler {
     public void handleCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache user) {
         String data = callbackQuery.getData();
 
-        // TODO: закомментил setMenuMessageId
-        /*user.getUserChoice().setMenuMessageId(callbackQuery.getMessage().getMessageId()); // Устанавливаю новое меню
-        LOGGER.info("CHANGE MENU ID: " + user.getUserChoice().getMenuMessageId());
-        this.dataCache.saveUserCache(user);*/
-
-        LOGGER.info("DATA: " + data);
-
         // Если нажали какую-то кнопку из меню изменения категории
         if (data.startsWith(userMenuVariables.getMenu21BtnCallbackPrefix())) {
             long time2 = System.currentTimeMillis();

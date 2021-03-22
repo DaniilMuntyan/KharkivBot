@@ -5,6 +5,7 @@ import com.example.demo.user_bot.cache.UserCache;
 import com.example.demo.user_bot.keyboards.KeyboardsRegistry;
 import com.example.demo.user_bot.service.entities.UserService;
 import com.example.demo.user_bot.service.handler.message.MessageHandlerRegistry;
+import com.example.demo.user_bot.service.handler.message.menu.BackToMenu1;
 import com.example.demo.user_bot.utils.MenuSendMessage;
 import com.example.demo.user_bot.utils.UserCommands;
 import com.example.demo.user_bot.utils.UserState;
@@ -28,12 +29,15 @@ public class UserBotStateService {
     private final KeyboardsRegistry keyboardsRegistry;
     private final MessageHandlerRegistry messageHandlerRegistry;
 
+    private final BackToMenu1 backToMenu1;
+
     @Autowired
-    public UserBotStateService(UserService userService, MessagesVariables messagesVariables, KeyboardsRegistry keyboardsRegistry, MessageHandlerRegistry messageHandlerRegistry) {
+    public UserBotStateService(UserService userService, MessagesVariables messagesVariables, KeyboardsRegistry keyboardsRegistry, MessageHandlerRegistry messageHandlerRegistry, BackToMenu1 backToMenu1) {
         this.userService = userService;
         this.messagesVariables = messagesVariables;
         this.keyboardsRegistry = keyboardsRegistry;
         this.messageHandlerRegistry = messageHandlerRegistry;
+        this.backToMenu1 = backToMenu1;
     }
 
     public List<BotApiMethod<?>> processUserInput(Message message, UserCache user) {
@@ -49,6 +53,7 @@ public class UserBotStateService {
 
         if (user.getUserChoice().getMenuMessageId() != null) { // Если было открыто меню - удаляю
             answer.add(this.deleteApiMethod(user.getChatId(), user.getUserChoice().getMenuMessageId()));
+            user.getUserChoice().setMenuMessageId(null); // Удалил меню
         }
 
         switch(user.getBotUserState()) {
@@ -73,6 +78,9 @@ public class UserBotStateService {
                 break;
             case INIT: // Если прислали любое сообщение в начальном состоянии
                 this.processInit(answer, message, user); // TODO: рассмотреть
+                break;
+            default:
+                answer.add(this.backToMenu1.dontUnderstand(user));
                 break;
         }
 

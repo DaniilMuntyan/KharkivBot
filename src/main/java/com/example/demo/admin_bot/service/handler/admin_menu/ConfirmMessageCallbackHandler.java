@@ -7,6 +7,7 @@ import com.example.demo.admin_bot.service.AdminService;
 import com.example.demo.admin_bot.service.handler.admin_menu.submenu.CommonMethods;
 import com.example.demo.common_part.model.User;
 import com.example.demo.common_part.repo.UserRepository;
+import com.example.demo.user_bot.cache.UserCache;
 import com.example.demo.user_bot.schedule.UserBotSendingQueue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,7 +37,7 @@ public class ConfirmMessageCallbackHandler {
         this.userBotSendingQueue = userBotSendingQueue;
     }
 
-    public BotApiMethod<?> handleConfirmCallback(CallbackQuery callbackQuery, User admin) {
+    public BotApiMethod<?> handleConfirmCallback(CallbackQuery callbackQuery, UserCache admin) {
         String data = callbackQuery.getData();
         Long chatId = callbackQuery.getMessage().getChatId();
         Integer messageId = callbackQuery.getMessage().getMessageId();

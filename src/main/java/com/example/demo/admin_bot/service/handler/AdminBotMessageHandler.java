@@ -11,6 +11,8 @@ import com.example.demo.common_part.utils.Emoji;
 import com.example.demo.common_part.model.User;
 import com.example.demo.common_part.repo.UserRepository;
 import com.example.demo.user_bot.cache.DataCache;
+import com.example.demo.user_bot.cache.UserCache;
+import com.example.demo.user_bot.service.entities.UserService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,16 +33,18 @@ public class AdminBotMessageHandler {
     private final MessagesVariables messagesVariables;
     private final AdminMenuVariables adminMenuVariables;
     private final AdminBotStateService adminBotStateService;
+    private final UserService userService;
 
     private final DataCache dataCache;
 
     @Autowired
-    public AdminBotMessageHandler(UserRepository userRepository, AdminService adminService, MessagesVariables messagesVariables, AdminMenuVariables adminMenuVariables, AdminBotStateService adminBotStateService, DataCache dataCache) {
+    public AdminBotMessageHandler(UserRepository userRepository, AdminService adminService, MessagesVariables messagesVariables, AdminMenuVariables adminMenuVariables, AdminBotStateService adminBotStateService, UserService userService, DataCache dataCache) {
         this.userRepository = userRepository;
         this.adminService = adminService;
         this.messagesVariables = messagesVariables;
         this.adminMenuVariables = adminMenuVariables;
         this.adminBotStateService = adminBotStateService;
+        this.userService = userService;
         this.dataCache = dataCache;
     }
 
@@ -48,7 +52,8 @@ public class AdminBotMessageHandler {
         Long chatId = message.getChatId();
         String text = message.getText().trim();
         String username = message.getFrom().getUserName(); // Обновляю каждый раз, когда получаю новое сообщение
-        Optional<User> user = userRepository.findByChatId(chatId);
+        //Optional<User> user = userRepository.findByChatId(chatId);
+        Optional<UserCache> user = userService.findUserInCache(chatId);
 
         List<BotApiMethod<?>> response = new ArrayList<>();
 
@@ -58,27 +63,29 @@ public class AdminBotMessageHandler {
         boolean isAdmin = false;
 
         if(user.isPresent() && adminService.isAdmin(user.get())) { // Если админ
+            LOGGER.info("isAdmin: " + user.get().getChatId() + " " + user.get().isAdmin());
             isAdmin = true;
             response.addAll(handleAdminMessage(message, user.get(), username));
         } else {
             if (adminService.isEnterAdminCommand(text)) { // Если ввел команду с паролем
                 isAdmin = true;
-                if (user.isPresent()) { // Если админ уже есть в базе
-                    User admin = user.get();
-                    admin.setAdminMode(true);
+                if (user.isPresent()) { // Если админ уже есть в кэше
+                    UserCache admin = user.get();
+                    admin.setAdmin(true);
                     if (admin.getAdminChoice() == null) { // Если админ в базе есть, но AdminChoice еще не имеет
                         admin.setAdminChoice(new AdminChoice());
                     }
-                    admin = userRepository.save(admin);
-                    LOGGER.info("Admin entered: " + admin.getName(true));
+                    this.dataCache.saveUserCache(admin);
+                    //admin = userRepository.save(admin);
+                    //LOGGER.info("Admin entered: " + admin.getName(true));
                 } else { // Если админа нет в базе, он первый раз заходит в режим админа
                     User newUser = new User(message);
                     newUser.setAdminMode(true);
                     newUser.setAdminChoice(new AdminChoice());
                     newUser.setBotAdminState(AdminState.ADMIN_INIT);
-                    newUser = userRepository.save(newUser);
-                    dataCache.addUser(newUser); // Добавляю в кэш нового юзера
-                    LOGGER.info("New admin: " + newUser.getName(true));
+                    userService.saveNewUser(newUser); // Сохраняю в базу и кэш
+                    //this.dataCache.saveUserCache(newUserCache);
+                    //dataCache.addUser(newUser); // Добавляю в кэш нового юзера
                 }
                 response.add(helloAdmin(textResponse));
             }
@@ -88,7 +95,7 @@ public class AdminBotMessageHandler {
     }
 
     // Обработка сообщения от админа
-    private List<BotApiMethod<?>> handleAdminMessage(Message message, User admin, String username) {
+    private List<BotApiMethod<?>> handleAdminMessage(Message message, UserCache admin, String username) {
         String text = message.getText();
         Long chatId = message.getChatId();
 
@@ -174,6 +181,8 @@ public class AdminBotMessageHandler {
         if(admin.getBotAdminState() != AdminState.ADMIN_WAIT_MESSAGE && admin.getBotAdminState() != AdminState.ADMIN_INIT) {
             response.add(0, deleteApiMethod(message));
         }
+        
+        this.dataCache.saveUserCache(admin);
 
         return response;
     }

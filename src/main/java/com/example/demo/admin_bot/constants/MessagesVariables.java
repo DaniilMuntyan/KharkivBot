@@ -182,6 +182,25 @@ public class MessagesVariables {
         return MessageFormat.format(adminFoundNewFlat, Emoji.WAVE, Emoji.SMILE);
     }
 
+    @Value("${admin.userWantsToSeeRent.text}")
+    private String adminUserWantsToSeeRentText;
+    public String getAdminUserWantsToSeeRentText(String flatId) {
+        return MessageFormat.format(adminUserWantsToSeeRentText, Emoji.MAN_RAISING, "#" + flatId);
+    }
+    @Value("${admin.userWantsToSeeBuy.text}")
+    private String adminUserWantsToSeeBuyText;
+    public String getAdminUserWantsToSeeBuyText(String flatId) {
+        return MessageFormat.format(adminUserWantsToSeeBuyText, Emoji.MAN_RAISING, "#" + flatId);
+    }
+
+    @Value("${admin.bot.hashTag.rent}")
+    @Getter
+    private String adminBotHashtagRent;
+
+    @Value("${admin.bot.hashTag.buy}")
+    @Getter
+    private String adminBotHashtagBuy;
+
     @Value("${user.hi}")
     private String userHi;
     public String getUserHi(String name) {
@@ -192,6 +211,13 @@ public class MessagesVariables {
     private String userFirstHi;
     public String getUserFirstHi(String name) {
         return MessageFormat.format(userFirstHi, Emoji.WAVE, name, Emoji.SPEED, Emoji.ARROW_DOWN);
+    }
+
+    // TODO: в текст сообщения добавить ссылку на чат с поддержкой
+    @Value("${user.error.text}")
+    private String userErrorText;
+    public String getUserErrorText() {
+        return MessageFormat.format(userErrorText, Emoji.SAD, Emoji.POINT_RIGHT);
     }
 
     @Value("${user.init.category.text}")
@@ -332,6 +358,24 @@ public class MessagesVariables {
     private String userMenu32WrongPhoneText;
     public String getUserMenu32WrongPhoneText() {
         return MessageFormat.format(userMenu32WrongPhoneText, Emoji.GREY_EXCLAMATION);
+    }
+
+    @Value("${user.noPhone.text}")
+    private String userNoPhoneText;
+    public String getUserNoPhoneText() {
+        return MessageFormat.format(userNoPhoneText, Emoji.SAD, Emoji.RAISED_HANDS);
+    }
+
+    @Value("${user.wantsToSee.text}")
+    private String userConfirmedSeeingText;
+    public String getUserConfirmedSeeingText() {
+        return MessageFormat.format(userConfirmedSeeingText, Emoji.STARS_EYES, Emoji.RAISED_HANDS);
+    }
+
+    @Value("${user.bot.confirmSeeing.text}")
+    private String userBotConfirmSeeingText;
+    public String getUserBotConfirmSeeingText(String flatId) {
+        return MessageFormat.format(userBotConfirmSeeingText, Emoji.POINT_RIGHT, flatId);
     }
 
 }

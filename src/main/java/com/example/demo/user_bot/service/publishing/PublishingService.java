@@ -6,6 +6,7 @@ import com.example.demo.common_part.model.BuyFlat;
 import com.example.demo.common_part.model.RentFlat;
 import com.example.demo.common_part.model.User;
 import com.example.demo.user_bot.cache.DataCache;
+import com.example.demo.user_bot.cache.UserCache;
 import com.example.demo.user_bot.keyboards.PublishedFlatKeyboard;
 import com.example.demo.user_bot.schedule.UserBotSendingQueue;
 import com.example.demo.user_bot.service.entities.BuyFlatService;
@@ -42,26 +43,25 @@ public final class PublishingService {
         this.dataCache = dataCache;
     }
 
-    public String publish(User admin, List<BotApiMethod<?>> response) {
+    public String publish(UserCache admin, List<BotApiMethod<?>> response) {
         List<User> allUsers = userService.findAllUsers();
         String result;
 
-        PublishedFlatKeyboard publishedFlatKeyboard = new PublishedFlatKeyboard(admin.getAdminChoice());
-
         SendMessage sendMessage = new SendMessage();
         sendMessage.enableHtml(true);
-        sendMessage.setReplyMarkup(publishedFlatKeyboard.getKeyboard());
         String foundNewFlatForYou = messagesVariables.getAdminFoundNewFlat() + "\n";
         String withoutNewFlatForYou = "."; // Квартира без надписи "Нашел новую квартиру для тебя"
         if (admin.getAdminChoice().getIsRentFlat()) {
             RentFlat rentFlat = rentalFlatService.save(new RentFlat(admin.getAdminChoice()));
-            admin.getAdminChoice().setFlatId(rentFlat.getId()); // Если уже есть айди добавленной квартиры
+            PublishedFlatKeyboard publishedFlatKeyboard = new PublishedFlatKeyboard(admin.getAdminChoice(), rentFlat);
+            admin.getAdminChoice().setFlatId(rentFlat.getId()); // Когда уже есть айди добавленной квартиры
             sendMessage.setText(foundNewFlatForYou + rentFlat.getHtmlMessage());
+            sendMessage.setReplyMarkup(publishedFlatKeyboard.getKeyboard()); // Установаливаю клавиатуру для это квартиры под аренду
             withoutNewFlatForYou = rentFlat.getHtmlMessage(); // Без "Нашел новую квартиру для тебя"
             result = rentFlat.getId().toString();
             // Отправляю только тем пользователям, у которых соответствующие предпочтения
             for (User user: allUsers) {
-                if (this.userService.checkFlatWithUserChoice(rentFlat, user.getUserChoice())) { // Предпочтения совпали
+                if (user.getWantsUpdates() && this.userService.checkFlatWithUserChoice(rentFlat, user.getUserChoice())) { // Предпочтения совпали
                     user.getUserChoice().addRentChoice(rentFlat); // Добавляю в предпочтения юзера
                     this.dataCache.newRentFlat(rentFlat); // Сохраняю квартиру в кэш
                     this.dataCache.saveUserCache(user); // Сохраняю в кэш изменения UserChoice
@@ -75,14 +75,16 @@ public final class PublishingService {
             }
         } else {
             BuyFlat buyFlat = buyFlatService.save(new BuyFlat(admin.getAdminChoice()));
+            PublishedFlatKeyboard publishedFlatKeyboard = new PublishedFlatKeyboard(admin.getAdminChoice(), buyFlat);
             admin.getAdminChoice().setFlatId(buyFlat.getId()); // Если уже есть айди добавленной квартиры
             sendMessage.setText(foundNewFlatForYou + buyFlat.getHtmlMessage());
+            sendMessage.setReplyMarkup(publishedFlatKeyboard.getKeyboard());
             withoutNewFlatForYou = buyFlat.getHtmlMessage(); // Без "Нашел новую квартиру для тебя"
             result = buyFlat.getId().toString();
 
             // Отправляю только тем пользователям, у которых соответствующие предпочтения
             for (User user: allUsers) {
-                if (this.userService.checkFlatWithUserChoice(buyFlat, user.getUserChoice())) {
+                if (user.getWantsUpdates() && this.userService.checkFlatWithUserChoice(buyFlat, user.getUserChoice())) {
                     user.getUserChoice().addBuyChoice(buyFlat); // Добавляю в предпочтения юзера
                     this.dataCache.newBuyFlat(buyFlat); // Сохраняю квартиру в кэш
                     this.dataCache.saveUserCache(user); // Сохраняю в кэш изменения UserChoice

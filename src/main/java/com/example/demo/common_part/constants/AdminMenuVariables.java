@@ -346,5 +346,4 @@ public class AdminMenuVariables {
     @Value("${admin.bot.delete.button.callback.prefix}")
     @Getter
     private String deleteBtnCallbackPrefix;
-
 }

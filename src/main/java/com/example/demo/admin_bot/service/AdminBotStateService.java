@@ -15,6 +15,8 @@ import com.example.demo.common_part.model.RentFlat;
 import com.example.demo.common_part.model.User;
 import com.example.demo.common_part.utils.BeanUtil;
 import com.example.demo.common_part.utils.Emoji;
+import com.example.demo.user_bot.cache.DataCache;
+import com.example.demo.user_bot.cache.UserCache;
 import com.example.demo.user_bot.service.entities.BuyFlatService;
 import com.example.demo.user_bot.service.entities.RentalFlatService;
 import org.apache.log4j.Logger;
@@ -45,22 +47,25 @@ public class AdminBotStateService {
     private final RentalFlatService rentalFlatService;
     private final BuyFlatService buyFlatService;
 
+    private final DataCache dataCache;
+
     private final AdminCache adminCache;
 
     // В некоторых методах возможен Exception, поэтому не всегда надо возвращаться в предыдущее состояние
     private boolean notBackToAdminMenu;
 
     @Autowired
-    public AdminBotStateService(AdminService adminService, AdminMenuVariables adminMenuVariables, MessagesVariables messagesVariables, RentalFlatService rentalFlatService, BuyFlatService buyFlatService, AdminCache adminCache) {
+    public AdminBotStateService(AdminService adminService, AdminMenuVariables adminMenuVariables, MessagesVariables messagesVariables, RentalFlatService rentalFlatService, BuyFlatService buyFlatService, DataCache dataCache, AdminCache adminCache) {
         this.adminService = adminService;
         this.adminMenuVariables = adminMenuVariables;
         this.messagesVariables = messagesVariables;
         this.rentalFlatService = rentalFlatService;
         this.buyFlatService = buyFlatService;
+        this.dataCache = dataCache;
         this.adminCache = adminCache;
     }
 
-    public List<BotApiMethod<?>> processAdminInput(Message message, User admin) {
+    public List<BotApiMethod<?>> processAdminInput(Message message, UserCache admin) {
         List<BotApiMethod<?>> answer = new ArrayList<>();
         notBackToAdminMenu = true;
 
@@ -171,8 +176,7 @@ public class AdminBotStateService {
             admin.setBotAdminState(admin.getAdminChoice().getIsRentFlat() ? AdminState.ADMIN_ADD_RENT_FLAT : AdminState.ADMIN_ADD_BUY_FLAT);
         }
 
-
-        adminService.saveAdmin(admin); // Сохраняем измененные параметры администратора
+        //adminService.saveAdmin(admin);
 
         return answer;
     }
@@ -184,7 +188,7 @@ public class AdminBotStateService {
                 .build();
     }
 
-    private EditMessageText getEditKeyboard(Long chatId, Integer messageId, User admin) {
+    private EditMessageText getEditKeyboard(Long chatId, Integer messageId, UserCache admin) {
         NewFlatMenu newFlatMenu = new NewFlatMenu(admin.getAdminChoice());
         EditMessageText editMessageText = new EditMessageText();
         editMessageText.setMessageId(messageId);
@@ -196,7 +200,7 @@ public class AdminBotStateService {
         return editMessageText;
     }
 
-    private void processInit(List<BotApiMethod<?>> answer, Message message, User admin) {
+    private void processInit(List<BotApiMethod<?>> answer, Message message, UserCache admin) {
         if (admin.getAdminChoice().getMenuMessageId() != null) {
             DeleteMessage deleteMessage = new DeleteMessage();
             deleteMessage.setMessageId(admin.getAdminChoice().getMenuMessageId());
@@ -211,24 +215,15 @@ public class AdminBotStateService {
         textResponse.setText(MessageFormat.format(messagesVariables.getAdminHi(), Emoji.WAVE, admin.getName(false)));
         answer.add(textResponse);
 
-        adminService.setAdminChoice(admin, new AdminChoice());
+        adminService.clearAdminChoice(admin);
+        // TODO: закомментил adminService.setAdminChoice(admin, new AdminChoice());
     }
 
-    private void processAddBuyFlat(List<BotApiMethod<?>> answer, Message message, User admin) {
-        NewFlatMenu newFlatMenu = adminService.getAddBuyFlatMenu();
-        AdminChoice newAdminChoice = adminService.saveChoice(newFlatMenu);
-        adminService.setAdminChoice(admin, newAdminChoice);
-
-        SendMessage sendMessage = new SendMessage();
-        sendMessage.setChatId(message.getChatId().toString());
-        sendMessage.setText(adminMenuVariables.getAdminAddBuyFlatText());
-        sendMessage.setReplyMarkup(newFlatMenu.getKeyboard());
-        answer.add(sendMessage);
-    }
-
-    private void processAddRentFlat(List<BotApiMethod<?>> answer, Message message, User admin) {
-        NewFlatMenu newFlatMenu = adminService.getAddRentFlatMenu();
-        AdminChoice newAdminChoice = adminService.saveChoice(newFlatMenu);
+    private void processAddRentFlat(List<BotApiMethod<?>> answer, Message message, UserCache admin) {
+        AdminChoice newAdminChoice = admin.getAdminChoice().clear(); // Чищу выбор админа
+        newAdminChoice.setIsRentFlat(true); // Так как выбрали квартиру под аренду
+        // Строю новое главное меню на базе нового чистого выбора администратора
+        NewFlatMenu newFlatMenu = adminService.getAddFlatMenu(newAdminChoice);
         adminService.setAdminChoice(admin, newAdminChoice);
 
         SendMessage sendMessage = new SendMessage();
@@ -238,7 +233,21 @@ public class AdminBotStateService {
         answer.add(sendMessage);
     }
 
-    private void processSquare(List<BotApiMethod<?>> answer, Message message, User admin) {
+    private void processAddBuyFlat(List<BotApiMethod<?>> answer, Message message, UserCache admin) {
+        AdminChoice newAdminChoice = admin.getAdminChoice().clear(); // Чищу выбор админа
+        newAdminChoice.setIsRentFlat(false); // Так как выбрали квартиру под продажу
+        // Строю новое главное меню на базе нового чистого выбора администратора
+        NewFlatMenu newFlatMenu = adminService.getAddFlatMenu(newAdminChoice);
+        adminService.setAdminChoice(admin, newAdminChoice);
+
+        SendMessage sendMessage = new SendMessage();
+        sendMessage.setChatId(message.getChatId().toString());
+        sendMessage.setText(adminMenuVariables.getAdminAddBuyFlatText());
+        sendMessage.setReplyMarkup(newFlatMenu.getKeyboard());
+        answer.add(sendMessage);
+    }
+
+    private void processSquare(List<BotApiMethod<?>> answer, Message message, UserCache admin) {
         try {
             Float square = Float.valueOf(message.getText().trim());
             if (square.equals(Float.POSITIVE_INFINITY) || square.equals(Float.NEGATIVE_INFINITY)) {
@@ -251,7 +260,7 @@ public class AdminBotStateService {
         }
     }
 
-    private void processFloor(List<BotApiMethod<?>> answer, Message message, User admin) {
+    private void processFloor(List<BotApiMethod<?>> answer, Message message, UserCache admin) {
         try {
             Short floor = Short.valueOf(message.getText().trim());
             admin.getAdminChoice().setFloor(floor);
@@ -261,7 +270,7 @@ public class AdminBotStateService {
         }
     }
 
-    private void processAllFloor(List<BotApiMethod<?>> answer, Message message, User admin) {
+    private void processAllFloor(List<BotApiMethod<?>> answer, Message message, UserCache admin) {
         try {
             Short allFloor = Short.valueOf(message.getText().trim());
             admin.getAdminChoice().setAllFloors(allFloor);
@@ -271,7 +280,7 @@ public class AdminBotStateService {
         }
     }
 
-    private void processMetro(List<BotApiMethod<?>> answer, Message message, User admin) {
+    private void processMetro(List<BotApiMethod<?>> answer, Message message, UserCache admin) {
         String metro = message.getText().trim();
         if (!metro.isEmpty()) {
             admin.getAdminChoice().setMetro(metro);
@@ -279,7 +288,7 @@ public class AdminBotStateService {
         }
     }
 
-    private void processAddress(List<BotApiMethod<?>> answer, Message message, User admin) {
+    private void processAddress(List<BotApiMethod<?>> answer, Message message, UserCache admin) {
         String address = message.getText().trim();
         if (!address.isEmpty()) {
             admin.getAdminChoice().setAddress(address);
@@ -287,7 +296,7 @@ public class AdminBotStateService {
         }
     }
 
-    private void processPrice(List<BotApiMethod<?>> answer, Message message, User admin) {
+    private void processPrice(List<BotApiMethod<?>> answer, Message message, UserCache admin) {
         String price = message.getText().trim();
         if (!price.isEmpty()) {
             admin.getAdminChoice().setMoney(price);
@@ -295,7 +304,7 @@ public class AdminBotStateService {
         }
     }
 
-    private void processPhoto(List<BotApiMethod<?>> answer, Message message, User admin) {
+    private void processPhoto(List<BotApiMethod<?>> answer, Message message, UserCache admin) {
         String telegraph = message.getText().trim();
         if (!telegraph.isEmpty()) {
             admin.getAdminChoice().setTelegraph(telegraph);
@@ -303,7 +312,7 @@ public class AdminBotStateService {
         }
     }
 
-    private void processInfo(List<BotApiMethod<?>> answer, Message message, User admin) {
+    private void processInfo(List<BotApiMethod<?>> answer, Message message, UserCache admin) {
         String info = message.getText().trim();
         if (!info.isEmpty()) {
             admin.getAdminChoice().setInfo(info);
@@ -311,7 +320,7 @@ public class AdminBotStateService {
         }
     }
 
-    private void processContact(List<BotApiMethod<?>> answer, Message message, User admin) {
+    private void processContact(List<BotApiMethod<?>> answer, Message message, UserCache admin) {
         String contact = message.getText().trim();
         if (checkContact(contact)) {
             admin.getAdminChoice().setContact("https://t.me/" + contact.replace("@", ""));
@@ -325,7 +334,7 @@ public class AdminBotStateService {
         return arr.length == 1 && arr[0].startsWith("@");
     }
 
-    private void processMap(List<BotApiMethod<?>> answer, Message message, User admin) {
+    private void processMap(List<BotApiMethod<?>> answer, Message message, UserCache admin) {
         String mapLink = message.getText().trim();
         if (!mapLink.isEmpty()) {
             admin.getAdminChoice().setMapLink(mapLink);
@@ -333,7 +342,7 @@ public class AdminBotStateService {
         }
     }
 
-    private void processNewMessage(List<BotApiMethod<?>> answer, Message message, User admin) {
+    private void processNewMessage(List<BotApiMethod<?>> answer, Message message, UserCache admin) {
         // Удалить меню, если оно открыто
         if (admin.getAdminChoice().getMenuMessageId() != null) {
             DeleteMessage deleteMessage = new DeleteMessage();
@@ -353,7 +362,7 @@ public class AdminBotStateService {
         answer.add(sendMessage);
     }
 
-    private void processAdminMessage(List<BotApiMethod<?>> answer, Message message, User admin) {
+    private void processAdminMessage(List<BotApiMethod<?>> answer, Message message, UserCache admin) {
         String newMessage = message.getText().trim();
 
         if (!newMessage.isEmpty()) {
@@ -368,7 +377,7 @@ public class AdminBotStateService {
         }
     }
 
-    private void processExit(List<BotApiMethod<?>> answer, Message message, User admin) {
+    private void processExit(List<BotApiMethod<?>> answer, Message message, UserCache admin) {
         if (admin.getAdminChoice().getMenuMessageId() != null) {
             DeleteMessage deleteMessage = new DeleteMessage();
             deleteMessage.setMessageId(admin.getAdminChoice().getMenuMessageId());
@@ -377,7 +386,7 @@ public class AdminBotStateService {
             answer.add(deleteMessage);
         }
 
-        admin.setAdminMode(false);
+        admin.setAdmin(false);
         admin.setBotAdminState(AdminState.ADMIN_INIT);
 
         SendMessage textResponse = new SendMessage();
@@ -387,7 +396,7 @@ public class AdminBotStateService {
         answer.add(textResponse);
     }
 
-    private void processDeleteRent(List<BotApiMethod<?>> answer, User admin) {
+    private void processDeleteRent(List<BotApiMethod<?>> answer, UserCache admin) {
         EnterIdKeyboard enterIdKeyboard = new EnterIdKeyboard();
 
         SendMessage sendMessage = new SendMessage();
@@ -406,10 +415,11 @@ public class AdminBotStateService {
         }
 
         admin.setBotAdminState(AdminState.ADMIN_DELETE_WAIT_RENT_ID); // Ждем айдишник квартиры для аренды
-        adminService.saveAdmin(admin);
+        this.dataCache.saveUserCache(admin);
+        //adminService.saveAdmin(admin);
     }
 
-    private void processDeleteBuy(List<BotApiMethod<?>> answer, User admin) {
+    private void processDeleteBuy(List<BotApiMethod<?>> answer, UserCache admin) {
         EnterIdKeyboard enterIdKeyboard = new EnterIdKeyboard();
 
         SendMessage sendMessage = new SendMessage();
@@ -428,10 +438,10 @@ public class AdminBotStateService {
         }
 
         admin.setBotAdminState(AdminState.ADMIN_DELETE_WAIT_BUY_ID); // Ждем айдишник квартиры для продажи
-        adminService.saveAdmin(admin);
+        this.dataCache.saveUserCache(admin);
     }
 
-    private void processRentId(List<BotApiMethod<?>> answer, Message message, User admin) {
+    private void processRentId(List<BotApiMethod<?>> answer, Message message, UserCache admin) {
         String rentId = message.getText().trim();
         try {
             Long flatId = Long.valueOf(rentId);
@@ -440,8 +450,9 @@ public class AdminBotStateService {
                 ConfirmKeyboard confirmKeyboard = new ConfirmKeyboard();
 
                 // Устанавливаю новый adminChoice - это rentFlat (для удаления)
-                adminService.setAdminChoice(admin,
-                        adminService.getAdminChoiceFromFlat(rentFlat.get(), admin.getAdminChoice().getMenuMessageId()));
+                adminService.setAdminChoiceFromFlat(admin, rentFlat.get());
+                /*adminService.setAdminChoice(admin,
+                        adminService.getAdminChoiceFromFlat(rentFlat.get(), admin.getAdminChoice().getMenuMessageId()));*/
 
                 adminCache.addFlatToDelete(admin.getChatId(), flatId); // Сохраняю айдишник квартиры на удаление в кэше
 
@@ -469,13 +480,14 @@ public class AdminBotStateService {
                 admin.getAdminChoice().setMenuMessageId(null); // Удалил меню
                 admin.setBotAdminState(AdminState.ADMIN_INIT); // Возвращаемся в исходное состояние
             }
-            adminService.saveAdmin(admin); // Сохраняю измененное состояние
+            this.dataCache.saveUserCache(admin); // Сохраняю измененное состояние
+            //adminService.saveAdmin(admin); // Сохраняю измененное состояние
         } catch (NumberFormatException ex) {
             LOGGER.error(ex);
             // Ничего не делаем (ждем пока введет правильно)
         }
     }
-    private void processBuyId(List<BotApiMethod<?>> answer, Message message, User admin) {
+    private void processBuyId(List<BotApiMethod<?>> answer, Message message, UserCache admin) {
         String buyId = message.getText().trim();
         try {
             Long flatId = Long.valueOf(buyId);
@@ -484,8 +496,9 @@ public class AdminBotStateService {
                 ConfirmKeyboard confirmKeyboard = new ConfirmKeyboard();
 
                 // Устанавливаю новый adminChoice - это buyFlat (для удаления)
-                adminService.setAdminChoice(admin, adminService.getAdminChoiceFromFlat(buyFlat.get(),
-                        admin.getAdminChoice().getMenuMessageId()));
+                adminService.setAdminChoiceFromFlat(admin, buyFlat.get());
+                /*adminService.setAdminChoice(admin, adminService.getAdminChoiceFromFlat(buyFlat.get(),
+                        admin.getAdminChoice().getMenuMessageId()));*/
 
                 adminCache.addFlatToDelete(admin.getChatId(), flatId); // Сохраняю айдишник квартиры на удаление в кэше
 
@@ -511,7 +524,8 @@ public class AdminBotStateService {
                 admin.getAdminChoice().setMenuMessageId(null); // Удалил меню
                 admin.setBotAdminState(AdminState.ADMIN_INIT); // Возвращаемся в исходное состояние
             }
-            adminService.saveAdmin(admin); // Сохраняю измененное состояние
+            this.dataCache.saveUserCache(admin); // Сохраняю измененное состояние
+            //adminService.saveAdmin(admin); // Сохраняю измененное состояние
         } catch (NumberFormatException ex) {
             LOGGER.error(ex);
             // Ничего не делаем (ждем пока введет правильно)

@@ -3,6 +3,7 @@ package com.example.demo.user_bot.service.publishing;
 import com.example.demo.common_part.constants.UserMenuVariables;
 import com.example.demo.common_part.model.BuyFlat;
 import com.example.demo.common_part.model.RentFlat;
+import com.example.demo.common_part.utils.money_range.Budget;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -45,6 +46,12 @@ public final class FlatMessageService {
             rows.add(List.of(buttonContact));
         }
 
+        InlineKeyboardButton buttonSee = InlineKeyboardButton.builder() // Кнопка "хочу посмотреть"
+                .text(userMenuVariables.getUserBotFlatMsgSeeText())
+                .callbackData(userMenuVariables.getUserBotFlatMsgSeeRentCallbackPrefix() + rentFlat.getId())
+                .build();
+        rows.add(List.of(buttonSee));
+
         if (rows.size() == 0) {
             return null;
         }
@@ -72,6 +79,12 @@ public final class FlatMessageService {
                     .build();
             rows.add(List.of(buttonContact));
         }
+
+        InlineKeyboardButton buttonSee = InlineKeyboardButton.builder() // Кнопка "хочу посмотреть"
+                .text(userMenuVariables.getUserBotFlatMsgSeeText())
+                .callbackData(userMenuVariables.getUserBotFlatMsgSeeBuyCallbackPrefix() + buyFlat.getId())
+                .build();
+        rows.add(List.of(buttonSee));
 
         if (rows.size() == 0) {
             return null;

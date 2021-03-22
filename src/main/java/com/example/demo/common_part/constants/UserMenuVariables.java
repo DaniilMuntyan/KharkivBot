@@ -367,4 +367,44 @@ public class UserMenuVariables {
         return MessageFormat.format(userBotFlatMsgContactText, Emoji.CONTACT);
     }
 
+    @Value("${user.bot.flatMessage.button.see.text}")
+    private String userBotFlatMsgSeeText;
+    public String getUserBotFlatMsgSeeText() {
+        return MessageFormat.format(userBotFlatMsgSeeText, Emoji.MAN_RAISING);
+    }
+    @Value("${user.bot.flatMessage.button.see.callbackPrefix}")
+    @Getter
+    private String userBotFlatMsgSeeCallbackPrefix;
+    @Value("${user.bot.flatMessage.button.seeRent.callbackPrefix}")
+    @Getter
+    private String userBotFlatMsgSeeRentCallbackPrefix;
+    @Value("${user.bot.flatMessage.button.seeBuy.callbackPrefix}")
+    @Getter
+    private String userBotFlatMsgSeeBuyCallbackPrefix;
+
+    @Value("${user.bot.confirmSeeingYes.button.text}")
+    private String userConfirmSeeingYesText;
+    public String getUserConfirmSeeingYesText() {
+        return MessageFormat.format(userConfirmSeeingYesText, Emoji.YES);
+    }
+
+    @Value("${user.bot.confirmSeeingCancel.button.text}")
+    private String userConfirmSeeingCancelText;
+    public String getUserConfirmSeeingCancelText() {
+        return MessageFormat.format(userConfirmSeeingCancelText, Emoji.NO);
+    }
+    @Value("${user.bot.confirmSeeingCancel.button.callback}")
+    @Getter
+    private String userConfirmSeeingCancelCallback;
+
+    @Value("${user.bot.confirmSeeing.callbackPrefix}")
+    @Getter
+    private String userConfirmSeeingCallbackPrefix;
+    @Value("${user.bot.confirmSeeingRent.callbackPrefix}")
+    @Getter
+    private String userConfirmSeeingRentCallbackPrefix;
+    @Value("${user.bot.confirmSeeingBuy.callbackPrefix}")
+    @Getter
+    private String userConfirmSeeingBuyCallbackPrefix;
+
 }
