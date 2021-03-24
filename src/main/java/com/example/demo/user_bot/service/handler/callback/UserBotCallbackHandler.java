@@ -16,6 +16,7 @@ import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -62,7 +63,7 @@ public final class UserBotCallbackHandler {
         Long chatId = callbackQuery.getMessage().getChatId();
 
         long time1 = System.currentTimeMillis();
-        Optional<UserCache> user = userService.findUserInCache(chatId); // Ищу юзера в кэше
+        Optional<UserCache> user = userService.findUserInCacheOrDb(chatId); // Ищу юзера в кэше
 
         List<BotApiMethod<?>> response = new ArrayList<>();
 
@@ -81,56 +82,10 @@ public final class UserBotCallbackHandler {
         // Если не получили Forbidden - отвечаем на callback, чтобы ушел кружек загрузки
         response.add(0, this.getAnswerCallback(callbackQuery));
 
-        /*// Если ткнули в неактуальное меню инициализации
-        boolean forbidden = user.isEmpty() || (user.get().getUserChoice().getMenuMessageId() != null &&
-                !user.get().getUserChoice().getMenuMessageId().equals(callbackQuery.getMessage().getMessageId()) &&
-                user.get().getBotUserState() != UserState.SENT_NOT_ALL && user.get().getBotUserState() != UserState.FLATS_MASSAGING); // И не идет процесс подбора квартир (не все квартиры прислали)
-
-        LOGGER.info("CALLBACK DATA: " + data + ". FORBIDDEN: " + forbidden);
-
-        if (forbidden) { // Возвращаем пустой список АПИ методов
-            return response;
-        }
-
-        // Если не получили Forbidden - отвечаем на callback, чтобы ушел кружек загрузки
-        response.add(0, this.getAnswerCallback(callbackQuery));
-
-        // Если нажали - запоминаем айди меню (в одно время может работать только одно)
-        if (user.get().getUserChoice().getMenuMessageId() == null) {
-            user.get().getUserChoice().setMenuMessageId(callbackQuery.getMessage().getMessageId());
-        }*/
-
         // Если нажали на какую-то кнопку с меню инициализации
         if (data.startsWith(userMenuVariables.getMenuInitBtnCallbackPrefix())) {
             this.initCallbackHandler.handleCallback(response, callbackQuery, user.get());
         }
-
-        /*// Если callback пришел от какой-то кнопки с меню инициализации категории
-        if (data.startsWith(userMenuVariables.getMenuInitBtnCategoryCallbackPrefix())) {
-            initCategoryCallbackHandler.handleCallback(response, callbackQuery, user.get());
-        }
-
-        // Если callback пришел от какой-то кнопки с меню инициализации комнат
-        if (data.startsWith(userMenuVariables.getMenuInitRoomsBtnCallbackPrefix())) {
-            initRoomCallbackHandler.handleCallback(response, callbackQuery, user.get());
-        }
-
-        // Если callback пришел от какой-то кнопки с меню инициализации районов
-        if (data.startsWith(userMenuVariables.getMenuInitDistrictsBtnPrefixCallback())) {
-            initDistrictCallbackHandler.handleCallback(response, callbackQuery, user.get());
-        }
-
-        // Если callback пришел от какой-то кнопки с меню инициализации бюджетов
-        if (data.startsWith(userMenuVariables.getMenuInitBudgetBtnRangePrefixCallback())) {
-            initBudgetCallbackHandler.handleCallback(response, callbackQuery, user.get());
-        }
-
-        // Если в initBudgetCallbackHandler изменили состояние на FIRST_INIT_END
-        if (user.get().getBotUserState() == UserState.FIRST_INIT_END) {
-            long time2 = System.currentTimeMillis();
-            initMenuEndHandler.handleInitMenuEnd(response, user.get());
-            LOGGER.info("Time handleInitMenuEnd: " + (System.currentTimeMillis() - time2));
-        }*/
 
         boolean seeOthers = data.startsWith(userMenuVariables.getUserBotNotAllBtnCallbackPrefix()) &&
                 user.get().getBotUserState() == UserState.SENT_NOT_ALL;
@@ -162,10 +117,9 @@ public final class UserBotCallbackHandler {
             LOGGER.info("Time confirmSeeingCallbackHandler.handleCallback: " + (System.currentTimeMillis() - time2));
         }
 
+        user.get().setLastAction(new Date()); // Фиксируем последнее действие
         userService.saveUserCache(user.get()); // Сохраняю все изменения юзера
         LOGGER.info("Time handleCallback: " + (System.currentTimeMillis() - time1));
-
-        //response.add(userService.getMyState(false, user.get())); // Отсылаю текущее состояние бота
 
         return response;
     }

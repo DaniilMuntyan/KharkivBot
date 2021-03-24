@@ -54,7 +54,8 @@ public final class FlatButtonCallbackHandler {
             SendMessage sendMessage = new SendMessage();
             sendMessage.setText(messagesVariables.getUserNoPhoneText());
             sendMessage.setChatId(user.getChatId().toString());
-            sendMessage.setReplyMarkup(keyboardsRegistry.getMenu21().getKeyboard(user.getUserChoice()));
+            sendMessage.setReplyMarkup(keyboardsRegistry.getMenu1().getKeyboard());
+            response.add(sendMessage);
 
             user.setBotUserState(UserState.MENU1); // Перешли в главное меню
             this.dataCache.saveUserCache(user);

@@ -30,14 +30,16 @@ public final class FindFlatsService {
 
         Map<Long, RentFlat> rentFlatsCacheMap = dataCache.getRentFlatsCacheMap(); // Достаю все квартиры под аренду из кэша
 
+        List<Long> keys = new ArrayList<>(rentFlatsCacheMap.keySet()); // Достаю все ключи
+        Collections.shuffle(keys); // Перемешиваю, чтобы пользователю каждый подбор попадалось разное
+
         // Сравниваю параметры всех квартир с предпочтениями пользователя
-        for (Map.Entry<Long, RentFlat> entry : rentFlatsCacheMap.entrySet()) {
-            RentFlat rentFlat = entry.getValue(); // Очередная квартира
+        for (Long rentId : keys) {
+            RentFlat rentFlat = rentFlatsCacheMap.get(rentId); // Очередная квартира
             if (this.userService.checkFlatWithUserChoice(rentFlat, userChoice)) { // Если параметры совпали
                 userChoiceFlats.add(rentFlat); // Добавляю квартиру к выбору пользователя
                 if (user.getSaved()) { // У юзера изменилось поле UserChoice и его нужно будет сохранить в базу
-                    this.dataCache.saveUserCache(user); // TODO: проверить, можно ли использовать markNotSaved вместо saveUserCache
-                    //this.dataCache.markNotSaved(user.getChatId());
+                    this.dataCache.saveUserCache(user);
                 }
                 notSentRentFlats.add(rentFlat); // Пополняю список неотправленных юзеру квартир
             }
@@ -48,9 +50,12 @@ public final class FindFlatsService {
         UserChoice userChoice = user.getUserChoice();
         Map<Long, BuyFlat> buyFlatsCacheMap = dataCache.getBuyFlatsCacheMap(); // Достаю все квартиры под продажу из кэша
 
+        List<Long> keys = new ArrayList<>(buyFlatsCacheMap.keySet()); // Достаю все ключи
+        Collections.shuffle(keys); // Перемешиваю, чтобы пользователю каждый подбор попадалось разное
+
         // Сравниваю параметры всех квартир с предпочтениями пользователя
-        for (Map.Entry<Long, BuyFlat> entry : buyFlatsCacheMap.entrySet()) {
-            BuyFlat buyFlat = entry.getValue(); // Очередная квартира
+        for (Long rentId : keys) {
+            BuyFlat buyFlat = buyFlatsCacheMap.get(rentId); // Очередная квартира
             if (this.userService.checkFlatWithUserChoice(buyFlat, userChoice)) { // Если параметры совпали
                 userChoiceFlats.add(buyFlat); // Добавляю квартиру к выбору пользователя
                 if (user.getSaved()) { // У юзера изменилось поле UserChoice и его нужно будет сохранить в базу

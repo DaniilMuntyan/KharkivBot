@@ -21,19 +21,19 @@ public final class BuyFlatService {
 
         /*for (int i = 0; i < 10000; ++i) {
             BuyFlat buyFlat = BuyFlat.builder()
-                    .address("Проспект Гагарина, ул. Москалёвская 5")
+                    .address("Алексеевка, пр.Победы 68в")
                     .contact("https://t.me/daniil_muntyan")
-                    .floor((short) i)
-                    .allFloors((short) 16)
-                    .district(District.KLOCHKOVSKOY)
-                    .info("Новострой!")
-                    .buyRange(BuyRange.USD_45000_50000)
-                    .metro("м. Холодная гора")
-                    .money("4600 грн + интернет")
-                    .telegraph("https://telegra.ph/83544-Sdayotsya-1-komnatnaya-kvartira-Saltovka-03-13")
-                    .rooms(Rooms.TWO)
-                    .mapLink("https://www.google.com/maps/search/?api=1&query=%D0%96%D0%9A+%D0%90%D1%82%D0%BB%D0%B0%D0%BD%D1%82%2C+%D1%83%D0%BB.+%D0%93%D1%80%D0%B8%D0%B3%D0%BE%D1%80%D0%BE%D0%B2%D1%81%D0%BA%D0%BE%D0%B5+%D1%88%D0%BE%D1%81%D1%81%D0%B5+55%2C+%D0%A5%D0%B0%D1%80%D1%8C%D0%BA%D0%BE%D0%B2")
-                    .square(45.5f)
+                    .floor((short) (i % 12))
+                    .allFloors((short) 10)
+                    .district(District.HTZ_ROGAN)
+                    .info("Цена снижена!")
+                    .buyRange(BuyRange.USD_20000_25000)
+                    .metro("м. Победа")
+                    .money("60000 $")
+                    .telegraph("https://telegra.ph/60421-Prodayotsya-3-komnatnaya-kvartira-Alekseevka-10-26")
+                    .rooms(Rooms.GOSTINKA)
+                    .mapLink("https://www.google.com/maps/search/?api=1&query=%D0%BF%D1%80.%D0%9F%D0%BE%D0%B1%D0%B5%D0%B4%D1%8B+68%D0%B2%2C+%D0%A5%D0%B0%D1%80%D1%8C%D0%BA%D0%BE%D0%B2")
+                    .square(68f)
                     .build();
             buyFLatRepository.save(buyFlat);
         }*/

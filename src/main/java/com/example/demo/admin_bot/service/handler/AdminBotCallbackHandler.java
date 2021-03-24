@@ -72,7 +72,7 @@ public final class AdminBotCallbackHandler {
         Optional<User> user = userRepository.findByChatId(chatId);
         LOGGER.info("TIME findByChatId: " + (System.currentTimeMillis() - time1));*/
         long time1 = System.currentTimeMillis();
-        Optional<UserCache> user = userService.findUserInCache(chatId);
+        Optional<UserCache> user = userService.findUserInCacheOrDb(chatId);
         LOGGER.info("TIME findUserInCache: " + (System.currentTimeMillis() - time1));
 
         List<BotApiMethod<?>> response = new ArrayList<>();

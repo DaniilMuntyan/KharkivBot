@@ -21,7 +21,7 @@ public final class DataCache {
     // Ключ - chatId, значение - объект UserCache
     private Map<Long, UserCache> usersCacheMap;
     // Set добавленных пользователей
-    private Set<User> newUsersSet;
+    //private Set<User> newUsersSet;
     // HashMap квартир под аренду
     private Map<Long, RentFlat> rentFlatsCacheMap;
     // HashMap квартир на продажу
@@ -36,14 +36,14 @@ public final class DataCache {
         this.usersCacheMap = new ConcurrentHashMap<>(); // Загрузка из базы будет в InitCache
         this.rentFlatsCacheMap = new ConcurrentHashMap<>(); // Загрузка из базы будет в InitCache
         this.buyFlatsCacheMap = new ConcurrentHashMap<>(); // Загрузка из базы будет в InitCache
-        this.newUsersSet = new HashSet<>(); // Новых незарегистрированных пользователей пока нет
+        //this.newUsersSet = new HashSet<>(); // Новых незарегистрированных пользователей пока нет
         this.notSentRentFlatsMap = new ConcurrentHashMap<>(); // HashMap с неотправленными квартирами пока пуст
         this.notSentBuyFlatsMap = new ConcurrentHashMap<>(); // HashMap с неотправленными квартирами пока пуст
     }
 
     // region <User caching>
     public void newUser(User user) { // Добавление юзера с последующим сохранением в базе
-        newUsersSet.add(user);
+        //newUsersSet.add(user);
         usersCacheMap.put(user.getChatId(), new UserCache(user, false));
     }
 
@@ -51,7 +51,15 @@ public final class DataCache {
         usersCacheMap.put(user.getChatId(), new UserCache(user, false));
     }
 
+    public void removeUser(Long chatId) {
+        LOGGER.info("REMOVING USER CACHE: " + chatId);
+        this.usersCacheMap.remove(chatId);
+        this.notSentBuyFlatsMap.remove(chatId);
+        this.notSentRentFlatsMap.remove(chatId);
+    }
+
     public void refreshUserName(Long chatId, String userName, String firstName, String lastName) {
+        LOGGER.info(chatId + " " + userName + " " + firstName + " " + lastName);
         this.usersCacheMap.get(chatId).setUsername(userName);
         this.usersCacheMap.get(chatId).setFirstName(firstName);
         this.usersCacheMap.get(chatId).setLastName(lastName);
@@ -131,9 +139,9 @@ public final class DataCache {
         return usersCacheMap;
     }
 
-    public Set<User> getNewUsersSet() {
+    /*public Set<User> getNewUsersSet() {
         return newUsersSet;
-    }
+    }*/
 
     // endregion
 

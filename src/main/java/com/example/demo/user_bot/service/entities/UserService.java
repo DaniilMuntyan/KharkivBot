@@ -9,6 +9,7 @@ import com.example.demo.user_bot.cache.DataCache;
 import com.example.demo.user_bot.cache.UserCache;
 import com.example.demo.user_bot.model.UserChoice;
 import org.apache.log4j.Logger;
+import org.checkerframework.checker.nullness.Opt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -79,8 +80,21 @@ public final class UserService {
     }
 
     // Отдаем кэш по айди чата
-    public Optional<UserCache> findUserInCache(Long chatId) {
-        return dataCache.findUserByChatId(chatId);
+    public Optional<UserCache> findUserInCacheOrDb(Long chatId) {
+        long time1 = System.currentTimeMillis();
+        Optional<UserCache> userCache = dataCache.findUserByChatId(chatId);
+        if (userCache.isEmpty()) { // Если в кэше нет - ищу в базе
+            Optional<User> user = userRepository.findByChatId(chatId);
+            if (user.isPresent()) { // Если существует в базе - копирую в кэш
+                UserCache userFromDb = new UserCache(user.get(), true);
+                dataCache.saveUserCache(userFromDb); // Сохраняю в кэше
+                LOGGER.info("GET FROM DB: " + userFromDb.getChatId() + ". TIME: " + (System.currentTimeMillis() - time1));
+                return Optional.of(userFromDb);
+            }
+        } else {
+            LOGGER.info("GET FROM CACHE: " + userCache.get().getChatId() + ". TIME: " + (System.currentTimeMillis() - time1));
+        }
+        return userCache;
     }
 
     public List<User> findAllUsers() {

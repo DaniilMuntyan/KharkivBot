@@ -6,6 +6,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Builder
@@ -47,7 +48,7 @@ public final class UserChoice {
     @JoinTable(name="user_choice_rental",
             joinColumns = @JoinColumn(name = "user_choice_id"),
             inverseJoinColumns = @JoinColumn(name = "flat_id"))*/
-    @Transient
+    @Transient // Не сохраняю в базу, так как OOM
     @Getter
     @Setter
     private Set<RentFlat> userChoicesRent = new HashSet<>(); // Выбор пользователя по квартирам под аренду
@@ -56,7 +57,7 @@ public final class UserChoice {
     @JoinTable(name="user_choice_buy",
             joinColumns = @JoinColumn(name = "user_choice_id"),
             inverseJoinColumns = @JoinColumn(name = "flat_id"))*/
-    @Transient
+    @Transient // Не сохраняю в базу, так как OOM
     @Getter
     @Setter
     private Set<BuyFlat> userChoicesBuy = new HashSet<>(); // Выбор пользователя по квартирам под покупку

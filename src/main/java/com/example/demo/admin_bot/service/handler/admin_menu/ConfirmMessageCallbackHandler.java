@@ -9,6 +9,7 @@ import com.example.demo.common_part.model.User;
 import com.example.demo.common_part.repo.UserRepository;
 import com.example.demo.user_bot.cache.UserCache;
 import com.example.demo.user_bot.schedule.UserBotSendingQueue;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
@@ -20,6 +21,8 @@ import java.util.List;
 
 @Service
 public class ConfirmMessageCallbackHandler {
+    private static final Logger LOGGER = Logger.getLogger(ConfirmMessageCallbackHandler.class);
+
     private final AdminMenuVariables adminMenuVariables;
     private final AdminService adminService;
     private final CommonMethods commonMethods;

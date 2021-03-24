@@ -44,9 +44,9 @@ public final class ProgramVariables {
     @Getter
     private Integer maxMsgPerSecond;
 
-    @Value("${delay.channel.message}")
+    @Value("${user.maxApiPerSecond}")
     @Getter
-    private Integer delayChannelMessage;
+    private Integer maxApiPerSecond;
 
     @Value("${delay.user.spam}")
     @Getter
@@ -55,5 +55,9 @@ public final class ProgramVariables {
     @Value("${user.bot.numberOfFlats.perChat}")
     @Getter
     private Integer flatsNumberPerChat;
+
+    @Value("${user.time.in.cache}")
+    @Getter
+    private Integer timeInCache;
 
 }

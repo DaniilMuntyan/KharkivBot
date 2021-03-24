@@ -19,10 +19,7 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.DeleteMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public final class Menu2MessageHandler {
@@ -123,9 +120,7 @@ public final class Menu2MessageHandler {
 
         if (text.equals(userMenuVariables.getMenu2BtnBackText())) { // Нажали "назад"
             dontUnderstand = false;
-
             this.checkMenuForDelete(user, message, response); // Проверяю и удаляю прошлое меню, если оно еще открыто
-
             response.add(this.backToMenu1.back(user));
         }
 

@@ -17,7 +17,6 @@ import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.DeleteMessage;
-import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
 import org.telegram.telegrambots.meta.api.objects.Message;
 
 import java.util.ArrayList;
@@ -54,7 +53,7 @@ public final class UserBotMessageHandler {
         Long chatId = message.getChatId();
 
         long time1 = System.currentTimeMillis();
-        Optional<UserCache> user = userService.findUserInCache(chatId);
+        Optional<UserCache> user = userService.findUserInCacheOrDb(chatId);
         LOGGER.info("Time findByChatId: " + (System.currentTimeMillis() - time1));
 
         List<BotApiMethod<?>> response = new ArrayList<>();

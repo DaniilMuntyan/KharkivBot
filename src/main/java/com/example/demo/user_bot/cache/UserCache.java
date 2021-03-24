@@ -32,7 +32,6 @@ public final class UserCache { // Что храним в кэше юзера
     private boolean saved; // Позывает, сохранен ли уже кэш в базе данных
     private boolean spam; // Показывает, пользователь в спаме или нет
     private boolean wantsUpdates; // Хочет ли пользователь получать уведомления
-    private int seeFlatId;
     //private List<RentFlat> sentRentFlats; // Хранит уже отправленные пользователю квартиры под аренду
 
     public UserCache(User user, boolean saved) {

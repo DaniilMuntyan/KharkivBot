@@ -15,6 +15,7 @@ import com.example.demo.user_bot.cache.UserCache;
 import com.example.demo.user_bot.service.entities.UserService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -53,7 +54,7 @@ public class AdminBotMessageHandler {
         String text = message.getText().trim();
         String username = message.getFrom().getUserName(); // Обновляю каждый раз, когда получаю новое сообщение
         //Optional<User> user = userRepository.findByChatId(chatId);
-        Optional<UserCache> user = userService.findUserInCache(chatId);
+        Optional<UserCache> user = userService.findUserInCacheOrDb(chatId);
 
         List<BotApiMethod<?>> response = new ArrayList<>();
 
@@ -63,7 +64,6 @@ public class AdminBotMessageHandler {
         boolean isAdmin = false;
 
         if(user.isPresent() && adminService.isAdmin(user.get())) { // Если админ
-            LOGGER.info("isAdmin: " + user.get().getChatId() + " " + user.get().isAdmin());
             isAdmin = true;
             response.addAll(handleAdminMessage(message, user.get(), username));
         } else {
@@ -178,7 +178,7 @@ public class AdminBotMessageHandler {
 
         // Если не ждем сообщение от админа - то удаляем ненужное
         // И если не находимся в начальном состоянии (идет какой-то процесс)
-        if(admin.getBotAdminState() != AdminState.ADMIN_WAIT_MESSAGE && admin.getBotAdminState() != AdminState.ADMIN_INIT) {
+        if(admin.getBotAdminState() != AdminState.ADMIN_WAIT_MESSAGE_TO_BULK && admin.getBotAdminState() != AdminState.ADMIN_INIT) {
             response.add(0, deleteApiMethod(message));
         }
         
@@ -207,6 +207,6 @@ public class AdminBotMessageHandler {
                 botAdminState == AdminState.ADMIN_SUBMENU_ADDRESS || botAdminState == AdminState.ADMIN_SUBMENU_PRICE ||
                 botAdminState == AdminState.ADMIN_SUBMENU_PHOTO || botAdminState == AdminState.ADMIN_SUBMENU_INFO ||
                 botAdminState == AdminState.ADMIN_SUBMENU_CONTACT || botAdminState == AdminState.ADMIN_SUBMENU_MAP ||
-                botAdminState == AdminState.ADMIN_WAIT_MESSAGE;
+                botAdminState == AdminState.ADMIN_WAIT_MESSAGE_TO_BULK ;
     }
 }

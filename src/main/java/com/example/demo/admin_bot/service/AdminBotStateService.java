@@ -12,7 +12,6 @@ import com.example.demo.admin_bot.utils.AdminState;
 import com.example.demo.common_part.constants.AdminMenuVariables;
 import com.example.demo.common_part.model.BuyFlat;
 import com.example.demo.common_part.model.RentFlat;
-import com.example.demo.common_part.model.User;
 import com.example.demo.common_part.utils.BeanUtil;
 import com.example.demo.common_part.utils.Emoji;
 import com.example.demo.user_bot.cache.DataCache;
@@ -109,10 +108,10 @@ public class AdminBotStateService {
             processBuyId(answer, message, admin);
         }
 
-        // Порядок обработки ADMIN_WRITE_MESSAGE и ADMIN_WAIT_MESSAGE - важен.
-        // Потому что внутри processNewMessage мы меняем состояние на ADMIN_WAIT_MESSAGE
-        // Если прирслали сообщение для рассылки
-        if (admin.getBotAdminState() == AdminState.ADMIN_WAIT_MESSAGE) {
+        // Порядок обработки ADMIN_WRITE_MESSAGE и ADMIN_WAIT_MESSAGE_TO_BULK - важен.
+        // Потому что внутри processNewMessage мы меняем состояние на ADMIN_WAIT_MESSAGE_TO_BULK
+        // Если прислали сообщение для рассылки
+        if (admin.getBotAdminState() == AdminState.ADMIN_WAIT_MESSAGE_TO_BULK) {
             processAdminMessage(answer, message, admin);
         }
 
@@ -353,7 +352,7 @@ public class AdminBotStateService {
         }
 
         // Меняем состояние, чтобы ждать сообщения
-        admin.setBotAdminState(AdminState.ADMIN_WAIT_MESSAGE);
+        admin.setBotAdminState(AdminState.ADMIN_WAIT_MESSAGE_TO_BULK);
         adminService.saveAdminState(admin);
 
         SendMessage sendMessage = new SendMessage();

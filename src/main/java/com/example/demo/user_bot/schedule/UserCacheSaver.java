@@ -1,6 +1,7 @@
 package com.example.demo.user_bot.schedule;
 
 
+import com.example.demo.common_part.constants.ProgramVariables;
 import com.example.demo.common_part.model.User;
 import com.example.demo.user_bot.cache.DataCache;
 import com.example.demo.user_bot.cache.UserCache;
@@ -22,12 +23,14 @@ public final class UserCacheSaver {
 
     private final DataCache dataCache;
     private final UserService userService;
+    private final ProgramVariables programVariables;
     private final UserChoiceService userChoiceService;
 
     @Autowired
-    public UserCacheSaver(DataCache dataCache, UserService userService, UserChoiceService userChoiceService) {
+    public UserCacheSaver(DataCache dataCache, UserService userService, ProgramVariables programVariables, UserChoiceService userChoiceService) {
         this.dataCache = dataCache;
         this.userService = userService;
+        this.programVariables = programVariables;
         this.userChoiceService = userChoiceService;
     }
 
@@ -41,7 +44,7 @@ public final class UserCacheSaver {
 
     @Scheduled(fixedDelayString = "${delay.user.saveToDb}")
     private void saveCache() {
-        HashSet<User> newUsers = (HashSet<User>) dataCache.getNewUsersSet();
+        //HashSet<User> newUsers = (HashSet<User>) dataCache.getNewUsersSet();
         ConcurrentHashMap<Long, UserCache> usersCacheMap = (ConcurrentHashMap<Long, UserCache>) dataCache.getUsersCacheMap();
 
         System.out.println("\n" + f());
@@ -51,14 +54,16 @@ public final class UserCacheSaver {
         int c = 0;
         long time1 = System.currentTimeMillis();
         // Сначала сохраняю всех новых пользователей
-        for (User temp: newUsers) {
+        /*for (User temp: newUsers) {
             userService.saveUser(temp);
             newUsers.remove(temp); // Удалил с множества новых пользователей, потому что он уже в базе
             c++;
-        }
+        }*/
         //LOGGER.info("TIME save all new users (" + c + "): " + (System.currentTimeMillis() - time1));
         c = 0;
         time1 = System.currentTimeMillis();
+        Date now = new Date();
+        List<Long> removeFromCache = new ArrayList<>();
         // Теперь изменяю данные всех юзеров из кэша, которые еще не были сохранены в базу
         for (Map.Entry<Long, UserCache> entry : usersCacheMap.entrySet()) {
             Long chatId = entry.getKey();
@@ -67,7 +72,6 @@ public final class UserCacheSaver {
                 Optional<User> user = userService.findByChatId(chatId);
                 if (user.isPresent()) { // Если есть в базе - обновляем
                     this.dataCache.updateUser(user.get());
-                    // TODO: закомментил userChoiceService.saveUserChoice(userCache.getUserChoice());
                     userService.saveUser(user.get());
                     userCache.setSaved(true); // Пометили как сохраненный кэш
                     c++;
@@ -75,12 +79,18 @@ public final class UserCacheSaver {
                     userService.saveUser(userCache);
                     //LOGGER.info("");
                 }
+            } else { // Если пользователь уже сохранен в базе
+                LOGGER.info("Difference: " + (now.getTime() - userCache.getLastAction().getTime()) / 1000);
+                boolean toRemove = (now.getTime() - userCache.getLastAction().getTime()) / 1000 > this.programVariables.getTimeInCache();
+                // Если пользователь не является админом и давно ничего не делал - убираю из кэша
+                if (!userCache.isAdmin() && toRemove)
+                {
+                    removeFromCache.add(chatId);
+                }
             }
-            try {
-                /*LOGGER.info("ID " + userCache.getChatId() + ". ChoiceRentSize: " +
-                        userCache.getUserChoice().getUserChoicesRent().size() + ". ChoiceBuySize: " +
-                        userCache.getUserChoice().getUserChoicesBuy().size());*/
-            } catch (Exception ignored) {}
+        }
+        for (Long temp: removeFromCache) {
+            this.dataCache.removeUser(temp); // Удаляю пользователя с кэша
         }
         //LOGGER.info("TIME update all changed users (" + c + "): " + (System.currentTimeMillis() - time1));
         //LOGGER.info("ALL RENT FLATS CACHE SIZE: " + this.dataCache.getRentFlatsCacheMap().size());

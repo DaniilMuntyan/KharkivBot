@@ -50,9 +50,8 @@ public final class PublishingService {
         List<User> allUsers = userService.findAllUsers();
         String result;
 
-        SendMessage msgToChannel = new SendMessage();
+        SendMessage msgToChannel;
         String foundNewFlatForYou = messagesVariables.getAdminFoundNewFlat() + "\n";
-        String withoutNewFlatForYou = "."; // Квартира без надписи "Нашел новую квартиру для тебя"
         if (admin.getAdminChoice().getIsRentFlat()) {
             RentFlat rentFlat = rentalFlatService.save(new RentFlat(admin.getAdminChoice())); // Сохраняю квартиру в БД
             admin.getAdminChoice().setFlatId(rentFlat.getId()); // Когда уже есть айди добавленной квартиры
@@ -75,7 +74,6 @@ public final class PublishingService {
             BuyFlat buyFlat = buyFlatService.save(new BuyFlat(admin.getAdminChoice())); // Сохраняю квартиру в БД
             PublishedFlatKeyboard publishedFlatKeyboard = new PublishedFlatKeyboard(admin.getAdminChoice(), buyFlat);
             admin.getAdminChoice().setFlatId(buyFlat.getId()); // Если уже есть айди добавленной квартиры
-            withoutNewFlatForYou = buyFlat.getHtmlMessage(); // Без "Нашел новую квартиру для тебя"
             result = messagesVariables.getAdminBotHashTag(buyFlat.getId().toString(), false); // Хэштег 12345_продажа;
             // Отправляю только тем пользователям, у которых соответствующие предпочтения
             for (User user: allUsers) {
