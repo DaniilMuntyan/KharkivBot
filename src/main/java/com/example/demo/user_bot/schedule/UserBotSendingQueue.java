@@ -1,7 +1,6 @@
 package com.example.demo.user_bot.schedule;
 
 import com.example.demo.common_part.constants.ProgramVariables;
-import com.example.demo.common_part.utils.BeanUtil;
 import com.example.demo.user_bot.botapi.RentalTelegramBot;
 import com.example.demo.user_bot.cache.DataCache;
 import com.example.demo.user_bot.utils.MenuSendMessage;
@@ -11,7 +10,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.task.TaskExecutor;
-import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.scheduling.TaskScheduler;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
@@ -23,7 +22,6 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedList;
-import java.util.List;
 
 @Service
 @PropertySource("classpath:program.properties")
@@ -57,21 +55,19 @@ public class UserBotSendingQueue {
                 calendar.get(Calendar.MILLISECOND));
     }
 
-    //@SuppressWarnings("InfiniteLoopStatement")
     public void loop() {
         Runnable sendMessageQueueLooper = () -> {
-            LOGGER.info("INFINITE");
-            long time1 = System.currentTimeMillis(), time2 = System.currentTimeMillis(); // Для замера отправок сообщений
-            long timeApi1 = time1, timeApi2 = time2; // Для замера отправок АПИ методов
-            int c = 0; // Для сообщений
-            int k = 0; // Для АПИ методов
-            boolean hasApiMethod;
             try {
+                LOGGER.info("INFINITE");
+                long time1 = System.currentTimeMillis(), time2 = System.currentTimeMillis(); // Для замера отправок сообщений
+                long timeApi1 = time1, timeApi2 = time2; // Для замера отправок АПИ методов
+                int c = 0; // Для сообщений
+                int k = 0; // Для АПИ методов
+                boolean hasApiMethod;
                 LOGGER.info("STARTING LOOP...");
-                while (Thread.currentThread().isAlive()) {
+                while (Thread.currentThread().isAlive()) { // Пока поток жив - выполняю
                     hasApiMethod = !this.apiQueue.isEmpty();
                     if (hasApiMethod) { // Если есть апи запросы, которые надо отправить
-                        LOGGER.info("API QUEUE IS NOT EMPTY");
                         if (k == 0) {
                             timeApi1 = System.currentTimeMillis();
                         }
@@ -94,7 +90,6 @@ public class UserBotSendingQueue {
 
                     // Если есть какие-либо сообщения юзерам
                     if (!this.messagesQueue.isEmpty() || !this.bulkMessagesQueue.isEmpty()) {
-                        LOGGER.info("MESSAGES QUEUE IS NOT EMPTY");
                         if (c == 0) {
                             time1 = System.currentTimeMillis();
                         }
@@ -132,7 +127,7 @@ public class UserBotSendingQueue {
             }
             LOGGER.info("END LOOP!!!");
         };
-        this.taskExecutor.execute(sendMessageQueueLooper); // Запускаю цикл в другом потоке
+        this.taskExecutor.execute(sendMessageQueueLooper); // Запускаю цикл в потоке для расписаний
     }
 
     /*@Scheduled(fixedDelayString = "${delay.user.message}")
@@ -174,11 +169,9 @@ public class UserBotSendingQueue {
 
     private void sendMessage(SendMessage message, TelegramLongPollingBot bot) {
         try {
-            LOGGER.info("SENDING MESSAGE...");
             long time1 = System.currentTimeMillis();
             Message newMenuMessage = bot.execute(message);
             LOGGER.info("TIME execute user SendMessage: " + (System.currentTimeMillis() - time1));
-            LOGGER.info("New sent message: " + newMenuMessage);
             if (message instanceof MenuSendMessage) { // Если отправляем новое меню
                 // Устанавливаю новое значение menuMessageId для пользователя, если нужно
                 if (((MenuSendMessage) message).isChangeMenuMessageId()) {

@@ -90,12 +90,12 @@ public class AdminBotStateService {
 
         // После команды "Удалить квартиру (аренда)"
         if (admin.getBotAdminState() == AdminState.ADMIN_DELETE_RENT_FLAT) {
-            processDeleteRent(answer, admin);
+            processDeleteRent(admin);
         }
 
         // После команды "Удалить квартиру (продажа)"
         if (admin.getBotAdminState() == AdminState.ADMIN_DELETE_BUY_FLAT) {
-            processDeleteBuy(answer, admin);
+            processDeleteBuy(admin);
         }
 
         // Ввели айдишник квартиры (аренда)
@@ -215,7 +215,6 @@ public class AdminBotStateService {
         answer.add(textResponse);
 
         adminService.clearAdminChoice(admin);
-        // TODO: закомментил adminService.setAdminChoice(admin, new AdminChoice());
     }
 
     private void processAddRentFlat(List<BotApiMethod<?>> answer, Message message, UserCache admin) {
@@ -395,7 +394,7 @@ public class AdminBotStateService {
         answer.add(textResponse);
     }
 
-    private void processDeleteRent(List<BotApiMethod<?>> answer, UserCache admin) {
+    private void processDeleteRent(UserCache admin) {
         EnterIdKeyboard enterIdKeyboard = new EnterIdKeyboard();
 
         SendMessage sendMessage = new SendMessage();
@@ -415,17 +414,15 @@ public class AdminBotStateService {
 
         admin.setBotAdminState(AdminState.ADMIN_DELETE_WAIT_RENT_ID); // Ждем айдишник квартиры для аренды
         this.dataCache.saveUserCache(admin);
-        //adminService.saveAdmin(admin);
     }
 
-    private void processDeleteBuy(List<BotApiMethod<?>> answer, UserCache admin) {
+    private void processDeleteBuy(UserCache admin) {
         EnterIdKeyboard enterIdKeyboard = new EnterIdKeyboard();
 
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(admin.getChatId().toString());
         sendMessage.setText(messagesVariables.getAdminDeleteEnterBuyId());
         sendMessage.setReplyMarkup(enterIdKeyboard.getKeyboard());
-        //answer.add(sendMessage);
 
         AdminTelegramBot bot = BeanUtil.getBean(AdminTelegramBot.class);
         try {
@@ -465,7 +462,7 @@ public class AdminBotStateService {
 
                 answer.add(editMessageText);
 
-                LOGGER.info("ADMIN FLAT ID: " + admin.getAdminChoice().getFlatId());
+                //LOGGER.info("ADMIN FLAT ID: " + admin.getAdminChoice().getFlatId());
 
                 admin.setBotAdminState(AdminState.ADMIN_DELETE_RENT_CONFIRM); // Ждем подтверждения
             } else {

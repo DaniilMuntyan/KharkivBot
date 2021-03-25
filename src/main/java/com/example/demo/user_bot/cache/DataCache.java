@@ -59,7 +59,7 @@ public final class DataCache {
     }
 
     public void refreshUserName(Long chatId, String userName, String firstName, String lastName) {
-        LOGGER.info(chatId + " " + userName + " " + firstName + " " + lastName);
+        //LOGGER.info(chatId + " " + userName + " " + firstName + " " + lastName);
         this.usersCacheMap.get(chatId).setUsername(userName);
         this.usersCacheMap.get(chatId).setFirstName(firstName);
         this.usersCacheMap.get(chatId).setLastName(lastName);

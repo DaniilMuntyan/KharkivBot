@@ -91,35 +91,35 @@ public final class UserBotCallbackHandler {
                 user.get().getBotUserState() == UserState.SENT_NOT_ALL;
         // Если нажали на какую-то кнопку из меню "Показать еще" для квартир в состоянии SENT_NOT_ALL
         if (seeOthers) {
-            long time2 = System.currentTimeMillis();
+            //long time2 = System.currentTimeMillis();
             seeOthersOrEnoughCallbackHandler.handleCallback(response, callbackQuery, user.get());
-            LOGGER.info("Time seeOthersCallbackHandler.handleCallback: " + (System.currentTimeMillis() - time2));
+            //LOGGER.info("Time seeOthersCallbackHandler.handleCallback: " + (System.currentTimeMillis() - time2));
         }
 
         // Если нажали на какую-то кнопку из подпунктов меню "Мои предпочтения"
         if (data.startsWith(userMenuVariables.getUserMyMenuCallbackPrefix())) {
-            long time2 = System.currentTimeMillis();
+            //long time2 = System.currentTimeMillis();
             menu2CallbackHandler.handleCallback(response, callbackQuery, user.get());
-            LOGGER.info("Time menu2CallbackHandler.handleCallback: " + (System.currentTimeMillis() - time2));
+            //LOGGER.info("Time menu2CallbackHandler.handleCallback: " + (System.currentTimeMillis() - time2));
         }
 
         // Если нажали на "Хочу посмотреть" под квартирой
         if (data.startsWith(userMenuVariables.getUserBotFlatMsgSeeCallbackPrefix())) {
-            long time2 = System.currentTimeMillis();
+            //long time2 = System.currentTimeMillis();
             flatButtonCallbackHandler.handleCallback(response, callbackQuery, user.get());
-            LOGGER.info("Time flatButtonCallbackHandler.handleCallback: " + (System.currentTimeMillis() - time2));
+            //LOGGER.info("Time flatButtonCallbackHandler.handleCallback: " + (System.currentTimeMillis() - time2));
         }
 
         // Если нажали на кнопку из меню подтверждения записи на просмотр
         if (data.startsWith(userMenuVariables.getUserConfirmSeeingCallbackPrefix())) {
-            long time2 = System.currentTimeMillis();
+            //long time2 = System.currentTimeMillis();
             confirmSeeingCallbackHandler.handleCallback(response, callbackQuery, user.get());
-            LOGGER.info("Time confirmSeeingCallbackHandler.handleCallback: " + (System.currentTimeMillis() - time2));
+            //LOGGER.info("Time confirmSeeingCallbackHandler.handleCallback: " + (System.currentTimeMillis() - time2));
         }
 
         user.get().setLastAction(new Date()); // Фиксируем последнее действие
         userService.saveUserCache(user.get()); // Сохраняю все изменения юзера
-        LOGGER.info("Time handleCallback: " + (System.currentTimeMillis() - time1));
+        //LOGGER.info("Time handleCallback: " + (System.currentTimeMillis() - time1));
 
         return response;
     }

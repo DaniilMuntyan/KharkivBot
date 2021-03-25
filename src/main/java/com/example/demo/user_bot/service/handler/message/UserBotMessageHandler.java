@@ -54,7 +54,7 @@ public final class UserBotMessageHandler {
 
         long time1 = System.currentTimeMillis();
         Optional<UserCache> user = userService.findUserInCacheOrDb(chatId);
-        LOGGER.info("Time findByChatId: " + (System.currentTimeMillis() - time1));
+        //LOGGER.info("Time findByChatId: " + (System.currentTimeMillis() - time1));
 
         List<BotApiMethod<?>> response = new ArrayList<>();
 
@@ -63,9 +63,9 @@ public final class UserBotMessageHandler {
 
             time1 = System.currentTimeMillis();
             UserCache newUserCache = userService.saveNewUser(newUser);
-            LOGGER.info("Time saveUser in cache: " + (System.currentTimeMillis() - time1));
+            //LOGGER.info("Time saveUser in cache: " + (System.currentTimeMillis() - time1));
 
-            LOGGER.info("New user: " + newUser.getName(true));
+            //LOGGER.info("New user: " + newUser.getName(true));
 
             time1 = System.currentTimeMillis();
             response.addAll(handleUserMessage(message, newUserCache));
@@ -74,7 +74,7 @@ public final class UserBotMessageHandler {
             if (user.get().getBotUserState() == UserState.FLATS_MASSAGING) {
                 return response;
             }
-            LOGGER.info("Time from last message: " + (time1 - user.get().lastMessage()));
+            //LOGGER.info("Time from last message: " + (time1 - user.get().lastMessage()));
             long timeFromLastMsg = time1 - user.get().lastMessage();
             if (timeFromLastMsg < programVariables.getDelayUserSpam()) { // Если сообщения идут слишком часто
                 if (!user.get().getSpam()) { // Если пользователь не был в спаме - отправляю в спам
@@ -90,7 +90,7 @@ public final class UserBotMessageHandler {
             user.get().setLastMessage(time1); // Запоминаем время последнего сообщения
             //this.dataCache.markNotSaved(chatId);
         }
-        LOGGER.info("Time handleUserMessage: " + (System.currentTimeMillis() - time1));
+        //LOGGER.info("Time handleUserMessage: " + (System.currentTimeMillis() - time1));
 
         return response;
     }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.task.TaskExecutor;
+import org.springframework.scheduling.TaskScheduler;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
@@ -37,11 +38,11 @@ public class AsyncConfig {
         return taskExecutor;
     }
 
-    @Bean(name="ThreadPoolTaskScheduler")
-    public ThreadPoolTaskScheduler threadPoolTaskScheduler(){
+    @Bean(name="taskScheduler")
+    public TaskScheduler threadPoolTaskScheduler(){
         ThreadPoolTaskScheduler threadPoolTaskScheduler
                 = new ThreadPoolTaskScheduler();
-        threadPoolTaskScheduler.setPoolSize(3);
+        threadPoolTaskScheduler.setPoolSize(1);
         threadPoolTaskScheduler.setThreadNamePrefix("ThreadPoolTaskScheduler");
         LOGGER.info("Created ThreadPoolTaskScheduler bean. PoolSize: " + threadPoolTaskScheduler.getPoolSize());
         return threadPoolTaskScheduler;

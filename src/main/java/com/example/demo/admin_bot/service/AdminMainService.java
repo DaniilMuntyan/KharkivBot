@@ -44,16 +44,11 @@ public class AdminMainService {
                 s = update.getCallbackQuery().getData();
             }
 
-            long time1 = System.currentTimeMillis();
             for (BotApiMethod<?> method : methods) {
                 if (method != null) {
-                    long time2 = System.currentTimeMillis();
                     bot.executeAsync(method);
-                    LOGGER.info("TIME execute " + method.getMethod().toString() + ":" +
-                            (System.currentTimeMillis() - time2));
                 }
             }
-            LOGGER.info("TIME execute all methods: " + (System.currentTimeMillis() - time1));
             LOGGER.info("TIME: " + (double) (System.currentTimeMillis() - start));
             write(s, (double) (System.currentTimeMillis() - start));
         } catch (Exception exception) {
@@ -63,7 +58,7 @@ public class AdminMainService {
     }
 
     private synchronized void write(String s, double time) {
-        File csvFile = new File("./files/time.csv");
+        File csvFile = new File("./files/timeAdminBot.csv");
         try {
             csvFile.getParentFile().mkdirs();
             csvFile.createNewFile();

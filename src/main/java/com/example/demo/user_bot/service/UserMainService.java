@@ -50,7 +50,7 @@ public class UserMainService {
             }
 
             for (BotApiMethod<?> method: methods) {
-                LOGGER.info("method: " + method.getMethod());
+                //LOGGER.info("method: " + method.getMethod());
                 if (method instanceof SendMessage) {
                     userBotSendingQueue.addMessageToQueue((SendMessage) method);
                 } else {
