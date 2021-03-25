@@ -66,11 +66,10 @@ public class UserBotSendingQueue {
             int c = 0; // Для сообщений
             int k = 0; // Для АПИ методов
             try {
+                LOGGER.info("STARTING LOOP...");
                 while (true) {
-                    if (System.currentTimeMillis() % 2000 == 0) {
-                        LOGGER.info("IN LOOP!!! " + this.messagesQueue.size());
-                    }
                     if (!this.apiQueue.isEmpty()) { // Если есть апи запросы, которые надо отправить
+                        LOGGER.info("API QUEUE IS NOT EMPTY");
                         if (k == 0) {
                             timeApi1 = System.currentTimeMillis();
                         }
@@ -93,6 +92,7 @@ public class UserBotSendingQueue {
 
                     // Если есть какие-либо сообщения юзерам
                     if (!this.messagesQueue.isEmpty() || !this.bulkMessagesQueue.isEmpty()) {
+                        LOGGER.info("MESSAGES QUEUE IS NOT EMPTY");
                         if (c == 0) {
                             time1 = System.currentTimeMillis();
                         }
@@ -128,6 +128,7 @@ public class UserBotSendingQueue {
                 ex.printStackTrace();
                 this.loop(); // Опять пытаюсь запустить цикл
             }
+            LOGGER.info("END LOOP!!!");
         };
         this.taskExecutor.execute(sendMessageQueueLooper); // Запускаю цикл в другом потоке
     }
