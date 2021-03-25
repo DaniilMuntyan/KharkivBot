@@ -82,7 +82,7 @@ public final class UserCacheSaver {
                     //LOGGER.info("");
                 }
             } else { // Если пользователь уже сохранен в базе
-                LOGGER.info("Difference: " + (now.getTime() - userCache.getLastAction().getTime()) / 1000);
+                //LOGGER.info("Difference: " + (now.getTime() - userCache.getLastAction().getTime()) / 1000);
                 boolean toRemove = (now.getTime() - userCache.getLastAction().getTime()) / 1000 > this.programVariables.getTimeInCache();
                 // Если пользователь не является админом и давно ничего не делал - убираю из кэша
                 if (!userCache.isAdmin() && toRemove)
