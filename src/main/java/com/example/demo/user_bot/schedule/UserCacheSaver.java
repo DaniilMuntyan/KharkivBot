@@ -46,7 +46,6 @@ public final class UserCacheSaver {
     @PreDestroy
     @Scheduled(fixedDelayString = "${delay.user.saveToDb}")
     private void saveCache() {
-        //HashSet<User> newUsers = (HashSet<User>) dataCache.getNewUsersSet();
         ConcurrentHashMap<Long, UserCache> usersCacheMap = (ConcurrentHashMap<Long, UserCache>) dataCache.getUsersCacheMap();
 
         //System.out.println("\n" + f());
@@ -55,13 +54,6 @@ public final class UserCacheSaver {
 
         int c = 0;
         long time1 = System.currentTimeMillis();
-        // Сначала сохраняю всех новых пользователей
-        /*for (User temp: newUsers) {
-            userService.saveUser(temp);
-            newUsers.remove(temp); // Удалил с множества новых пользователей, потому что он уже в базе
-            c++;
-        }*/
-        //LOGGER.info("TIME save all new users (" + c + "): " + (System.currentTimeMillis() - time1));
         c = 0;
         time1 = System.currentTimeMillis();
         Date now = new Date();

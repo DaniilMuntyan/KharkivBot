@@ -1,6 +1,8 @@
 package com.example.demo.user_bot.service.handler.callback.menu;
 
 import com.example.demo.common_part.constants.UserMenuVariables;
+import com.example.demo.common_part.utils.money_range.BuyRange;
+import com.example.demo.common_part.utils.money_range.RentalRange;
 import com.example.demo.user_bot.cache.DataCache;
 import com.example.demo.user_bot.cache.UserCache;
 import com.example.demo.user_bot.keyboards.KeyboardsRegistry;
@@ -51,6 +53,7 @@ public final class Menu21CategoryCallbackHandler {
         Boolean isRentFlat = user.getUserChoice().getIsRentFlat();
         if (isRentFlat == null || !isRentFlat) { // Если ничего не было выбрано или выбрана покупка - ставлю галочку возле аренды
             user.getUserChoice().setIsRentFlat(true);
+            user.getUserChoice().setBudget(RentalRange.selectAll());
             this.dataCache.saveUserCache(user);
             //this.dataCache.markNotSaved(user.getChatId());
         }
@@ -63,6 +66,7 @@ public final class Menu21CategoryCallbackHandler {
         Boolean isRentFlat = user.getUserChoice().getIsRentFlat();
         if (isRentFlat == null || isRentFlat) { // Если ничего не было выбрано или выбрана аренда - ставлю галочку возле покупки
             user.getUserChoice().setIsRentFlat(false);
+            user.getUserChoice().setBudget(BuyRange.selectAll());
             this.dataCache.saveUserCache(user);
             //this.dataCache.markNotSaved(user.getChatId());
         }

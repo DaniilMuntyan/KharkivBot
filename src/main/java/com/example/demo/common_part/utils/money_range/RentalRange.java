@@ -16,6 +16,14 @@ public enum RentalRange implements Budget {
         this.identifier = "&rent" + identifier + "rent#";
     }
 
+    public static String selectAll() {
+        StringBuilder s = new StringBuilder();
+        for (RentalRange temp: RentalRange.values()) {
+            s.append(temp.identifier);
+        }
+        return s.toString();
+    }
+
     @Override
     public String getIdentifier() {
         return identifier;

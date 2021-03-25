@@ -22,6 +22,14 @@ public enum BuyRange implements Budget {
         return null;
     }
 
+    public static String selectAll() {
+        StringBuilder s = new StringBuilder();
+        for (BuyRange temp: BuyRange.values()) {
+            s.append(temp.identifier);
+        }
+        return s.toString();
+    }
+
     @Override
     public String getIdentifier() {
         return identifier;
