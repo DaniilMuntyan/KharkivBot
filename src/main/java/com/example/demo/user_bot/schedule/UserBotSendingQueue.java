@@ -57,7 +57,7 @@ public class UserBotSendingQueue {
                 calendar.get(Calendar.MILLISECOND));
     }
 
-    @SuppressWarnings("InfiniteLoopStatement")
+    //@SuppressWarnings("InfiniteLoopStatement")
     public void loop() {
         Runnable sendMessageQueueLooper = () -> {
             LOGGER.info("INFINITE");
@@ -68,7 +68,7 @@ public class UserBotSendingQueue {
             boolean hasApiMethod;
             try {
                 LOGGER.info("STARTING LOOP...");
-                while (true) {
+                while (Thread.currentThread().isAlive()) {
                     hasApiMethod = !this.apiQueue.isEmpty();
                     if (hasApiMethod) { // Если есть апи запросы, которые надо отправить
                         LOGGER.info("API QUEUE IS NOT EMPTY");
