@@ -52,8 +52,8 @@ public final class Look {
                 (this.firstName == null || this.firstName.isEmpty() ? "отсутствует" : this.firstName) + "\n" +
                 diamond + " Фамилия: " +
                 (this.lastName == null || this.lastName.isEmpty() ? "отсутствует" : this.lastName) + "\n" +
-                diamond + " Телеграм ник: @" +
-                (this.userName == null || this.userName.isEmpty() ? "отсутствует" : this.userName) + "\n" +
+                diamond + " Телеграм ник: " +
+                (this.userName == null || this.userName.isEmpty() ? "отсутствует" : "@" + this.userName) + "\n" +
                 diamond + " Телефон: " +
                 (this.phone == null || this.phone.isEmpty() ? "отсутствует" : this.phone) + "\n" +
                 diamond + " Дата записи: " +
