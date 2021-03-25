@@ -67,6 +67,9 @@ public class UserBotSendingQueue {
             int k = 0; // Для АПИ методов
             try {
                 while (true) {
+                    if (System.currentTimeMillis() % 2000 == 0) {
+                        LOGGER.info("IN LOOP!!! " + this.messagesQueue.size());
+                    }
                     if (!this.apiQueue.isEmpty()) { // Если есть апи запросы, которые надо отправить
                         if (k == 0) {
                             timeApi1 = System.currentTimeMillis();
