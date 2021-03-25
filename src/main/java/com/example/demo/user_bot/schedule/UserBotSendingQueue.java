@@ -126,7 +126,7 @@ public class UserBotSendingQueue {
             } catch (Exception ex) {
                 LOGGER.error(ex);
                 ex.printStackTrace();
-                this.loop(); // Опять пытаюсь запустить цикл
+                //this.loop(); // Опять пытаюсь запустить цикл
             }
             LOGGER.info("END LOOP!!!");
         };
