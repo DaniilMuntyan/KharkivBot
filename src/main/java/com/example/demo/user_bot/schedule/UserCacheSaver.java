@@ -49,9 +49,9 @@ public final class UserCacheSaver {
         //HashSet<User> newUsers = (HashSet<User>) dataCache.getNewUsersSet();
         ConcurrentHashMap<Long, UserCache> usersCacheMap = (ConcurrentHashMap<Long, UserCache>) dataCache.getUsersCacheMap();
 
-        System.out.println("\n" + f());
-        this.printMemory(); // Печатаю объем занятой мной памяти
-        System.out.println(f() + "\n");
+        //System.out.println("\n" + f());
+        //this.printMemory(); // Печатаю объем занятой мной памяти
+        //System.out.println(f() + "\n");
 
         int c = 0;
         long time1 = System.currentTimeMillis();
