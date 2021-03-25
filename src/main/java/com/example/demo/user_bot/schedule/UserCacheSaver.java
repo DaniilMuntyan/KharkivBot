@@ -13,6 +13,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PreDestroy;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -42,6 +43,7 @@ public final class UserCacheSaver {
         return s;
     }
 
+    @PreDestroy
     @Scheduled(fixedDelayString = "${delay.user.saveToDb}")
     private void saveCache() {
         //HashSet<User> newUsers = (HashSet<User>) dataCache.getNewUsersSet();

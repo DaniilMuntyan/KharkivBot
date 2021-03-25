@@ -124,7 +124,7 @@ public final class Menu2MessageHandler {
             response.add(this.backToMenu1.back(user));
         }
 
-        if (text.equals(userMenuVariables.getMenu2BtnSearchText())) { // Нажали "Обновить"
+        if (text.equals(userMenuVariables.getMenu2BtnSearchText())) { // Нажали "Подобрать"
             dontUnderstand = false;
             this.checkMenuForDelete(user, message, response); // Проверяю и удаляю прошлое меню, если оно еще открыто
             this.sendFoundFlats(user, response); // Ищу и отправляю подходящие квартиры
