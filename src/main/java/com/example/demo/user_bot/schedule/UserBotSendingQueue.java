@@ -158,6 +158,7 @@ public class UserBotSendingQueue {
     }
 
     public void addMessageToQueue(SendMessage partialBotApiMethod) {
+        LOGGER.info("ADD TO MESSAGE QUEUE: " + partialBotApiMethod);
         this.messagesQueue.add(partialBotApiMethod);
     }
 
@@ -167,6 +168,7 @@ public class UserBotSendingQueue {
 
     private void sendMessage(SendMessage message, TelegramLongPollingBot bot) {
         try {
+            LOGGER.info("SENDING MESSAGE...");
             long time1 = System.currentTimeMillis();
             Message newMenuMessage = bot.execute(message);
             LOGGER.info("TIME execute user SendMessage: " + (System.currentTimeMillis() - time1));
