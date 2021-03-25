@@ -40,7 +40,7 @@ public class UserBotSendingQueue {
     private final TaskExecutor taskExecutor;
 
     @Autowired
-    public UserBotSendingQueue(ProgramVariables programVariables, DataCache dataCache, @Lazy RentalTelegramBot bot, @Qualifier("TaskExecutor") TaskExecutor taskExecutor) {
+    public UserBotSendingQueue(ProgramVariables programVariables, DataCache dataCache, @Lazy RentalTelegramBot bot, @Qualifier("taskExecutor") TaskExecutor taskExecutor) {
         this.programVariables = programVariables;
         this.dataCache = dataCache;
         this.bot = bot;
