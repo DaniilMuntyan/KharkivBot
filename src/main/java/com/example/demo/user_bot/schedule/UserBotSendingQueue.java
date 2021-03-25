@@ -65,10 +65,12 @@ public class UserBotSendingQueue {
             long timeApi1 = time1, timeApi2 = time2; // Для замера отправок АПИ методов
             int c = 0; // Для сообщений
             int k = 0; // Для АПИ методов
+            boolean hasApiMethod;
             try {
                 LOGGER.info("STARTING LOOP...");
                 while (true) {
-                    if (!this.apiQueue.isEmpty()) { // Если есть апи запросы, которые надо отправить
+                    hasApiMethod = !this.apiQueue.isEmpty();
+                    if (hasApiMethod) { // Если есть апи запросы, которые надо отправить
                         LOGGER.info("API QUEUE IS NOT EMPTY");
                         if (k == 0) {
                             timeApi1 = System.currentTimeMillis();
@@ -126,7 +128,7 @@ public class UserBotSendingQueue {
             } catch (Exception ex) {
                 LOGGER.error(ex);
                 ex.printStackTrace();
-                //this.loop(); // Опять пытаюсь запустить цикл
+                this.loop(); // Опять пытаюсь запустить цикл
             }
             LOGGER.info("END LOOP!!!");
         };
