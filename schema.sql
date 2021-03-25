@@ -96,26 +96,40 @@ create table "buy"(
 create index on "buy"(square);
 SELECT setval('buy_buy_id_seq', 12345);
 
-DROP TABLE IF EXISTS "user_choice_rental"; -- Многие ко многим
+/*DROP TABLE IF EXISTS "user_choice_rental"; -- Многие ко многим
 CREATE TABLE "user_choice_rental"(
-                                     user_choice_id INTEGER REFERENCES "user_choice"(choice_id),
-                                     flat_id INTEGER REFERENCES "rental"(rental_id),
-                                     CONSTRAINT user_choice_rental_pkey PRIMARY KEY (user_choice_id, flat_id)
+    user_choice_id INTEGER REFERENCES "user_choice"(choice_id),
+    flat_id INTEGER REFERENCES "rental"(rental_id),
+    CONSTRAINT user_choice_rental_pkey PRIMARY KEY (user_choice_id, flat_id)
 );
 
 DROP TABLE IF EXISTS "user_choice_buy"; -- Многие ко многим
 CREATE TABLE "user_choice_buy"(
-                                  user_choice_id INTEGER REFERENCES "user_choice"(choice_id),
-                                  flat_id INTEGER REFERENCES "buy"(buy_id),
-                                  CONSTRAINT user_choice_buy_pkey PRIMARY KEY (user_choice_id, flat_id)
+                                     user_choice_id INTEGER REFERENCES "user_choice"(choice_id),
+                                     flat_id INTEGER REFERENCES "buy"(buy_id),
+                                     CONSTRAINT user_choice_buy_pkey PRIMARY KEY (user_choice_id, flat_id)
+);*/
+
+DROP TABLE IF EXISTS "look";
+CREATE TABLE "look"(
+                       look_id SERIAL,
+                       flat_id INTEGER,
+                       is_rent_flat BOOLEAN,
+                       firstname varchar(100),
+                       lastname varchar(100),
+                       username varchar(100),
+                       phone varchar(20),
+                       created_at timestamp with time zone not null default now(),
+                       PRIMARY KEY (look_id)
 );
 
 
+--truncate table "user";
+--truncate table "admin_choice" cascade;
+--truncate table "user_choice" cascade;
 
-
-
-
-
+--truncate table "rental" cascade;
+--truncate table "buy" cascade;
 
 
 
