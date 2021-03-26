@@ -56,7 +56,7 @@ public final class Look {
         if (this.createdAt != null) {
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(this.createdAt);
-            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss z");
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss z");
             sdf.setTimeZone(TimeZone.getTimeZone("EET")); // Ставлю наше время
             dateString = sdf.format(calendar.getTime());
         }

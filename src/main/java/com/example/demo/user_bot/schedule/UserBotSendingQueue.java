@@ -22,6 +22,7 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedList;
+import java.util.concurrent.CompletableFuture;
 
 @Service
 @PropertySource("classpath:program.properties")
@@ -171,7 +172,6 @@ public class UserBotSendingQueue {
         try {
             long time1 = System.currentTimeMillis();
             Message newMenuMessage = bot.execute(message);
-            LOGGER.info("TIME execute user SendMessage: " + (System.currentTimeMillis() - time1));
             if (message instanceof MenuSendMessage) { // Если отправляем новое меню
                 // Устанавливаю новое значение menuMessageId для пользователя, если нужно
                 if (((MenuSendMessage) message).isChangeMenuMessageId()) {
@@ -179,6 +179,8 @@ public class UserBotSendingQueue {
                     //LOGGER.info("УСТАНАВЛИВАЮ МЕНЮ: " + newMenuMessage.getMessageId());
                 }
             }
+            LOGGER.info("TIME execute user sendMessage: " + (System.currentTimeMillis() - time1));
+
         } catch (TelegramApiRequestException e) {
             LOGGER.error(e);
             if (e.getErrorCode().equals(429)) {
