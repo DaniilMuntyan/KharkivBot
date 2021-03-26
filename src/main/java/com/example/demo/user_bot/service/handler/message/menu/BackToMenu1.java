@@ -50,4 +50,17 @@ public final class BackToMenu1 {
 
         return sendMessage;
     }
+
+    // Возврат в главное меню, потому что нажали /help
+    public SendMessage help(UserCache user) {
+        SendMessage sendMessage = new SendMessage();
+        sendMessage.setChatId(user.getChatId().toString());
+        sendMessage.setText(messagesVariables.getUserBotHelpText());
+        sendMessage.setReplyMarkup(keyboardsRegistry.getMenu1().getKeyboard());
+
+        user.setBotUserState(UserState.MENU1); // Возвращаемся обратно
+        this.dataCache.saveUserCache(user);
+
+        return sendMessage;
+    }
 }

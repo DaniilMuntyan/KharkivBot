@@ -385,4 +385,11 @@ public class MessagesVariables {
         return MessageFormat.format(userBotConfirmSeeingText, Emoji.POINT_RIGHT, flatId);
     }
 
+    @Value("${user.bot.help.text}")
+    private String userBotHelpText;
+    public String getUserBotHelpText() {
+        return MessageFormat.format(userBotHelpText, Emoji.WAVE, Emoji.POINT_RIGHT, Emoji.ORANGE_DIAMOND,
+                Emoji.WRITING_HAND, Emoji.SMILE);
+    }
+
 }

@@ -6,4 +6,5 @@ import java.util.List;
 
 public class UserCommands {
     public final static String START = "/start";
+    public final static String HELP = "/help";
 }

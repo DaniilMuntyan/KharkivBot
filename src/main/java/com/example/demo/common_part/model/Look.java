@@ -8,7 +8,10 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.TimeZone;
 
 @Data
 @Builder
@@ -48,6 +51,16 @@ public final class Look {
     @Override
     public String toString() {
         String diamond = Emoji.ORANGE_DIAMOND.toString();
+        String dateString = "";
+
+        if (this.createdAt != null) {
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(this.createdAt);
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss z");
+            sdf.setTimeZone(TimeZone.getTimeZone("EET")); // Ставлю наше время
+            dateString = sdf.format(calendar.getTime());
+        }
+
         return diamond + " Имя: " +
                 (this.firstName == null || this.firstName.isEmpty() ? "отсутствует" : this.firstName) + "\n" +
                 diamond + " Фамилия: " +
@@ -56,8 +69,8 @@ public final class Look {
                 (this.userName == null || this.userName.isEmpty() ? "отсутствует" : "@" + this.userName) + "\n" +
                 diamond + " Телефон: " +
                 (this.phone == null || this.phone.isEmpty() ? "отсутствует" : this.phone) + "\n" +
-                diamond + " Дата записи: " +
-                (this.createdAt == null ? "отсутствует" : this.createdAt);
+                diamond + " Время записи: " +
+                (dateString.isEmpty() ? "отсутствует" : dateString);
     }
 
 }

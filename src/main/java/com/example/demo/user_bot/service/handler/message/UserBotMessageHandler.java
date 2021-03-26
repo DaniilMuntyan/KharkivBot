@@ -137,6 +137,12 @@ public final class UserBotMessageHandler {
                             }
                             return List.of(this.backToMenu1.back(user)); // Возвращаемся в главное меню
                         }
+                        if (text.equals(UserCommands.HELP)) { // Если пользователь прислал /help
+                            if (user.getUserChoice().getMenuMessageId() != null) { // Если меню есть - удаляю его
+                                answer.add(this.deleteApiMethod(user.getChatId(), user.getUserChoice().getMenuMessageId()));
+                            }
+                            return List.of(this.backToMenu1.help(user)); // Возвращаемся в главное меню
+                        }
                         if (initMenu) { // Если пользователь прислал "левое" сообщение во время меню инициализации
                             return List.of(this.deleteApiMethod(user.getChatId(), message.getMessageId())); // Удаляю левое сообщение
                         }

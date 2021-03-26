@@ -26,7 +26,7 @@ public enum Emoji {
     CLIPBOARD(":clipboard:"), TELEPHONE(":telephone:"), RAISED_HANDS(":raised_hands:"),
     ORANGE_DIAMOND(":small_orange_diamond:"), STARS_EYES(":star_struck:"), LIKE("\uD83D\uDC4D"),
     ANGEL(":innocent:"), GREY_EXCLAMATION(":grey_exclamation:"), MAN_RAISING("\uD83D\uDE4B\u200D"),
-    PUNCH(":punch:");
+    WRITING_HAND(":writing_hand:");
 
     private final String emojiName;
 
