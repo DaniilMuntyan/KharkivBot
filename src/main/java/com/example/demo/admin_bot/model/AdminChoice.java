@@ -125,6 +125,7 @@ public final class AdminChoice {
                 ((info != null && !info.isEmpty()) ? (Emoji.INFO + " " + info + "\n") : "") +
                 "\nОстальные пункты:\n" +
                 ((moneyRange != null) ? "Бюджет: " + moneyRange + "\n" : "") +
+                ((district != null) ? "Район: " + district + "\n": "") +
                 ((mapLink != null) ? "На карте: " + "<a href=\"" + prepareHtml(mapLink) + "\">ссылка</a>\n" : "") +
                 ((contact != null) ? "Контакт для связи: @" + contact.substring(contact.lastIndexOf('/') + 1) : "");
     }

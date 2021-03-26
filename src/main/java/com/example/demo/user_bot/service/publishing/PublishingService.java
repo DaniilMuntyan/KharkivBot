@@ -56,11 +56,11 @@ public final class PublishingService {
             RentFlat rentFlat = rentalFlatService.save(new RentFlat(admin.getAdminChoice())); // Сохраняю квартиру в БД
             admin.getAdminChoice().setFlatId(rentFlat.getId()); // Когда уже есть айди добавленной квартиры
             result = messagesVariables.getAdminBotHashTag(rentFlat.getId().toString(), true); // Хэштег 12345_аренда
+            this.dataCache.newFlat(rentFlat); // Сохраняю квартиру в кэш
             // Отправляю только тем пользователям, у которых соответствующие предпочтения
             for (User user: allUsers) {
                 if (user.getWantsUpdates() && this.userService.checkFlatWithUserChoice(rentFlat, user.getUserChoice())) { // Предпочтения совпали
-                    //TODO закомментил addRentChoice user.getUserChoice().addRentChoice(rentFlat); // Добавляю в предпочтения юзера
-                    this.dataCache.newFlat(rentFlat); // Сохраняю квартиру в кэш
+                    user.getUserChoice().addRentChoice(rentFlat); // Добавляю в предпочтения юзера
                     this.dataCache.saveUserCache(user); // Сохраняю в кэш изменения UserChoice
 
                     userBotSendingQueue.addBulkMessageToQueue(this.flatMessageService
@@ -72,14 +72,13 @@ public final class PublishingService {
                     .getMessageFromFlat(programVariables.getTelegramChannel(), rentFlat, false);
         } else {
             BuyFlat buyFlat = buyFlatService.save(new BuyFlat(admin.getAdminChoice())); // Сохраняю квартиру в БД
-            PublishedFlatKeyboard publishedFlatKeyboard = new PublishedFlatKeyboard(admin.getAdminChoice(), buyFlat);
             admin.getAdminChoice().setFlatId(buyFlat.getId()); // Если уже есть айди добавленной квартиры
             result = messagesVariables.getAdminBotHashTag(buyFlat.getId().toString(), false); // Хэштег 12345_продажа;
+            this.dataCache.newFlat(buyFlat); // Сохраняю квартиру в кэш
             // Отправляю только тем пользователям, у которых соответствующие предпочтения
             for (User user: allUsers) {
                 if (user.getWantsUpdates() && this.userService.checkFlatWithUserChoice(buyFlat, user.getUserChoice())) {
-                    //TODO закомментил addBuyChoice user.getUserChoice().addBuyChoice(buyFlat); // Добавляю в предпочтения юзера
-                    this.dataCache.newFlat(buyFlat); // Сохраняю квартиру в кэш
+                    user.getUserChoice().addBuyChoice(buyFlat); // Добавляю в предпочтения юзера
                     this.dataCache.saveUserCache(user); // Сохраняю в кэш изменения UserChoice
 
                     userBotSendingQueue.addBulkMessageToQueue(this.flatMessageService
@@ -94,11 +93,6 @@ public final class PublishingService {
         // Публикую в канал, если квартира под аренду и если нет ошибки
         if (admin.getAdminChoice().getIsRentFlat() && !result.equals("ERROR")) {
             response.add(msgToChannel);
-            /*response.add(SendMessage.builder()
-                    .chatId(programVariables.getTelegramChannel())
-                    .text(withoutNewFlatForYou)
-                    .parseMode(sendMessage.getParseMode())
-                    .build());*/
         }
 
         return result;
