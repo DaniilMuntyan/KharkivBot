@@ -42,6 +42,7 @@ public class RentalTelegramBot extends TelegramLongPollingBot {
     @SneakyThrows
     @Override
     public void onUpdateReceived(Update update) {
+        LOGGER.info("UPDATE " + update.getUpdateId() + ": " + System.currentTimeMillis());
         userMainService.handleUpdate(update, this);
     }
 }
