@@ -88,7 +88,9 @@ public final class UserService {
             Optional<User> user = userRepository.findByChatId(chatId);
             if (user.isPresent()) { // Если существует в базе - копирую в кэш
                 UserCache userFromDb = new UserCache(user.get(), true);
-                this.findFlatsForUser(userFromDb, userFromDb.getUserChoice().getIsRentFlat()); // Заполняю сэты подходящих квартир
+                if (userFromDb.getUserChoice() != null && userFromDb.getUserChoice().getIsRentFlat() != null) { // Если выбор уже создан
+                    this.findFlatsForUser(userFromDb, userFromDb.getUserChoice().getIsRentFlat()); // Заполняю сэты подходящих квартир
+                }
                 dataCache.saveUserCache(userFromDb); // Сохраняю в кэше
                 LOGGER.info("GET FROM DB: " + userFromDb.getChatId() + ". TIME: " + (System.currentTimeMillis() - time1));
                 return Optional.of(userFromDb);
