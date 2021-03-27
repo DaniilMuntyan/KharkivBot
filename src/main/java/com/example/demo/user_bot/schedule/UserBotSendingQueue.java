@@ -3,6 +3,7 @@ package com.example.demo.user_bot.schedule;
 import com.example.demo.common_part.constants.ProgramVariables;
 import com.example.demo.user_bot.botapi.RentalTelegramBot;
 import com.example.demo.user_bot.cache.DataCache;
+import com.example.demo.user_bot.service.entities.UserService;
 import com.example.demo.user_bot.utils.MenuSendMessage;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.task.TaskExecutor;
-import org.springframework.scheduling.TaskScheduler;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
@@ -22,7 +22,6 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedList;
-import java.util.concurrent.CompletableFuture;
 
 @Service
 @PropertySource("classpath:program.properties")
@@ -35,14 +34,16 @@ public class UserBotSendingQueue {
     private final ProgramVariables programVariables;
     private final DataCache dataCache;
     private final RentalTelegramBot bot;
+    private final UserService userService;
 
     private final TaskExecutor taskExecutor;
 
     @Autowired
-    public UserBotSendingQueue(ProgramVariables programVariables, DataCache dataCache, @Lazy RentalTelegramBot bot, @Qualifier("taskExecutor") TaskExecutor taskExecutor) {
+    public UserBotSendingQueue(ProgramVariables programVariables, DataCache dataCache, @Lazy RentalTelegramBot bot, UserService userService, @Qualifier("taskExecutor") TaskExecutor taskExecutor) {
         this.programVariables = programVariables;
         this.dataCache = dataCache;
         this.bot = bot;
+        this.userService = userService;
         this.taskExecutor = taskExecutor;
         this.loop(); // Запускаю в другом потоке - для очередей
     }
@@ -168,7 +169,7 @@ public class UserBotSendingQueue {
         this.apiQueue.add(partialBotApiMethod);
     }
 
-    private void sendMessage(SendMessage message, TelegramLongPollingBot bot) {
+    public void sendMessage(SendMessage message, TelegramLongPollingBot bot) {
         try {
             long time1 = System.currentTimeMillis();
             Message newMenuMessage = bot.execute(message);
@@ -183,6 +184,9 @@ public class UserBotSendingQueue {
 
         } catch (TelegramApiRequestException e) {
             LOGGER.error(e);
+            if (this.blocked(e.toString())) { // Если юзер заблокировал бота
+                this.userService.deleteUser(Long.valueOf(message.getChatId()));
+            }
             if (e.getErrorCode().equals(429)) {
                 this.messagesQueue.addFirst(message);
                 LOGGER.info("ADDED TO QUEUE: " + message.getChatId());
@@ -192,8 +196,8 @@ public class UserBotSendingQueue {
                     LOGGER.error(interruptedException);
                     interruptedException.printStackTrace();
                 }
+                e.printStackTrace();
             }
-            e.printStackTrace();
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
@@ -221,5 +225,10 @@ public class UserBotSendingQueue {
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
+    }
+
+    private boolean blocked(String exception) {
+        return exception.contains("Forbidden") && exception.contains("bot") && exception.contains("blocked") &&
+                exception.contains("by the user");
     }
 }

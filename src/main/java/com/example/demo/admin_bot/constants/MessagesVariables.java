@@ -389,7 +389,7 @@ public class MessagesVariables {
     private String userBotHelpText;
     public String getUserBotHelpText() {
         return MessageFormat.format(userBotHelpText, Emoji.WAVE, Emoji.POINT_RIGHT, Emoji.ORANGE_DIAMOND,
-                Emoji.WRITING_HAND, Emoji.SMILE);
+                Emoji.WRITING_HAND, Emoji.MAN_RAISING, Emoji.SMILE);
     }
 
 }

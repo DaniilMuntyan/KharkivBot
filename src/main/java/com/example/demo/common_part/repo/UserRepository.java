@@ -27,4 +27,9 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     @Query("SELECT u FROM User u WHERE u.adminMode=true")
     List<User> findAllAdmins();
+
+    @Transactional
+    @Modifying
+    @Query("DELETE  FROM User u WHERE u.chatId=?1")
+    void deleteByChatId(Long chatId);
 }
