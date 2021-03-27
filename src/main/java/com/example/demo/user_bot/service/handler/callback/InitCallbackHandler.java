@@ -42,17 +42,9 @@ public final class InitCallbackHandler {
                 !user.getUserChoice().getMenuMessageId().equals(callbackQuery.getMessage().getMessageId()) &&
                 user.getBotUserState() != UserState.SENT_NOT_ALL && user.getBotUserState() != UserState.FLATS_MASSAGING;
 
-        LOGGER.info("CALLBACK DATA: " + data + ". FORBIDDEN: " + forbidden);
-
         if (forbidden) {
             return;
         }
-
-        // TODO: закомментил setMenuMessageId
-        /*// Если нажали - запоминаем айди меню инициализации (в одно время может работать только одно)
-        if (user.getUserChoice().getMenuMessageId() == null) {
-            user.getUserChoice().setMenuMessageId(callbackQuery.getMessage().getMessageId());
-        }*/
 
         // Если callback пришел от какой-то кнопки с меню инициализации категории
         if (data.startsWith(userMenuVariables.getMenuInitBtnCategoryCallbackPrefix())) {
@@ -76,9 +68,7 @@ public final class InitCallbackHandler {
 
         // Если в initBudgetCallbackHandler изменили состояние на FIRST_INIT_END
         if (user.getBotUserState() == UserState.FIRST_INIT_END) {
-            long time2 = System.currentTimeMillis();
             initMenuEndHandler.handleInitMenuEnd(response, user);
-            LOGGER.info("Time handleInitMenuEnd: " + (System.currentTimeMillis() - time2));
         }
     }
 }

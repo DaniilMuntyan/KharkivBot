@@ -48,15 +48,6 @@ public class UserBotSendingQueue {
         this.loop(); // Запускаю в другом потоке - для очередей
     }
 
-    private void printDate(String text, long milliseconds) {
-        Date date = new Date(milliseconds);
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(date);
-        LOGGER.info(text + calendar.get(Calendar.HOUR_OF_DAY) + ":" +
-                calendar.get(Calendar.MINUTE) + ":" + calendar.get(Calendar.SECOND) + ":" +
-                calendar.get(Calendar.MILLISECOND));
-    }
-
     public void loop() {
         Runnable sendMessageQueueLooper = () -> {
             try {
@@ -108,7 +99,6 @@ public class UserBotSendingQueue {
                                     (time2 - time1) + "мс");
                         } else { // Если по ограничениям все нормально
                             if (!this.messagesQueue.isEmpty()) { // Если есть личные сообщения - отправляю их (первый приоритет)
-                                LOGGER.info("Есть личное сообщения - отправляю");
                                 SendMessage newMessage = this.messagesQueue.pollFirst();
                                 this.sendMessage(newMessage, bot);
                                 c++;
@@ -132,36 +122,11 @@ public class UserBotSendingQueue {
         this.taskExecutor.execute(sendMessageQueueLooper); // Запускаю цикл в потоке для расписаний
     }
 
-    /*@Scheduled(fixedDelayString = "${delay.user.message}")
-    public void sendMessageLooper() {
-        // Обрабатываю отправку сообщений каждые X секунд
-        // Если отвечаем юзеру сообщением (первый приоритет)
-        if (this.messagesQueue.size() != 0) {
-            SendMessage newMessage = this.messagesQueue.pollFirst();
-            this.sendMessage(newMessage, bot);
-        } else { // Если происходит рассылка (второй приоритет)
-            if (this.bulkMessagesQueue.size() != 0) {
-                SendMessage newMessage = this.bulkMessagesQueue.pollFirst();
-                this.sendMessage(newMessage, bot);
-            }
-        }
-    }*/
-
-    /*@Scheduled(fixedDelayString = "${delay.user.api}")
-    public void sendApiMethodLooper() {
-        // Обрабатываю АПИ запросы каждые X секунд
-        if (this.apiQueue.size() != 0) {
-            BotApiMethod<?> botApiMethod = this.apiQueue.pollFirst();
-            this.executeMethod(botApiMethod, bot);
-        }
-    }*/
-
     public void addBulkMessageToQueue(SendMessage sendMessage) {
         this.bulkMessagesQueue.add(sendMessage);
     }
 
     public void addMessageToQueue(SendMessage partialBotApiMethod) {
-        //LOGGER.info("ADD TO MESSAGE QUEUE: " + partialBotApiMethod);
         this.messagesQueue.add(partialBotApiMethod);
     }
 
@@ -171,17 +136,15 @@ public class UserBotSendingQueue {
 
     public void sendMessage(SendMessage message, TelegramLongPollingBot bot) {
         try {
-            long time1 = System.currentTimeMillis();
+            //long time1 = System.currentTimeMillis();
             Message newMenuMessage = bot.execute(message);
             if (message instanceof MenuSendMessage) { // Если отправляем новое меню
                 // Устанавливаю новое значение menuMessageId для пользователя, если нужно
                 if (((MenuSendMessage) message).isChangeMenuMessageId()) {
                     this.dataCache.setMenuMsgId(message.getChatId(), newMenuMessage.getMessageId());
-                    //LOGGER.info("УСТАНАВЛИВАЮ МЕНЮ: " + newMenuMessage.getMessageId());
                 }
             }
-            LOGGER.info("TIME execute user sendMessage: " + (System.currentTimeMillis() - time1));
-
+            //LOGGER.info("TIME execute user sendMessage: " + (System.currentTimeMillis() - time1));
         } catch (TelegramApiRequestException e) {
             LOGGER.error(e);
             if (this.blocked(e.toString())) { // Если юзер заблокировал бота
@@ -205,10 +168,10 @@ public class UserBotSendingQueue {
 
     private void executeMethod(BotApiMethod<?> method, TelegramLongPollingBot bot) {
         try {
-            long time1 = System.currentTimeMillis();
+            //long time1 = System.currentTimeMillis();
             bot.execute(method);
-            LOGGER.info("TIME execute user method " + method.getMethod() + ": " +
-                    (System.currentTimeMillis() - time1));
+            /*LOGGER.info("TIME execute user method " + method.getMethod() + ": " +
+                    (System.currentTimeMillis() - time1));*/
         } catch (TelegramApiRequestException e) {
             LOGGER.error(e);
             if (e.getErrorCode().equals(429)) {

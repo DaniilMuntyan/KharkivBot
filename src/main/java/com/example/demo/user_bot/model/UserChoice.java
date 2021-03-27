@@ -44,19 +44,11 @@ public final class UserChoice {
     @Setter
     private String budget;
 
-    /*@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name="user_choice_rental",
-            joinColumns = @JoinColumn(name = "user_choice_id"),
-            inverseJoinColumns = @JoinColumn(name = "flat_id"))*/
     @Transient // Не сохраняю в базу, так как OOM
     @Getter
     @Setter
     private Set<RentFlat> userChoicesRent = new HashSet<>(); // Выбор пользователя по квартирам под аренду
 
-   /*@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name="user_choice_buy",
-            joinColumns = @JoinColumn(name = "user_choice_id"),
-            inverseJoinColumns = @JoinColumn(name = "flat_id"))*/
     @Transient // Не сохраняю в базу, так как OOM
     @Getter
     @Setter
@@ -87,13 +79,4 @@ public final class UserChoice {
     public String getBudget() {
         return budget != null ? budget : "";
     }
-
-    public void addBudget(Enum<?> enumRange) {
-        if (this.budget != null) {
-            this.budget += enumRange.ordinal() + " ";
-        } else {
-            this.budget = enumRange.ordinal() + " ";
-        }
-    }
-
 }

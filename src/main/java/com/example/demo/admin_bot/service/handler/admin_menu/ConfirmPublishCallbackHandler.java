@@ -2,11 +2,9 @@ package com.example.demo.admin_bot.service.handler.admin_menu;
 
 import com.example.demo.admin_bot.utils.AdminState;
 import com.example.demo.common_part.constants.AdminMenuVariables;
-import com.example.demo.admin_bot.constants.MessagesVariables;
+import com.example.demo.common_part.constants.MessagesVariables;
 import com.example.demo.admin_bot.service.AdminService;
 import com.example.demo.admin_bot.service.handler.admin_menu.submenu.CommonMethods;
-import com.example.demo.admin_bot.model.AdminChoice;
-import com.example.demo.common_part.model.User;
 import com.example.demo.common_part.repo.UserRepository;
 import com.example.demo.user_bot.cache.UserCache;
 import com.example.demo.user_bot.service.publishing.PublishingService;
@@ -15,10 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
-import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageReplyMarkup;
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageText;
 import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
-import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardRemove;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,7 +70,6 @@ public final class ConfirmPublishCallbackHandler {
                 // Возвращаем состояние в исходное
                 admin.setBotAdminState(AdminState.ADMIN_INIT);
                 adminService.clearAdminChoice(admin);
-                // TODO: закомментил adminService.setAdminChoice(admin, new AdminChoice()); // Обновляем выбор
             }
         } else { // Если отменяем публикацию
             response.add(commonMethods.getEditNewFlatKeyboard(chatId, messageId, admin));

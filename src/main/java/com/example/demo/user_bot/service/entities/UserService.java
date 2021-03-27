@@ -1,6 +1,5 @@
 package com.example.demo.user_bot.service.entities;
 
-import com.example.demo.admin_bot.repo.AdminChoiceRepository;
 import com.example.demo.common_part.model.BuyFlat;
 import com.example.demo.common_part.model.RentFlat;
 import com.example.demo.common_part.model.User;
@@ -9,8 +8,7 @@ import com.example.demo.common_part.utils.BeanUtil;
 import com.example.demo.user_bot.cache.DataCache;
 import com.example.demo.user_bot.cache.UserCache;
 import com.example.demo.user_bot.model.UserChoice;
-import com.example.demo.user_bot.repo.UserChoiceRepository;
-import com.example.demo.user_bot.service.publishing.FindFlatsService;
+import com.example.demo.user_bot.service.searching.FindFlatsService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -51,7 +49,6 @@ public final class UserService {
         this.dataCache.removeUser(chatId); // Удаляю из кэша
         LOGGER.info("DELETED USER chatId: " + chatId);
     }
-
 
     public SendMessage getMyState(boolean first, UserCache user) {
         SendMessage sendMessage = new SendMessage();

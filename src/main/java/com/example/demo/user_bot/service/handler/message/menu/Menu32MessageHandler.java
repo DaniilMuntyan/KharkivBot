@@ -1,12 +1,10 @@
 package com.example.demo.user_bot.service.handler.message.menu;
 
-import com.example.demo.admin_bot.constants.MessagesVariables;
+import com.example.demo.common_part.constants.MessagesVariables;
 import com.example.demo.common_part.constants.UserMenuVariables;
 import com.example.demo.user_bot.cache.DataCache;
 import com.example.demo.user_bot.cache.UserCache;
 import com.example.demo.user_bot.keyboards.KeyboardsRegistry;
-import com.example.demo.user_bot.service.publishing.FindFlatsService;
-import com.example.demo.user_bot.service.publishing.SendFoundFlatsService;
 import com.example.demo.user_bot.utils.UserState;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,20 +25,15 @@ public final class Menu32MessageHandler {
     private final MessagesVariables messagesVariables;
     private final KeyboardsRegistry keyboardsRegistry;
 
-    private final FindFlatsService findFlatsService;
-    private final SendFoundFlatsService sendFoundFlatsService;
-
     private final DataCache dataCache;
 
     private final BackToMenu3 backToMenu3;
 
     @Autowired
-    public Menu32MessageHandler(UserMenuVariables userMenuVariables, MessagesVariables messagesVariables, KeyboardsRegistry keyboardsRegistry, FindFlatsService findFlatsService, SendFoundFlatsService sendFoundFlatsService, DataCache dataCache, BackToMenu3 backToMenu3) {
+    public Menu32MessageHandler(UserMenuVariables userMenuVariables, MessagesVariables messagesVariables, KeyboardsRegistry keyboardsRegistry, DataCache dataCache, BackToMenu3 backToMenu3) {
         this.userMenuVariables = userMenuVariables;
         this.messagesVariables = messagesVariables;
         this.keyboardsRegistry = keyboardsRegistry;
-        this.findFlatsService = findFlatsService;
-        this.sendFoundFlatsService = sendFoundFlatsService;
         this.dataCache = dataCache;
         this.backToMenu3 = backToMenu3;
     }
@@ -50,15 +43,12 @@ public final class Menu32MessageHandler {
 
         List<BotApiMethod<?>> response = new ArrayList<>();
 
-        LOGGER.info(text);
-
         if (message.hasText() && text.equals(userMenuVariables.getMenu3BtnBackText())) { // Нажали "назад"
             response.add(this.backToMenu3.back(user));
         } else { // Если не нажали "назад" - то есть прислали номер
             if (message.hasContact()) { // Прислали свой контакт. Кнопка "Отправить мой контакт"
                 Contact contact = message.getContact();
                 user.setPhone(contact.getPhoneNumber()); // Сохраняю телефон пользователя
-
                 response.add(this.getAcceptPhoneMessage(user));
             } else { // Прислали вручную
                 if (checkPhoneText(text)) { // Если номер корректный
@@ -69,7 +59,6 @@ public final class Menu32MessageHandler {
                 }
             }
         }
-
         user.setBotUserState(UserState.MENU3); // Возвращаемся обратно в меню "Настройки"
         this.dataCache.saveUserCache(user);
 

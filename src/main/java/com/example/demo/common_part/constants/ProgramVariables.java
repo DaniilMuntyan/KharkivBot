@@ -60,4 +60,12 @@ public final class ProgramVariables {
     @Getter
     private Integer timeInCache;
 
+    @Value("${adminTime.path}")
+    @Getter
+    private String adminTimePath;
+
+    @Value("${userTime.path}")
+    @Getter
+    private String userTimePath;
+
 }

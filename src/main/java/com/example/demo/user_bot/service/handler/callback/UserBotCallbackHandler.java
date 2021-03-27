@@ -7,6 +7,7 @@ import com.example.demo.user_bot.service.handler.callback.flat.ConfirmSeeingCall
 import com.example.demo.user_bot.service.handler.callback.flat.FlatButtonCallbackHandler;
 import com.example.demo.user_bot.service.handler.callback.init.*;
 import com.example.demo.user_bot.service.handler.callback.menu.Menu21CategoryCallbackHandler;
+import com.example.demo.user_bot.service.handler.callback.see_others.SeeOthersOrEnoughCallbackHandler;
 import com.example.demo.user_bot.utils.UserState;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,7 +63,6 @@ public final class UserBotCallbackHandler {
     public List<BotApiMethod<?>> handleCallback(CallbackQuery callbackQuery) {
         Long chatId = callbackQuery.getMessage().getChatId();
 
-        long time1 = System.currentTimeMillis();
         Optional<UserCache> user = userService.findUserInCacheOrDb(chatId); // Ищу юзера в кэше
 
         List<BotApiMethod<?>> response = new ArrayList<>();
@@ -71,13 +71,9 @@ public final class UserBotCallbackHandler {
 
         boolean forbidden = user.isEmpty();
 
-        LOGGER.info("CALLBACK DATA: " + data + ". FORBIDDEN: " + forbidden);
-
         if (forbidden) { // Возвращаем пустой список АПИ методов
             return response;
         }
-
-        //response.add(userService.getMyState(true, user.get())); // Отсылаю текущее состояние бота
 
         // Если не получили Forbidden - отвечаем на callback, чтобы ушел кружек загрузки
         response.add(0, this.getAnswerCallback(callbackQuery));
@@ -91,35 +87,26 @@ public final class UserBotCallbackHandler {
                 user.get().getBotUserState() == UserState.SENT_NOT_ALL;
         // Если нажали на какую-то кнопку из меню "Показать еще" для квартир в состоянии SENT_NOT_ALL
         if (seeOthers) {
-            //long time2 = System.currentTimeMillis();
             seeOthersOrEnoughCallbackHandler.handleCallback(response, callbackQuery, user.get());
-            //LOGGER.info("Time seeOthersCallbackHandler.handleCallback: " + (System.currentTimeMillis() - time2));
         }
 
         // Если нажали на какую-то кнопку из подпунктов меню "Мои предпочтения"
         if (data.startsWith(userMenuVariables.getUserMyMenuCallbackPrefix())) {
-            //long time2 = System.currentTimeMillis();
             menu2CallbackHandler.handleCallback(response, callbackQuery, user.get());
-            //LOGGER.info("Time menu2CallbackHandler.handleCallback: " + (System.currentTimeMillis() - time2));
         }
 
         // Если нажали на "Хочу посмотреть" под квартирой
         if (data.startsWith(userMenuVariables.getUserBotFlatMsgSeeCallbackPrefix())) {
-            //long time2 = System.currentTimeMillis();
             flatButtonCallbackHandler.handleCallback(response, callbackQuery, user.get());
-            //LOGGER.info("Time flatButtonCallbackHandler.handleCallback: " + (System.currentTimeMillis() - time2));
         }
 
         // Если нажали на кнопку из меню подтверждения записи на просмотр
         if (data.startsWith(userMenuVariables.getUserConfirmSeeingCallbackPrefix())) {
-            //long time2 = System.currentTimeMillis();
             confirmSeeingCallbackHandler.handleCallback(response, callbackQuery, user.get());
-            //LOGGER.info("Time confirmSeeingCallbackHandler.handleCallback: " + (System.currentTimeMillis() - time2));
         }
 
         user.get().setLastAction(new Date()); // Фиксируем последнее действие
         userService.saveUserCache(user.get()); // Сохраняю все изменения юзера
-        //LOGGER.info("Time handleCallback: " + (System.currentTimeMillis() - time1));
 
         return response;
     }

@@ -1,6 +1,6 @@
 package com.example.demo.user_bot.service.handler.message.menu;
 
-import com.example.demo.admin_bot.constants.MessagesVariables;
+import com.example.demo.common_part.constants.MessagesVariables;
 import com.example.demo.user_bot.cache.DataCache;
 import com.example.demo.user_bot.cache.UserCache;
 import com.example.demo.user_bot.keyboards.KeyboardsRegistry;
@@ -32,20 +32,6 @@ public final class BackToMenu3 {
 
         user.setBotUserState(UserState.MENU3); // Возвращаемся обратно
         this.dataCache.saveUserCache(user);
-
-        return sendMessage;
-    }
-
-    // Возврат в меню "настройки", потому что пользователь прислал "левое" сообщение
-    public SendMessage dontUnderstand(UserCache user) {
-        SendMessage sendMessage = new SendMessage();
-        sendMessage.setChatId(user.getChatId().toString());
-        sendMessage.setText(messagesVariables.getUserDontUnderstandText());
-        sendMessage.setReplyMarkup(keyboardsRegistry.getMenu3().getKeyboard(user));
-
-        user.setBotUserState(UserState.MENU3); // Перешли в меню "Настройки"
-        this.dataCache.saveUserCache(user);
-        //dataCache.markNotSaved(user.getChatId()); // Чтобы потом сохранить в базу
 
         return sendMessage;
     }

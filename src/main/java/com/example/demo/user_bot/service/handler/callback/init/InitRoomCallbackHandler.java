@@ -1,16 +1,13 @@
 package com.example.demo.user_bot.service.handler.callback.init;
 
-import com.example.demo.admin_bot.constants.MessagesVariables;
+import com.example.demo.common_part.constants.MessagesVariables;
 import com.example.demo.common_part.constants.UserMenuVariables;
-import com.example.demo.common_part.model.User;
 import com.example.demo.common_part.utils.Rooms;
 import com.example.demo.user_bot.cache.UserCache;
 import com.example.demo.user_bot.keyboards.KeyboardsRegistry;
-import com.example.demo.user_bot.service.entities.UserService;
 import com.example.demo.user_bot.utils.UserState;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageReplyMarkup;
@@ -24,15 +21,13 @@ public final class InitRoomCallbackHandler {
     private static final Logger LOGGER = Logger.getLogger(InitRoomCallbackHandler.class);
 
     private final UserMenuVariables userMenuVariables;
-    private final UserService userService;
     private final MessagesVariables messagesVariables;
 
     private final KeyboardsRegistry keyboardsRegistry;
 
     @Autowired
-    public InitRoomCallbackHandler(UserMenuVariables userMenuVariables, UserService userService, MessagesVariables messagesVariables, KeyboardsRegistry keyboardsRegistry) {
+    public InitRoomCallbackHandler(UserMenuVariables userMenuVariables, MessagesVariables messagesVariables, KeyboardsRegistry keyboardsRegistry) {
         this.userMenuVariables = userMenuVariables;
-        this.userService = userService;
         this.messagesVariables = messagesVariables;
         this.keyboardsRegistry = keyboardsRegistry;
     }
@@ -42,44 +37,32 @@ public final class InitRoomCallbackHandler {
 
         // Если выбрали Гостинку
         if (data.equals(userMenuVariables.getMenuInitRoomsBtnRoom0Callback())) {
-            long time1 = System.currentTimeMillis();
             room0Callback(response, callbackQuery, user);
-            LOGGER.info("TIME room0Callback: " + (System.currentTimeMillis() - time1));
         }
 
         // Если выбрали 1 комнату
         if (data.equals(userMenuVariables.getMenuInitRoomsBtnRoom1Callback())) {
-            long time1 = System.currentTimeMillis();
             room1Callback(response, callbackQuery, user);
-            LOGGER.info("TIME room1Callback: " + (System.currentTimeMillis() - time1));
         }
 
         // Если выбрали 2 комнаты
         if (data.equals(userMenuVariables.getMenuInitRoomsBtnRoom2Callback())) {
-            long time1 = System.currentTimeMillis();
             room2Callback(response, callbackQuery, user);
-            LOGGER.info("TIME room2Callback: " + (System.currentTimeMillis() - time1));
         }
 
         // Если выбрали 3 комнаты
         if (data.equals(userMenuVariables.getMenuInitRoomsBtnRoom3Callback())) {
-            long time1 = System.currentTimeMillis();
             room3Callback(response, callbackQuery, user);
-            LOGGER.info("TIME room3Callback: " + (System.currentTimeMillis() - time1));
         }
 
         // Если выбрали 4 комнаты
         if (data.equals(userMenuVariables.getMenuInitRoomsBtnRoom4Callback())) {
-            long time1 = System.currentTimeMillis();
             room4Callback(response, callbackQuery, user);
-            LOGGER.info("TIME room4Callback: " + (System.currentTimeMillis() - time1));
         }
 
         // Если нажали кнопку "Дальше"
         if (data.equals(userMenuVariables.getMenuInitBtnRoomNextCallback())) {
-            long time1 = System.currentTimeMillis();
             nextCallback(response, callbackQuery, user);
-            LOGGER.info("TIME nextCallback: " + (System.currentTimeMillis() - time1));
         }
 
     }

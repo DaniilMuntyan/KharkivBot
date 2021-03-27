@@ -1,4 +1,4 @@
-package com.example.demo.admin_bot.constants;
+package com.example.demo.common_part.constants;
 
 import com.example.demo.common_part.utils.Emoji;
 import lombok.Getter;
@@ -220,7 +220,6 @@ public class MessagesVariables {
         return MessageFormat.format(userFirstHi, Emoji.WAVE, name, Emoji.SPEED, Emoji.ARROW_DOWN);
     }
 
-    // TODO: в текст сообщения добавить ссылку на чат с поддержкой
     @Value("${user.error.text}")
     private String userErrorText;
     public String getUserErrorText() {

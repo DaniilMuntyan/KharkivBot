@@ -2,7 +2,7 @@ package com.example.demo.admin_bot.service;
 
 import com.example.demo.admin_bot.botapi.AdminTelegramBot;
 import com.example.demo.admin_bot.cache.AdminCache;
-import com.example.demo.admin_bot.constants.MessagesVariables;
+import com.example.demo.common_part.constants.MessagesVariables;
 import com.example.demo.admin_bot.keyboards.NewFlatMenu;
 import com.example.demo.admin_bot.keyboards.delete.ConfirmKeyboard;
 import com.example.demo.admin_bot.keyboards.delete.EnterIdKeyboard;
@@ -174,8 +174,6 @@ public class AdminBotStateService {
         if (admin.getAdminChoice().getIsRentFlat() != null && !notBackToAdminMenu) {
             admin.setBotAdminState(admin.getAdminChoice().getIsRentFlat() ? AdminState.ADMIN_ADD_RENT_FLAT : AdminState.ADMIN_ADD_BUY_FLAT);
         }
-
-        //adminService.saveAdmin(admin);
 
         return answer;
     }
@@ -401,7 +399,6 @@ public class AdminBotStateService {
         sendMessage.setChatId(admin.getChatId().toString());
         sendMessage.setText(messagesVariables.getAdminDeleteEnterRentId());
         sendMessage.setReplyMarkup(enterIdKeyboard.getKeyboard());
-        //answer.add(sendMessage);
 
         AdminTelegramBot bot = BeanUtil.getBean(AdminTelegramBot.class);
         try {
@@ -447,8 +444,6 @@ public class AdminBotStateService {
 
                 // Устанавливаю новый adminChoice - это rentFlat (для удаления)
                 adminService.setAdminChoiceFromFlat(admin, rentFlat.get());
-                /*adminService.setAdminChoice(admin,
-                        adminService.getAdminChoiceFromFlat(rentFlat.get(), admin.getAdminChoice().getMenuMessageId()));*/
 
                 adminCache.addFlatToDelete(admin.getChatId(), flatId); // Сохраняю айдишник квартиры на удаление в кэше
 
@@ -461,8 +456,6 @@ public class AdminBotStateService {
                 editMessageText.setText(admin.getAdminChoice().getHtmlMessage()); // Показываю adminChoice (что именно мы удаляем)
 
                 answer.add(editMessageText);
-
-                //LOGGER.info("ADMIN FLAT ID: " + admin.getAdminChoice().getFlatId());
 
                 admin.setBotAdminState(AdminState.ADMIN_DELETE_RENT_CONFIRM); // Ждем подтверждения
             } else {
@@ -477,7 +470,6 @@ public class AdminBotStateService {
                 admin.setBotAdminState(AdminState.ADMIN_INIT); // Возвращаемся в исходное состояние
             }
             this.dataCache.saveUserCache(admin); // Сохраняю измененное состояние
-            //adminService.saveAdmin(admin); // Сохраняю измененное состояние
         } catch (NumberFormatException ex) {
             LOGGER.error(ex);
             // Ничего не делаем (ждем пока введет правильно)
@@ -493,8 +485,6 @@ public class AdminBotStateService {
 
                 // Устанавливаю новый adminChoice - это buyFlat (для удаления)
                 adminService.setAdminChoiceFromFlat(admin, buyFlat.get());
-                /*adminService.setAdminChoice(admin, adminService.getAdminChoiceFromFlat(buyFlat.get(),
-                        admin.getAdminChoice().getMenuMessageId()));*/
 
                 adminCache.addFlatToDelete(admin.getChatId(), flatId); // Сохраняю айдишник квартиры на удаление в кэше
 
@@ -521,7 +511,6 @@ public class AdminBotStateService {
                 admin.setBotAdminState(AdminState.ADMIN_INIT); // Возвращаемся в исходное состояние
             }
             this.dataCache.saveUserCache(admin); // Сохраняю измененное состояние
-            //adminService.saveAdmin(admin); // Сохраняю измененное состояние
         } catch (NumberFormatException ex) {
             LOGGER.error(ex);
             // Ничего не делаем (ждем пока введет правильно)

@@ -52,17 +52,23 @@ public final class DataCache {
     }
 
     public void removeUser(Long chatId) {
-        LOGGER.info("REMOVING USER CACHE: " + chatId);
+        LOGGER.info("REMOVING USER CACHE chatId: " + chatId);
         this.usersCacheMap.remove(chatId);
         this.notSentBuyFlatsMap.remove(chatId);
         this.notSentRentFlatsMap.remove(chatId);
     }
 
     public void refreshUserName(Long chatId, String userName, String firstName, String lastName) {
-        //LOGGER.info(chatId + " " + userName + " " + firstName + " " + lastName);
-        this.usersCacheMap.get(chatId).setUsername(userName);
-        this.usersCacheMap.get(chatId).setFirstName(firstName);
-        this.usersCacheMap.get(chatId).setLastName(lastName);
+        UserCache user = this.usersCacheMap.get(chatId);
+        if (!user.getUsername().equals(userName)) { // Если изменился юзернейм
+            this.usersCacheMap.get(chatId).setUsername(userName);
+        }
+        if (!user.getFirstName().equals(firstName)) { // Если изменилось имя
+            this.usersCacheMap.get(chatId).setFirstName(firstName);
+        }
+        if (!user.getLastName().equals(lastName)) { // Если изменилась фамилия
+            this.usersCacheMap.get(chatId).setLastName(lastName);
+        }
         this.markNotSaved(chatId); // Записываю на сохранение в базу
     }
 
@@ -139,26 +145,19 @@ public final class DataCache {
         return usersCacheMap;
     }
 
-    /*public Set<User> getNewUsersSet() {
-        return newUsersSet;
-    }*/
-
     // endregion
 
     // region <Flats caching>
     public void removeRentFlat(Long flatId) {
-        RentFlat rentFlat = this.rentFlatsCacheMap.get(flatId);
         this.rentFlatsCacheMap.remove(flatId);
         this.notSentRentFlatsMap.remove(flatId);
     }
     public void removeBuyFlat(Long flatId) {
-        BuyFlat buyFlat = this.buyFlatsCacheMap.get(flatId);
         this.buyFlatsCacheMap.remove(flatId);
         this.notSentBuyFlatsMap.remove(flatId);
     }
 
     public void newFlat(Flat flat) {
-        //newBuyFlatsSet.add(buyFlat);
         if (flat instanceof RentFlat) {
             rentFlatsCacheMap.put(flat.getId(), (RentFlat) flat);
         }

@@ -1,14 +1,14 @@
 package com.example.demo.user_bot.service.publishing;
 
-import com.example.demo.admin_bot.constants.MessagesVariables;
+import com.example.demo.common_part.constants.MessagesVariables;
 import com.example.demo.common_part.constants.ProgramVariables;
 import com.example.demo.common_part.model.BuyFlat;
 import com.example.demo.common_part.model.RentFlat;
 import com.example.demo.common_part.model.User;
 import com.example.demo.user_bot.cache.DataCache;
 import com.example.demo.user_bot.cache.UserCache;
-import com.example.demo.user_bot.keyboards.PublishedFlatKeyboard;
 import com.example.demo.user_bot.schedule.UserBotSendingQueue;
+import com.example.demo.user_bot.service.FlatMessageService;
 import com.example.demo.user_bot.service.entities.BuyFlatService;
 import com.example.demo.user_bot.service.entities.RentalFlatService;
 import com.example.demo.user_bot.service.entities.UserService;

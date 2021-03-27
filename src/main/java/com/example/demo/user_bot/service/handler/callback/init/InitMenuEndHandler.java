@@ -1,13 +1,13 @@
 package com.example.demo.user_bot.service.handler.callback.init;
 
-import com.example.demo.admin_bot.constants.MessagesVariables;
+import com.example.demo.common_part.constants.MessagesVariables;
 import com.example.demo.common_part.model.BuyFlat;
 import com.example.demo.common_part.model.RentFlat;
 import com.example.demo.user_bot.cache.DataCache;
 import com.example.demo.user_bot.cache.UserCache;
 import com.example.demo.user_bot.keyboards.KeyboardsRegistry;
-import com.example.demo.user_bot.service.publishing.FindFlatsService;
-import com.example.demo.user_bot.service.publishing.SendFoundFlatsService;
+import com.example.demo.user_bot.service.searching.FindFlatsService;
+import com.example.demo.user_bot.service.searching.SendFoundFlatsService;
 import com.example.demo.user_bot.utils.UserState;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,13 +36,11 @@ public final class InitMenuEndHandler {
     }
 
     public void handleInitMenuEnd(List<BotApiMethod<?>> response, UserCache user) {
-        LOGGER.info("handleInitMenuEnd!");
         if (user.getUserChoice().getIsRentFlat()) { // Если выбрали аренду
             this.processRentFlats(user, response);
         } else { // Если выбрали покупку
             this.processBuyFlats(user, response);
         }
-        //this.dataCache.markNotSaved(user.getChatId()); // Помечаю юзера несохраненным - чтобы обновить в базе
         this.dataCache.saveUserCache(user);
     }
 
@@ -57,12 +55,10 @@ public final class InitMenuEndHandler {
         // Устанавливаю только что заполненный, новый сэт квартир под выбор пользователя, так как теперь он полностью другой
         this.dataCache.setUserChoiceRentFlats(userChoiceFlats, user);
 
-        //user.setBotUserState(UserState.FLATS_MASSAGING); // Состояние - шлём квартиры
-
         if (notSentRentFlats.size() == 0) { // Если не нашлось квартир
             response.add(this.flatsNotFoundMessage(user));
         } else { // Если подходящие квартиры есть
-            sendFoundFlatsService.sendNotSentRentFlats(user);
+            sendFoundFlatsService.sendFoundRentFlats(user);
         }
 
         this.dataCache.saveUserCache(user); // Сохраняю изменения юзера
@@ -81,7 +77,7 @@ public final class InitMenuEndHandler {
         if (userChoiceFlats.size() == 0) { // Если не нашлось квартир
             response.add(this.flatsNotFoundMessage(user));
         } else { // Если подходящие квартиры есть
-            sendFoundFlatsService.sendNotSentBuyFlats(user);
+            sendFoundFlatsService.sendFoundSentBuyFlats(user);
         }
 
         this.dataCache.saveUserCache(user); // Сохраняю изменения юзера
@@ -94,7 +90,6 @@ public final class InitMenuEndHandler {
         sendMessage.setReplyMarkup(keyboardsRegistry.getMenu1().getKeyboard()); // Меню 1
 
         user.setBotUserState(UserState.MENU1); // Перешли в главное меню
-        //this.dataCache.markNotSaved(user.getChatId()); // Сохраняю в базу измененное состояние
         this.dataCache.saveUserCache(user);
 
         return sendMessage;

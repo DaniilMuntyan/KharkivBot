@@ -15,16 +15,7 @@ public class AdminChoiceService {
         this.adminChoiceRepository = adminChoiceRepository;
     }
 
-    public AdminChoice saveChoice(NewFlatMenu newFlatMenu) {
-        return adminChoiceRepository.save(newFlatMenu.getAdminChoice());
-    }
-
     public AdminChoice saveChoice(AdminChoice adminChoice) {
         return adminChoiceRepository.save(adminChoice);
     }
-
-    public void deleteChoice(AdminChoice adminChoice) {
-        this.adminChoiceRepository.delete(adminChoice);
-    }
-
 }

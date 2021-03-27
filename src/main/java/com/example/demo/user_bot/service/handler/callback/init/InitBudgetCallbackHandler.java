@@ -1,6 +1,6 @@
 package com.example.demo.user_bot.service.handler.callback.init;
 
-import com.example.demo.admin_bot.constants.MessagesVariables;
+import com.example.demo.common_part.constants.MessagesVariables;
 import com.example.demo.common_part.constants.UserMenuVariables;
 import com.example.demo.common_part.utils.money_range.Budget;
 import com.example.demo.common_part.utils.money_range.BuyRange;
@@ -8,7 +8,6 @@ import com.example.demo.common_part.utils.money_range.RentalRange;
 import com.example.demo.user_bot.cache.DataCache;
 import com.example.demo.user_bot.cache.UserCache;
 import com.example.demo.user_bot.keyboards.KeyboardsRegistry;
-import com.example.demo.user_bot.service.entities.UserService;
 import com.example.demo.user_bot.service.handler.callback.ChangeBudgetChoiceService;
 import com.example.demo.user_bot.utils.UserState;
 import org.apache.log4j.Logger;
@@ -51,25 +50,19 @@ public final class InitBudgetCallbackHandler {
         // Ищу какой бюджет выбрали
         for (Budget temp: allBudgets) {
             if (data.equals(userMenuVariables.getMenuInitBudgetBtnRangePrefixCallback() + temp.getIdentifier())) {
-                long time1 = System.currentTimeMillis();
                 budgetCallback(temp, response, callbackQuery, user);
-                LOGGER.info("TIME budgetCallback: " + (System.currentTimeMillis() - time1));
                 break;
             }
         }
 
         // Если нажали кнопку "Выбрать все"
         if (data.equals(userMenuVariables.getMenuInitBudgetBtnSelectAllCallback())) {
-            long time1 = System.currentTimeMillis();
             selectAllCallback(response, callbackQuery, user);
-            LOGGER.info("TIME selectAllCallback: " + (System.currentTimeMillis() - time1));
         }
 
         // Если нажали кнопку "Дальше"
         if (data.equals(userMenuVariables.getMenuInitBudgetNextCallback())) {
-            long time1 = System.currentTimeMillis();
             nextCallback(response, callbackQuery, user);
-            LOGGER.info("TIME nextCallback: " + (System.currentTimeMillis() - time1));
         }
     }
 

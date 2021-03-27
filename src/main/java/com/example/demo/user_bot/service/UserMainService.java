@@ -1,5 +1,7 @@
 package com.example.demo.user_bot.service;
 
+import com.example.demo.common_part.constants.ProgramVariables;
+import com.example.demo.common_part.service.SaveToFileService;
 import com.example.demo.user_bot.botapi.RentalTelegramBot;
 import com.example.demo.user_bot.schedule.UserBotSendingQueue;
 import com.example.demo.user_bot.service.handler.callback.UserBotCallbackHandler;
@@ -26,12 +28,16 @@ public class UserMainService {
     private final UserBotCallbackHandler userBotCallbackHandler;
 
     private final UserBotSendingQueue userBotSendingQueue;
+    private final SaveToFileService saveToFileService;
+    private final ProgramVariables programVariables;
 
     @Autowired
-    public UserMainService(UserBotMessageHandler userBotMessageHandler, UserBotCallbackHandler userBotCallbackHandler, UserBotSendingQueue userBotSendingQueue) {
+    public UserMainService(UserBotMessageHandler userBotMessageHandler, UserBotCallbackHandler userBotCallbackHandler, UserBotSendingQueue userBotSendingQueue, SaveToFileService saveToFileService, ProgramVariables programVariables) {
         this.userBotMessageHandler = userBotMessageHandler;
         this.userBotCallbackHandler = userBotCallbackHandler;
         this.userBotSendingQueue = userBotSendingQueue;
+        this.saveToFileService = saveToFileService;
+        this.programVariables = programVariables;
     }
 
     @Async
@@ -59,28 +65,11 @@ public class UserMainService {
             }
 
             LOGGER.info("USER TIME: " + (double) (System.currentTimeMillis() - start));
-            write(s, (double) (System.currentTimeMillis() - start));
+            this.saveToFileService.writeTime(programVariables.getUserTimePath(), s,
+                    (double) (System.currentTimeMillis() - start));
         } catch (Exception exception) {
             exception.printStackTrace();
             LOGGER.error(exception);
-        }
-    }
-
-    private synchronized void write(String s, double time) {
-        File csvFile = new File("./files/timeUserBot.csv");
-        try {
-            csvFile.getParentFile().mkdirs();
-            csvFile.createNewFile();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try (FileWriter writer = new FileWriter(csvFile, true)) {
-
-            String sb = "\n" + s + "," + time;
-            writer.write(sb);
-
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 }

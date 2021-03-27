@@ -2,7 +2,7 @@ package com.example.demo.admin_bot.service.handler.admin_menu;
 
 import com.example.demo.admin_bot.utils.AdminState;
 import com.example.demo.common_part.constants.AdminMenuVariables;
-import com.example.demo.admin_bot.constants.MessagesVariables;
+import com.example.demo.common_part.constants.MessagesVariables;
 import com.example.demo.admin_bot.service.AdminService;
 import com.example.demo.admin_bot.service.handler.admin_menu.submenu.CommonMethods;
 import com.example.demo.common_part.model.User;
@@ -55,7 +55,6 @@ public class ConfirmMessageCallbackHandler {
                 sendMessage.setEntities(callbackQuery.getMessage().getEntities());
                 sendMessage.setChatId(user.getChatId().toString());
                 userBotSendingQueue.addBulkMessageToQueue(sendMessage);
-                //queryService.execute(sendMessage, admin);
             }
 
             EditMessageText editMessageText = new EditMessageText();

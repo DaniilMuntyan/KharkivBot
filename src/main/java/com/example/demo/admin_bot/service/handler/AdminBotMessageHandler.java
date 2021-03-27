@@ -6,20 +6,19 @@ import com.example.demo.admin_bot.utils.AdminState;
 import com.example.demo.admin_bot.utils.AdminCommands;
 import com.example.demo.common_part.constants.AdminMenuVariables;
 import com.example.demo.admin_bot.service.AdminService;
-import com.example.demo.admin_bot.constants.MessagesVariables;
+import com.example.demo.common_part.constants.MessagesVariables;
+import com.example.demo.common_part.service.RefreshUserDataService;
 import com.example.demo.common_part.utils.Emoji;
 import com.example.demo.common_part.model.User;
-import com.example.demo.common_part.repo.UserRepository;
 import com.example.demo.user_bot.cache.DataCache;
 import com.example.demo.user_bot.cache.UserCache;
+import com.example.demo.user_bot.service.DeleteMessageService;
 import com.example.demo.user_bot.service.entities.UserService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
-import org.telegram.telegrambots.meta.api.methods.updatingmessages.DeleteMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
 
 import java.text.MessageFormat;
@@ -29,31 +28,33 @@ import java.util.*;
 public class AdminBotMessageHandler {
     private static final Logger LOGGER = Logger.getLogger(AdminBotMessageHandler.class);
 
-    private final UserRepository userRepository;
+    private final DeleteMessageService deleteMessageService;
     private final AdminService adminService;
     private final MessagesVariables messagesVariables;
     private final AdminMenuVariables adminMenuVariables;
     private final AdminBotStateService adminBotStateService;
     private final UserService userService;
+    private final RefreshUserDataService refreshUserDataService;
 
     private final DataCache dataCache;
 
     @Autowired
-    public AdminBotMessageHandler(UserRepository userRepository, AdminService adminService, MessagesVariables messagesVariables, AdminMenuVariables adminMenuVariables, AdminBotStateService adminBotStateService, UserService userService, DataCache dataCache) {
-        this.userRepository = userRepository;
+    public AdminBotMessageHandler(DeleteMessageService deleteMessageService, AdminService adminService, MessagesVariables messagesVariables, AdminMenuVariables adminMenuVariables, AdminBotStateService adminBotStateService, UserService userService, RefreshUserDataService refreshUserDataService, DataCache dataCache) {
+        this.deleteMessageService = deleteMessageService;
         this.adminService = adminService;
         this.messagesVariables = messagesVariables;
         this.adminMenuVariables = adminMenuVariables;
         this.adminBotStateService = adminBotStateService;
         this.userService = userService;
+        this.refreshUserDataService = refreshUserDataService;
         this.dataCache = dataCache;
     }
 
     public List<BotApiMethod<?>> handleMessage(Message message) {
         Long chatId = message.getChatId();
         String text = message.getText().trim();
-        String username = message.getFrom().getUserName(); // Обновляю каждый раз, когда получаю новое сообщение
-        //Optional<User> user = userRepository.findByChatId(chatId);
+
+        // Достаю админа из базы или из кэша
         Optional<UserCache> user = userService.findUserInCacheOrDb(chatId);
 
         List<BotApiMethod<?>> response = new ArrayList<>();
@@ -61,14 +62,10 @@ public class AdminBotMessageHandler {
         SendMessage textResponse = new SendMessage();
         textResponse.setChatId(chatId.toString());
 
-        boolean isAdmin = false;
-
         if(user.isPresent() && adminService.isAdmin(user.get())) { // Если админ
-            isAdmin = true;
-            response.addAll(handleAdminMessage(message, user.get(), username));
+            response.addAll(handleAdminMessage(message, user.get()));
         } else {
             if (adminService.isEnterAdminCommand(text)) { // Если ввел команду с паролем
-                isAdmin = true;
                 if (user.isPresent()) { // Если админ уже есть в кэше
                     UserCache admin = user.get();
                     admin.setAdmin(true);
@@ -76,26 +73,21 @@ public class AdminBotMessageHandler {
                         admin.setAdminChoice(new AdminChoice());
                     }
                     this.dataCache.saveUserCache(admin);
-                    //admin = userRepository.save(admin);
-                    //LOGGER.info("Admin entered: " + admin.getName(true));
                 } else { // Если админа нет в кэше, он первый раз заходит в режим админа
                     User newUser = new User(message);
                     newUser.setAdminMode(true);
                     newUser.setAdminChoice(new AdminChoice());
                     newUser.setBotAdminState(AdminState.ADMIN_INIT);
                     userService.saveNewUser(newUser); // Сохраняю в базу и кэш
-                    //this.dataCache.saveUserCache(newUserCache);
-                    //dataCache.addUser(newUser); // Добавляю в кэш нового юзера
                 }
                 response.add(helloAdmin(textResponse));
             }
         }
-
         return response;
     }
 
     // Обработка сообщения от админа
-    private List<BotApiMethod<?>> handleAdminMessage(Message message, UserCache admin, String username) {
+    private List<BotApiMethod<?>> handleAdminMessage(Message message, UserCache admin) {
         String text = message.getText();
         Long chatId = message.getChatId();
 
@@ -103,13 +95,11 @@ public class AdminBotMessageHandler {
 
         boolean adminCommand = false;
 
-        if(admin.getUsername() != null && !admin.getUsername().equals(username)) { // Если админ поменял свой юзернейм
-            admin.setUsername(username);
-        }
+        this.refreshUserDataService.refreshUserName(message); // Обновляю firstname, lastname и username
 
         if (text.equals(adminMenuVariables.getAddRentFlatBtnText())) { // Если выбрали "опубликовать квартиру для аренды"
             if (admin.getAdminChoice().getMenuMessageId() != null) { // Если процесс публикации не завершен
-                response.add(deleteApiMethod(message));
+                response.add(this.deleteMessageService.deleteApiMethod(message));
                 return response; // Возвращаем пустой
             }
             adminCommand = true;
@@ -117,7 +107,7 @@ public class AdminBotMessageHandler {
         }
         if (text.equals(adminMenuVariables.getAddBuyFlatBtnText())) { // Если выбрали "опубликовать квартиру для покупки"
             if (admin.getAdminChoice().getMenuMessageId() != null) {
-                response.add(deleteApiMethod(message));
+                response.add(this.deleteMessageService.deleteApiMethod(message));
                 return response; // Возвращаем пустой
             }
             adminCommand = true;
@@ -125,7 +115,7 @@ public class AdminBotMessageHandler {
         }
         if (text.equals(adminMenuVariables.getDeleteRentFlat())) { // Если выбрали "Удалить квартиру (аренда)"
             if (admin.getAdminChoice().getMenuMessageId() != null) {
-                response.add(deleteApiMethod(message));
+                response.add(this.deleteMessageService.deleteApiMethod(message));
                 return response;
             }
             adminCommand = true;
@@ -133,7 +123,7 @@ public class AdminBotMessageHandler {
         }
         if (text.equals(adminMenuVariables.getDeleteBuyFlat())) { // Если выбрали "Удалить квартиру (продажа)"
             if (admin.getAdminChoice().getMenuMessageId() != null) {
-                response.add(deleteApiMethod(message));
+                response.add(this.deleteMessageService.deleteApiMethod(message));
                 return response;
             }
             adminCommand = true;
@@ -141,7 +131,7 @@ public class AdminBotMessageHandler {
         }
         if(text.equals(adminMenuVariables.getBulkMessageText())) { // Если выбрали "Написать сообщение"
             if(admin.getAdminChoice().getMenuMessageId() != null) {
-                response.add(deleteApiMethod(message));
+                response.add(this.deleteMessageService.deleteApiMethod(message));
                 return response;
             }
             adminCommand = true;
@@ -167,7 +157,6 @@ public class AdminBotMessageHandler {
             response.addAll(adminBotStateService.processAdminInput(message, admin));
         } else { // Если пришло любое текстовое сообщение
             if (admin.getBotAdminState() == AdminState.ADMIN_INIT) {
-                LOGGER.info("handleAdminMessage. Any text message");
                 SendMessage textResponse = new SendMessage();
                 textResponse.setChatId(chatId.toString());
                 textResponse.setReplyMarkup(adminService.getMainMenu());
@@ -179,7 +168,7 @@ public class AdminBotMessageHandler {
         // Если не ждем сообщение от админа - то удаляем ненужное
         // И если не находимся в начальном состоянии (идет какой-то процесс)
         if(admin.getBotAdminState() != AdminState.ADMIN_WAIT_MESSAGE_TO_BULK && admin.getBotAdminState() != AdminState.ADMIN_INIT) {
-            response.add(0, deleteApiMethod(message));
+            response.add(0, this.deleteMessageService.deleteApiMethod(message));
         }
         
         this.dataCache.saveUserCache(admin);
@@ -192,13 +181,6 @@ public class AdminBotMessageHandler {
         response.setText(MessageFormat.format(messagesVariables.getHelloAdmin(), Emoji.KEY));
         response.setReplyMarkup(adminService.getMainMenu());
         return response;
-    }
-
-    private DeleteMessage deleteApiMethod(Message message) {
-        return DeleteMessage.builder()
-                .chatId(message.getChatId().toString())
-                .messageId(message.getMessageId())
-                .build();
     }
 
     private boolean checkMenuBotState(AdminState botAdminState) {

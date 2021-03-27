@@ -36,34 +36,30 @@ public final class InitCache {
     }
 
     Map<Long, BuyFlat> initBuyFlatsCache() {
-        LOGGER.info("initBuyFlatsCache");
+        LOGGER.info("INIT BUY FLATS CACHE");
         List<BuyFlat> allExistedBuyFlats = buyFlatService.findAllBuyFlats();
         Map<Long, BuyFlat> buyFlatsCache = new ConcurrentHashMap<>();
         LOGGER.info("allExistedBuyFlats: " + allExistedBuyFlats.size());
         for (BuyFlat temp: allExistedBuyFlats) {
             buyFlatsCache.put(temp.getId(), temp);
-            /*LOGGER.info("BuyFlat put to cache: " + temp.getId() + ", " + temp.getRooms() + ", " +
-                    temp.getRange() + ", " + temp.getFloor());*/
         }
         LOGGER.info("ALL BuyFlats FROM DATABASE TO CACHE");
         return buyFlatsCache;
     }
     Map<Long, RentFlat> initRentFlatsCache() {
-        LOGGER.info("initRentFlatsCache");
+        LOGGER.info("INIT RENT FLATS CACHE");
         List<RentFlat> allExistedRentFlats = rentalFlatService.findAllRentFlats();
         Map<Long, RentFlat> rentFlatsCache = new ConcurrentHashMap<>();
         LOGGER.info("allExistedRentFlats: " + allExistedRentFlats.size());
         for (RentFlat temp: allExistedRentFlats) {
             rentFlatsCache.put(temp.getId(), temp);
-            /*LOGGER.info("RentFlat put to cache: " + temp.getId() + ", " + temp.getRooms() + ", " +
-                    temp.getRange() + ", " + temp.getFloor());*/
         }
         LOGGER.info("ALL RentFlats FROM DATABASE TO CACHE");
         return rentFlatsCache;
     }
 
     Map<Long, UserCache> initUsersCache() {
-        LOGGER.info("initUsersCache");
+        LOGGER.info("INIT USERS CACHE");
         List<User> allExistedUsers = userService.findAllUsers();
         Map<Long, UserCache> usersCache = new ConcurrentHashMap<>();
         LOGGER.info("AllExistedUsers: " + allExistedUsers.size());
@@ -74,10 +70,6 @@ public final class InitCache {
             // Прохожу по всем существующим квартирам и ищу подходящие для пользователя
             this.setUserChoices(newUserCache);
             usersCache.put(temp.getChatId(), newUserCache);
-
-            /*LOGGER.info("User " + temp.getId() + ". Rent choice size: " +
-                    temp.getUserChoice().getUserChoicesRent().size() + ". Buy choice size: " +
-                    temp.getUserChoice().getUserChoicesBuy().size());*/
         }
         LOGGER.info("ALL Users FROM DATABASE TO CACHE");
         return usersCache;

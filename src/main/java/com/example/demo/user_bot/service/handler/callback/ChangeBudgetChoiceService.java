@@ -37,29 +37,17 @@ public final class ChangeBudgetChoiceService {
             }
         }
 
-        if (startOrdinal != -1 && endOrdinal != -1) {
-            LOGGER.info("START ORDINAL: " + startOrdinal + " " + range.getAllRanges()[startOrdinal]);
-            LOGGER.info("END ORDINAL: " + endOrdinal + " " + range.getAllRanges()[endOrdinal]);
-        }
-
         if (isBudgetChecked) { // Если этот бюджет уже был выбран - снимаю галочку
             if (range.ordinal() == startOrdinal || range.ordinal() == endOrdinal) { // Если нажали на крайние - убираю только их
                 user.removeBudget(range);
-                //this.removeFromStringBuilder(budgetChoice, range);
             } else { // Если нажали на какой-то "внутренний" бюджет
                 if (range.ordinal() - startOrdinal < endOrdinal - range.ordinal()) { // Если нам ближе убрать бюджеты меньшие от текущего
                     for (int i = startOrdinal; i <= range.ordinal(); ++i) {
-                        LOGGER.info("BEFORE REMOVE: " + budgetChoice);
                         user.removeBudget(allBudgets[i]);
-                        //this.removeFromStringBuilder(budgetChoice, allBudgets[i]); // Убираю все выделенные бюджеты меньшие от текущего
-                        LOGGER.info("AFTER REMOVE: " + budgetChoice);
                     }
                 } else { // Если нам ближе убрать бюджеты большие от текущего
                     for (int i = range.ordinal(); i <= endOrdinal; ++i) {
-                        LOGGER.info("BEFORE REMOVE: " + budgetChoice);
                         user.removeBudget(allBudgets[i]);
-                        //this.removeFromStringBuilder(budgetChoice, allBudgets[i]); // Убираю все выделенные бюджеты большие от текущего
-                        LOGGER.info("AFTER REMOVE: " + budgetChoice);
                     }
                 }
             }
@@ -69,17 +57,14 @@ public final class ChangeBudgetChoiceService {
                 if (endOrdinal < range.ordinal()) { // Если нажали на бюджет, который больше по порядку, чем конечный выбранный
                     for (int i = endOrdinal + 1; i <= range.ordinal(); ++i) { // Отмечаю все бюджеты, начиная с последнего и до текущего
                         user.addBudget(allBudgets[i]);
-                        //budgetChoice.append(allBudgets[i].getIdentifier());
                     }
                 } else { // Если нажали на бюджет, который меньше по порядку, чем начальный выбранный
                     for (int i = range.ordinal(); i < startOrdinal; ++i) { // Отмечаю все бюджеты с текущего до стартового
                         user.addBudget(allBudgets[i]);
-                        //budgetChoice.append(allBudgets[i].getIdentifier());
                     }
                 }
             } else { // Выбранных раньше вариантов нет - добавляем текущим выбор
                 user.addBudget(range);
-                //budgetChoice.append(range.getIdentifier());
             }
         }
         this.dataCache.saveUserCache(user);

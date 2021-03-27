@@ -44,37 +44,22 @@ public final class Menu2CallbackHandler {
 
         // Если нажали какую-то кнопку из меню изменения категории
         if (data.startsWith(userMenuVariables.getMenu21BtnCallbackPrefix())) {
-            long time2 = System.currentTimeMillis();
             this.menu21CategoryCallbackHandler.handleCallback(response, callbackQuery, user);
-            LOGGER.info("Time categoryCallbackHandler.handleCallback: " + (System.currentTimeMillis() - time2));
         }
 
         // Если нажали на какую-то кнопку из меню выбора комнат
         if (data.startsWith(userMenuVariables.getMenu22BtnCallbackPrefix())) {
-            long time2 = System.currentTimeMillis();
             this.menu22RoomCallbackHandler.handleCallback(response, callbackQuery, user);
-            LOGGER.info("Time roomCallbackHandler.handleCallback: " + (System.currentTimeMillis() - time2));
         }
 
         // Если нажали на какую-то кнопку из меню выбора районов
         if (data.startsWith(userMenuVariables.getMenu23BtnDistrictCallbackPrefix())) {
-            long time2 = System.currentTimeMillis();
             this.menu23DistrictCallbackHandler.handleCallback(response, callbackQuery, user);
-            LOGGER.info("Time districtCallbackHandler.handleCallback: " + (System.currentTimeMillis() - time2));
         }
 
         // Если нажали на какую-то кнопку из меню выбора бюджета
         if (data.startsWith(userMenuVariables.getMenu24BtnRangeCallbackPrefix())) {
-            long time2 = System.currentTimeMillis();
             this.menu24BudgetCallbackHandler.handleCallback(response, callbackQuery, user);
-            LOGGER.info("Time budgetCallbackHandler.handleCallback: " + (System.currentTimeMillis() - time2));
         }
-    }
-
-    private DeleteMessage deleteApiMethod(Long chatId, Integer messageId) {
-        return DeleteMessage.builder()
-                .chatId(chatId.toString())
-                .messageId(messageId)
-                .build();
     }
 }

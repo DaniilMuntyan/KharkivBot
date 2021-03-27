@@ -25,22 +25,12 @@ public final class UserCacheSaver {
     private final DataCache dataCache;
     private final UserService userService;
     private final ProgramVariables programVariables;
-    private final UserChoiceService userChoiceService;
 
     @Autowired
-    public UserCacheSaver(DataCache dataCache, UserService userService, ProgramVariables programVariables, UserChoiceService userChoiceService) {
+    public UserCacheSaver(DataCache dataCache, UserService userService, ProgramVariables programVariables) {
         this.dataCache = dataCache;
         this.userService = userService;
         this.programVariables = programVariables;
-        this.userChoiceService = userChoiceService;
-    }
-
-    private String f() {
-        String s = "";
-        for (int i = 0; i < 300; ++i) {
-            s += "-";
-        }
-        return s;
     }
 
     @PreDestroy
@@ -48,14 +38,6 @@ public final class UserCacheSaver {
     private void saveCache() {
         ConcurrentHashMap<Long, UserCache> usersCacheMap = (ConcurrentHashMap<Long, UserCache>) dataCache.getUsersCacheMap();
 
-        //System.out.println("\n" + f());
-        //this.printMemory(); // Печатаю объем занятой мной памяти
-        //System.out.println(f() + "\n");
-
-        int c = 0;
-        long time1 = System.currentTimeMillis();
-        c = 0;
-        time1 = System.currentTimeMillis();
         Date now = new Date();
         List<Long> removeFromCache = new ArrayList<>();
         // Теперь изменяю данные всех юзеров из кэша, которые еще не были сохранены в базу
@@ -68,17 +50,14 @@ public final class UserCacheSaver {
                     this.dataCache.updateUser(user.get());
                     userService.saveUser(user.get());
                     userCache.setSaved(true); // Пометили как сохраненный кэш
-                    c++;
                 } else { // Нет в базе, но есть в кэше => сохраняю в базу
                     userService.saveUser(userCache);
                     //LOGGER.info("");
                 }
             } else { // Если пользователь уже сохранен в базе
-                //LOGGER.info("Difference: " + (now.getTime() - userCache.getLastAction().getTime()) / 1000);
                 boolean toRemove = (now.getTime() - userCache.getLastAction().getTime()) / 1000 > this.programVariables.getTimeInCache();
                 // Если пользователь не является админом и давно ничего не делал - убираю из кэша
-                if (!userCache.isAdmin() && toRemove)
-                {
+                if (!userCache.isAdmin() && toRemove) {
                     removeFromCache.add(chatId);
                 }
             }
@@ -86,9 +65,6 @@ public final class UserCacheSaver {
         for (Long temp: removeFromCache) {
             this.dataCache.removeUser(temp); // Удаляю пользователя с кэша
         }
-        //LOGGER.info("TIME update all changed users (" + c + "): " + (System.currentTimeMillis() - time1));
-        //LOGGER.info("ALL RENT FLATS CACHE SIZE: " + this.dataCache.getRentFlatsCacheMap().size());
-        //LOGGER.info("ALL BUY FLATS CACHE SIZE: " + this.dataCache.getBuyFlatsCacheMap().size());
     }
 
     private void printMemory() {

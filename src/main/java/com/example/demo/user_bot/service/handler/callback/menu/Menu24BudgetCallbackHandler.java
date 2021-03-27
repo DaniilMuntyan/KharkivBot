@@ -39,14 +39,11 @@ public final class Menu24BudgetCallbackHandler {
 
     public void handleCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache user) {
         String data = callbackQuery.getData();
-        LOGGER.info("MENU 24 DATA: " + data);
         if (user.getUserChoice().getIsRentFlat()) { // Если выбираем бюджет для аренды квартиры
             // Ищем, какой бюджет выбрали
             for (RentalRange temp: RentalRange.values()) {
                 if (data.equals(userMenuVariables.getMenu24BtnRangeCallbackPrefix() + temp.getIdentifier())) {
-                    long time1 = System.currentTimeMillis();
                     budgetCallback(temp, response, callbackQuery, user);
-                    LOGGER.info("TIME budgetCallback: " + (System.currentTimeMillis() - time1));
                     break;
                 }
             }
@@ -54,9 +51,7 @@ public final class Menu24BudgetCallbackHandler {
             // Ищем, какой бюджет выбрали
             for (BuyRange temp: BuyRange.values()) {
                 if (data.equals(userMenuVariables.getMenu24BtnRangeCallbackPrefix() + temp.getIdentifier())) {
-                    long time1 = System.currentTimeMillis();
                     budgetCallback(temp, response, callbackQuery, user);
-                    LOGGER.info("TIME budgetCallback: " + (System.currentTimeMillis() - time1));
                     break;
                 }
             }
@@ -64,9 +59,7 @@ public final class Menu24BudgetCallbackHandler {
 
         // Если нажали кнопку "Выбрать все"
         if (data.equals(userMenuVariables.getMenu24BtnBudgetSelectAllCallback())) {
-            long time1 = System.currentTimeMillis();
             selectAllCallback(response, callbackQuery, user);
-            LOGGER.info("TIME selectAllCallback: " + (System.currentTimeMillis() - time1));
         }
     }
 
@@ -79,38 +72,8 @@ public final class Menu24BudgetCallbackHandler {
         }
         response.add(getEditMarkup(callbackQuery, user));
     }
-    /*private void budgetCallback(RentalRange range, List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache user) {
-        String budgetChoice = user.getUserChoice().getBudget();
-        boolean isBudgetChecked = budgetChoice.contains(range.getIdentifier());
-
-        if (isBudgetChecked) { // Если бюджет был выбран - снимаем галочку
-            user.getUserChoice().setBudget(budgetChoice.replace(range.getIdentifier(), ""));
-        } else { // Если нет - добавляем выбор
-            user.getUserChoice().setBudget(budgetChoice + range.getIdentifier());
-        }
-
-        this.dataCache.saveUserCache(user);
-        //this.dataCache.markNotSaved(user.getChatId());
-        response.add(getEditMarkup(callbackQuery, user));
-    }
-    private void budgetCallback(BuyRange range, List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache user) {
-        String budgetChoice = user.getUserChoice().getBudget();
-        boolean isBudgetChecked = budgetChoice.contains(range.getIdentifier());
-
-        if (isBudgetChecked) { // Если бюджет был выбран - снимаем галочку
-            user.getUserChoice().setBudget(budgetChoice.replace(range.getIdentifier(), ""));
-        } else { // Если нет - добавляем выбор
-            user.getUserChoice().setBudget(budgetChoice + range.getIdentifier());
-        }
-
-        this.dataCache.saveUserCache(user);
-        //this.dataCache.markNotSaved(user.getChatId());
-        response.add(getEditMarkup(callbackQuery, user));
-    }*/
 
     private void selectAllCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache user) {
-        LOGGER.info("IN SELECT ALL CALLBACK");
-
         String budgetChoice = user.getUserChoice().getBudget();
         boolean isAllSelected = true; // Если все районы уже выбраны
         if (user.getUserChoice().getIsRentFlat()) { // Если выбираем квартиру для аренды
@@ -150,7 +113,6 @@ public final class Menu24BudgetCallbackHandler {
         }
 
         this.dataCache.saveUserCache(user);
-        //this.dataCache.markNotSaved(user.getChatId());
         response.add(getEditMarkup(callbackQuery, user));
     }
 

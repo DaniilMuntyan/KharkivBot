@@ -2,12 +2,10 @@ package com.example.demo.admin_bot.service.handler.admin_menu;
 
 import com.example.demo.admin_bot.utils.AdminState;
 import com.example.demo.common_part.constants.AdminMenuVariables;
-import com.example.demo.admin_bot.constants.MessagesVariables;
+import com.example.demo.common_part.constants.MessagesVariables;
 import com.example.demo.admin_bot.keyboards.submenu.*;
 import com.example.demo.admin_bot.service.AdminService;
 import com.example.demo.common_part.utils.Emoji;
-import com.example.demo.admin_bot.model.AdminChoice;
-import com.example.demo.common_part.model.User;
 import com.example.demo.user_bot.cache.UserCache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -134,7 +132,6 @@ public class AdminMenuCallbackHandler {
     private void cancelCallback(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache admin) {
         admin.setBotAdminState(AdminState.ADMIN_INIT);
         adminService.clearAdminChoice(admin);
-        // TODO: закомментил adminService.setAdminChoice(admin, new AdminChoice());
 
         // Удаляю меню
         response.add(deleteApiMethod(callbackQuery.getMessage()));

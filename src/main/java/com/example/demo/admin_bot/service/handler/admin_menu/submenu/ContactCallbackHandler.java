@@ -30,7 +30,7 @@ public class ContactCallbackHandler {
         BotApiMethod<?> response;
 
         if (data.equals(adminMenuVariables.getAdminBtnCallbackSubmenuMyContact()) && admin.getUsername() != null) {
-            admin.getAdminChoice().setContact("https://t.me/" + admin.getUsername());
+            admin.getAdminChoice().setContact(admin.getChatUrl());
         }
 
         // Если нажали на любую кнопку, кроме "отмена" - сохраняем изменения данных.

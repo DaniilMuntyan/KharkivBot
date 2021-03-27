@@ -133,16 +133,8 @@ public class AdminService {
     }
 
     public void setAdminChoice(UserCache admin, AdminChoice newAdminChoice) {
-        // TODO: не удаляю adminChoice
         admin.setAdminChoice(newAdminChoice);
         this.dataCache.saveUserCache(admin);
-        /*AdminChoice prevAdminChoice = admin.getAdminChoice();
-        this.adminChoiceService.saveChoice(newAdminChoice);
-        admin.setAdminChoice(newAdminChoice);
-        this.dataCache.saveUserCache(admin);
-        if (admin.getAdminChoice() != null) {
-            this.adminChoiceService.deleteChoice(prevAdminChoice);
-        }*/
     }
 
     public void setAdminChoiceFromFlat(UserCache admin, Flat flat) {

@@ -1,13 +1,15 @@
 package com.example.demo.user_bot.service.handler.message;
 
-import com.example.demo.admin_bot.constants.MessagesVariables;
+import com.example.demo.common_part.constants.MessagesVariables;
 import com.example.demo.common_part.constants.ProgramVariables;
 import com.example.demo.common_part.model.User;
+import com.example.demo.common_part.service.RefreshUserDataService;
 import com.example.demo.user_bot.cache.DataCache;
 import com.example.demo.user_bot.cache.UserCache;
+import com.example.demo.user_bot.service.DeleteMessageService;
 import com.example.demo.user_bot.service.entities.UserService;
 import com.example.demo.user_bot.service.handler.message.menu.BackToMenu1;
-import com.example.demo.user_bot.service.publishing.ShowOrEnoughService;
+import com.example.demo.user_bot.service.handler.callback.see_others.ShowOrEnoughService;
 import com.example.demo.user_bot.service.state_handler.UserBotStateService;
 import com.example.demo.user_bot.utils.UserCommands;
 import com.example.demo.user_bot.utils.UserState;
@@ -16,7 +18,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
-import org.telegram.telegrambots.meta.api.methods.updatingmessages.DeleteMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
 
 import java.util.ArrayList;
@@ -33,48 +34,44 @@ public final class UserBotMessageHandler {
     private final UserBotStateService userBotStateService;
     private final ProgramVariables programVariables;
     private final ShowOrEnoughService showOrEnoughService;
+    private final RefreshUserDataService refreshUserDataService;
+    private final DeleteMessageService deleteMessageService;
 
     private final BackToMenu1 backToMenu1;
 
     private final DataCache dataCache;
 
     @Autowired
-    public UserBotMessageHandler(MessagesVariables messagesVariables, UserService userService, UserBotStateService userBotStateService, ProgramVariables programVariables, ShowOrEnoughService showOrEnoughService, BackToMenu1 backToMenu1, DataCache dataCache) {
+    public UserBotMessageHandler(MessagesVariables messagesVariables, UserService userService, UserBotStateService userBotStateService, ProgramVariables programVariables, ShowOrEnoughService showOrEnoughService, RefreshUserDataService refreshUserDataService, DeleteMessageService deleteMessageService, BackToMenu1 backToMenu1, DataCache dataCache) {
         this.messagesVariables = messagesVariables;
         this.userService = userService;
         this.userBotStateService = userBotStateService;
         this.programVariables = programVariables;
         this.showOrEnoughService = showOrEnoughService;
+        this.refreshUserDataService = refreshUserDataService;
+        this.deleteMessageService = deleteMessageService;
         this.backToMenu1 = backToMenu1;
         this.dataCache = dataCache;
     }
 
     public List<BotApiMethod<?>> handleMessage(Message message) {
         Long chatId = message.getChatId();
-
         long time1 = System.currentTimeMillis();
+
+        // Достаю юзера из базы или кэша
         Optional<UserCache> user = userService.findUserInCacheOrDb(chatId);
-        //LOGGER.info("Time findByChatId: " + (System.currentTimeMillis() - time1));
 
         List<BotApiMethod<?>> response = new ArrayList<>();
 
         if (user.isEmpty()) { // Если пользователь новый
             User newUser = new User(message);
-
-            time1 = System.currentTimeMillis();
             UserCache newUserCache = userService.saveNewUser(newUser);
-            //LOGGER.info("Time saveUser in cache: " + (System.currentTimeMillis() - time1));
-
-            //LOGGER.info("New user: " + newUser.getName(true));
-
-            time1 = System.currentTimeMillis();
             response.addAll(handleUserMessage(message, newUserCache));
         } else {
             // Если написали во время подбора квартир - игнор
             if (user.get().getBotUserState() == UserState.FLATS_MASSAGING) {
                 return response;
             }
-            //LOGGER.info("Time from last message: " + (time1 - user.get().lastMessage()));
             long timeFromLastMsg = time1 - user.get().lastMessage();
             if (timeFromLastMsg < programVariables.getDelayUserSpam()) { // Если сообщения идут слишком часто
                 if (!user.get().getSpam()) { // Если пользователь не был в спаме - отправляю в спам
@@ -88,21 +85,17 @@ public final class UserBotMessageHandler {
                 response.addAll(handleUserMessage(message, user.get()));
             }
             user.get().setLastMessage(time1); // Запоминаем время последнего сообщения
-            //this.dataCache.markNotSaved(chatId);
         }
-        //LOGGER.info("Time handleUserMessage: " + (System.currentTimeMillis() - time1));
 
         return response;
     }
 
     private List<BotApiMethod<?>> handleUserMessage(Message message, UserCache user) {
-        this.refreshUserName(message); // Обновляю каждый раз, когда получаю новое сообщение
+        this.refreshUserDataService.refreshUserName(message); // Обновляю каждый раз, когда получаю новое сообщение
 
         boolean hasText = message.hasText();
 
         List<BotApiMethod<?>> answer = new ArrayList<>();
-
-        //answer.add(userService.getMyState(true, user)); // Отсылаю текущее состояние бота
 
         // Если прислали сообщение в состоянии SENT_NOT_ALL
         if (user.getBotUserState() == UserState.SENT_NOT_ALL) {
@@ -125,43 +118,33 @@ public final class UserBotMessageHandler {
                     if (text.equals(UserCommands.START) && initMenu) {
                         user.setBotUserState(UserState.FIRST_INIT_CATEGORY); // Снова показываю категорию
                         if (user.getUserChoice().getMenuMessageId() != null) { // Если меню есть - удаляю его, чтобы создать новое
-                            answer.add(this.deleteApiMethod(user.getChatId(), user.getUserChoice().getMenuMessageId()));
+                            answer.add(this.deleteMessageService.deleteApiMethod(user.getChatId(), user.getUserChoice().getMenuMessageId()));
                         }
                         user.getUserChoice().setMenuMessageId(null); // Удаляю прошлое меню
                         this.dataCache.saveUserCache(user);
-                        //this.dataCache.markNotSaved(user.getChatId());
                     } else {
                         if (text.equals(UserCommands.START)) { // Если пользователь прислал /start в любом другом состоянии
                             if (user.getUserChoice().getMenuMessageId() != null) { // Если меню есть - удаляю его
-                                answer.add(this.deleteApiMethod(user.getChatId(), user.getUserChoice().getMenuMessageId()));
+                                answer.add(this.deleteMessageService.deleteApiMethod(user.getChatId(), user.getUserChoice().getMenuMessageId()));
                             }
                             return List.of(this.backToMenu1.back(user)); // Возвращаемся в главное меню
                         }
                         if (text.equals(UserCommands.HELP)) { // Если пользователь прислал /help
                             if (user.getUserChoice().getMenuMessageId() != null) { // Если меню есть - удаляю его
-                                answer.add(this.deleteApiMethod(user.getChatId(), user.getUserChoice().getMenuMessageId()));
+                                answer.add(this.deleteMessageService.deleteApiMethod(user.getChatId(), user.getUserChoice().getMenuMessageId()));
                             }
                             return List.of(this.backToMenu1.help(user)); // Возвращаемся в главное меню
                         }
                         if (initMenu) { // Если пользователь прислал "левое" сообщение во время меню инициализации
-                            return List.of(this.deleteApiMethod(user.getChatId(), message.getMessageId())); // Удаляю левое сообщение
+                            // Удаляю левое сообщение
+                            return List.of(this.deleteMessageService.deleteApiMethod(user.getChatId(), message.getMessageId()));
                         }
                     }
                 }
             }
             answer.addAll(userBotStateService.processUserInput(message, user));
         }
-
-        //answer.add(userService.getMyState(false, user)); // Отсылаю текущее состояние бота
-
         return answer;
-    }
-
-    private void refreshUserName(Message message) {
-        String username = message.getFrom().getUserName();
-        String firstName = message.getFrom().getFirstName();
-        String lastName = message.getFrom().getLastName();
-        this.dataCache.refreshUserName(message.getChatId(), username, firstName, lastName); // Обновляю имена пользователя
     }
 
     private SendMessage antiSpam(UserCache userCache) {
@@ -169,12 +152,5 @@ public final class UserBotMessageHandler {
         antiSpam.setChatId(userCache.getChatId().toString());
         antiSpam.setText(messagesVariables.getUserAntiSpamText());
         return antiSpam;
-    }
-
-    private DeleteMessage deleteApiMethod(Long chatId, Integer messageId) {
-        return DeleteMessage.builder()
-                .chatId(chatId.toString())
-                .messageId(messageId)
-                .build();
     }
 }

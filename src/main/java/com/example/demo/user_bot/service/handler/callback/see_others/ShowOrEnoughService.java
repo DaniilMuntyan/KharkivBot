@@ -1,19 +1,18 @@
-package com.example.demo.user_bot.service.publishing;
+package com.example.demo.user_bot.service.handler.callback.see_others;
 
-import com.example.demo.admin_bot.constants.MessagesVariables;
+import com.example.demo.common_part.constants.MessagesVariables;
 import com.example.demo.user_bot.cache.DataCache;
 import com.example.demo.user_bot.cache.UserCache;
 import com.example.demo.user_bot.keyboards.KeyboardsRegistry;
-import com.example.demo.user_bot.service.handler.message.UserBotMessageHandler;
+import com.example.demo.user_bot.service.DeleteMessageService;
+import com.example.demo.user_bot.service.searching.SendFoundFlatsService;
 import com.example.demo.user_bot.utils.UserState;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
-import org.telegram.telegrambots.meta.api.methods.updatingmessages.DeleteMessage;
 import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
-import org.telegram.telegrambots.meta.api.objects.Message;
 
 import java.util.List;
 
@@ -25,22 +24,24 @@ public final class ShowOrEnoughService {
     private final KeyboardsRegistry keyboardsRegistry;
     private final DataCache dataCache;
     private final SendFoundFlatsService sendFoundFlatsService;
+    private final DeleteMessageService deleteMessageService;
 
     @Autowired
-    public ShowOrEnoughService(MessagesVariables messagesVariables, KeyboardsRegistry keyboardsRegistry, DataCache dataCache, SendFoundFlatsService sendFoundFlatsService) {
+    public ShowOrEnoughService(MessagesVariables messagesVariables, KeyboardsRegistry keyboardsRegistry, DataCache dataCache, SendFoundFlatsService sendFoundFlatsService, DeleteMessageService deleteMessageService) {
         this.messagesVariables = messagesVariables;
         this.keyboardsRegistry = keyboardsRegistry;
         this.dataCache = dataCache;
         this.sendFoundFlatsService = sendFoundFlatsService;
+        this.deleteMessageService = deleteMessageService;
     }
 
     // Нажали на "Показать еще"
     public void more(List<BotApiMethod<?>> response, CallbackQuery callbackQuery, UserCache user) {
-        response.add(this.deleteApiMethod(user.getChatId(), callbackQuery.getMessage().getMessageId())); // Удаляю сообщение "Показать еще"
+        response.add(this.deleteMessageService.deleteApiMethod(user.getChatId(), callbackQuery.getMessage().getMessageId())); // Удаляю сообщение "Показать еще"
         if (user.getUserChoice().getIsRentFlat()) {
-            this.sendFoundFlatsService.sendNotSentRentFlats(user);
+            this.sendFoundFlatsService.sendFoundRentFlats(user);
         } else {
-            this.sendFoundFlatsService.sendNotSentBuyFlats(user);
+            this.sendFoundFlatsService.sendFoundSentBuyFlats(user);
         }
         this.dataCache.saveUserCache(user); // Сохраняю изменения юзера
     }
@@ -48,7 +49,7 @@ public final class ShowOrEnoughService {
     // Нажали на "Достаточно"
     public void enough(List<BotApiMethod<?>> response, Integer callbackMessageId, UserCache user) {
         if (callbackMessageId != null) { // Если есть открытое меню
-            response.add(this.deleteApiMethod(user.getChatId(), callbackMessageId)); // Удаляю сообщение "Показать еще"
+            response.add(this.deleteMessageService.deleteApiMethod(user.getChatId(), callbackMessageId)); // Удаляю сообщение "Показать еще"
             user.getUserChoice().setMenuMessageId(null); // Удалил меню
         }
 
@@ -66,12 +67,5 @@ public final class ShowOrEnoughService {
 
         response.add(okEnough);
         response.add(menu1);
-    }
-
-    private DeleteMessage deleteApiMethod(Long chatId, Integer messageId) {
-        return DeleteMessage.builder()
-                .chatId(chatId.toString())
-                .messageId(messageId)
-                .build();
     }
 }

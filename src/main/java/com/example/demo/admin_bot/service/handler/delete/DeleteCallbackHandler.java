@@ -1,11 +1,10 @@
 package com.example.demo.admin_bot.service.handler.delete;
 
 import com.example.demo.admin_bot.cache.AdminCache;
-import com.example.demo.admin_bot.constants.MessagesVariables;
+import com.example.demo.common_part.constants.MessagesVariables;
 import com.example.demo.admin_bot.service.AdminService;
 import com.example.demo.admin_bot.utils.AdminState;
 import com.example.demo.common_part.constants.AdminMenuVariables;
-import com.example.demo.common_part.model.User;
 import com.example.demo.user_bot.cache.DataCache;
 import com.example.demo.user_bot.cache.UserCache;
 import com.example.demo.user_bot.service.entities.BuyFlatService;
@@ -67,7 +66,6 @@ public final class DeleteCallbackHandler {
 
             admin.setBotAdminState(AdminState.ADMIN_INIT); // В изначальное состояние
             admin.getAdminChoice().clear(); // Почистил выбор админа
-            //admin.getAdminChoice().setMenuMessageId(null); // Удалил меню
 
             response.addAll(getSuccess(chatId, messageId, flatId));
         }
@@ -79,7 +77,6 @@ public final class DeleteCallbackHandler {
         }
 
         this.dataCache.saveUserCache(admin); // Сохраняю измененное состояние админа
-        //adminService.saveAdmin(admin); // Сохраняю измененное состояние админа
 
         return response;
     }

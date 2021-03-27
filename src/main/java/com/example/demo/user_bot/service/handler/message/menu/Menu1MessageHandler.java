@@ -1,6 +1,6 @@
 package com.example.demo.user_bot.service.handler.message.menu;
 
-import com.example.demo.admin_bot.constants.MessagesVariables;
+import com.example.demo.common_part.constants.MessagesVariables;
 import com.example.demo.common_part.constants.UserMenuVariables;
 import com.example.demo.user_bot.cache.DataCache;
 import com.example.demo.user_bot.cache.UserCache;
@@ -42,7 +42,6 @@ public final class Menu1MessageHandler {
 
         List<BotApiMethod<?>> response = new ArrayList<>();
 
-        LOGGER.info("handleMessage");
         if (text.equals(userMenuVariables.getMenu1BtnChoiceText())) { // Нажали "Мои предпочтения"
             dontUnderstand = false; // Поняли пользователя
             SendMessage menu2 = new SendMessage();
@@ -50,7 +49,6 @@ public final class Menu1MessageHandler {
             menu2.setText(messagesVariables.getUserMenu2Text());
             menu2.setReplyMarkup(keyboardsRegistry.getMenu2().getKeyboard()); // Кнопки меню2
             response.add(menu2);
-            LOGGER.info("To menu 2");
             user.setBotUserState(UserState.MENU2); // Перешли в меню изменения параметров
             this.dataCache.saveUserCache(user);
         }
@@ -62,7 +60,6 @@ public final class Menu1MessageHandler {
             menu3.setText(messagesVariables.getUserMenu3Text());
             menu3.setReplyMarkup(keyboardsRegistry.getMenu3().getKeyboard(user));
             response.add(menu3);
-            LOGGER.info("To menu 3");
             user.setBotUserState(UserState.MENU3); // Перешли в меню настройки
             this.dataCache.saveUserCache(user);
         }

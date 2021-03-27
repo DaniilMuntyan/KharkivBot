@@ -1,13 +1,10 @@
 package com.example.demo.user_bot.service.handler.callback.init;
 
-import com.example.demo.admin_bot.constants.MessagesVariables;
+import com.example.demo.common_part.constants.MessagesVariables;
 import com.example.demo.common_part.constants.UserMenuVariables;
-import com.example.demo.common_part.model.User;
 import com.example.demo.common_part.utils.District;
-import com.example.demo.common_part.utils.Rooms;
 import com.example.demo.user_bot.cache.UserCache;
 import com.example.demo.user_bot.keyboards.KeyboardsRegistry;
-import com.example.demo.user_bot.service.entities.UserService;
 import com.example.demo.user_bot.utils.UserState;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,15 +21,13 @@ public final class InitDistrictCallbackHandler {
     private static final Logger LOGGER = Logger.getLogger(InitDistrictCallbackHandler.class);
 
     private final UserMenuVariables userMenuVariables;
-    private final UserService userService;
     private final MessagesVariables messagesVariables;
 
     private final KeyboardsRegistry keyboardsRegistry;
 
     @Autowired
-    public InitDistrictCallbackHandler(UserMenuVariables userMenuVariables, UserService userService, MessagesVariables messagesVariables, KeyboardsRegistry keyboardsRegistry) {
+    public InitDistrictCallbackHandler(UserMenuVariables userMenuVariables, MessagesVariables messagesVariables, KeyboardsRegistry keyboardsRegistry) {
         this.userMenuVariables = userMenuVariables;
-        this.userService = userService;
         this.messagesVariables = messagesVariables;
         this.keyboardsRegistry = keyboardsRegistry;
     }
@@ -42,25 +37,19 @@ public final class InitDistrictCallbackHandler {
         // Ищем, какой район выбрали
         for(District temp: District.values()) {
             if (data.equals(userMenuVariables.getMenuInitDistrictsBtnPrefixCallback() + temp.getIdentifier())) {
-                long time1 = System.currentTimeMillis();
                 districtCallback(temp, response, callbackQuery, user);
-                LOGGER.info("TIME districtCallback: " + (System.currentTimeMillis() - time1));
                 break;
             }
         }
 
         // Если нажали кнопку "Выбрать все"
         if (data.equals(userMenuVariables.getMenuInitDistrictBtnSelectAllCallback())) {
-            long time1 = System.currentTimeMillis();
             selectAllCallback(response, callbackQuery, user);
-            LOGGER.info("TIME selectAllCallback: " + (System.currentTimeMillis() - time1));
         }
 
         // Если нажали кнопку "Дальше"
         if (data.equals(userMenuVariables.getMenuInitDistrictNextCallback())) {
-            long time1 = System.currentTimeMillis();
             nextCallback(response, callbackQuery, user);
-            LOGGER.info("TIME nextCallback: " + (System.currentTimeMillis() - time1));
         }
     }
 

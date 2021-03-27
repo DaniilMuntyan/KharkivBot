@@ -1,4 +1,4 @@
-package com.example.demo.user_bot.service.publishing;
+package com.example.demo.user_bot.service.searching;
 
 import com.example.demo.common_part.model.BuyFlat;
 import com.example.demo.common_part.model.RentFlat;
@@ -60,7 +60,6 @@ public final class FindFlatsService {
                 userChoiceFlats.add(buyFlat); // Добавляю квартиру к выбору пользователя
                 if (user.getSaved()) { // У юзера изменилось поле UserChoice и его нужно будет сохранить в базу
                     this.dataCache.saveUserCache(user);
-                    //this.dataCache.markNotSaved(user.getChatId());
                 }
                 notSentBuyFlats.add(buyFlat); // Пополняю список неотправленных юзеру квартир
             }

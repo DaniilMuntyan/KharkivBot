@@ -2,7 +2,7 @@ package com.example.demo.admin_bot.service.handler;
 
 import com.example.demo.admin_bot.service.handler.delete.DeleteCallbackHandler;
 import com.example.demo.common_part.constants.AdminMenuVariables;
-import com.example.demo.admin_bot.constants.MessagesVariables;
+import com.example.demo.common_part.constants.MessagesVariables;
 import com.example.demo.admin_bot.service.AdminService;
 import com.example.demo.admin_bot.service.handler.admin_menu.AdminMenuCallbackHandler;
 import com.example.demo.admin_bot.service.handler.admin_menu.ConfirmMessageCallbackHandler;
@@ -68,22 +68,14 @@ public final class AdminBotCallbackHandler {
     public List<BotApiMethod<?>> handleCallback(CallbackQuery callback) {
         Long chatId = callback.getMessage().getChatId();
 
-        /*long time1 = System.currentTimeMillis();
-        Optional<User> user = userRepository.findByChatId(chatId);
-        LOGGER.info("TIME findByChatId: " + (System.currentTimeMillis() - time1));*/
-        long time1 = System.currentTimeMillis();
         Optional<UserCache> user = userService.findUserInCacheOrDb(chatId);
-        LOGGER.info("TIME findUserInCache: " + (System.currentTimeMillis() - time1));
 
         List<BotApiMethod<?>> response = new ArrayList<>();
 
         if(user.isPresent() && adminService.isAdmin(user.get())) { // Если админ
-            long time2 = System.currentTimeMillis();
             response.addAll(handleAdminCallback(callback, user.get()));
-            LOGGER.info("TIME handleAdminCallback: " + (System.currentTimeMillis() - time2));
             this.dataCache.saveUserCache(user.get()); // Сохраняю все изменения админа
         }
-
 
         return response;
     }

@@ -1,20 +1,14 @@
 package com.example.demo.user_bot.service.handler.callback.init;
 
-import com.example.demo.admin_bot.constants.MessagesVariables;
+import com.example.demo.common_part.constants.MessagesVariables;
 import com.example.demo.common_part.constants.UserMenuVariables;
-import com.example.demo.common_part.model.User;
 import com.example.demo.user_bot.cache.UserCache;
 import com.example.demo.user_bot.keyboards.KeyboardsRegistry;
-import com.example.demo.user_bot.service.entities.UserService;
-import com.example.demo.user_bot.service.state_handler.UserBotStateService;
 import com.example.demo.user_bot.utils.UserState;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-import org.telegram.telegrambots.meta.api.methods.AnswerCallbackQuery;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
-import org.telegram.telegrambots.meta.api.methods.updatingmessages.DeleteMessage;
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageReplyMarkup;
 import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageText;
 import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
@@ -26,15 +20,13 @@ public final class InitCategoryCallbackHandler {
     private static final Logger LOGGER = Logger.getLogger(InitCategoryCallbackHandler.class);
 
     private final UserMenuVariables userMenuVariables;
-    private final UserService userService;
     private final MessagesVariables messagesVariables;
 
     private final KeyboardsRegistry keyboardsRegistry;
 
     @Autowired
-    public InitCategoryCallbackHandler(UserMenuVariables userMenuVariables, UserService userService, MessagesVariables messagesVariables, KeyboardsRegistry keyboardsRegistry) {
+    public InitCategoryCallbackHandler(UserMenuVariables userMenuVariables, MessagesVariables messagesVariables, KeyboardsRegistry keyboardsRegistry) {
         this.userMenuVariables = userMenuVariables;
-        this.userService = userService;
         this.messagesVariables = messagesVariables;
         this.keyboardsRegistry = keyboardsRegistry;
     }
@@ -44,23 +36,17 @@ public final class InitCategoryCallbackHandler {
 
         // Если выбрали категорию "Арендовать квартиру"
         if (data.equals(userMenuVariables.getMenuInitCategoryBtnRentalCallback())) {
-            long time1 = System.currentTimeMillis();
             rentalCallback(response, callbackQuery, user);
-            LOGGER.info("TIME rentalCallback: " + (System.currentTimeMillis() - time1));
         }
 
         // Если нажали "Купить квартиру"
         if (data.equals(userMenuVariables.getMenuInitCategoryBtnBuyCallback())) {
-            long time1 = System.currentTimeMillis();
             buyCallback(response, callbackQuery, user);
-            LOGGER.info("TIME buyCallback: " + (System.currentTimeMillis() - time1));
         }
 
         // Если нажали "Далее"
         if (data.equals(userMenuVariables.getMenuInitBtnCategoryNextCallback())) {
-            long time1 = System.currentTimeMillis();
             nextCallback(response, callbackQuery, user);
-            LOGGER.info("TIME nextCallback: " + (System.currentTimeMillis() - time1));
         }
     }
 

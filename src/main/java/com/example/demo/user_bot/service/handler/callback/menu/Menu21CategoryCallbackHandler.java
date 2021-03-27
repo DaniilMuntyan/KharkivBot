@@ -36,16 +36,12 @@ public final class Menu21CategoryCallbackHandler {
 
         // Если выбрали категорию "Арендовать квартиру"
         if (data.equals(userMenuVariables.getMenu21BtnRentalCallback())) {
-            long time1 = System.currentTimeMillis();
             rentalCallback(response, callbackQuery, user);
-            LOGGER.info("TIME rentalCallback: " + (System.currentTimeMillis() - time1));
         }
 
         // Если нажали "Купить квартиру"
         if (data.equals(userMenuVariables.getMenu21BtnBuyCallback())) {
-            long time1 = System.currentTimeMillis();
             buyCallback(response, callbackQuery, user);
-            LOGGER.info("TIME buyCallback: " + (System.currentTimeMillis() - time1));
         }
     }
 
@@ -55,10 +51,8 @@ public final class Menu21CategoryCallbackHandler {
             user.getUserChoice().setIsRentFlat(true);
             user.getUserChoice().setBudget(RentalRange.selectAll());
             this.dataCache.saveUserCache(user);
-            //this.dataCache.markNotSaved(user.getChatId());
         }
         // Если аренда была выбрана и мы снова нажали на аренду - ничего не делаем
-
         response.add(getEditMarkup(callbackQuery, user));
     }
 
@@ -68,9 +62,7 @@ public final class Menu21CategoryCallbackHandler {
             user.getUserChoice().setIsRentFlat(false);
             user.getUserChoice().setBudget(BuyRange.selectAll());
             this.dataCache.saveUserCache(user);
-            //this.dataCache.markNotSaved(user.getChatId());
         }
-
         response.add(getEditMarkup(callbackQuery, user));
     }
 

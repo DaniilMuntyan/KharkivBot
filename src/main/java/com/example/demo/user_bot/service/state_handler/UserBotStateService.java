@@ -1,8 +1,9 @@
 package com.example.demo.user_bot.service.state_handler;
 
-import com.example.demo.admin_bot.constants.MessagesVariables;
+import com.example.demo.common_part.constants.MessagesVariables;
 import com.example.demo.user_bot.cache.UserCache;
 import com.example.demo.user_bot.keyboards.KeyboardsRegistry;
+import com.example.demo.user_bot.service.DeleteMessageService;
 import com.example.demo.user_bot.service.entities.UserService;
 import com.example.demo.user_bot.service.handler.message.MessageHandlerRegistry;
 import com.example.demo.user_bot.service.handler.message.menu.BackToMenu1;
@@ -14,7 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
-import org.telegram.telegrambots.meta.api.methods.updatingmessages.DeleteMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
 
 import java.util.ArrayList;
@@ -28,20 +28,21 @@ public class UserBotStateService {
     private final MessagesVariables messagesVariables;
     private final KeyboardsRegistry keyboardsRegistry;
     private final MessageHandlerRegistry messageHandlerRegistry;
+    private final DeleteMessageService deleteMessageService;
 
     private final BackToMenu1 backToMenu1;
 
     @Autowired
-    public UserBotStateService(UserService userService, MessagesVariables messagesVariables, KeyboardsRegistry keyboardsRegistry, MessageHandlerRegistry messageHandlerRegistry, BackToMenu1 backToMenu1) {
+    public UserBotStateService(UserService userService, MessagesVariables messagesVariables, KeyboardsRegistry keyboardsRegistry, MessageHandlerRegistry messageHandlerRegistry, DeleteMessageService deleteMessageService, BackToMenu1 backToMenu1) {
         this.userService = userService;
         this.messagesVariables = messagesVariables;
         this.keyboardsRegistry = keyboardsRegistry;
         this.messageHandlerRegistry = messageHandlerRegistry;
+        this.deleteMessageService = deleteMessageService;
         this.backToMenu1 = backToMenu1;
     }
 
     public List<BotApiMethod<?>> processUserInput(Message message, UserCache user) {
-        long time1 = System.currentTimeMillis();
         List<BotApiMethod<?>> answer = new ArrayList<>();
 
         // Порядок важен! Так как внутри методов меняется состояние юзера,
@@ -52,7 +53,7 @@ public class UserBotStateService {
         }
 
         if (user.getUserChoice().getMenuMessageId() != null) { // Если было открыто меню - удаляю
-            answer.add(this.deleteApiMethod(user.getChatId(), user.getUserChoice().getMenuMessageId()));
+            answer.add(this.deleteMessageService.deleteApiMethod(user.getChatId(), user.getUserChoice().getMenuMessageId()));
             user.getUserChoice().setMenuMessageId(null); // Удалил меню
         }
 
@@ -77,7 +78,7 @@ public class UserBotStateService {
                 this.processCategory(answer, message, user);
                 break;
             case INIT: // Если прислали любое сообщение в начальном состоянии
-                this.processInit(answer, message, user); // TODO: рассмотреть
+                this.processInit(answer, message, user);
                 break;
             default:
                 answer.add(this.backToMenu1.dontUnderstand(user));
@@ -85,27 +86,13 @@ public class UserBotStateService {
         }
 
         userService.saveUserCache(user); // Сохраняем измененные параметры администратора
-        LOGGER.info("TIME processUserInput: " + (System.currentTimeMillis() - time1));
         return answer;
-    }
-
-    private DeleteMessage deleteApiMethod(Message message) {
-        return DeleteMessage.builder()
-                .chatId(message.getChatId().toString())
-                .messageId(message.getMessageId())
-                .build();
-    }
-    private DeleteMessage deleteApiMethod(Long chatId, Integer messageId) {
-        return DeleteMessage.builder()
-                .chatId(chatId.toString())
-                .messageId(messageId)
-                .build();
     }
 
     private void processCategory(List<BotApiMethod<?>> answer, Message message, UserCache user) {
         // Если прислали не /start в состоянии FIRST_INIT_CATEGORY
         if (message.hasText() && !message.getText().equals(UserCommands.START)) {
-            answer.add(this.deleteApiMethod(message));
+            answer.add(this.deleteMessageService.deleteApiMethod(message));
             return;
         }
 

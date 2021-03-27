@@ -1,5 +1,7 @@
 package com.example.demo.admin_bot.service;
 
+import com.example.demo.common_part.constants.ProgramVariables;
+import com.example.demo.common_part.service.SaveToFileService;
 import com.example.demo.user_bot.schedule.UserBotSendingQueue;
 import com.example.demo.admin_bot.botapi.AdminTelegramBot;
 import com.example.demo.admin_bot.service.handler.AdminBotCallbackHandler;
@@ -11,7 +13,6 @@ import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
-import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,13 +21,15 @@ public class AdminMainService {
     private static final Logger LOGGER = Logger.getLogger(AdminMainService.class);
     private final AdminBotMessageHandler adminBotMessageHandler;
     private final AdminBotCallbackHandler adminBotCallbackHandler;
-    private final UserBotSendingQueue userBotSendingQueue;
+    private final SaveToFileService saveToFileService;
+    private final ProgramVariables programVariables;
 
     @Autowired
-    public AdminMainService(AdminBotMessageHandler adminBotMessageHandler, AdminBotCallbackHandler adminBotCallbackHandler, UserBotSendingQueue userBotSendingQueue) {
+    public AdminMainService(AdminBotMessageHandler adminBotMessageHandler, AdminBotCallbackHandler adminBotCallbackHandler, SaveToFileService saveToFileService, ProgramVariables programVariables) {
         this.adminBotMessageHandler = adminBotMessageHandler;
         this.adminBotCallbackHandler = adminBotCallbackHandler;
-        this.userBotSendingQueue = userBotSendingQueue;
+        this.saveToFileService = saveToFileService;
+        this.programVariables = programVariables;
     }
 
     @Async
@@ -50,28 +53,11 @@ public class AdminMainService {
                 }
             }
             LOGGER.info("TIME: " + (double) (System.currentTimeMillis() - start));
-            write(s, (double) (System.currentTimeMillis() - start));
+            this.saveToFileService.writeTime(programVariables.getAdminTimePath(), s,
+                    (double) (System.currentTimeMillis() - start));
         } catch (Exception exception) {
             exception.printStackTrace();
             LOGGER.error(exception);
-        }
-    }
-
-    private synchronized void write(String s, double time) {
-        File csvFile = new File("./files/timeAdminBot.csv");
-        try {
-            csvFile.getParentFile().mkdirs();
-            csvFile.createNewFile();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try (FileWriter writer = new FileWriter(csvFile, true)) {
-
-            String sb = "\n" + s + "," + time;
-            writer.write(sb);
-
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 }

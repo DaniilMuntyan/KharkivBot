@@ -36,18 +36,14 @@ public final class Menu23DistrictCallbackHandler {
         // Ищу какой район выбрали
         for(District temp: District.values()) {
             if (data.equals(userMenuVariables.getMenu23BtnDistrictCallbackPrefix() + temp.getIdentifier())) {
-                //long time1 = System.currentTimeMillis();
                 districtCallback(temp, response, callbackQuery, user);
-                //LOGGER.info("TIME districtCallback: " + (System.currentTimeMillis() - time1));
                 break;
             }
         }
 
         // Если нажали кнопку "Выбрать все"
         if (data.equals(userMenuVariables.getMenu23BtnSelectAllCallback())) {
-            //long time1 = System.currentTimeMillis();
             selectAllCallback(response, callbackQuery, user);
-            //LOGGER.info("TIME selectAllCallback: " + (System.currentTimeMillis() - time1));
         }
     }
 
@@ -62,7 +58,6 @@ public final class Menu23DistrictCallbackHandler {
         }
 
         this.dataCache.saveUserCache(user);
-        //this.dataCache.markNotSaved(user.getChatId());
         response.add(getEditMarkup(callbackQuery, user));
     }
 

@@ -1,10 +1,11 @@
 package com.example.demo.user_bot.service.handler.callback.flat;
 
-import com.example.demo.admin_bot.constants.MessagesVariables;
+import com.example.demo.common_part.constants.MessagesVariables;
 import com.example.demo.common_part.constants.UserMenuVariables;
 import com.example.demo.user_bot.cache.DataCache;
 import com.example.demo.user_bot.cache.UserCache;
 import com.example.demo.user_bot.keyboards.KeyboardsRegistry;
+import com.example.demo.user_bot.service.DeleteMessageService;
 import com.example.demo.user_bot.service.ErrorMessageService;
 import com.example.demo.user_bot.utils.MenuSendMessage;
 import com.example.demo.user_bot.utils.UserState;
@@ -13,9 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
-import org.telegram.telegrambots.meta.api.methods.updatingmessages.DeleteMessage;
 import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
-import org.telegram.telegrambots.meta.api.objects.Message;
 
 import java.util.List;
 
@@ -28,14 +27,16 @@ public final class FlatButtonCallbackHandler {
     private final ErrorMessageService errorMessageService;
     private final DataCache dataCache;
     private final KeyboardsRegistry keyboardsRegistry;
+    private final DeleteMessageService deleteMessageService;
 
     @Autowired
-    public FlatButtonCallbackHandler(UserMenuVariables userMenuVariables, MessagesVariables messagesVariables, ErrorMessageService errorMessageService, DataCache dataCache, KeyboardsRegistry keyboardsRegistry) {
+    public FlatButtonCallbackHandler(UserMenuVariables userMenuVariables, MessagesVariables messagesVariables, ErrorMessageService errorMessageService, DataCache dataCache, KeyboardsRegistry keyboardsRegistry, DeleteMessageService deleteMessageService) {
         this.userMenuVariables = userMenuVariables;
         this.messagesVariables = messagesVariables;
         this.errorMessageService = errorMessageService;
         this.dataCache = dataCache;
         this.keyboardsRegistry = keyboardsRegistry;
+        this.deleteMessageService = deleteMessageService;
     }
 
     // Обрабатываю запрос. Кнопка "Хочу посмотреть"
@@ -44,7 +45,7 @@ public final class FlatButtonCallbackHandler {
 
         if (user.getUserChoice().getMenuMessageId() != null) { // Если открыто меню - закрываю
             // Удаляю прошлое меню
-            response.add(this.deleteApiMethod(user.getChatId(), user.getUserChoice().getMenuMessageId()));
+            response.add(this.deleteMessageService.deleteApiMethod(user.getChatId(), user.getUserChoice().getMenuMessageId()));
             user.getUserChoice().setMenuMessageId(null);
             this.dataCache.saveUserCache(user);
         }
@@ -90,12 +91,5 @@ public final class FlatButtonCallbackHandler {
                 ex.printStackTrace();
             }
         }
-    }
-
-    private DeleteMessage deleteApiMethod(Long chatId, Integer messageId) {
-        return DeleteMessage.builder()
-                .chatId(chatId.toString())
-                .messageId(messageId)
-                .build();
     }
 }

@@ -1,6 +1,6 @@
 package com.example.demo.user_bot.service.handler.message.menu;
 
-import com.example.demo.admin_bot.constants.MessagesVariables;
+import com.example.demo.common_part.constants.MessagesVariables;
 import com.example.demo.user_bot.cache.DataCache;
 import com.example.demo.user_bot.cache.UserCache;
 import com.example.demo.user_bot.keyboards.KeyboardsRegistry;
@@ -32,7 +32,6 @@ public final class BackToMenu1 {
 
         user.setBotUserState(UserState.MENU1); // Возвращаемся обратно
         this.dataCache.saveUserCache(user);
-        //dataCache.markNotSaved(user.getChatId()); // Чтобы потом сохранить в базу
 
         return sendMessage;
     }
@@ -46,7 +45,6 @@ public final class BackToMenu1 {
 
         user.setBotUserState(UserState.MENU1); // Перешли в главное меню
         this.dataCache.saveUserCache(user);
-        //dataCache.markNotSaved(user.getChatId()); // Чтобы потом сохранить в базу
 
         return sendMessage;
     }

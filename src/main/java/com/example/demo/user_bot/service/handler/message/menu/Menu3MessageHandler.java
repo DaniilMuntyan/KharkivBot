@@ -1,19 +1,17 @@
 package com.example.demo.user_bot.service.handler.message.menu;
 
-import com.example.demo.admin_bot.constants.MessagesVariables;
+import com.example.demo.common_part.constants.MessagesVariables;
 import com.example.demo.common_part.constants.UserMenuVariables;
 import com.example.demo.user_bot.cache.DataCache;
 import com.example.demo.user_bot.cache.UserCache;
 import com.example.demo.user_bot.keyboards.KeyboardsRegistry;
-import com.example.demo.user_bot.service.publishing.FindFlatsService;
-import com.example.demo.user_bot.service.publishing.SendFoundFlatsService;
+import com.example.demo.user_bot.service.DeleteMessageService;
 import com.example.demo.user_bot.utils.UserState;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
-import org.telegram.telegrambots.meta.api.methods.updatingmessages.DeleteMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
 
 import java.util.ArrayList;
@@ -27,20 +25,18 @@ public final class Menu3MessageHandler {
     private final MessagesVariables messagesVariables;
     private final KeyboardsRegistry keyboardsRegistry;
 
-    private final FindFlatsService findFlatsService;
-    private final SendFoundFlatsService sendFoundFlatsService;
+    private final DeleteMessageService deleteMessageService;
 
     private final DataCache dataCache;
 
     private final BackToMenu1 backToMenu1;
 
     @Autowired
-    public Menu3MessageHandler(UserMenuVariables userMenuVariables, MessagesVariables messagesVariables, KeyboardsRegistry keyboardsRegistry, FindFlatsService findFlatsService, SendFoundFlatsService sendFoundFlatsService, DataCache dataCache, BackToMenu1 backToMenu1) {
+    public Menu3MessageHandler(UserMenuVariables userMenuVariables, MessagesVariables messagesVariables, KeyboardsRegistry keyboardsRegistry, DeleteMessageService deleteMessageService, DataCache dataCache, BackToMenu1 backToMenu1) {
         this.userMenuVariables = userMenuVariables;
         this.messagesVariables = messagesVariables;
         this.keyboardsRegistry = keyboardsRegistry;
-        this.findFlatsService = findFlatsService;
-        this.sendFoundFlatsService = sendFoundFlatsService;
+        this.deleteMessageService = deleteMessageService;
         this.dataCache = dataCache;
         this.backToMenu1 = backToMenu1;
     }
@@ -52,8 +48,6 @@ public final class Menu3MessageHandler {
         boolean dontUnderstand = true; // Не понимаю пользователя (пришло левое сообщение)
 
         List<BotApiMethod<?>> response = new ArrayList<>();
-
-        LOGGER.info(text);
 
         if (text.equals(userMenuVariables.getMenu3BtnStopMailingText())) { // Нажали "Не присылать обновления"
             dontUnderstand = false;
@@ -119,20 +113,7 @@ public final class Menu3MessageHandler {
         boolean newMenuMessageId = user.getUserChoice().getMenuMessageId() != null &&
                 !user.getUserChoice().getMenuMessageId().equals(message.getMessageId());
         if (newMenuMessageId) { // Если открыли новое меню (выбрали другой подпункт меню "Мои предпочтения")
-            response.add(this.deleteApiMethod(user.getChatId(), user.getUserChoice().getMenuMessageId()));
+            response.add(this.deleteMessageService.deleteApiMethod(user.getChatId(), user.getUserChoice().getMenuMessageId()));
         }
-    }
-
-    private DeleteMessage deleteApiMethod(Message message) {
-        return DeleteMessage.builder()
-                .chatId(message.getChatId().toString())
-                .messageId(message.getMessageId())
-                .build();
-    }
-    private DeleteMessage deleteApiMethod(Long chatId, Integer messageId) {
-        return DeleteMessage.builder()
-                .chatId(chatId.toString())
-                .messageId(messageId)
-                .build();
     }
 }
