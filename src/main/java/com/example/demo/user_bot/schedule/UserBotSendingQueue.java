@@ -136,7 +136,7 @@ public class UserBotSendingQueue {
 
     public void sendMessage(SendMessage message, TelegramLongPollingBot bot) {
         try {
-            //long time1 = System.currentTimeMillis();
+            long time1 = System.currentTimeMillis();
             Message newMenuMessage = bot.execute(message);
             if (message instanceof MenuSendMessage) { // Если отправляем новое меню
                 // Устанавливаю новое значение menuMessageId для пользователя, если нужно
@@ -144,7 +144,7 @@ public class UserBotSendingQueue {
                     this.dataCache.setMenuMsgId(message.getChatId(), newMenuMessage.getMessageId());
                 }
             }
-            //LOGGER.info("TIME execute user sendMessage: " + (System.currentTimeMillis() - time1));
+            LOGGER.info("TIME execute user sendMessage: " + (System.currentTimeMillis() - time1));
         } catch (TelegramApiRequestException e) {
             LOGGER.error(e);
             if (this.blocked(e.toString())) { // Если юзер заблокировал бота
@@ -168,10 +168,10 @@ public class UserBotSendingQueue {
 
     private void executeMethod(BotApiMethod<?> method, TelegramLongPollingBot bot) {
         try {
-            //long time1 = System.currentTimeMillis();
+            long time1 = System.currentTimeMillis();
             bot.execute(method);
-            /*LOGGER.info("TIME execute user method " + method.getMethod() + ": " +
-                    (System.currentTimeMillis() - time1));*/
+            LOGGER.info("TIME execute user method " + method.getMethod() + ": " +
+                    (System.currentTimeMillis() - time1));
         } catch (TelegramApiRequestException e) {
             LOGGER.error(e);
             if (e.getErrorCode().equals(429)) {
