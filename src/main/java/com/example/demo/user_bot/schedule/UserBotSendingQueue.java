@@ -21,9 +21,7 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException;
 import org.telegram.telegrambots.meta.updateshandlers.SentCallback;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.LinkedList;
+import java.util.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
@@ -56,15 +54,14 @@ public class UserBotSendingQueue {
         Runnable sendMessageQueueLooper = () -> {
             try {
                 LOGGER.info("INFINITE");
-                long time1 = System.currentTimeMillis(), time2 = System.currentTimeMillis(); // Для замера отправок сообщений
-                long timeApi1 = time1, timeApi2 = time2; // Для замера отправок АПИ методов
+                long timeMsg1 = System.currentTimeMillis(), timeMsg2 = System.currentTimeMillis(); // Для замера отправок сообщений
+                long timeApi1 = timeMsg1, timeApi2 = timeMsg2; // Для замера отправок АПИ методов
                 int c = 0; // Для сообщений
                 int k = 0; // Для АПИ методов
                 boolean hasApiMethod;
                 LOGGER.info("STARTING LOOP...");
                 while (Thread.currentThread().isAlive()) { // Пока поток жив - выполняю
-                    hasApiMethod = !this.apiQueue.isEmpty();
-                    if (hasApiMethod) { // Если есть апи запросы, которые надо отправить
+                    while(!this.apiQueue.isEmpty()) { // Пока есть неотправленные АПИ методы
                         if (k == 0) {
                             timeApi1 = System.currentTimeMillis();
                         }
@@ -78,6 +75,7 @@ public class UserBotSendingQueue {
                         if (k > programVariables.getMaxApiPerSecond() && (timeApi2 - timeApi1 < 1000)) {
                             LOGGER.info("!!! НАБРАЛИ МАКСИМУМ API ЗАПРОСОВ В СЕКУНДУ! Прошло: " +
                                     (timeApi2 - timeApi1) + "мс");
+                            break; // Выхожу из цикла, так как отправлять больше нельзя
                         } else { // Если по ограничениям все нормально - отправляю апи запрос
                             BotApiMethod<?> botApiMethod = this.apiQueue.pollFirst();
                             this.executeMethod(botApiMethod, bot);
@@ -85,22 +83,22 @@ public class UserBotSendingQueue {
                         }
                     }
 
-                    // Если есть какие-либо сообщения юзерам
-                    if (!this.messagesQueue.isEmpty() || !this.bulkMessagesQueue.isEmpty()) {
+                    while(!this.messagesQueue.isEmpty() || !this.bulkMessagesQueue.isEmpty()) {
                         if (c == 0) {
-                            time1 = System.currentTimeMillis();
+                            timeMsg1 = System.currentTimeMillis();
                         }
-                        time2 = System.currentTimeMillis();
+                        timeMsg2 = System.currentTimeMillis();
 
                         // Если прошло больше одной секунды - обнуляем счетчик
-                        if (time2 - time1 > 1000) {
+                        if (timeMsg2 - timeMsg1 > 1000) {
                             c = 0;
                         }
 
                         // Если за меньшее время, чем 1 секунда, набралось N сообщений - ничего не делаем
-                        if (c > programVariables.getMaxMsgPerSecond() && (time2 - time1 < 1000)) {
+                        if (c > programVariables.getMaxMsgPerSecond() && (timeMsg2 - timeMsg1 < 1000)) {
                             LOGGER.info("!!! НАБРАЛИ МАКСИМУМ СООБЩЕНИЙ В СЕКУНДУ! Прошло: " +
-                                    (time2 - time1) + "мс");
+                                    (timeMsg2 - timeMsg1) + "мс");
+                            break; // Больше отправлять нельзя
                         } else { // Если по ограничениям все нормально
                             if (!this.messagesQueue.isEmpty()) { // Если есть личные сообщения - отправляю их (первый приоритет)
                                 SendMessage newMessage = this.messagesQueue.pollFirst();
