@@ -15,13 +15,17 @@ import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
+import org.telegram.telegrambots.meta.api.methods.updatingmessages.DeleteMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException;
+import org.telegram.telegrambots.meta.updateshandlers.SentCallback;
 
 import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedList;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
 @Service
 @PropertySource("classpath:program.properties")
@@ -137,13 +141,25 @@ public class UserBotSendingQueue {
     public void sendMessage(SendMessage message, TelegramLongPollingBot bot) {
         try {
             long time1 = System.currentTimeMillis();
-            Message newMenuMessage = bot.execute(message);
             if (message instanceof MenuSendMessage) { // Если отправляем новое меню
+                bot.executeAsync(message, new SaveMenuIdCallback(this.dataCache));
+            } else { // Если отправляю обычное сообщение
+                try {
+                    //LOGGER.info("TO " + message.getChatId());
+                    bot.executeAsync(message);
+                } catch (Exception e) {
+                    LOGGER.info(e.toString());
+                }
+            }
+            /*Message newMenuMessage = bot.execute(message);
+            if (message instanceof MenuSendMessage) { // Если отправляем новое меню
+                LOGGER.info("NEW MENU");
+                Message newMenuMessage = completableFuture.get();
                 // Устанавливаю новое значение menuMessageId для пользователя, если нужно
                 if (((MenuSendMessage) message).isChangeMenuMessageId()) {
                     this.dataCache.setMenuMsgId(message.getChatId(), newMenuMessage.getMessageId());
                 }
-            }
+            }*/
             LOGGER.info("TIME execute user sendMessage: " + (System.currentTimeMillis() - time1));
         } catch (TelegramApiRequestException e) {
             LOGGER.error(e);
@@ -161,7 +177,7 @@ public class UserBotSendingQueue {
                 }
                 e.printStackTrace();
             }
-        } catch (TelegramApiException e) {
+        } catch (TelegramApiException e/*| InterruptedException | ExecutionException e*/) {
             e.printStackTrace();
         }
     }
@@ -169,7 +185,9 @@ public class UserBotSendingQueue {
     private void executeMethod(BotApiMethod<?> method, TelegramLongPollingBot bot) {
         try {
             long time1 = System.currentTimeMillis();
-            bot.execute(method);
+            //LOGGER.info(method.getMethod());
+            bot.executeAsync(method); // TODO: изменил на async
+
             LOGGER.info("TIME execute user method " + method.getMethod() + ": " +
                     (System.currentTimeMillis() - time1));
         } catch (TelegramApiRequestException e) {
@@ -186,7 +204,8 @@ public class UserBotSendingQueue {
             }
             e.printStackTrace();
         } catch (TelegramApiException e) {
-            e.printStackTrace();
+            LOGGER.info(e.toString());
+            //e.printStackTrace();
         }
     }
 

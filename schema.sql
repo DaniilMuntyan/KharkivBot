@@ -1,9 +1,9 @@
-DROP SCHEMA public CASCADE;
-CREATE SCHEMA public;
+--DROP SCHEMA public CASCADE;
+CREATE SCHEMA IF NOT EXISTS public;
 
 
-DROP TABLE IF EXISTS "admin_choice";
-create table "admin_choice"( -- Таблица для публикации новой квартиры
+--DROP TABLE IF EXISTS "admin_choice";
+create table if not exists "admin_choice"( -- Таблица для публикации новой квартиры
                                choice_id SERIAL,
                                menu_message_id INTEGER,
                                is_rent_flat BOOLEAN,
@@ -23,8 +23,8 @@ create table "admin_choice"( -- Таблица для публикации но�
                                primary key (choice_id)
 );
 
-DROP TABLE IF EXISTS "user_choice";
-create table "user_choice"( -- Таблица для предпочтений пользователя
+--DROP TABLE IF EXISTS "user_choice";
+create table if not exists "user_choice"( -- Таблица для предпочтений пользователя
                               choice_id SERIAL,
                               menu_message_id INTEGER,
                               is_rent_flat BOOLEAN,
@@ -34,8 +34,8 @@ create table "user_choice"( -- Таблица для предпочтений п
                               primary key (choice_id)
 );
 
-DROP TABLE IF EXISTS "user";
-create table "user"(
+--DROP TABLE IF EXISTS "user";
+create table if not exists "user"(
                        user_id SERIAL,
                        chat_id integer unique,
                        firstname varchar(100),
@@ -54,8 +54,8 @@ create table "user"(
 );
 create index on "user"(chat_id);
 
-DROP TABLE IF EXISTS "rental";
-create table "rental"(
+--DROP TABLE IF EXISTS "rental";
+create table if not exists "rental"(
                          rental_id SERIAL,
                          district VARCHAR(50), -- Район (enum)
                          metro VARCHAR(50), -- Станция метро

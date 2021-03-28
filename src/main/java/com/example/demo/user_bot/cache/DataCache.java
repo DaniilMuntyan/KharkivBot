@@ -60,13 +60,13 @@ public final class DataCache {
 
     public void refreshUserName(Long chatId, String userName, String firstName, String lastName) {
         UserCache user = this.usersCacheMap.get(chatId);
-        if (!user.getUsername().equals(userName)) { // Если изменился юзернейм
+        if (user.getUsername() != null && !user.getUsername().equals(userName)) { // Если изменился юзернейм
             this.usersCacheMap.get(chatId).setUsername(userName);
         }
-        if (!user.getFirstName().equals(firstName)) { // Если изменилось имя
+        if (user.getUsername() != null && !user.getFirstName().equals(firstName)) { // Если изменилось имя
             this.usersCacheMap.get(chatId).setFirstName(firstName);
         }
-        if (!user.getLastName().equals(lastName)) { // Если изменилась фамилия
+        if (user.getUsername() != null && !user.getLastName().equals(lastName)) { // Если изменилась фамилия
             this.usersCacheMap.get(chatId).setLastName(lastName);
         }
         this.markNotSaved(chatId); // Записываю на сохранение в базу
