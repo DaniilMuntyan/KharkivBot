@@ -176,7 +176,9 @@ public class UserBotSendingQueue {
                 e.printStackTrace();
             }
         } catch (TelegramApiException e/*| InterruptedException | ExecutionException e*/) {
-            e.printStackTrace();
+            LOGGER.info("TelegramApiException: " + message.getChatId());
+            LOGGER.error(e);
+            //e.printStackTrace();
         }
     }
 
@@ -185,7 +187,6 @@ public class UserBotSendingQueue {
             long time1 = System.currentTimeMillis();
             //LOGGER.info(method.getMethod());
             bot.executeAsync(method); // TODO: изменил на async
-
             LOGGER.info("TIME execute user method " + method.getMethod() + ": " +
                     (System.currentTimeMillis() - time1));
         } catch (TelegramApiRequestException e) {
@@ -202,7 +203,8 @@ public class UserBotSendingQueue {
             }
             e.printStackTrace();
         } catch (TelegramApiException e) {
-            LOGGER.info(e.toString());
+            LOGGER.info("method: " + method.getMethod());
+            LOGGER.error(e);
             //e.printStackTrace();
         }
     }
