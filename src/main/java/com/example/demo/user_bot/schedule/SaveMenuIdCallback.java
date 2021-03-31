@@ -7,7 +7,7 @@ import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException;
 import org.telegram.telegrambots.meta.updateshandlers.SentCallback;
 
-// Callback для
+// Callback для запоминания айди сообщения меню пользователя
 public final class SaveMenuIdCallback implements SentCallback<Message> {
     private static final Logger LOGGER = Logger.getLogger(SaveMenuIdCallback.class);
 

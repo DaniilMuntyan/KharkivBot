@@ -135,6 +135,7 @@ public final class DataCache {
         user.setPhone(userCache.getPhone());
         user.setLastAction(userCache.getLastAction());
         user.setWantsUpdates(userCache.getIsWantsUpdates());
+        LOGGER.info("UPDATE USER. AdminChoice:\n" + user.getAdminChoice().getHtmlMessage());
     }
 
     public UserCache getUserCache(User user) {

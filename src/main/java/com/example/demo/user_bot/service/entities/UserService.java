@@ -31,6 +31,7 @@ public final class UserService {
 
     public void saveUser(User user) {
         userRepository.save(user);
+
     }
     public void saveUser(UserCache user) { // Сохраняю кэш в базу (когда юзера в базе нет, а в памяти есть)
         userRepository.save(User.builder()
@@ -40,6 +41,8 @@ public final class UserService {
                 .firstName(user.getFirstName()).lastName(user.getLastName()).username(user.getUsername())
                 .lastAction(user.getLastAction())
                 .phone(user.getPhone())
+                .adminChoice(user.getAdminChoice())
+                .userChoice(user.getUserChoice())
                 .wantsUpdates(user.getIsWantsUpdates())
                 .build());
     }

@@ -54,11 +54,6 @@ public class RoomsCallbackHandler {
             admin.getAdminChoice().setRooms(Rooms.GOSTINKA);
         }
 
-        // Если выбрали гостинку
-        if(data.equals(adminMenuVariables.getAdminBtnCallbackRoomsZero())) {
-            admin.getAdminChoice().setRooms(Rooms.GOSTINKA);
-        }
-
         // Если нажали на любую кнопку, кроме "отмена" - сохраняем изменения данных.
         // Если же нажали "отмена" - остается без изменений
         if(!data.equals(adminMenuVariables.getAdminBtnCallbackSubmenuCancel())) {

@@ -50,7 +50,7 @@ public final class PublishingService {
         List<User> allUsers = userService.findAllUsers();
         String result;
 
-        SendMessage msgToChannel;
+        SendMessage msgToChannel = null;
         String foundNewFlatForYou = messagesVariables.getAdminFoundNewFlat() + "\n";
         if (admin.getAdminChoice().getIsRentFlat()) {
             RentFlat rentFlat = rentalFlatService.save(new RentFlat(admin.getAdminChoice())); // Сохраняю квартиру в БД
@@ -85,13 +85,10 @@ public final class PublishingService {
                             .getMessageFromFlat(user.getChatId().toString(), buyFlat, foundNewFlatForYou, true));
                 }
             }
-            // Формирую сообщение в канал
-            msgToChannel = this.flatMessageService
-                    .getMessageFromFlat(programVariables.getTelegramChannel(), buyFlat, false);
         }
 
         // Публикую в канал, если квартира под аренду и если нет ошибки
-        if (admin.getAdminChoice().getIsRentFlat() && !result.equals("ERROR")) {
+        if (msgToChannel != null && !result.equals("ERROR")) {
             response.add(msgToChannel);
         }
 
