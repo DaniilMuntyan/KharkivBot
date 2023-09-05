@@ -1,0 +1,16 @@
+sudo adduser danyil
+usermod -aG sudo danyil
+su - danyil
+mkdir /home/danyil/.ssh/
+chmod 700 ~/.ssh
+nano ~/.ssh/authorized_keys
+chmod 600 ~/.ssh/authorized_keys
+ssh-keygen -t rsa -f ./vpsua_key -C danyil	# на локалке. ПАРОЛЬ - четырехзначное число
+ssh-copy-id -i ./vpsua_key.pub root@31.131.26.212	# ввел пароль root (с почты)
+зашел в /root/.ssh/authorized_keys, вырезал публичный ключ с файла и вставил в /home/danyil/.shh/authorized_keys
+ssh -i ./vpsua_key danyil@31.131.26.212	# со своего компьютера
+nano /etc/ssh/sshd_config
+в файле sshd_config ставлю: PermitRootLogin no - чтобы невозможно было зайти в root через ssh
+sudo systemctl restart ssh.service
+ВСЕ РАБОТАЕТ
+

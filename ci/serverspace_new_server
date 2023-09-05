@@ -1,0 +1,16 @@
+ssh-keygen -t rsa -f ./space_key -C danyil
+cat space_key.pub
+# копирую ключ и вставляю его на сайте
+ssh -i ./space_key root@188.227.84.94
+# на старом сервере ахивирую и копирую все данные
+	sudo tar -zcvf kharkiv.tar.gz kharkiv
+# копирую архив на локальный комп
+	scp -i ./vpsua_key danyil@31.131.26.212:/home/danyil/kharkiv.tar.gz ./
+# копирую архив с локалки на новый сервер
+	scp -i ./space_key ./kharkiv.tar.gz root@188.227.84.94:/home/
+# на новом сервере распаковываю архив
+	tar -zxvf kharkiv.tar.gz
+	bash init.sh
+	docker login
+	bash deploy.sh
+

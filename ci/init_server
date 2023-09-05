@@ -1,0 +1,27 @@
+- копирую папку kharkiv на новый сервер
+	scp -i ./vultr_bot_key ./kharkiv.tar.gz root@78.141.214.149:./
+- разархивировать папку на новом сервере 
+	sudo tar -zxvf kharkiv.tar.gz
+- yes | bash init.sh
+- docker login
+- bash deploy.sh
+- архивирую все на сервере
+	sudo tar -zcvf kharkiv.tar.gz kharkiv
+- скачиваю весь архив с сервера
+	scp -i ./vultr_bot_key root@78.141.214.149:./kharkiv.tar.gz ./ 
+- ВСЕ РАБОТАЕТ
+
+
+ИЕРАРХИЯ
+- kharkiv
+  - deploy
+    - deploy.sh
+    - docker-compose.yml
+    - source
+      - KharkivBot
+        - ...
+    - volumes
+      - files	# Для spring boot проекта (логи, тайминг)
+      - postgres_data	# Данные постгреса
+  - init.sh
+- kharkiv.tar.gz

@@ -1,0 +1,45 @@
+VULTR INSTANCE
+- запустил новый инстанс (78.141.214.149) на сайте https://my.vultr.com
+- генерирую новый ssh ключ
+	ssh-keygen -t rsa -f ./vultr_bot_key -C bot
+- добавляю новый ключ на сервер
+	ssh-copy-id -i ./vultr_bot_key.pub root@78.141.214.149	
+	# тут нужен будет пароль к root пользователю с сайта
+- подключаюсь к серверу
+	ssh -i ./vultr_bot_key root@78.141.214.149
+- открываю конфигурацию ssh на сервере 
+	nano /etc/ssh/sshd_config
+	PasswordAuthentication no	# чтобы зайти на сервер можно было только с помощью файла ключа
+	sudo systemctl restart ssh.service
+
+scp -i ./vultr_bot_key root@78.141.214.149:./kharkiv.tar.gz ./
+---------------------------------------------------------------------------------------------------------------------------------
+- сгенерировать ssh ключи (приватный и публичный): ssh-keygen -t rsa -f ./private_key -C danyil
+- установить ssh ключи настроить по нему доступ к root.
+- ssh -i ./private_key danyil@35.224.141.222	# НОВЫЙ СЕРВЕР
+- запретить доступ по паролю
+- mkdir kharkiv
+- scp -i ./test ./init.sh danyil@35.224.141.222:./kharkiv/	# копирую скрипт init.sh на новый сервер
+- bash init.sh	# required: Y, Y, Y
+- перезайти на сервер (для обновления юзера)
+- scp -i ./test ./deploy.sh danyil@35.224.141.222:./kharkiv/deploy/	# копирую скрипт deploy.sh на новый сервер
+- scp -i ./test ./docker-compose.yml danyil@35.224.141.222:./kharkiv/deploy/	# копирую docker-compose.yml на новый сервер
+- скопировать volumes (чтобы данные оставались одни и те же)
+	sudo tar -zcvf volumes.tar.gz volumes # архивирую папку на старом сервере
+	scp -i ./vultr_private_key danyil@45.76.42.231:/home/danyil/deploy/volumes.tar.gz ./ # копирую со старого сервака себе
+	scp -i ./private_key ./volumes.tar.gz danyil@35.224.141.222:./kharkiv/deploy/ # копирую с локалки на новый сервак
+	sudo tar -zxvf volumes.tar.gz	# разархивировать на новом сервере 
+- bash deploy.sh
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+- на предыдущем сервере: 
+	docker-compose exec kharkiv_postgresql pg_dumpall -U postgres > dump.sql
+- перекинуть dump.sql на текущий сервер
+	scp -i ./vultr_private_key -r danyil@45.76.42.231:/home/danyil/deploy/dump.sql ./
+	scp -i ./test ./dump.sql test@35.224.141.222:./kharkiv/deploy/ 
+
+

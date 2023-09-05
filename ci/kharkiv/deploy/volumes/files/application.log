@@ -1,0 +1,1071 @@
+[INFO ]  2021-03-28 13:03:656.15 --- [main] com.example.demo.common_part.config.AsyncConfig : AsyncConfig is creating...
+[INFO ]  2021-03-28 13:03:555.16 --- [main] com.example.demo.user_bot.cache.DataCache : DataCache is creating...
+[INFO ]  2021-03-28 13:03:736.16 --- [main] com.example.demo.common_part.config.AsyncConfig : Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 60. QueueCapacity: 10
+[INFO ]  2021-03-28 13:03:752.16 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : INFINITE
+[INFO ]  2021-03-28 13:03:756.16 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : STARTING LOOP...
+[INFO ]  2021-03-28 13:03:75.17 --- [main] com.example.demo.admin_bot.botapi.AdminTelegramBot : AdminTelegramBot is creating...
+[INFO ]  2021-03-28 13:03:384.17 --- [main] com.example.demo.user_bot.botapi.RentalTelegramBot : RentalTelegramBot is creating...
+[INFO ]  2021-03-28 13:03:462.17 --- [main] com.example.demo.user_bot.cache.InitCache : initRentFlatsCache
+[INFO ]  2021-03-28 18:03:201.18 --- [main] com.example.demo.user_bot.cache.DataCache : DataCache is creating...
+[INFO ]  2021-03-28 18:03:469.19 --- [main] com.example.demo.common_part.config.AsyncConfig : AsyncConfig is creating...
+[INFO ]  2021-03-28 18:03:516.19 --- [main] com.example.demo.common_part.config.AsyncConfig : Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 60. QueueCapacity: 10
+[INFO ]  2021-03-28 18:03:542.19 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : INFINITE
+[INFO ]  2021-03-28 18:03:556.19 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : STARTING LOOP...
+[INFO ]  2021-03-28 18:03:989.20 --- [main] com.example.demo.user_bot.botapi.RentalTelegramBot : RentalTelegramBot is creating...
+[INFO ]  2021-03-28 18:03:173.21 --- [main] com.example.demo.user_bot.cache.InitCache : INIT RENT FLATS CACHE
+[INFO ]  2021-03-28 18:03:712.22 --- [main] com.example.demo.user_bot.cache.DataCache : DataCache is creating...
+[INFO ]  2021-03-28 18:03:955.23 --- [main] com.example.demo.common_part.config.AsyncConfig : AsyncConfig is creating...
+[INFO ]  2021-03-28 18:03:10.24 --- [main] com.example.demo.common_part.config.AsyncConfig : Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 60. QueueCapacity: 10
+[INFO ]  2021-03-28 18:03:44.24 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : INFINITE
+[INFO ]  2021-03-28 18:03:47.24 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : STARTING LOOP...
+[INFO ]  2021-03-28 18:03:625.25 --- [main] com.example.demo.user_bot.botapi.RentalTelegramBot : RentalTelegramBot is creating...
+[INFO ]  2021-03-28 18:03:765.25 --- [main] com.example.demo.user_bot.cache.InitCache : INIT RENT FLATS CACHE
+[INFO ]  2021-03-28 19:03:687.39 --- [main] com.example.demo.user_bot.cache.DataCache : DataCache is creating...
+[INFO ]  2021-03-28 19:03:245.41 --- [main] com.example.demo.common_part.config.AsyncConfig : AsyncConfig is creating...
+[INFO ]  2021-03-28 19:03:301.41 --- [main] com.example.demo.common_part.config.AsyncConfig : Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 60. QueueCapacity: 10
+[INFO ]  2021-03-28 19:03:454.41 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : INFINITE
+[INFO ]  2021-03-28 19:03:461.41 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : STARTING LOOP...
+[INFO ]  2021-03-28 19:03:233.44 --- [main] com.example.demo.user_bot.botapi.RentalTelegramBot : RentalTelegramBot is creating...
+[INFO ]  2021-03-28 19:03:988.44 --- [main] com.example.demo.user_bot.cache.InitCache : INIT RENT FLATS CACHE
+[INFO ]  2021-03-28 19:03:272.07 --- [main] com.example.demo.user_bot.cache.DataCache : DataCache is creating...
+[INFO ]  2021-03-28 19:03:389.08 --- [main] com.example.demo.common_part.config.AsyncConfig : AsyncConfig is creating...
+[INFO ]  2021-03-28 19:03:426.08 --- [main] com.example.demo.common_part.config.AsyncConfig : Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 60. QueueCapacity: 10
+[INFO ]  2021-03-28 19:03:457.08 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : INFINITE
+[INFO ]  2021-03-28 19:03:463.08 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : STARTING LOOP...
+[INFO ]  2021-03-28 19:03:827.09 --- [main] com.example.demo.user_bot.botapi.RentalTelegramBot : RentalTelegramBot is creating...
+[INFO ]  2021-03-28 19:03:70.10 --- [main] com.example.demo.user_bot.cache.InitCache : INIT RENT FLATS CACHE
+[INFO ]  2021-03-28 19:03:41.05 --- [main] com.example.demo.user_bot.cache.DataCache : DataCache is creating...
+[INFO ]  2021-03-28 19:03:115.07 --- [main] com.example.demo.common_part.config.AsyncConfig : AsyncConfig is creating...
+[INFO ]  2021-03-28 19:03:150.07 --- [main] com.example.demo.common_part.config.AsyncConfig : Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 60. QueueCapacity: 10
+[INFO ]  2021-03-28 19:03:177.07 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : INFINITE
+[INFO ]  2021-03-28 19:03:187.07 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : STARTING LOOP...
+[INFO ]  2021-03-28 19:03:145.10 --- [main] com.example.demo.user_bot.botapi.RentalTelegramBot : RentalTelegramBot is creating...
+[INFO ]  2021-03-28 19:03:173.11 --- [main] com.example.demo.user_bot.cache.InitCache : INIT RENT FLATS CACHE
+[INFO ]  2021-03-28 19:03:355.13 --- [main] com.example.demo.user_bot.cache.InitCache : allExistedRentFlats: 3
+[INFO ]  2021-03-28 19:03:356.13 --- [main] com.example.demo.user_bot.cache.InitCache : ALL RentFlats FROM DATABASE TO CACHE
+[INFO ]  2021-03-28 19:03:357.13 --- [main] com.example.demo.user_bot.cache.InitCache : INIT BUY FLATS CACHE
+[INFO ]  2021-03-28 19:03:132.15 --- [main] com.example.demo.user_bot.cache.InitCache : allExistedBuyFlats: 10009
+[INFO ]  2021-03-28 19:03:158.15 --- [main] com.example.demo.user_bot.cache.InitCache : ALL BuyFlats FROM DATABASE TO CACHE
+[INFO ]  2021-03-28 19:03:160.15 --- [main] com.example.demo.user_bot.cache.InitCache : INIT USERS CACHE
+[INFO ]  2021-03-28 19:03:360.15 --- [main] com.example.demo.user_bot.cache.InitCache : AllExistedUsers: 3
+[INFO ]  2021-03-28 19:03:402.15 --- [main] com.example.demo.user_bot.cache.InitCache : ALL Users FROM DATABASE TO CACHE
+[INFO ]  2021-03-28 19:03:382.16 --- [main] com.example.demo.admin_bot.botapi.AdminTelegramBot : AdminTelegramBot is creating...
+[INFO ]  2021-03-28 19:03:410.16 --- [main] com.example.demo.common_part.config.AsyncConfig : Created ThreadPoolTaskScheduler bean. PoolSize: 1
+[INFO ]  2021-03-28 19:03:297.51 --- [main] com.example.demo.user_bot.cache.DataCache : DataCache is creating...
+[INFO ]  2021-03-28 19:03:589.52 --- [main] com.example.demo.common_part.config.AsyncConfig : AsyncConfig is creating...
+[INFO ]  2021-03-28 19:03:624.52 --- [main] com.example.demo.common_part.config.AsyncConfig : Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 60. QueueCapacity: 10
+[INFO ]  2021-03-28 19:03:645.52 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : INFINITE
+[INFO ]  2021-03-28 19:03:671.52 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : STARTING LOOP...
+[INFO ]  2021-03-28 19:03:933.53 --- [main] com.example.demo.user_bot.botapi.RentalTelegramBot : RentalTelegramBot is creating...
+[INFO ]  2021-03-28 19:03:190.54 --- [main] com.example.demo.user_bot.cache.InitCache : INIT RENT FLATS CACHE
+[INFO ]  2021-03-28 19:03:47.18 --- [main] com.example.demo.user_bot.cache.DataCache : DataCache is creating...
+[INFO ]  2021-03-28 19:03:461.19 --- [main] com.example.demo.common_part.config.AsyncConfig : AsyncConfig is creating...
+[INFO ]  2021-03-28 19:03:526.19 --- [main] com.example.demo.common_part.config.AsyncConfig : Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 60. QueueCapacity: 10
+[INFO ]  2021-03-28 19:03:582.19 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : INFINITE
+[INFO ]  2021-03-28 19:03:588.19 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : STARTING LOOP...
+[INFO ]  2021-03-28 19:03:61.21 --- [main] com.example.demo.user_bot.botapi.RentalTelegramBot : RentalTelegramBot is creating...
+[INFO ]  2021-03-28 19:03:248.21 --- [main] com.example.demo.user_bot.cache.InitCache : INIT RENT FLATS CACHE
+[INFO ]  2021-03-28 19:03:853.02 --- [main] com.example.demo.user_bot.cache.DataCache : DataCache is creating...
+[INFO ]  2021-03-28 19:03:50.04 --- [main] com.example.demo.common_part.config.AsyncConfig : AsyncConfig is creating...
+[INFO ]  2021-03-28 19:03:85.04 --- [main] com.example.demo.common_part.config.AsyncConfig : Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 60. QueueCapacity: 10
+[INFO ]  2021-03-28 19:03:114.04 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : INFINITE
+[INFO ]  2021-03-28 19:03:121.04 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : STARTING LOOP...
+[INFO ]  2021-03-28 19:03:152.05 --- [main] com.example.demo.user_bot.botapi.RentalTelegramBot : RentalTelegramBot is creating...
+[INFO ]  2021-03-28 19:03:387.05 --- [main] com.example.demo.user_bot.cache.InitCache : INIT RENT FLATS CACHE
+[INFO ]  2021-03-28 19:03:894.44 --- [main] com.example.demo.user_bot.cache.DataCache : DataCache is creating...
+[INFO ]  2021-03-28 19:03:91.46 --- [main] com.example.demo.common_part.config.AsyncConfig : AsyncConfig is creating...
+[INFO ]  2021-03-28 19:03:152.46 --- [main] com.example.demo.common_part.config.AsyncConfig : Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 60. QueueCapacity: 10
+[INFO ]  2021-03-28 19:03:189.46 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : INFINITE
+[INFO ]  2021-03-28 19:03:192.46 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : STARTING LOOP...
+[INFO ]  2021-03-28 19:03:671.47 --- [main] com.example.demo.user_bot.botapi.RentalTelegramBot : RentalTelegramBot is creating...
+[INFO ]  2021-03-28 19:03:954.47 --- [main] com.example.demo.user_bot.cache.InitCache : INIT RENT FLATS CACHE
+[INFO ]  2021-03-28 20:03:191.25 --- [main] com.example.demo.user_bot.cache.DataCache : DataCache is creating...
+[INFO ]  2021-03-28 20:03:342.26 --- [main] com.example.demo.common_part.config.AsyncConfig : AsyncConfig is creating...
+[INFO ]  2021-03-28 20:03:403.26 --- [main] com.example.demo.common_part.config.AsyncConfig : Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 60. QueueCapacity: 10
+[INFO ]  2021-03-28 20:03:437.26 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : INFINITE
+[INFO ]  2021-03-28 20:03:447.26 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : STARTING LOOP...
+[INFO ]  2021-03-28 20:03:32.28 --- [main] com.example.demo.user_bot.botapi.RentalTelegramBot : RentalTelegramBot is creating...
+[INFO ]  2021-03-28 20:03:269.28 --- [main] com.example.demo.user_bot.cache.InitCache : INIT RENT FLATS CACHE
+[INFO ]  2021-03-28 20:03:978.17 --- [main] com.example.demo.user_bot.cache.DataCache : DataCache is creating...
+[INFO ]  2021-03-28 20:03:170.19 --- [main] com.example.demo.common_part.config.AsyncConfig : AsyncConfig is creating...
+[INFO ]  2021-03-28 20:03:216.19 --- [main] com.example.demo.common_part.config.AsyncConfig : Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 60. QueueCapacity: 10
+[INFO ]  2021-03-28 20:03:266.19 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : INFINITE
+[INFO ]  2021-03-28 20:03:275.19 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : STARTING LOOP...
+[INFO ]  2021-03-28 20:03:895.20 --- [main] com.example.demo.user_bot.botapi.RentalTelegramBot : RentalTelegramBot is creating...
+[INFO ]  2021-03-28 20:03:181.21 --- [main] com.example.demo.user_bot.cache.InitCache : INIT RENT FLATS CACHE
+[INFO ]  2021-03-28 20:03:624.00 --- [main] com.example.demo.user_bot.cache.DataCache : DataCache is creating...
+[INFO ]  2021-03-28 20:03:61.03 --- [main] com.example.demo.common_part.config.AsyncConfig : AsyncConfig is creating...
+[INFO ]  2021-03-28 20:03:110.03 --- [main] com.example.demo.common_part.config.AsyncConfig : Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 60. QueueCapacity: 10
+[INFO ]  2021-03-28 20:03:314.03 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : INFINITE
+[INFO ]  2021-03-28 20:03:338.03 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : STARTING LOOP...
+[INFO ]  2021-03-28 20:03:06.06 --- [main] com.example.demo.user_bot.botapi.RentalTelegramBot : RentalTelegramBot is creating...
+[INFO ]  2021-03-28 20:03:366.06 --- [main] com.example.demo.user_bot.cache.InitCache : INIT RENT FLATS CACHE
+[INFO ]  2021-03-28 20:03:22.07 --- [main] com.example.demo.user_bot.cache.InitCache : allExistedRentFlats: 3
+[INFO ]  2021-03-28 20:03:29.07 --- [main] com.example.demo.user_bot.cache.InitCache : ALL RentFlats FROM DATABASE TO CACHE
+[INFO ]  2021-03-28 20:03:30.07 --- [main] com.example.demo.user_bot.cache.InitCache : INIT BUY FLATS CACHE
+[INFO ]  2021-03-28 20:03:518.09 --- [main] com.example.demo.user_bot.cache.InitCache : allExistedBuyFlats: 10009
+[INFO ]  2021-03-28 20:03:527.09 --- [main] com.example.demo.user_bot.cache.InitCache : ALL BuyFlats FROM DATABASE TO CACHE
+[INFO ]  2021-03-28 20:03:528.09 --- [main] com.example.demo.user_bot.cache.InitCache : INIT USERS CACHE
+[INFO ]  2021-03-28 20:03:605.09 --- [main] com.example.demo.user_bot.cache.InitCache : AllExistedUsers: 3
+[INFO ]  2021-03-28 20:03:800.09 --- [main] com.example.demo.user_bot.cache.InitCache : ALL Users FROM DATABASE TO CACHE
+[INFO ]  2021-03-28 20:03:815.10 --- [main] com.example.demo.admin_bot.botapi.AdminTelegramBot : AdminTelegramBot is creating...
+[INFO ]  2021-03-28 20:03:844.10 --- [main] com.example.demo.common_part.config.AsyncConfig : Created ThreadPoolTaskScheduler bean. PoolSize: 1
+[INFO ]  2021-03-28 20:03:818.50 --- [user-thread-2] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 20:03:03.51 --- [user-thread-2] com.example.demo.user_bot.service.state_handler.UserBotStateService : Мои предпочтения MENU1
+[INFO ]  2021-03-28 20:03:551.51 --- [user-thread-2] com.example.demo.user_bot.service.UserMainService : USER TIME: 754.0
+[INFO ]  2021-03-28 20:03:612.51 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 64
+[INFO ]  2021-03-28 20:03:05.02 --- [user-thread-3] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 20:03:06.02 --- [user-thread-3] com.example.demo.user_bot.service.state_handler.UserBotStateService : Изменить категорию MENU2
+[INFO ]  2021-03-28 20:03:11.02 --- [user-thread-3] com.example.demo.user_bot.service.UserMainService : USER TIME: 6.0
+[INFO ]  2021-03-28 20:03:19.02 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 8
+[INFO ]  2021-03-28 20:03:268.03 --- [user-thread-4] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 20:03:272.03 --- [user-thread-4] com.example.demo.user_bot.service.state_handler.UserBotStateService : Выбрать районы MENU21
+[INFO ]  2021-03-28 20:03:285.03 --- [user-thread-4] com.example.demo.user_bot.service.UserMainService : USER TIME: 16.0
+[INFO ]  2021-03-28 20:03:286.03 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 20:03:287.03 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 20:03:254.05 --- [user-thread-5] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 20:03:255.05 --- [user-thread-5] com.example.demo.user_bot.service.state_handler.UserBotStateService : Изменить кол-во комнат MENU23
+[INFO ]  2021-03-28 20:03:264.05 --- [user-thread-5] com.example.demo.user_bot.service.UserMainService : USER TIME: 10.0
+[INFO ]  2021-03-28 20:03:265.05 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 1
+[INFO ]  2021-03-28 20:03:266.05 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 20:03:623.06 --- [user-thread-6] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 20:03:624.06 --- [user-thread-6] com.example.demo.user_bot.service.state_handler.UserBotStateService : Изменить бюджет MENU22
+[INFO ]  2021-03-28 20:03:752.06 --- [user-thread-6] com.example.demo.user_bot.service.UserMainService : USER TIME: 129.0
+[INFO ]  2021-03-28 20:03:752.06 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 20:03:754.06 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 20:03:272.08 --- [user-thread-7] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 20:03:274.08 --- [user-thread-7] com.example.demo.user_bot.service.state_handler.UserBotStateService : Изменить категорию MENU24
+[INFO ]  2021-03-28 20:03:274.08 --- [user-thread-7] com.example.demo.user_bot.service.UserMainService : USER TIME: 2.0
+[INFO ]  2021-03-28 20:03:275.08 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 1
+[INFO ]  2021-03-28 20:03:276.08 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 20:03:03.32 --- [user-thread-8] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 20:03:04.32 --- [user-thread-8] com.example.demo.user_bot.service.state_handler.UserBotStateService : ⬅ Назад MENU21
+[INFO ]  2021-03-28 20:03:05.32 --- [user-thread-8] com.example.demo.user_bot.service.UserMainService : USER TIME: 2.0
+[INFO ]  2021-03-28 20:03:07.32 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 2
+[INFO ]  2021-03-28 20:03:07.32 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 20:03:753.33 --- [user-thread-9] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 20:03:755.33 --- [user-thread-9] com.example.demo.user_bot.service.state_handler.UserBotStateService : Мои предпочтения MENU1
+[INFO ]  2021-03-28 20:03:756.33 --- [user-thread-9] com.example.demo.user_bot.service.UserMainService : USER TIME: 3.0
+[INFO ]  2021-03-28 20:03:756.33 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 20:03:12.35 --- [user-thread-10] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 20:03:13.35 --- [user-thread-10] com.example.demo.user_bot.service.state_handler.UserBotStateService : Изменить кол-во комнат MENU2
+[INFO ]  2021-03-28 20:03:14.35 --- [user-thread-10] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 20:03:14.35 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 20:03:76.36 --- [user-thread-11] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 20:03:76.36 --- [user-thread-11] com.example.demo.user_bot.service.state_handler.UserBotStateService : Изменить категорию MENU22
+[INFO ]  2021-03-28 20:03:77.36 --- [user-thread-11] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 20:03:77.36 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 20:03:78.36 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 20:03:518.37 --- [user-thread-12] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 20:03:526.37 --- [user-thread-12] com.example.demo.user_bot.service.state_handler.UserBotStateService : Изменить бюджет MENU21
+[INFO ]  2021-03-28 20:03:527.37 --- [user-thread-12] com.example.demo.user_bot.service.UserMainService : USER TIME: 9.0
+[INFO ]  2021-03-28 20:03:527.37 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 20:03:527.37 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 20:03:75.53 --- [user-thread-13] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 20:03:75.53 --- [user-thread-13] com.example.demo.user_bot.service.state_handler.UserBotStateService : ⬅ Назад MENU24
+[INFO ]  2021-03-28 20:03:76.53 --- [user-thread-13] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 20:03:76.53 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 20:03:77.53 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 20:03:254.54 --- [user-thread-14] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 20:03:255.54 --- [user-thread-14] com.example.demo.user_bot.service.state_handler.UserBotStateService : Мои предпочтения MENU1
+[INFO ]  2021-03-28 20:03:256.54 --- [user-thread-14] com.example.demo.user_bot.service.UserMainService : USER TIME: 2.0
+[INFO ]  2021-03-28 20:03:256.54 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 20:03:761.55 --- [user-thread-15] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 20:03:761.55 --- [user-thread-15] com.example.demo.user_bot.service.state_handler.UserBotStateService : ⬅ Назад MENU2
+[INFO ]  2021-03-28 20:03:769.55 --- [user-thread-15] com.example.demo.user_bot.service.UserMainService : USER TIME: 8.0
+[INFO ]  2021-03-28 20:03:770.55 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 20:03:852.56 --- [user-thread-16] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 20:03:854.56 --- [user-thread-16] com.example.demo.user_bot.service.state_handler.UserBotStateService : Мои предпочтения MENU1
+[INFO ]  2021-03-28 20:03:855.56 --- [user-thread-16] com.example.demo.user_bot.service.UserMainService : USER TIME: 3.0
+[INFO ]  2021-03-28 20:03:855.56 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 20:03:769.57 --- [user-thread-17] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 20:03:770.57 --- [user-thread-17] com.example.demo.user_bot.service.state_handler.UserBotStateService : Изменить кол-во комнат MENU2
+[INFO ]  2021-03-28 20:03:775.57 --- [user-thread-17] com.example.demo.user_bot.service.UserMainService : USER TIME: 6.0
+[INFO ]  2021-03-28 20:03:776.57 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 20:03:753.58 --- [user-thread-18] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 20:03:754.58 --- [user-thread-18] com.example.demo.user_bot.service.state_handler.UserBotStateService : Изменить категорию MENU22
+[INFO ]  2021-03-28 20:03:755.58 --- [user-thread-18] com.example.demo.user_bot.service.UserMainService : USER TIME: 2.0
+[INFO ]  2021-03-28 20:03:756.58 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 1
+[INFO ]  2021-03-28 20:03:756.58 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 20:03:762.59 --- [user-thread-19] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 20:03:763.59 --- [user-thread-19] com.example.demo.user_bot.service.state_handler.UserBotStateService : Изменить бюджет MENU21
+[INFO ]  2021-03-28 20:03:764.59 --- [user-thread-19] com.example.demo.user_bot.service.UserMainService : USER TIME: 2.0
+[INFO ]  2021-03-28 20:03:765.59 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 1
+[INFO ]  2021-03-28 20:03:766.59 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 20:03:757.00 --- [user-thread-20] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 20:03:758.00 --- [user-thread-20] com.example.demo.user_bot.service.state_handler.UserBotStateService : Выбрать районы MENU24
+[INFO ]  2021-03-28 20:03:759.00 --- [user-thread-20] com.example.demo.user_bot.service.UserMainService : USER TIME: 2.0
+[INFO ]  2021-03-28 20:03:760.00 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 1
+[INFO ]  2021-03-28 20:03:761.00 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 20:03:867.01 --- [user-thread-21] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 20:03:867.01 --- [user-thread-21] com.example.demo.user_bot.service.state_handler.UserBotStateService : Изменить категорию MENU23
+[INFO ]  2021-03-28 20:03:869.01 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 20:03:869.01 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 20:03:872.01 --- [user-thread-21] com.example.demo.user_bot.service.UserMainService : USER TIME: 3.0
+[INFO ]  2021-03-28 20:03:44.03 --- [user-thread-22] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 20:03:46.03 --- [user-thread-22] com.example.demo.user_bot.service.state_handler.UserBotStateService : Изменить кол-во комнат MENU21
+[INFO ]  2021-03-28 20:03:47.03 --- [user-thread-22] com.example.demo.user_bot.service.UserMainService : USER TIME: 3.0
+[INFO ]  2021-03-28 20:03:48.03 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 20:03:49.03 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 20:03:504.04 --- [user-thread-23] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 20:03:507.04 --- [user-thread-23] com.example.demo.user_bot.service.UserMainService : USER TIME: 3.0
+[INFO ]  2021-03-28 20:03:507.04 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method answercallbackquery: 0
+[INFO ]  2021-03-28 20:03:511.04 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method editmessagereplymarkup: 0
+[INFO ]  2021-03-28 20:03:754.05 --- [user-thread-24] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 1
+[INFO ]  2021-03-28 20:03:755.05 --- [user-thread-24] com.example.demo.user_bot.service.state_handler.UserBotStateService : 🔍 Подобрать MENU22
+[INFO ]  2021-03-28 20:03:70.06 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 20:03:71.06 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 20:03:90.06 --- [user-thread-24] com.example.demo.user_bot.service.UserMainService : USER TIME: 337.0
+[INFO ]  2021-03-28 20:03:90.06 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 20:03:94.06 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 20:03:254.08 --- [user-thread-25] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 20:03:256.08 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 20:03:258.08 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 20:03:264.08 --- [user-thread-25] com.example.demo.user_bot.service.UserMainService : USER TIME: 10.0
+[INFO ]  2021-03-28 20:03:264.08 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 20:03:265.08 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method answercallbackquery: 0
+[INFO ]  2021-03-28 20:03:265.08 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 20:03:754.09 --- [user-thread-26] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 20:03:755.09 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 20:03:755.09 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 20:03:768.09 --- [user-thread-26] com.example.demo.user_bot.service.UserMainService : USER TIME: 14.0
+[INFO ]  2021-03-28 20:03:768.09 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 20:03:769.09 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method answercallbackquery: 0
+[INFO ]  2021-03-28 20:03:769.09 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 20:03:294.11 --- [user-thread-27] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 20:03:295.11 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 20:03:301.11 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 20:03:304.11 --- [user-thread-27] com.example.demo.user_bot.service.UserMainService : USER TIME: 10.0
+[INFO ]  2021-03-28 20:03:304.11 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 20:03:306.11 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method answercallbackquery: 0
+[INFO ]  2021-03-28 20:03:306.11 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 20:03:258.13 --- [user-thread-28] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 20:03:259.13 --- [user-thread-28] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 20:03:260.13 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 1
+[INFO ]  2021-03-28 20:03:260.13 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 20:03:261.13 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 20:03:337.15 --- [user-thread-29] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 20:03:338.15 --- [user-thread-29] com.example.demo.user_bot.service.state_handler.UserBotStateService : Мои предпочтения MENU1
+[INFO ]  2021-03-28 20:03:338.15 --- [user-thread-29] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 20:03:339.15 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:947.41 --- [main] com.example.demo.user_bot.cache.DataCache : DataCache is creating...
+[INFO ]  2021-03-28 21:03:645.43 --- [main] com.example.demo.common_part.config.AsyncConfig : AsyncConfig is creating...
+[INFO ]  2021-03-28 21:03:817.43 --- [main] com.example.demo.common_part.config.AsyncConfig : Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 60. QueueCapacity: 10
+[INFO ]  2021-03-28 21:03:861.43 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : INFINITE
+[INFO ]  2021-03-28 21:03:864.43 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : STARTING LOOP...
+[INFO ]  2021-03-28 21:03:895.46 --- [main] com.example.demo.user_bot.botapi.RentalTelegramBot : RentalTelegramBot is creating...
+[INFO ]  2021-03-28 21:03:598.47 --- [main] com.example.demo.user_bot.cache.InitCache : INIT RENT FLATS CACHE
+[INFO ]  2021-03-28 21:03:364.06 --- [main] com.example.demo.user_bot.cache.DataCache : DataCache is creating...
+[INFO ]  2021-03-28 21:03:458.08 --- [main] com.example.demo.common_part.config.AsyncConfig : AsyncConfig is creating...
+[INFO ]  2021-03-28 21:03:665.08 --- [main] com.example.demo.common_part.config.AsyncConfig : Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 60. QueueCapacity: 10
+[INFO ]  2021-03-28 21:03:701.08 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : INFINITE
+[INFO ]  2021-03-28 21:03:846.08 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : STARTING LOOP...
+[INFO ]  2021-03-28 21:03:643.12 --- [main] com.example.demo.user_bot.botapi.RentalTelegramBot : RentalTelegramBot is creating...
+[INFO ]  2021-03-28 21:03:212.13 --- [main] com.example.demo.user_bot.cache.InitCache : INIT RENT FLATS CACHE
+[INFO ]  2021-03-28 21:03:710.14 --- [main] com.example.demo.user_bot.cache.InitCache : allExistedRentFlats: 3
+[INFO ]  2021-03-28 21:03:838.14 --- [main] com.example.demo.user_bot.cache.InitCache : ALL RentFlats FROM DATABASE TO CACHE
+[INFO ]  2021-03-28 21:03:839.14 --- [main] com.example.demo.user_bot.cache.InitCache : INIT BUY FLATS CACHE
+[INFO ]  2021-03-28 21:03:592.16 --- [main] com.example.demo.user_bot.cache.InitCache : allExistedBuyFlats: 10009
+[INFO ]  2021-03-28 21:03:601.16 --- [main] com.example.demo.user_bot.cache.InitCache : ALL BuyFlats FROM DATABASE TO CACHE
+[INFO ]  2021-03-28 21:03:602.16 --- [main] com.example.demo.user_bot.cache.InitCache : INIT USERS CACHE
+[INFO ]  2021-03-28 21:03:671.16 --- [main] com.example.demo.user_bot.cache.InitCache : AllExistedUsers: 3
+[INFO ]  2021-03-28 21:03:861.16 --- [main] com.example.demo.user_bot.cache.InitCache : ALL Users FROM DATABASE TO CACHE
+[INFO ]  2021-03-28 21:03:918.17 --- [main] com.example.demo.admin_bot.botapi.AdminTelegramBot : AdminTelegramBot is creating...
+[INFO ]  2021-03-28 21:03:98.18 --- [main] com.example.demo.common_part.config.AsyncConfig : Created ThreadPoolTaskScheduler bean. PoolSize: 1
+[INFO ]  2021-03-28 21:03:644.29 --- [user-thread-2] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:660.29 --- [user-thread-2] com.example.demo.user_bot.service.state_handler.UserBotStateService : Изменить категорию MENU2
+[INFO ]  2021-03-28 21:03:597.30 --- [user-thread-2] com.example.demo.user_bot.service.UserMainService : USER TIME: 965.0
+[INFO ]  2021-03-28 21:03:655.30 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 36
+[INFO ]  2021-03-28 21:03:98.35 --- [user-thread-3] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:103.35 --- [user-thread-3] com.example.demo.user_bot.service.state_handler.UserBotStateService : Изменить категорию MENU21
+[INFO ]  2021-03-28 21:03:105.35 --- [user-thread-3] com.example.demo.user_bot.service.UserMainService : USER TIME: 8.0
+[INFO ]  2021-03-28 21:03:112.35 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 2
+[INFO ]  2021-03-28 21:03:112.35 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:91.36 --- [user-thread-4] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:91.36 --- [user-thread-4] com.example.demo.user_bot.service.state_handler.UserBotStateService : Изменить кол-во комнат MENU21
+[INFO ]  2021-03-28 21:03:95.36 --- [user-thread-4] com.example.demo.user_bot.service.UserMainService : USER TIME: 4.0
+[INFO ]  2021-03-28 21:03:96.36 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 1
+[INFO ]  2021-03-28 21:03:96.36 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:210.37 --- [user-thread-5] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:211.37 --- [user-thread-5] com.example.demo.user_bot.service.state_handler.UserBotStateService : Изменить бюджет MENU22
+[INFO ]  2021-03-28 21:03:212.37 --- [user-thread-5] com.example.demo.user_bot.service.UserMainService : USER TIME: 2.0
+[INFO ]  2021-03-28 21:03:338.37 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 126
+[INFO ]  2021-03-28 21:03:338.37 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:867.43 --- [user-thread-6] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:867.43 --- [user-thread-6] com.example.demo.user_bot.service.state_handler.UserBotStateService : Изменить категорию MENU24
+[INFO ]  2021-03-28 21:03:868.43 --- [user-thread-6] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:869.43 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 1
+[INFO ]  2021-03-28 21:03:869.43 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:457.45 --- [user-thread-7] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:460.45 --- [user-thread-7] com.example.demo.user_bot.service.state_handler.UserBotStateService : Изменить кол-во комнат MENU21
+[INFO ]  2021-03-28 21:03:460.45 --- [user-thread-7] com.example.demo.user_bot.service.UserMainService : USER TIME: 3.0
+[INFO ]  2021-03-28 21:03:461.45 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 21:03:462.45 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:841.46 --- [user-thread-8] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:842.46 --- [user-thread-8] com.example.demo.user_bot.service.state_handler.UserBotStateService : Изменить бюджет MENU22
+[INFO ]  2021-03-28 21:03:842.46 --- [user-thread-8] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:844.46 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 2
+[INFO ]  2021-03-28 21:03:845.46 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:925.47 --- [user-thread-9] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:925.47 --- [user-thread-9] com.example.demo.user_bot.service.state_handler.UserBotStateService : Выбрать районы MENU24
+[INFO ]  2021-03-28 21:03:927.47 --- [user-thread-9] com.example.demo.user_bot.service.UserMainService : USER TIME: 2.0
+[INFO ]  2021-03-28 21:03:929.47 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 2
+[INFO ]  2021-03-28 21:03:929.47 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:149.49 --- [user-thread-10] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:149.49 --- [user-thread-10] com.example.demo.user_bot.service.state_handler.UserBotStateService : Изменить кол-во комнат MENU23
+[INFO ]  2021-03-28 21:03:150.49 --- [user-thread-10] com.example.demo.user_bot.service.UserMainService : USER TIME: 2.0
+[INFO ]  2021-03-28 21:03:150.49 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 21:03:152.49 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:93.50 --- [user-thread-11] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:93.50 --- [user-thread-11] com.example.demo.user_bot.service.state_handler.UserBotStateService : Изменить категорию MENU22
+[INFO ]  2021-03-28 21:03:94.50 --- [user-thread-11] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:94.50 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 21:03:102.50 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:841.51 --- [user-thread-12] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:842.51 --- [user-thread-12] com.example.demo.user_bot.service.state_handler.UserBotStateService : ⬅ Назад MENU21
+[INFO ]  2021-03-28 21:03:845.51 --- [user-thread-12] com.example.demo.user_bot.service.UserMainService : USER TIME: 4.0
+[INFO ]  2021-03-28 21:03:845.51 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 21:03:847.51 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:383.53 --- [user-thread-13] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:383.53 --- [user-thread-13] com.example.demo.user_bot.service.state_handler.UserBotStateService : Мои предпочтения MENU1
+[INFO ]  2021-03-28 21:03:384.53 --- [user-thread-13] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:385.53 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:912.54 --- [user-thread-14] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:912.54 --- [user-thread-14] com.example.demo.user_bot.service.state_handler.UserBotStateService : ⬅ Назад MENU2
+[INFO ]  2021-03-28 21:03:920.54 --- [user-thread-14] com.example.demo.user_bot.service.UserMainService : USER TIME: 8.0
+[INFO ]  2021-03-28 21:03:920.54 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:190.56 --- [user-thread-15] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:190.56 --- [user-thread-15] com.example.demo.user_bot.service.state_handler.UserBotStateService : Мои предпочтения MENU1
+[INFO ]  2021-03-28 21:03:191.56 --- [user-thread-15] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:192.56 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:171.57 --- [user-thread-16] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:181.57 --- [user-thread-16] com.example.demo.user_bot.service.state_handler.UserBotStateService : ⬅ Назад MENU2
+[INFO ]  2021-03-28 21:03:181.57 --- [user-thread-16] com.example.demo.user_bot.service.UserMainService : USER TIME: 10.0
+[INFO ]  2021-03-28 21:03:182.57 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:95.58 --- [user-thread-17] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:96.58 --- [user-thread-17] com.example.demo.user_bot.service.state_handler.UserBotStateService : Настройки MENU1
+[INFO ]  2021-03-28 21:03:96.58 --- [user-thread-17] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:97.58 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:167.59 --- [user-thread-18] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:170.59 --- [user-thread-18] com.example.demo.user_bot.service.state_handler.UserBotStateService : ⬅ Назад MENU3
+[INFO ]  2021-03-28 21:03:171.59 --- [user-thread-18] com.example.demo.user_bot.service.UserMainService : USER TIME: 4.0
+[INFO ]  2021-03-28 21:03:173.59 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 2
+[INFO ]  2021-03-28 21:03:340.20 --- [user-thread-19] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:341.20 --- [user-thread-19] com.example.demo.user_bot.service.state_handler.UserBotStateService : Мои предпочтения MENU1
+[INFO ]  2021-03-28 21:03:342.20 --- [user-thread-19] com.example.demo.user_bot.service.UserMainService : USER TIME: 2.0
+[INFO ]  2021-03-28 21:03:342.20 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:590.21 --- [user-thread-20] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:591.21 --- [user-thread-20] com.example.demo.user_bot.service.state_handler.UserBotStateService : Изменить категорию MENU2
+[INFO ]  2021-03-28 21:03:592.21 --- [user-thread-20] com.example.demo.user_bot.service.UserMainService : USER TIME: 2.0
+[INFO ]  2021-03-28 21:03:593.21 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:850.22 --- [user-thread-21] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 1
+[INFO ]  2021-03-28 21:03:852.22 --- [user-thread-21] com.example.demo.user_bot.service.UserMainService : USER TIME: 3.0
+[INFO ]  2021-03-28 21:03:853.22 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method answercallbackquery: 1
+[INFO ]  2021-03-28 21:03:857.22 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method editmessagereplymarkup: 0
+[INFO ]  2021-03-28 21:03:594.24 --- [user-thread-22] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:596.24 --- [user-thread-22] com.example.demo.user_bot.service.state_handler.UserBotStateService : 🔍 Подобрать MENU21
+[INFO ]  2021-03-28 21:03:853.24 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:853.24 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:854.24 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:856.24 --- [user-thread-22] com.example.demo.user_bot.service.UserMainService : USER TIME: 262.0
+[INFO ]  2021-03-28 21:03:856.24 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 21:03:629.26 --- [user-thread-23] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:633.26 --- [user-thread-23] com.example.demo.user_bot.service.UserMainService : USER TIME: 4.0
+[INFO ]  2021-03-28 21:03:634.26 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method answercallbackquery: 1
+[INFO ]  2021-03-28 21:03:634.26 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:91.28 --- [user-thread-24] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:92.28 --- [user-thread-24] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:93.28 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method answercallbackquery: 0
+[INFO ]  2021-03-28 21:03:94.28 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 1
+[INFO ]  2021-03-28 21:03:94.28 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:594.29 --- [user-thread-25] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:594.29 --- [user-thread-25] com.example.demo.user_bot.service.state_handler.UserBotStateService : Мои предпочтения MENU1
+[INFO ]  2021-03-28 21:03:595.29 --- [user-thread-25] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:595.29 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:842.30 --- [user-thread-26] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:845.30 --- [user-thread-26] com.example.demo.user_bot.service.state_handler.UserBotStateService : Изменить кол-во комнат MENU2
+[INFO ]  2021-03-28 21:03:846.30 --- [user-thread-26] com.example.demo.user_bot.service.UserMainService : USER TIME: 3.0
+[INFO ]  2021-03-28 21:03:846.30 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:93.32 --- [user-thread-27] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:93.32 --- [user-thread-27] com.example.demo.user_bot.service.state_handler.UserBotStateService : Выбрать районы MENU22
+[INFO ]  2021-03-28 21:03:102.32 --- [user-thread-27] com.example.demo.user_bot.service.UserMainService : USER TIME: 9.0
+[INFO ]  2021-03-28 21:03:102.32 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 21:03:104.32 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:175.38 --- [user-thread-28] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:176.38 --- [user-thread-28] com.example.demo.user_bot.service.state_handler.UserBotStateService : 🔍 Подобрать MENU23
+[INFO ]  2021-03-28 21:03:187.38 --- [user-thread-28] com.example.demo.user_bot.service.UserMainService : USER TIME: 12.0
+[INFO ]  2021-03-28 21:03:187.38 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:190.38 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:190.38 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:190.38 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 21:03:636.18 --- [user-thread-29] com.example.demo.user_bot.service.UserMainService : USER TIME: 46.0
+[INFO ]  2021-03-28 21:03:636.18 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 21:03:454.22 --- [user-thread-30] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:454.22 --- [user-thread-30] com.example.demo.user_bot.service.UserMainService : USER TIME: 0.0
+[INFO ]  2021-03-28 21:03:456.22 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 2
+[INFO ]  2021-03-28 21:03:348.25 --- [user-thread-31] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:350.25 --- [user-thread-31] com.example.demo.user_bot.service.UserMainService : USER TIME: 2.0
+[INFO ]  2021-03-28 21:03:351.25 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method answercallbackquery: 0
+[INFO ]  2021-03-28 21:03:351.25 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:96.29 --- [user-thread-32] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:96.29 --- [user-thread-32] com.example.demo.user_bot.service.state_handler.UserBotStateService : Настройки MENU1
+[INFO ]  2021-03-28 21:03:97.29 --- [user-thread-32] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:97.29 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:843.30 --- [user-thread-33] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:843.30 --- [user-thread-33] com.example.demo.user_bot.service.state_handler.UserBotStateService : ⬅ Назад MENU3
+[INFO ]  2021-03-28 21:03:850.30 --- [user-thread-33] com.example.demo.user_bot.service.UserMainService : USER TIME: 7.0
+[INFO ]  2021-03-28 21:03:850.30 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:167.33 --- [user-thread-34] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:168.33 --- [user-thread-34] com.example.demo.user_bot.service.state_handler.UserBotStateService : Мои предпочтения MENU1
+[INFO ]  2021-03-28 21:03:170.33 --- [user-thread-34] com.example.demo.user_bot.service.UserMainService : USER TIME: 3.0
+[INFO ]  2021-03-28 21:03:171.33 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:340.33 --- [user-thread-35] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:341.33 --- [user-thread-35] com.example.demo.user_bot.service.state_handler.UserBotStateService : Мои предпочтения MENU1
+[INFO ]  2021-03-28 21:03:341.33 --- [user-thread-35] com.example.demo.user_bot.service.UserMainService : USER TIME: 162.0
+[INFO ]  2021-03-28 21:03:343.33 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:90.36 --- [user-thread-36] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:90.36 --- [user-thread-36] com.example.demo.user_bot.service.state_handler.UserBotStateService : ⬅ Назад MENU2
+[INFO ]  2021-03-28 21:03:92.36 --- [user-thread-36] com.example.demo.user_bot.service.UserMainService : USER TIME: 2.0
+[INFO ]  2021-03-28 21:03:93.36 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:341.36 --- [user-thread-37] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:341.36 --- [user-thread-37] com.example.demo.user_bot.service.state_handler.UserBotStateService : ⬅ Назад MENU2
+[INFO ]  2021-03-28 21:03:341.36 --- [user-thread-37] com.example.demo.user_bot.service.UserMainService : USER TIME: 0.0
+[INFO ]  2021-03-28 21:03:343.36 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:340.38 --- [user-thread-38] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:340.38 --- [user-thread-38] com.example.demo.user_bot.service.state_handler.UserBotStateService : Мои предпочтения MENU1
+[INFO ]  2021-03-28 21:03:341.38 --- [user-thread-38] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:342.38 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:591.38 --- [user-thread-39] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:591.38 --- [user-thread-39] com.example.demo.user_bot.service.state_handler.UserBotStateService : Мои предпочтения MENU1
+[INFO ]  2021-03-28 21:03:592.38 --- [user-thread-39] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:593.38 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:693.40 --- [user-thread-40] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:693.40 --- [user-thread-40] com.example.demo.user_bot.service.state_handler.UserBotStateService : ⬅ Назад MENU2
+[INFO ]  2021-03-28 21:03:693.40 --- [user-thread-40] com.example.demo.user_bot.service.UserMainService : USER TIME: 0.0
+[INFO ]  2021-03-28 21:03:694.40 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:842.40 --- [user-thread-2] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:842.40 --- [user-thread-2] com.example.demo.user_bot.service.state_handler.UserBotStateService : ⬅ Назад MENU2
+[INFO ]  2021-03-28 21:03:843.40 --- [user-thread-2] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:843.40 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:937.42 --- [user-thread-3] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:937.42 --- [user-thread-3] com.example.demo.user_bot.service.state_handler.UserBotStateService : Мои предпочтения MENU1
+[INFO ]  2021-03-28 21:03:938.42 --- [user-thread-3] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:939.42 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:89.43 --- [user-thread-4] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:90.43 --- [user-thread-4] com.example.demo.user_bot.service.state_handler.UserBotStateService : Мои предпочтения MENU1
+[INFO ]  2021-03-28 21:03:90.43 --- [user-thread-4] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:91.43 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:89.45 --- [user-thread-5] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:89.45 --- [user-thread-5] com.example.demo.user_bot.service.state_handler.UserBotStateService : ⬅ Назад MENU2
+[INFO ]  2021-03-28 21:03:90.45 --- [user-thread-5] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:92.45 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 2
+[INFO ]  2021-03-28 21:03:89.46 --- [user-thread-6] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:89.46 --- [user-thread-6] com.example.demo.user_bot.service.state_handler.UserBotStateService : ⬅ Назад MENU2
+[INFO ]  2021-03-28 21:03:90.46 --- [user-thread-6] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:90.46 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:115.48 --- [user-thread-7] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:116.48 --- [user-thread-7] com.example.demo.user_bot.service.state_handler.UserBotStateService : Мои предпочтения MENU1
+[INFO ]  2021-03-28 21:03:116.48 --- [user-thread-7] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:117.48 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:340.48 --- [user-thread-8] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:341.48 --- [user-thread-8] com.example.demo.user_bot.service.state_handler.UserBotStateService : Мои предпочтения MENU1
+[INFO ]  2021-03-28 21:03:342.48 --- [user-thread-8] com.example.demo.user_bot.service.UserMainService : USER TIME: 2.0
+[INFO ]  2021-03-28 21:03:344.48 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:418.50 --- [user-thread-9] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:418.50 --- [user-thread-9] com.example.demo.user_bot.service.state_handler.UserBotStateService : ⬅ Назад MENU2
+[INFO ]  2021-03-28 21:03:418.50 --- [user-thread-9] com.example.demo.user_bot.service.UserMainService : USER TIME: 0.0
+[INFO ]  2021-03-28 21:03:419.50 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:590.50 --- [user-thread-10] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:590.50 --- [user-thread-10] com.example.demo.user_bot.service.state_handler.UserBotStateService : ⬅ Назад MENU2
+[INFO ]  2021-03-28 21:03:590.50 --- [user-thread-10] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:591.50 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:619.52 --- [user-thread-11] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:619.52 --- [user-thread-11] com.example.demo.user_bot.service.state_handler.UserBotStateService : Мои предпочтения MENU1
+[INFO ]  2021-03-28 21:03:620.52 --- [user-thread-11] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:621.52 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:840.52 --- [user-thread-12] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:840.52 --- [user-thread-12] com.example.demo.user_bot.service.state_handler.UserBotStateService : Мои предпочтения MENU1
+[INFO ]  2021-03-28 21:03:841.52 --- [user-thread-12] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:842.52 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:606.55 --- [user-thread-13] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:606.55 --- [user-thread-13] com.example.demo.user_bot.service.state_handler.UserBotStateService : 🔍 Подобрать MENU2
+[ERROR]  2021-03-28 21:03:609.55 --- [user-thread-13] com.example.demo.user_bot.service.UserMainService : java.lang.NullPointerException
+[INFO ]  2021-03-28 21:03:842.55 --- [user-thread-14] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:842.55 --- [user-thread-14] com.example.demo.user_bot.service.state_handler.UserBotStateService : 🔍 Подобрать MENU2
+[INFO ]  2021-03-28 21:03:843.55 --- [user-thread-14] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:844.55 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:845.55 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:846.55 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:397.02 --- [ThreadPoolTaskScheduler1] com.example.demo.user_bot.cache.DataCache : REMOVING USER CACHE chatId: 1540231441
+[INFO ]  2021-03-28 21:03:96.26 --- [user-thread-15] com.example.demo.user_bot.service.entities.UserService : GET FROM DB: 1540231441. TIME: 5
+[INFO ]  2021-03-28 21:03:97.26 --- [user-thread-15] com.example.demo.user_bot.service.state_handler.UserBotStateService : Изменить категорию MENU2
+[INFO ]  2021-03-28 21:03:97.26 --- [user-thread-15] com.example.demo.user_bot.service.UserMainService : USER TIME: 7.0
+[INFO ]  2021-03-28 21:03:98.26 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:374.27 --- [user-thread-16] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:375.27 --- [user-thread-16] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:376.27 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method answercallbackquery: 0
+[INFO ]  2021-03-28 21:03:377.27 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method editmessagereplymarkup: 0
+[INFO ]  2021-03-28 21:03:707.28 --- [user-thread-17] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:707.28 --- [user-thread-17] com.example.demo.user_bot.service.state_handler.UserBotStateService : Изменить кол-во комнат MENU21
+[INFO ]  2021-03-28 21:03:710.28 --- [user-thread-17] com.example.demo.user_bot.service.UserMainService : USER TIME: 3.0
+[INFO ]  2021-03-28 21:03:711.28 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 1
+[INFO ]  2021-03-28 21:03:711.28 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:138.30 --- [user-thread-18] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 1
+[INFO ]  2021-03-28 21:03:140.30 --- [user-thread-18] com.example.demo.user_bot.service.UserMainService : USER TIME: 3.0
+[INFO ]  2021-03-28 21:03:140.30 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method answercallbackquery: 0
+[INFO ]  2021-03-28 21:03:141.30 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method editmessagereplymarkup: 0
+[INFO ]  2021-03-28 21:03:340.31 --- [user-thread-19] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 1
+[INFO ]  2021-03-28 21:03:340.31 --- [user-thread-19] com.example.demo.user_bot.service.state_handler.UserBotStateService : Выбрать районы MENU22
+[INFO ]  2021-03-28 21:03:341.31 --- [user-thread-19] com.example.demo.user_bot.service.UserMainService : USER TIME: 2.0
+[INFO ]  2021-03-28 21:03:341.31 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 21:03:342.31 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:840.32 --- [user-thread-20] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:841.32 --- [user-thread-20] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:841.32 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method answercallbackquery: 0
+[INFO ]  2021-03-28 21:03:843.32 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method editmessagereplymarkup: 0
+[INFO ]  2021-03-28 21:03:937.33 --- [user-thread-21] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:938.33 --- [user-thread-21] com.example.demo.user_bot.service.state_handler.UserBotStateService : Изменить бюджет MENU23
+[INFO ]  2021-03-28 21:03:939.33 --- [user-thread-21] com.example.demo.user_bot.service.UserMainService : USER TIME: 2.0
+[INFO ]  2021-03-28 21:03:941.33 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 2
+[INFO ]  2021-03-28 21:03:941.33 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:841.35 --- [user-thread-22] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:842.35 --- [user-thread-22] com.example.demo.user_bot.service.state_handler.UserBotStateService : 🔍 Подобрать MENU24
+[INFO ]  2021-03-28 21:03:843.35 --- [user-thread-22] com.example.demo.user_bot.service.UserMainService : USER TIME: 2.0
+[INFO ]  2021-03-28 21:03:843.35 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 21:03:845.35 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:845.35 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:846.35 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:192.38 --- [user-thread-23] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:193.38 --- [user-thread-23] com.example.demo.user_bot.service.state_handler.UserBotStateService : Мои предпочтения MENU1
+[INFO ]  2021-03-28 21:03:193.38 --- [user-thread-23] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:194.38 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:340.39 --- [user-thread-24] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:340.39 --- [user-thread-24] com.example.demo.user_bot.service.state_handler.UserBotStateService : Изменить категорию MENU2
+[INFO ]  2021-03-28 21:03:341.39 --- [user-thread-24] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:341.39 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:391.40 --- [user-thread-25] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:392.40 --- [user-thread-25] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:392.40 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method answercallbackquery: 0
+[INFO ]  2021-03-28 21:03:393.40 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method editmessagereplymarkup: 1
+[INFO ]  2021-03-28 21:03:402.41 --- [user-thread-26] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:402.41 --- [user-thread-26] com.example.demo.user_bot.service.UserMainService : USER TIME: 0.0
+[INFO ]  2021-03-28 21:03:403.41 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method answercallbackquery: 0
+[INFO ]  2021-03-28 21:03:403.41 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method editmessagereplymarkup: 0
+[INFO ]  2021-03-28 21:03:352.42 --- [user-thread-27] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:352.42 --- [user-thread-27] com.example.demo.user_bot.service.state_handler.UserBotStateService : 🔍 Подобрать MENU21
+[INFO ]  2021-03-28 21:03:384.42 --- [user-thread-27] com.example.demo.user_bot.service.UserMainService : USER TIME: 32.0
+[INFO ]  2021-03-28 21:03:385.42 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 1
+[INFO ]  2021-03-28 21:03:385.42 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:918.43 --- [user-thread-28] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:918.43 --- [user-thread-28] com.example.demo.user_bot.service.state_handler.UserBotStateService : Мои предпочтения MENU1
+[INFO ]  2021-03-28 21:03:919.43 --- [user-thread-28] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:919.43 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:90.45 --- [user-thread-29] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:90.45 --- [user-thread-29] com.example.demo.user_bot.service.state_handler.UserBotStateService : Изменить категорию MENU2
+[INFO ]  2021-03-28 21:03:90.45 --- [user-thread-29] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:91.45 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:381.46 --- [user-thread-30] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:381.46 --- [user-thread-30] com.example.demo.user_bot.service.UserMainService : USER TIME: 0.0
+[INFO ]  2021-03-28 21:03:382.46 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method answercallbackquery: 1
+[INFO ]  2021-03-28 21:03:383.46 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method editmessagereplymarkup: 1
+[INFO ]  2021-03-28 21:03:382.47 --- [user-thread-31] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:383.47 --- [user-thread-31] com.example.demo.user_bot.service.state_handler.UserBotStateService : Изменить кол-во комнат MENU21
+[INFO ]  2021-03-28 21:03:383.47 --- [user-thread-31] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:384.47 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 1
+[INFO ]  2021-03-28 21:03:384.47 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:840.48 --- [user-thread-32] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:841.48 --- [user-thread-32] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:841.48 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method answercallbackquery: 0
+[INFO ]  2021-03-28 21:03:842.48 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method editmessagereplymarkup: 0
+[INFO ]  2021-03-28 21:03:840.49 --- [user-thread-33] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:841.49 --- [user-thread-33] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:841.49 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method answercallbackquery: 0
+[INFO ]  2021-03-28 21:03:842.49 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method editmessagereplymarkup: 0
+[INFO ]  2021-03-28 21:03:89.50 --- [user-thread-34] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:91.50 --- [user-thread-34] com.example.demo.user_bot.service.UserMainService : USER TIME: 2.0
+[INFO ]  2021-03-28 21:03:91.50 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method answercallbackquery: 0
+[INFO ]  2021-03-28 21:03:92.50 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method editmessagereplymarkup: 1
+[INFO ]  2021-03-28 21:03:89.52 --- [user-thread-35] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:90.52 --- [user-thread-35] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:91.52 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method answercallbackquery: 0
+[INFO ]  2021-03-28 21:03:91.52 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method editmessagereplymarkup: 0
+[INFO ]  2021-03-28 21:03:89.55 --- [user-thread-36] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:91.55 --- [user-thread-36] com.example.demo.user_bot.service.state_handler.UserBotStateService : Выбрать районы MENU22
+[INFO ]  2021-03-28 21:03:92.55 --- [user-thread-36] com.example.demo.user_bot.service.UserMainService : USER TIME: 3.0
+[INFO ]  2021-03-28 21:03:92.55 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 21:03:92.55 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:340.55 --- [user-thread-37] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:340.55 --- [user-thread-37] com.example.demo.user_bot.service.UserMainService : USER TIME: 0.0
+[INFO ]  2021-03-28 21:03:340.55 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:957.56 --- [user-thread-38] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:958.56 --- [user-thread-38] com.example.demo.user_bot.service.state_handler.UserBotStateService : Изменить бюджет MENU23
+[INFO ]  2021-03-28 21:03:958.56 --- [user-thread-38] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:959.56 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 1
+[INFO ]  2021-03-28 21:03:960.56 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:958.03 --- [ThreadPoolTaskScheduler1] com.example.demo.user_bot.cache.DataCache : REMOVING USER CACHE chatId: 1540231441
+[INFO ]  2021-03-28 21:03:89.04 --- [user-thread-39] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:90.04 --- [user-thread-39] com.example.demo.user_bot.service.state_handler.UserBotStateService : Мои предпочтения MENU1
+[INFO ]  2021-03-28 21:03:91.04 --- [user-thread-39] com.example.demo.user_bot.service.UserMainService : USER TIME: 2.0
+[INFO ]  2021-03-28 21:03:91.04 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:209.05 --- [user-thread-40] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:210.05 --- [user-thread-40] com.example.demo.user_bot.service.state_handler.UserBotStateService : Изменить категорию MENU2
+[INFO ]  2021-03-28 21:03:210.05 --- [user-thread-40] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:210.05 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:396.06 --- [user-thread-2] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:396.06 --- [user-thread-2] com.example.demo.user_bot.service.state_handler.UserBotStateService : Изменить кол-во комнат MENU21
+[INFO ]  2021-03-28 21:03:397.06 --- [user-thread-2] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:397.06 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 21:03:398.06 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:840.07 --- [user-thread-3] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:840.07 --- [user-thread-3] com.example.demo.user_bot.service.UserMainService : USER TIME: 0.0
+[INFO ]  2021-03-28 21:03:841.07 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method answercallbackquery: 1
+[INFO ]  2021-03-28 21:03:842.07 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method editmessagereplymarkup: 0
+[INFO ]  2021-03-28 21:03:892.08 --- [user-thread-4] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:892.08 --- [user-thread-4] com.example.demo.user_bot.service.state_handler.UserBotStateService : Выбрать районы MENU22
+[INFO ]  2021-03-28 21:03:893.08 --- [user-thread-4] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:893.08 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 21:03:894.08 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:89.10 --- [user-thread-5] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:89.10 --- [user-thread-5] com.example.demo.user_bot.service.state_handler.UserBotStateService : Изменить бюджет MENU23
+[INFO ]  2021-03-28 21:03:90.10 --- [user-thread-5] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:90.10 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 21:03:91.10 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:143.11 --- [user-thread-6] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:145.11 --- [user-thread-6] com.example.demo.user_bot.service.state_handler.UserBotStateService : Изменить кол-во комнат MENU24
+[INFO ]  2021-03-28 21:03:145.11 --- [user-thread-6] com.example.demo.user_bot.service.UserMainService : USER TIME: 2.0
+[INFO ]  2021-03-28 21:03:145.11 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 21:03:146.11 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:916.13 --- [user-thread-7] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:917.13 --- [user-thread-7] com.example.demo.user_bot.service.state_handler.UserBotStateService : 🔍 Подобрать MENU22
+[INFO ]  2021-03-28 21:03:919.13 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:924.13 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:924.13 --- [user-thread-7] com.example.demo.user_bot.service.UserMainService : USER TIME: 8.0
+[INFO ]  2021-03-28 21:03:925.13 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:928.13 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 21:03:93.14 --- [user-thread-8] com.example.demo.user_bot.service.entities.UserService : GET FROM DB: 1540231441. TIME: 3
+[INFO ]  2021-03-28 21:03:94.14 --- [user-thread-8] com.example.demo.user_bot.service.state_handler.UserBotStateService : 🔍 Подобрать MENU24
+[INFO ]  2021-03-28 21:03:94.14 --- [user-thread-8] com.example.demo.user_bot.service.UserMainService : USER TIME: 4.0
+[INFO ]  2021-03-28 21:03:96.14 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 2
+[INFO ]  2021-03-28 21:03:97.14 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:97.14 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:97.14 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 21:03:608.17 --- [user-thread-9] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:609.17 --- [user-thread-9] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:610.17 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 1
+[INFO ]  2021-03-28 21:03:610.17 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:611.17 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:841.17 --- [user-thread-10] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:842.17 --- [user-thread-10] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:842.17 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 21:03:843.17 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:843.17 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:863.20 --- [user-thread-11] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:863.20 --- [user-thread-11] com.example.demo.user_bot.service.state_handler.UserBotStateService : Мои предпочтения MENU1
+[INFO ]  2021-03-28 21:03:863.20 --- [user-thread-11] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:872.20 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 4
+[INFO ]  2021-03-28 21:03:90.21 --- [user-thread-12] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:90.21 --- [user-thread-12] com.example.demo.user_bot.service.state_handler.UserBotStateService : Мои предпочтения MENU1
+[INFO ]  2021-03-28 21:03:90.21 --- [user-thread-12] com.example.demo.user_bot.service.UserMainService : USER TIME: 0.0
+[INFO ]  2021-03-28 21:03:91.21 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:339.23 --- [user-thread-13] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:340.23 --- [user-thread-13] com.example.demo.user_bot.service.state_handler.UserBotStateService : 🔍 Подобрать MENU2
+[INFO ]  2021-03-28 21:03:340.23 --- [user-thread-13] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:341.23 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:341.23 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:341.23 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:590.23 --- [user-thread-14] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:590.23 --- [user-thread-14] com.example.demo.user_bot.service.state_handler.UserBotStateService : 🔍 Подобрать MENU2
+[INFO ]  2021-03-28 21:03:591.23 --- [user-thread-14] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:591.23 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:592.23 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:592.23 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:92.27 --- [user-thread-15] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 1
+[INFO ]  2021-03-28 21:03:92.27 --- [user-thread-15] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:93.27 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:93.27 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:95.27 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method answercallbackquery: 1
+[INFO ]  2021-03-28 21:03:95.27 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 21:03:342.27 --- [user-thread-16] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:343.27 --- [user-thread-16] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:343.27 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:344.27 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:345.27 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method answercallbackquery: 1
+[INFO ]  2021-03-28 21:03:345.27 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 21:03:840.32 --- [user-thread-17] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:840.32 --- [user-thread-17] com.example.demo.user_bot.service.state_handler.UserBotStateService : Мои предпочтения MENU1
+[INFO ]  2021-03-28 21:03:841.32 --- [user-thread-17] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:841.32 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:839.33 --- [user-thread-18] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:840.33 --- [user-thread-18] com.example.demo.user_bot.service.state_handler.UserBotStateService : Изменить категорию MENU2
+[INFO ]  2021-03-28 21:03:840.33 --- [user-thread-18] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:840.33 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:109.34 --- [ThreadPoolTaskScheduler1] com.example.demo.user_bot.cache.DataCache : REMOVING USER CACHE chatId: 1540231441
+[INFO ]  2021-03-28 21:03:90.35 --- [user-thread-19] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:90.35 --- [user-thread-19] com.example.demo.user_bot.service.state_handler.UserBotStateService : Изменить кол-во комнат MENU21
+[INFO ]  2021-03-28 21:03:90.35 --- [user-thread-19] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:91.35 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 1
+[INFO ]  2021-03-28 21:03:92.35 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:90.36 --- [user-thread-20] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:90.36 --- [user-thread-20] com.example.demo.user_bot.service.state_handler.UserBotStateService : Выбрать районы MENU22
+[INFO ]  2021-03-28 21:03:91.36 --- [user-thread-20] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:91.36 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 21:03:92.36 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:89.37 --- [user-thread-21] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:90.37 --- [user-thread-21] com.example.demo.user_bot.service.state_handler.UserBotStateService : Изменить бюджет MENU23
+[INFO ]  2021-03-28 21:03:90.37 --- [user-thread-21] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:91.37 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 1
+[INFO ]  2021-03-28 21:03:91.37 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:339.38 --- [user-thread-22] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:340.38 --- [user-thread-22] com.example.demo.user_bot.service.state_handler.UserBotStateService : Изменить категорию MENU24
+[INFO ]  2021-03-28 21:03:340.38 --- [user-thread-22] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:340.38 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 21:03:341.38 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:653.39 --- [user-thread-23] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:654.39 --- [user-thread-23] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:654.39 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method answercallbackquery: 0
+[INFO ]  2021-03-28 21:03:655.39 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method editmessagereplymarkup: 1
+[INFO ]  2021-03-28 21:03:693.40 --- [user-thread-24] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:693.40 --- [user-thread-24] com.example.demo.user_bot.service.state_handler.UserBotStateService : 🔍 Подобрать MENU21
+[INFO ]  2021-03-28 21:03:889.40 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:889.40 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:893.40 --- [user-thread-24] com.example.demo.user_bot.service.UserMainService : USER TIME: 200.0
+[INFO ]  2021-03-28 21:03:893.40 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:894.40 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 21:03:593.43 --- [user-thread-25] com.example.demo.user_bot.service.entities.UserService : GET FROM DB: 1540231441. TIME: 4
+[INFO ]  2021-03-28 21:03:595.43 --- [user-thread-25] com.example.demo.user_bot.service.state_handler.UserBotStateService : Мои предпочтения MENU1
+[INFO ]  2021-03-28 21:03:595.43 --- [user-thread-25] com.example.demo.user_bot.service.UserMainService : USER TIME: 6.0
+[INFO ]  2021-03-28 21:03:597.43 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 2
+[INFO ]  2021-03-28 21:03:839.44 --- [user-thread-26] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:850.44 --- [user-thread-26] com.example.demo.user_bot.service.state_handler.UserBotStateService : Изменить категорию MENU2
+[INFO ]  2021-03-28 21:03:850.44 --- [user-thread-26] com.example.demo.user_bot.service.UserMainService : USER TIME: 11.0
+[INFO ]  2021-03-28 21:03:850.44 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:90.46 --- [user-thread-27] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:91.46 --- [user-thread-27] com.example.demo.user_bot.service.UserMainService : USER TIME: 2.0
+[INFO ]  2021-03-28 21:03:92.46 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method answercallbackquery: 1
+[INFO ]  2021-03-28 21:03:92.46 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method editmessagereplymarkup: 0
+[INFO ]  2021-03-28 21:03:839.48 --- [user-thread-28] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:840.48 --- [user-thread-28] com.example.demo.user_bot.service.UserMainService : USER TIME: 0.0
+[INFO ]  2021-03-28 21:03:840.48 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 21:03:841.48 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:842.48 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:89.49 --- [user-thread-29] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:90.49 --- [user-thread-29] com.example.demo.user_bot.service.state_handler.UserBotStateService : 🔍 Подобрать MENU21
+[INFO ]  2021-03-28 21:03:119.49 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:119.49 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:122.49 --- [user-thread-29] com.example.demo.user_bot.service.UserMainService : USER TIME: 33.0
+[INFO ]  2021-03-28 21:03:122.49 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:123.49 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 21:03:589.54 --- [user-thread-30] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:591.54 --- [user-thread-30] com.example.demo.user_bot.service.state_handler.UserBotStateService : Мои предпочтения MENU1
+[INFO ]  2021-03-28 21:03:592.54 --- [user-thread-30] com.example.demo.user_bot.service.UserMainService : USER TIME: 3.0
+[INFO ]  2021-03-28 21:03:593.54 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:425.55 --- [ThreadPoolTaskScheduler1] com.example.demo.user_bot.cache.DataCache : REMOVING USER CACHE chatId: 1540231441
+[INFO ]  2021-03-28 21:03:177.56 --- [user-thread-31] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:177.56 --- [user-thread-31] com.example.demo.user_bot.service.state_handler.UserBotStateService : 🔍 Подобрать MENU2
+[INFO ]  2021-03-28 21:03:345.56 --- [user-thread-32] com.example.demo.user_bot.service.entities.UserService : GET FROM DB: 1540231441. TIME: 168
+[INFO ]  2021-03-28 21:03:346.56 --- [user-thread-32] com.example.demo.user_bot.service.UserMainService : USER TIME: 169.0
+[INFO ]  2021-03-28 21:03:347.56 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 1
+[INFO ]  2021-03-28 21:03:347.56 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:348.56 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:353.56 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:354.56 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:356.56 --- [user-thread-31] com.example.demo.user_bot.service.UserMainService : USER TIME: 179.0
+[INFO ]  2021-03-28 21:03:356.56 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:589.01 --- [user-thread-33] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:589.01 --- [user-thread-33] com.example.demo.user_bot.service.state_handler.UserBotStateService : Мои предпочтения MENU1
+[INFO ]  2021-03-28 21:03:590.01 --- [user-thread-33] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:590.01 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:604.03 --- [user-thread-34] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:605.03 --- [user-thread-34] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:606.03 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method answercallbackquery: 1
+[INFO ]  2021-03-28 21:03:606.03 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 21:03:606.03 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:606.03 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:589.04 --- [user-thread-35] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:590.04 --- [user-thread-35] com.example.demo.user_bot.service.state_handler.UserBotStateService : 🔍 Подобрать MENU2
+[INFO ]  2021-03-28 21:03:630.04 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:630.04 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:644.04 --- [user-thread-35] com.example.demo.user_bot.service.UserMainService : USER TIME: 55.0
+[INFO ]  2021-03-28 21:03:645.04 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:840.06 --- [user-thread-36] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:840.06 --- [user-thread-36] com.example.demo.user_bot.service.UserMainService : USER TIME: 0.0
+[INFO ]  2021-03-28 21:03:841.06 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 1
+[INFO ]  2021-03-28 21:03:842.06 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:842.06 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:339.09 --- [user-thread-37] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:339.09 --- [user-thread-37] com.example.demo.user_bot.service.state_handler.UserBotStateService : Мои предпочтения MENU1
+[INFO ]  2021-03-28 21:03:339.09 --- [user-thread-37] com.example.demo.user_bot.service.UserMainService : USER TIME: 0.0
+[INFO ]  2021-03-28 21:03:340.09 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:589.09 --- [user-thread-38] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:590.09 --- [user-thread-38] com.example.demo.user_bot.service.state_handler.UserBotStateService : Мои предпочтения MENU1
+[INFO ]  2021-03-28 21:03:590.09 --- [user-thread-38] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:590.09 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:682.11 --- [user-thread-39] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:683.11 --- [user-thread-39] com.example.demo.user_bot.service.state_handler.UserBotStateService : 🔍 Подобрать MENU2
+[INFO ]  2021-03-28 21:03:696.11 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:697.11 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:700.11 --- [user-thread-39] com.example.demo.user_bot.service.UserMainService : USER TIME: 18.0
+[INFO ]  2021-03-28 21:03:700.11 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:847.11 --- [user-thread-40] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:847.11 --- [user-thread-40] com.example.demo.user_bot.service.state_handler.UserBotStateService : 🔍 Подобрать MENU2
+[INFO ]  2021-03-28 21:03:858.11 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:858.11 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:861.11 --- [user-thread-40] com.example.demo.user_bot.service.UserMainService : USER TIME: 14.0
+[INFO ]  2021-03-28 21:03:861.11 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:89.15 --- [user-thread-2] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:96.15 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:97.15 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:103.15 --- [user-thread-2] com.example.demo.user_bot.service.UserMainService : USER TIME: 14.0
+[INFO ]  2021-03-28 21:03:103.15 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:105.15 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method answercallbackquery: 0
+[INFO ]  2021-03-28 21:03:105.15 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 21:03:340.15 --- [user-thread-3] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:341.15 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:341.15 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:343.15 --- [user-thread-3] com.example.demo.user_bot.service.UserMainService : USER TIME: 3.0
+[INFO ]  2021-03-28 21:03:343.15 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:346.15 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method answercallbackquery: 0
+[INFO ]  2021-03-28 21:03:346.15 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 21:03:846.21 --- [ThreadPoolTaskScheduler1] com.example.demo.user_bot.cache.DataCache : REMOVING USER CACHE chatId: 1540231441
+[INFO ]  2021-03-28 21:03:100.49 --- [user-thread-4] com.example.demo.user_bot.service.entities.UserService : GET FROM DB: 1540231441. TIME: 11
+[INFO ]  2021-03-28 21:03:101.49 --- [user-thread-4] com.example.demo.user_bot.service.UserMainService : USER TIME: 12.0
+[INFO ]  2021-03-28 21:03:102.49 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 1
+[INFO ]  2021-03-28 21:03:102.49 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:102.49 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:870.55 --- [ThreadPoolTaskScheduler1] com.example.demo.user_bot.cache.DataCache : REMOVING USER CACHE chatId: 1540231441
+[INFO ]  2021-03-28 21:03:350.00 --- [user-thread-5] com.example.demo.user_bot.service.entities.UserService : GET FROM DB: 1540231441. TIME: 11
+[INFO ]  2021-03-28 21:03:350.00 --- [user-thread-5] com.example.demo.user_bot.service.state_handler.UserBotStateService : Мои предпочтения MENU1
+[INFO ]  2021-03-28 21:03:350.00 --- [user-thread-5] com.example.demo.user_bot.service.UserMainService : USER TIME: 11.0
+[INFO ]  2021-03-28 21:03:351.00 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:839.03 --- [user-thread-6] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:841.03 --- [user-thread-6] com.example.demo.user_bot.service.UserMainService : USER TIME: 2.0
+[INFO ]  2021-03-28 21:03:841.03 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method answercallbackquery: 0
+[INFO ]  2021-03-28 21:03:842.03 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 21:03:842.03 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:842.03 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:589.05 --- [user-thread-7] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:589.05 --- [user-thread-7] com.example.demo.user_bot.service.state_handler.UserBotStateService : Мои предпочтения MENU1
+[INFO ]  2021-03-28 21:03:589.05 --- [user-thread-7] com.example.demo.user_bot.service.UserMainService : USER TIME: 0.0
+[INFO ]  2021-03-28 21:03:590.05 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:916.06 --- [ThreadPoolTaskScheduler1] com.example.demo.user_bot.cache.DataCache : REMOVING USER CACHE chatId: 1540231441
+[INFO ]  2021-03-28 21:03:140.07 --- [user-thread-8] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:140.07 --- [user-thread-8] com.example.demo.user_bot.service.state_handler.UserBotStateService : 🔍 Подобрать MENU2
+[INFO ]  2021-03-28 21:03:148.07 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:149.07 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:163.07 --- [user-thread-8] com.example.demo.user_bot.service.UserMainService : USER TIME: 23.0
+[INFO ]  2021-03-28 21:03:163.07 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:349.07 --- [user-thread-9] com.example.demo.user_bot.service.entities.UserService : GET FROM DB: 1540231441. TIME: 9
+[INFO ]  2021-03-28 21:03:358.07 --- [user-thread-9] com.example.demo.user_bot.service.state_handler.UserBotStateService : 🔍 Подобрать MENU2
+[INFO ]  2021-03-28 21:03:366.07 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:366.07 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:379.07 --- [user-thread-9] com.example.demo.user_bot.service.UserMainService : USER TIME: 39.0
+[INFO ]  2021-03-28 21:03:379.07 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:90.10 --- [user-thread-10] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 1
+[INFO ]  2021-03-28 21:03:91.10 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:91.10 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:93.10 --- [user-thread-10] com.example.demo.user_bot.service.UserMainService : USER TIME: 4.0
+[INFO ]  2021-03-28 21:03:94.10 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method answercallbackquery: 1
+[INFO ]  2021-03-28 21:03:94.10 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 21:03:94.10 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:192.10 --- [user-thread-11] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:193.10 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:193.10 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:194.10 --- [user-thread-11] com.example.demo.user_bot.service.UserMainService : USER TIME: 2.0
+[INFO ]  2021-03-28 21:03:195.10 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:197.10 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method answercallbackquery: 0
+[INFO ]  2021-03-28 21:03:197.10 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 21:03:447.13 --- [user-thread-12] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:448.13 --- [user-thread-12] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:449.13 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method answercallbackquery: 1
+[INFO ]  2021-03-28 21:03:449.13 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 21:03:450.13 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:450.13 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:450.13 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:589.13 --- [user-thread-13] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:589.13 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:590.13 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:590.13 --- [user-thread-13] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:590.13 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:593.13 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method answercallbackquery: 0
+[INFO ]  2021-03-28 21:03:593.13 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 21:03:89.16 --- [user-thread-14] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:90.16 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:91.16 --- [user-thread-14] com.example.demo.user_bot.service.UserMainService : USER TIME: 2.0
+[INFO ]  2021-03-28 21:03:91.16 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:91.16 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:92.16 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method answercallbackquery: 0
+[INFO ]  2021-03-28 21:03:92.16 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 21:03:191.16 --- [user-thread-15] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:192.16 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:192.16 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:193.16 --- [user-thread-15] com.example.demo.user_bot.service.UserMainService : USER TIME: 2.0
+[INFO ]  2021-03-28 21:03:193.16 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:193.16 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method answercallbackquery: 0
+[INFO ]  2021-03-28 21:03:194.16 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 1
+[INFO ]  2021-03-28 21:03:173.22 --- [ThreadPoolTaskScheduler1] com.example.demo.user_bot.cache.DataCache : REMOVING USER CACHE chatId: 1540231441
+[INFO ]  2021-03-28 21:03:923.12 --- [user-thread-16] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:924.12 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:925.12 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:926.12 --- [user-thread-16] com.example.demo.user_bot.service.UserMainService : USER TIME: 3.0
+[INFO ]  2021-03-28 21:03:926.12 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:927.12 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method answercallbackquery: 0
+[INFO ]  2021-03-28 21:03:927.12 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 21:03:103.13 --- [user-thread-17] com.example.demo.user_bot.service.entities.UserService : GET FROM DB: 1540231441. TIME: 14
+[INFO ]  2021-03-28 21:03:114.13 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:116.13 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:117.13 --- [user-thread-17] com.example.demo.user_bot.service.UserMainService : USER TIME: 28.0
+[INFO ]  2021-03-28 21:03:117.13 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:117.13 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method answercallbackquery: 0
+[INFO ]  2021-03-28 21:03:118.13 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 1
+[INFO ]  2021-03-28 21:03:440.17 --- [user-thread-18] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:441.17 --- [user-thread-18] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:441.17 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 21:03:441.17 --- [user-thread-19] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:442.17 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:442.17 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:442.17 --- [user-thread-19] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:442.17 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 21:03:443.17 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:443.17 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:375.19 --- [user-thread-20] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:376.19 --- [user-thread-20] com.example.demo.user_bot.service.state_handler.UserBotStateService : Мои предпочтения MENU1
+[INFO ]  2021-03-28 21:03:376.19 --- [user-thread-20] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:376.19 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:589.19 --- [user-thread-21] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:589.19 --- [user-thread-21] com.example.demo.user_bot.service.state_handler.UserBotStateService : Мои предпочтения MENU1
+[INFO ]  2021-03-28 21:03:590.19 --- [user-thread-21] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:590.19 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:207.21 --- [user-thread-22] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:208.21 --- [user-thread-22] com.example.demo.user_bot.service.state_handler.UserBotStateService : 🔍 Подобрать MENU2
+[INFO ]  2021-03-28 21:03:339.21 --- [user-thread-23] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:339.21 --- [user-thread-23] com.example.demo.user_bot.service.state_handler.UserBotStateService : 🔍 Подобрать MENU2
+[INFO ]  2021-03-28 21:03:340.21 --- [user-thread-22] com.example.demo.user_bot.service.UserMainService : USER TIME: 133.0
+[INFO ]  2021-03-28 21:03:342.21 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:342.21 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:342.21 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:347.21 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:347.21 --- [user-thread-23] com.example.demo.user_bot.service.UserMainService : USER TIME: 8.0
+[INFO ]  2021-03-28 21:03:347.21 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:348.21 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:654.24 --- [user-thread-24] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 1540231441. TIME: 0
+[INFO ]  2021-03-28 21:03:655.24 --- [user-thread-24] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:655.24 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method answercallbackquery: 0
+[INFO ]  2021-03-28 21:03:655.24 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 21:03:656.24 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:656.24 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:656.24 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:839.24 --- [user-thread-25] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 21:03:840.24 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 21:03:840.24 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:840.24 --- [user-thread-25] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 21:03:840.24 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 21:03:841.24 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method answercallbackquery: 0
+[INFO ]  2021-03-28 21:03:841.24 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 21:03:458.31 --- [ThreadPoolTaskScheduler1] com.example.demo.user_bot.cache.DataCache : REMOVING USER CACHE chatId: 1540231441
+[INFO ]  2021-03-28 22:03:142.41 --- [main] com.example.demo.common_part.config.AsyncConfig : AsyncConfig is creating...
+[INFO ]  2021-03-28 22:03:148.41 --- [main] com.example.demo.user_bot.cache.DataCache : DataCache is creating...
+[INFO ]  2021-03-28 22:03:384.42 --- [main] com.example.demo.common_part.config.AsyncConfig : Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 60. QueueCapacity: 10
+[INFO ]  2021-03-28 22:03:415.42 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : INFINITE
+[INFO ]  2021-03-28 22:03:423.42 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : STARTING LOOP...
+[INFO ]  2021-03-28 22:03:962.42 --- [main] com.example.demo.admin_bot.botapi.AdminTelegramBot : AdminTelegramBot is creating...
+[INFO ]  2021-03-28 22:03:219.43 --- [main] com.example.demo.user_bot.botapi.RentalTelegramBot : RentalTelegramBot is creating...
+[INFO ]  2021-03-28 22:03:244.43 --- [main] com.example.demo.user_bot.cache.InitCache : INIT RENT FLATS CACHE
+[INFO ]  2021-03-28 22:03:28.41 --- [main] com.example.demo.common_part.config.AsyncConfig : AsyncConfig is creating...
+[INFO ]  2021-03-28 22:03:35.41 --- [main] com.example.demo.user_bot.cache.DataCache : DataCache is creating...
+[INFO ]  2021-03-28 22:03:129.42 --- [main] com.example.demo.common_part.config.AsyncConfig : Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 60. QueueCapacity: 10
+[INFO ]  2021-03-28 22:03:163.42 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : INFINITE
+[INFO ]  2021-03-28 22:03:170.42 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : STARTING LOOP...
+[INFO ]  2021-03-28 22:03:759.42 --- [main] com.example.demo.admin_bot.botapi.AdminTelegramBot : AdminTelegramBot is creating...
+[INFO ]  2021-03-28 22:03:205.43 --- [main] com.example.demo.user_bot.botapi.RentalTelegramBot : RentalTelegramBot is creating...
+[INFO ]  2021-03-28 22:03:235.43 --- [main] com.example.demo.user_bot.cache.InitCache : INIT RENT FLATS CACHE
+[INFO ]  2021-03-28 22:03:368.26 --- [main] com.example.demo.common_part.config.AsyncConfig : AsyncConfig is creating...
+[INFO ]  2021-03-28 22:03:375.26 --- [main] com.example.demo.user_bot.cache.DataCache : DataCache is creating...
+[INFO ]  2021-03-28 22:03:495.27 --- [main] com.example.demo.common_part.config.AsyncConfig : Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 60. QueueCapacity: 10
+[INFO ]  2021-03-28 22:03:520.27 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : INFINITE
+[INFO ]  2021-03-28 22:03:523.27 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : STARTING LOOP...
+[INFO ]  2021-03-28 22:03:61.28 --- [main] com.example.demo.admin_bot.botapi.AdminTelegramBot : AdminTelegramBot is creating...
+[INFO ]  2021-03-28 22:03:447.28 --- [main] com.example.demo.user_bot.botapi.RentalTelegramBot : RentalTelegramBot is creating...
+[INFO ]  2021-03-28 22:03:511.28 --- [main] com.example.demo.user_bot.cache.InitCache : INIT RENT FLATS CACHE
+[INFO ]  2021-03-28 22:03:483.53 --- [main] com.example.demo.common_part.config.AsyncConfig : AsyncConfig is creating...
+[INFO ]  2021-03-28 22:03:490.53 --- [main] com.example.demo.user_bot.cache.DataCache : DataCache is creating...
+[INFO ]  2021-03-28 22:03:539.54 --- [main] com.example.demo.common_part.config.AsyncConfig : Created TaskExecutor bean. CorePoolSize: 40. MaxPoolSize: 60. QueueCapacity: 10
+[INFO ]  2021-03-28 22:03:564.54 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : INFINITE
+[INFO ]  2021-03-28 22:03:565.54 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : STARTING LOOP...
+[INFO ]  2021-03-28 22:03:113.55 --- [main] com.example.demo.admin_bot.botapi.AdminTelegramBot : AdminTelegramBot is creating...
+[INFO ]  2021-03-28 22:03:404.55 --- [main] com.example.demo.user_bot.botapi.RentalTelegramBot : RentalTelegramBot is creating...
+[INFO ]  2021-03-28 22:03:436.55 --- [main] com.example.demo.user_bot.cache.InitCache : INIT RENT FLATS CACHE
+[INFO ]  2021-03-28 22:03:567.56 --- [main] com.example.demo.user_bot.cache.InitCache : allExistedRentFlats: 3
+[INFO ]  2021-03-28 22:03:568.56 --- [main] com.example.demo.user_bot.cache.InitCache : ALL RentFlats FROM DATABASE TO CACHE
+[INFO ]  2021-03-28 22:03:568.56 --- [main] com.example.demo.user_bot.cache.InitCache : INIT BUY FLATS CACHE
+[INFO ]  2021-03-28 22:03:354.57 --- [main] com.example.demo.user_bot.cache.InitCache : allExistedBuyFlats: 10009
+[INFO ]  2021-03-28 22:03:372.57 --- [main] com.example.demo.user_bot.cache.InitCache : ALL BuyFlats FROM DATABASE TO CACHE
+[INFO ]  2021-03-28 22:03:373.57 --- [main] com.example.demo.user_bot.cache.InitCache : INIT USERS CACHE
+[INFO ]  2021-03-28 22:03:425.57 --- [main] com.example.demo.user_bot.cache.InitCache : AllExistedUsers: 4
+[INFO ]  2021-03-28 22:03:470.57 --- [main] com.example.demo.user_bot.cache.InitCache : ALL Users FROM DATABASE TO CACHE
+[INFO ]  2021-03-28 22:03:513.57 --- [main] com.example.demo.common_part.config.AsyncConfig : Created ThreadPoolTaskScheduler bean. PoolSize: 1
+[INFO ]  2021-03-28 22:03:341.00 --- [ThreadPoolTaskScheduler1] com.example.demo.user_bot.cache.DataCache : REMOVING USER CACHE chatId: 1540231441
+[INFO ]  2021-03-28 22:03:84.35 --- [user-thread-2] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 22:03:302.35 --- [user-thread-2] com.example.demo.user_bot.service.UserMainService : USER TIME: 255.0
+[INFO ]  2021-03-28 22:03:330.35 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 27
+[INFO ]  2021-03-28 22:03:336.35 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 22:03:341.35 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 22:03:449.36 --- [user-thread-3] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 22:03:461.36 --- [user-thread-3] com.example.demo.user_bot.service.state_handler.UserBotStateService : Мои предпочтения MENU1
+[INFO ]  2021-03-28 22:03:465.36 --- [user-thread-3] com.example.demo.user_bot.service.UserMainService : USER TIME: 16.0
+[INFO ]  2021-03-28 22:03:467.36 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 2
+[INFO ]  2021-03-28 22:03:652.37 --- [user-thread-4] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 22:03:653.37 --- [user-thread-4] com.example.demo.user_bot.service.state_handler.UserBotStateService : Изменить категорию MENU2
+[INFO ]  2021-03-28 22:03:655.37 --- [user-thread-4] com.example.demo.user_bot.service.UserMainService : USER TIME: 3.0
+[INFO ]  2021-03-28 22:03:657.37 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 2
+[INFO ]  2021-03-28 22:03:440.38 --- [user-thread-5] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 22:03:440.38 --- [user-thread-5] com.example.demo.user_bot.service.state_handler.UserBotStateService : Изменить кол-во комнат MENU21
+[INFO ]  2021-03-28 22:03:447.38 --- [user-thread-5] com.example.demo.user_bot.service.UserMainService : USER TIME: 7.0
+[INFO ]  2021-03-28 22:03:448.38 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 1
+[INFO ]  2021-03-28 22:03:451.38 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 22:03:556.39 --- [user-thread-6] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 22:03:557.39 --- [user-thread-6] com.example.demo.user_bot.service.state_handler.UserBotStateService : Выбрать районы MENU22
+[INFO ]  2021-03-28 22:03:560.39 --- [user-thread-6] com.example.demo.user_bot.service.UserMainService : USER TIME: 4.0
+[INFO ]  2021-03-28 22:03:560.39 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 22:03:562.39 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 22:03:392.40 --- [user-thread-7] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 22:03:395.40 --- [user-thread-7] com.example.demo.user_bot.service.state_handler.UserBotStateService : Изменить бюджет MENU23
+[INFO ]  2021-03-28 22:03:399.40 --- [user-thread-7] com.example.demo.user_bot.service.UserMainService : USER TIME: 7.0
+[INFO ]  2021-03-28 22:03:399.40 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 22:03:403.40 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 22:03:198.41 --- [user-thread-8] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 22:03:199.41 --- [user-thread-8] com.example.demo.user_bot.service.state_handler.UserBotStateService : 🔍 Подобрать MENU24
+[INFO ]  2021-03-28 22:03:343.41 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 4
+[INFO ]  2021-03-28 22:03:344.41 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 22:03:350.41 --- [user-thread-8] com.example.demo.user_bot.service.UserMainService : USER TIME: 152.0
+[INFO ]  2021-03-28 22:03:352.41 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 1
+[INFO ]  2021-03-28 22:03:353.41 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 22:03:819.42 --- [user-thread-9] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 22:03:822.42 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 1
+[INFO ]  2021-03-28 22:03:824.42 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 22:03:825.42 --- [user-thread-9] com.example.demo.user_bot.service.UserMainService : USER TIME: 7.0
+[INFO ]  2021-03-28 22:03:825.42 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 22:03:826.42 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method answercallbackquery: 0
+[INFO ]  2021-03-28 22:03:827.42 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 0
+[INFO ]  2021-03-28 22:03:971.43 --- [user-thread-10] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 22:03:972.43 --- [user-thread-10] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 22:03:973.43 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 1
+[INFO ]  2021-03-28 22:03:974.43 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 22:03:974.43 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 22:03:935.44 --- [user-thread-11] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 22:03:936.44 --- [user-thread-11] com.example.demo.user_bot.service.state_handler.UserBotStateService : Мои предпочтения MENU1
+[INFO ]  2021-03-28 22:03:936.44 --- [user-thread-11] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 22:03:941.44 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 5
+[INFO ]  2021-03-28 22:03:878.45 --- [user-thread-12] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 22:03:879.45 --- [user-thread-12] com.example.demo.user_bot.service.state_handler.UserBotStateService : Изменить кол-во комнат MENU2
+[INFO ]  2021-03-28 22:03:881.45 --- [user-thread-12] com.example.demo.user_bot.service.UserMainService : USER TIME: 2.0
+[INFO ]  2021-03-28 22:03:881.45 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 22:03:596.46 --- [user-thread-13] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 22:03:597.46 --- [user-thread-13] com.example.demo.user_bot.service.state_handler.UserBotStateService : Выбрать районы MENU22
+[INFO ]  2021-03-28 22:03:599.46 --- [user-thread-13] com.example.demo.user_bot.service.UserMainService : USER TIME: 3.0
+[INFO ]  2021-03-28 22:03:602.46 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 2
+[INFO ]  2021-03-28 22:03:602.46 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
+[INFO ]  2021-03-28 22:03:384.47 --- [user-thread-14] com.example.demo.user_bot.service.entities.UserService : GET FROM CACHE: 442618563. TIME: 0
+[INFO ]  2021-03-28 22:03:384.47 --- [user-thread-14] com.example.demo.user_bot.service.state_handler.UserBotStateService : Изменить категорию MENU23
+[INFO ]  2021-03-28 22:03:385.47 --- [user-thread-14] com.example.demo.user_bot.service.UserMainService : USER TIME: 1.0
+[INFO ]  2021-03-28 22:03:387.47 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user method deleteMessage: 1
+[INFO ]  2021-03-28 22:03:387.47 --- [user-thread-1] com.example.demo.user_bot.schedule.UserBotSendingQueue : TIME execute user sendMessage: 0
